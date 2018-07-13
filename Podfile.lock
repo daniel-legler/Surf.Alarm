@@ -1,0 +1,28 @@
+PODS:
+  - Alamofire (4.5.1)
+  - R.swift (3.3.0):
+    - R.swift.Library (~> 3.0.2)
+  - R.swift.Library (3.0.2)
+  - SnapKit (4.0.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - R.swift
+  - SnapKit
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - R.swift
+    - R.swift.Library
+    - SnapKit
+
+SPEC CHECKSUMS:
+  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  R.swift: bde9704d50ff36820f49e266bc88ef545e1e9b36
+  R.swift.Library: fbdec16c9802ad104fc1ba53415dc190e6ec5c73
+  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+
+PODFILE CHECKSUM: 9a32f9368da6bb2244585c295bfb6ddc5ab3792b
+
+COCOAPODS: 1.5.3
