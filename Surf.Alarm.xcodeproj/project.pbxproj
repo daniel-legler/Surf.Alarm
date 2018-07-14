@@ -16,6 +16,7 @@
 		741FF7F820F7C79A003D683A /* SpitcastModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741FF7F720F7C79A003D683A /* SpitcastModel.swift */; };
 		743C835620F97C6E0062B994 /* SurfModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743C835520F97C6E0062B994 /* SurfModel.swift */; };
 		743C835820F9A2B90062B994 /* API Examples.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 743C835720F9A2B90062B994 /* API Examples.rtf */; };
+		743C835C20FA82FD0062B994 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743C835B20FA82FD0062B994 /* Coordinator.swift */; };
 		7468C14D20F8F49500EE9663 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7468C14C20F8F49500EE9663 /* Endpoint.swift */; };
 		7468C14F20F8F89700EE9663 /* SpitcastEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7468C14E20F8F89700EE9663 /* SpitcastEndpoint.swift */; };
 		7468C16020F9519B00EE9663 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7468C15F20F9519B00EE9663 /* StorageManager.swift */; };
@@ -35,6 +36,7 @@
 		741FF7F720F7C79A003D683A /* SpitcastModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpitcastModel.swift; sourceTree = "<group>"; };
 		743C835520F97C6E0062B994 /* SurfModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfModel.swift; sourceTree = "<group>"; };
 		743C835720F9A2B90062B994 /* API Examples.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "API Examples.rtf"; sourceTree = "<group>"; };
+		743C835B20FA82FD0062B994 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		7468C14A20F8EFDD00EE9663 /* Surf.Alarm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Surf.Alarm.entitlements; sourceTree = "<group>"; };
 		7468C14C20F8F49500EE9663 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		7468C14E20F8F89700EE9663 /* SpitcastEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpitcastEndpoint.swift; sourceTree = "<group>"; };
@@ -76,7 +78,6 @@
 			isa = PBXGroup;
 			children = (
 				7408646F20F7144A00C62E29 /* Surf.Alarm */,
-				7408647020F7144A00C62E29 /* AppDelegate.swift */,
 				7408646E20F7144A00C62E29 /* Products */,
 				6880569E42FCDD99E5028678 /* Pods */,
 				220571301EBB0B377593361E /* Frameworks */,
@@ -98,6 +99,8 @@
 				7468C15120F9228400EE9663 /* UI */,
 				74BF2EA320F7C08A000D0042 /* Services */,
 				7468C15020F9227400EE9663 /* Storage */,
+				743C835B20FA82FD0062B994 /* Coordinator.swift */,
+				7408647020F7144A00C62E29 /* AppDelegate.swift */,
 			);
 			path = Surf.Alarm;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				7468C16020F9519B00EE9663 /* StorageManager.swift in Sources */,
 				7468C14F20F8F89700EE9663 /* SpitcastEndpoint.swift in Sources */,
 				741FF7F820F7C79A003D683A /* SpitcastModel.swift in Sources */,
+				743C835C20FA82FD0062B994 /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

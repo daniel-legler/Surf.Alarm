@@ -15,15 +15,9 @@ class RealmManager {
         }
     }
     
-    static func refreshAllSpots() {
-        SpitcastClient.allSpots { (spotResult) in
-            spotResult.withValue({ (spots) in
-                persistSurfSpots(spots)
-            })
-        }
-    }
+    // MARK: - Writing Data
     
-    private static func persistSurfSpots(_ spots: [SpitcastSpot]) {
+    static func updateSurfSpots(_ spots: [SpitcastSpot]) {
         do {
             let surfSpots = spots.map({SurfSpot($0)})
             let realm = try Realm()
