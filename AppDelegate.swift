@@ -15,16 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
-        
-        SpitcastClient.forecast(spotId: 1) { (result) in
-            result.withValue({ (spots) in
-                print(spots)
-            })
-            result.withError({ (error) in
-                print("🌊Error: \(error.localizedDescription)")
-            })
-        }
-        
+                
         return true
     }
 

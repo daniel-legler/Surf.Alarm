@@ -3,6 +3,18 @@ import RealmSwift
 
 class RealmManager {
     
+    // MARK: - Reading Data
+    
+    static func surfSpot(spotId: Int) -> SurfSpot? {
+        do {
+            let realm = try Realm()
+            return realm.object(ofType: SurfSpot.self, forPrimaryKey: spotId)
+        } catch {
+            print("Error opening Realm: \(error.localizedDescription)")
+            return nil
+        }
+    }
+    
     static func refreshAllSpots() {
         SpitcastClient.allSpots { (spotResult) in
             spotResult.withValue({ (spots) in

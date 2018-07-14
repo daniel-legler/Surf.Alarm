@@ -60,7 +60,8 @@ extension DataRequest {
             do {
                 let decoder = JSONDecoder()
                 let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "yyyy-d-M H"
+                dateFormatter.dateFormat = "yyyy-M-d H"
+                dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
                 decoder.dateDecodingStrategy = .formatted(dateFormatter)
                 let forecasts = try decoder.decode([SpitcastForecast].self, from: data)
                 return .success(forecasts)

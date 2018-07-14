@@ -1,5 +1,21 @@
 import Foundation
 
+struct SpitcastSpot: Codable {
+    var spotId: Int
+    var name: String
+    var county: String
+    var latitude: Double
+    var longitude: Double
+    
+    private enum CodingKeys: String, CodingKey {
+        case county = "county_name"
+        case latitude
+        case longitude
+        case spotId = "spot_id"
+        case name = "spot_name"
+    }
+}
+
 struct SpitcastForecast: Codable {
     
     struct SpitcastShape: Codable {
@@ -18,7 +34,7 @@ struct SpitcastForecast: Codable {
     var name: String
     
     private enum CodingKeys: String, CodingKey {
-        case date
+        case date = "gmt"
         case shape = "shape_full"
         case shapeDetails = "shape_detail"
         case size = "size_ft"
@@ -26,21 +42,5 @@ struct SpitcastForecast: Codable {
         case name = "spot_name"
         case latitude
         case longitude
-    }
-}
-
-struct SpitcastSpot: Codable {
-    var name: String
-    var county: String
-    var latitude: Double
-    var longitude: Double
-    var spotId: Int
-    
-    private enum CodingKeys: String, CodingKey {
-        case county = "county_name"
-        case latitude
-        case longitude
-        case spotId = "spot_id"
-        case name = "spot_name"
     }
 }
