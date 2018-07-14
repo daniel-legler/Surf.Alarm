@@ -20,6 +20,7 @@
 		7468C14D20F8F49500EE9663 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7468C14C20F8F49500EE9663 /* Endpoint.swift */; };
 		7468C14F20F8F89700EE9663 /* SpitcastEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7468C14E20F8F89700EE9663 /* SpitcastEndpoint.swift */; };
 		7468C16020F9519B00EE9663 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7468C15F20F9519B00EE9663 /* StorageManager.swift */; };
+		74C5CFAE20FA8621004AEF35 /* SurfSpotCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74C5CFAD20FA8621004AEF35 /* SurfSpotCollectionViewCell.xib */; };
 		9BA655AE9A6214F1ED62CFF9 /* Pods_Surf_Alarm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 315DB3599D99B6DAD06F81D9 /* Pods_Surf_Alarm.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		7468C14C20F8F49500EE9663 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		7468C14E20F8F89700EE9663 /* SpitcastEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpitcastEndpoint.swift; sourceTree = "<group>"; };
 		7468C15F20F9519B00EE9663 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		74C5CFAD20FA8621004AEF35 /* SurfSpotCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SurfSpotCollectionViewCell.xib; sourceTree = "<group>"; };
 		F23D36825BA411652143C334 /* Pods-Surf.Alarm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Surf.Alarm.release.xcconfig"; path = "Pods/Target Support Files/Pods-Surf.Alarm/Pods-Surf.Alarm.release.xcconfig"; sourceTree = "<group>"; };
 		F88502A7C8226CE5484A049C /* Pods-Surf.Alarm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Surf.Alarm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Surf.Alarm/Pods-Surf.Alarm.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -131,6 +133,7 @@
 				7408647420F7144A00C62E29 /* Main.storyboard */,
 				7408647C20F7144B00C62E29 /* LaunchScreen.storyboard */,
 				7408647A20F7144B00C62E29 /* Assets.xcassets */,
+				74C5CFAD20FA8621004AEF35 /* SurfSpotCollectionViewCell.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7408647E20F7144B00C62E29 /* LaunchScreen.storyboard in Resources */,
+				74C5CFAE20FA8621004AEF35 /* SurfSpotCollectionViewCell.xib in Resources */,
 				7408647B20F7144B00C62E29 /* Assets.xcassets in Resources */,
 				743C835820F9A2B90062B994 /* API Examples.rtf in Resources */,
 				7408647620F7144A00C62E29 /* Main.storyboard in Resources */,
