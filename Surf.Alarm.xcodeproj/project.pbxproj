@@ -10,12 +10,15 @@
 		7408647120F7144A00C62E29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7408647020F7144A00C62E29 /* AppDelegate.swift */; };
 		7408647320F7144A00C62E29 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7408647220F7144A00C62E29 /* ViewController.swift */; };
 		7408647620F7144A00C62E29 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7408647420F7144A00C62E29 /* Main.storyboard */; };
-		7408647920F7144A00C62E29 /* Surf_Alarm.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7408647720F7144A00C62E29 /* Surf_Alarm.xcdatamodeld */; };
 		7408647B20F7144B00C62E29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7408647A20F7144B00C62E29 /* Assets.xcassets */; };
 		7408647E20F7144B00C62E29 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7408647C20F7144B00C62E29 /* LaunchScreen.storyboard */; };
 		741FF7F520F7C239003D683A /* SpitcastClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741FF7F420F7C239003D683A /* SpitcastClient.swift */; };
 		741FF7F820F7C79A003D683A /* SpitcastModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741FF7F720F7C79A003D683A /* SpitcastModel.swift */; };
-		74BF2EA520F7C09B000D0042 /* SpitcastService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BF2EA420F7C09B000D0042 /* SpitcastService.swift */; };
+		743C835620F97C6E0062B994 /* SurfModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743C835520F97C6E0062B994 /* SurfModel.swift */; };
+		743C835820F9A2B90062B994 /* API Examples.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 743C835720F9A2B90062B994 /* API Examples.rtf */; };
+		7468C14D20F8F49500EE9663 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7468C14C20F8F49500EE9663 /* Endpoint.swift */; };
+		7468C14F20F8F89700EE9663 /* SpitcastEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7468C14E20F8F89700EE9663 /* SpitcastEndpoint.swift */; };
+		7468C16020F9519B00EE9663 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7468C15F20F9519B00EE9663 /* StorageManager.swift */; };
 		9BA655AE9A6214F1ED62CFF9 /* Pods_Surf_Alarm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 315DB3599D99B6DAD06F81D9 /* Pods_Surf_Alarm.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,14 +28,17 @@
 		7408647020F7144A00C62E29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7408647220F7144A00C62E29 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7408647520F7144A00C62E29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		7408647820F7144A00C62E29 /* Surf_Alarm.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Surf_Alarm.xcdatamodel; sourceTree = "<group>"; };
 		7408647A20F7144B00C62E29 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7408647D20F7144B00C62E29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7408647F20F7144B00C62E29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		741FF7F420F7C239003D683A /* SpitcastClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpitcastClient.swift; sourceTree = "<group>"; };
 		741FF7F720F7C79A003D683A /* SpitcastModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpitcastModel.swift; sourceTree = "<group>"; };
+		743C835520F97C6E0062B994 /* SurfModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfModel.swift; sourceTree = "<group>"; };
+		743C835720F9A2B90062B994 /* API Examples.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "API Examples.rtf"; sourceTree = "<group>"; };
 		7468C14A20F8EFDD00EE9663 /* Surf.Alarm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Surf.Alarm.entitlements; sourceTree = "<group>"; };
-		74BF2EA420F7C09B000D0042 /* SpitcastService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpitcastService.swift; sourceTree = "<group>"; };
+		7468C14C20F8F49500EE9663 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		7468C14E20F8F89700EE9663 /* SpitcastEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpitcastEndpoint.swift; sourceTree = "<group>"; };
+		7468C15F20F9519B00EE9663 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		F23D36825BA411652143C334 /* Pods-Surf.Alarm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Surf.Alarm.release.xcconfig"; path = "Pods/Target Support Files/Pods-Surf.Alarm/Pods-Surf.Alarm.release.xcconfig"; sourceTree = "<group>"; };
 		F88502A7C8226CE5484A049C /* Pods-Surf.Alarm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Surf.Alarm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Surf.Alarm/Pods-Surf.Alarm.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				7408646F20F7144A00C62E29 /* Surf.Alarm */,
+				7408647020F7144A00C62E29 /* AppDelegate.swift */,
 				7408646E20F7144A00C62E29 /* Products */,
 				6880569E42FCDD99E5028678 /* Pods */,
 				220571301EBB0B377593361E /* Frameworks */,
@@ -87,15 +94,10 @@
 		7408646F20F7144A00C62E29 /* Surf.Alarm */ = {
 			isa = PBXGroup;
 			children = (
-				7468C14A20F8EFDD00EE9663 /* Surf.Alarm.entitlements */,
+				7468C15220F9229100EE9663 /* Supporting Files */,
+				7468C15120F9228400EE9663 /* UI */,
 				74BF2EA320F7C08A000D0042 /* Services */,
-				7408647020F7144A00C62E29 /* AppDelegate.swift */,
-				7408647220F7144A00C62E29 /* ViewController.swift */,
-				7408647420F7144A00C62E29 /* Main.storyboard */,
-				7408647A20F7144B00C62E29 /* Assets.xcassets */,
-				7408647C20F7144B00C62E29 /* LaunchScreen.storyboard */,
-				7408647F20F7144B00C62E29 /* Info.plist */,
-				7408647720F7144A00C62E29 /* Surf_Alarm.xcdatamodeld */,
+				7468C15020F9227400EE9663 /* Storage */,
 			);
 			path = Surf.Alarm;
 			sourceTree = "<group>";
@@ -103,16 +105,47 @@
 		741FF7F620F7C77D003D683A /* Spitcast */ = {
 			isa = PBXGroup;
 			children = (
-				74BF2EA420F7C09B000D0042 /* SpitcastService.swift */,
-				741FF7F420F7C239003D683A /* SpitcastClient.swift */,
 				741FF7F720F7C79A003D683A /* SpitcastModel.swift */,
+				7468C14E20F8F89700EE9663 /* SpitcastEndpoint.swift */,
+				741FF7F420F7C239003D683A /* SpitcastClient.swift */,
 			);
 			path = Spitcast;
+			sourceTree = "<group>";
+		};
+		7468C15020F9227400EE9663 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				743C835520F97C6E0062B994 /* SurfModel.swift */,
+				7468C15F20F9519B00EE9663 /* StorageManager.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		7468C15120F9228400EE9663 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				7408647220F7144A00C62E29 /* ViewController.swift */,
+				7408647420F7144A00C62E29 /* Main.storyboard */,
+				7408647C20F7144B00C62E29 /* LaunchScreen.storyboard */,
+				7408647A20F7144B00C62E29 /* Assets.xcassets */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		7468C15220F9229100EE9663 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7408647F20F7144B00C62E29 /* Info.plist */,
+				7468C14A20F8EFDD00EE9663 /* Surf.Alarm.entitlements */,
+				743C835720F9A2B90062B994 /* API Examples.rtf */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		74BF2EA320F7C08A000D0042 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				7468C14C20F8F49500EE9663 /* Endpoint.swift */,
 				741FF7F620F7C77D003D683A /* Spitcast */,
 			);
 			path = Services;
@@ -188,6 +221,7 @@
 			files = (
 				7408647E20F7144B00C62E29 /* LaunchScreen.storyboard in Resources */,
 				7408647B20F7144B00C62E29 /* Assets.xcassets in Resources */,
+				743C835820F9A2B90062B994 /* API Examples.rtf in Resources */,
 				7408647620F7144A00C62E29 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -221,14 +255,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Surf.Alarm/Pods-Surf.Alarm-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -242,12 +276,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7468C14D20F8F49500EE9663 /* Endpoint.swift in Sources */,
 				741FF7F520F7C239003D683A /* SpitcastClient.swift in Sources */,
-				74BF2EA520F7C09B000D0042 /* SpitcastService.swift in Sources */,
 				7408647320F7144A00C62E29 /* ViewController.swift in Sources */,
+				743C835620F97C6E0062B994 /* SurfModel.swift in Sources */,
 				7408647120F7144A00C62E29 /* AppDelegate.swift in Sources */,
+				7468C16020F9519B00EE9663 /* StorageManager.swift in Sources */,
+				7468C14F20F8F89700EE9663 /* SpitcastEndpoint.swift in Sources */,
 				741FF7F820F7C79A003D683A /* SpitcastModel.swift in Sources */,
-				7408647920F7144A00C62E29 /* Surf_Alarm.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,7 +432,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NZ4TW8FFF3;
-				INFOPLIST_FILE = Surf.Alarm/Info.plist;
+				INFOPLIST_FILE = "Surf.Alarm/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -416,7 +452,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NZ4TW8FFF3;
-				INFOPLIST_FILE = Surf.Alarm/Info.plist;
+				INFOPLIST_FILE = "Surf.Alarm/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -451,19 +487,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		7408647720F7144A00C62E29 /* Surf_Alarm.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				7408647820F7144A00C62E29 /* Surf_Alarm.xcdatamodel */,
-			);
-			currentVersion = 7408647820F7144A00C62E29 /* Surf_Alarm.xcdatamodel */;
-			path = Surf_Alarm.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 7408646520F7144A00C62E29 /* Project object */;
 }

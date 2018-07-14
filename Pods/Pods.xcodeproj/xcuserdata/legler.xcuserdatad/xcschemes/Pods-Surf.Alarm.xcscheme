@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "80F9FCFA610D1266C447984E4461BBD4"
+               BlueprintIdentifier = "42A74064217A14F33BD4A2AE6F9A0BAD"
                BuildableName = "Pods_Surf_Alarm.framework"
                BlueprintName = "Pods-Surf.Alarm"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "80F9FCFA610D1266C447984E4461BBD4"
+            BlueprintIdentifier = "42A74064217A14F33BD4A2AE6F9A0BAD"
             BuildableName = "Pods_Surf_Alarm.framework"
             BlueprintName = "Pods-Surf.Alarm"
             ReferencedContainer = "container:Pods.xcodeproj">

@@ -1,28 +1,26 @@
 PODS:
-  - Alamofire (4.5.1)
-  - R.swift (3.3.0):
-    - R.swift.Library (~> 3.0.2)
-  - R.swift.Library (3.0.2)
-  - SnapKit (4.0.0)
+  - Alamofire (4.7.3)
+  - Realm (3.7.4):
+    - Realm/Headers (= 3.7.4)
+  - Realm/Headers (3.7.4)
+  - RealmSwift (3.7.4):
+    - Realm (= 3.7.4)
 
 DEPENDENCIES:
   - Alamofire
-  - R.swift
-  - SnapKit
+  - RealmSwift
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
-    - R.swift
-    - R.swift.Library
-    - SnapKit
+    - Realm
+    - RealmSwift
 
 SPEC CHECKSUMS:
-  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
-  R.swift: bde9704d50ff36820f49e266bc88ef545e1e9b36
-  R.swift.Library: fbdec16c9802ad104fc1ba53415dc190e6ec5c73
-  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  Realm: a469bb59e33f9926102ccaea4349822c53b9117e
+  RealmSwift: a45861b21c180f5cf0f122144b9759fa8dde3e9e
 
-PODFILE CHECKSUM: 9a32f9368da6bb2244585c295bfb6ddc5ab3792b
+PODFILE CHECKSUM: e23db3670905460f45a299bbef4ab39e0bb1b81e
 
 COCOAPODS: 1.5.3
