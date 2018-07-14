@@ -7,5 +7,6 @@ target 'Surf.Alarm' do
   # Pods for Surf.Alarm
   pod 'Alamofire'
   pod 'RealmSwift'
+  pod 'R.swift'
 
 end

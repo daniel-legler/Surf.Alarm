@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		7408647120F7144A00C62E29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7408647020F7144A00C62E29 /* AppDelegate.swift */; };
-		7408647320F7144A00C62E29 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7408647220F7144A00C62E29 /* ViewController.swift */; };
 		7408647620F7144A00C62E29 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7408647420F7144A00C62E29 /* Main.storyboard */; };
 		7408647B20F7144B00C62E29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7408647A20F7144B00C62E29 /* Assets.xcassets */; };
 		7408647E20F7144B00C62E29 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7408647C20F7144B00C62E29 /* LaunchScreen.storyboard */; };
@@ -21,6 +20,7 @@
 		7468C14F20F8F89700EE9663 /* SpitcastEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7468C14E20F8F89700EE9663 /* SpitcastEndpoint.swift */; };
 		7468C16020F9519B00EE9663 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7468C15F20F9519B00EE9663 /* StorageManager.swift */; };
 		74C5CFAE20FA8621004AEF35 /* SurfSpotCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74C5CFAD20FA8621004AEF35 /* SurfSpotCollectionViewCell.xib */; };
+		74C5CFB120FABBA3004AEF35 /* SurfSpotCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C5CFB020FABBA3004AEF35 /* SurfSpotCollectionViewCell.swift */; };
 		9BA655AE9A6214F1ED62CFF9 /* Pods_Surf_Alarm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 315DB3599D99B6DAD06F81D9 /* Pods_Surf_Alarm.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,7 +28,6 @@
 		315DB3599D99B6DAD06F81D9 /* Pods_Surf_Alarm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Surf_Alarm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7408646D20F7144A00C62E29 /* Surf.Alarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Surf.Alarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7408647020F7144A00C62E29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7408647220F7144A00C62E29 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7408647520F7144A00C62E29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7408647A20F7144B00C62E29 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7408647D20F7144B00C62E29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -43,6 +42,7 @@
 		7468C14E20F8F89700EE9663 /* SpitcastEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpitcastEndpoint.swift; sourceTree = "<group>"; };
 		7468C15F20F9519B00EE9663 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		74C5CFAD20FA8621004AEF35 /* SurfSpotCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SurfSpotCollectionViewCell.xib; sourceTree = "<group>"; };
+		74C5CFB020FABBA3004AEF35 /* SurfSpotCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotCollectionViewCell.swift; sourceTree = "<group>"; };
 		F23D36825BA411652143C334 /* Pods-Surf.Alarm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Surf.Alarm.release.xcconfig"; path = "Pods/Target Support Files/Pods-Surf.Alarm/Pods-Surf.Alarm.release.xcconfig"; sourceTree = "<group>"; };
 		F88502A7C8226CE5484A049C /* Pods-Surf.Alarm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Surf.Alarm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Surf.Alarm/Pods-Surf.Alarm.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,11 +129,10 @@
 		7468C15120F9228400EE9663 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				7408647220F7144A00C62E29 /* ViewController.swift */,
+				74C5CFAF20FABB82004AEF35 /* Cells */,
 				7408647420F7144A00C62E29 /* Main.storyboard */,
 				7408647C20F7144B00C62E29 /* LaunchScreen.storyboard */,
 				7408647A20F7144B00C62E29 /* Assets.xcassets */,
-				74C5CFAD20FA8621004AEF35 /* SurfSpotCollectionViewCell.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -155,6 +154,15 @@
 				741FF7F620F7C77D003D683A /* Spitcast */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		74C5CFAF20FABB82004AEF35 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				74C5CFAD20FA8621004AEF35 /* SurfSpotCollectionViewCell.xib */,
+				74C5CFB020FABBA3004AEF35 /* SurfSpotCollectionViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,12 +270,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Surf.Alarm/Pods-Surf.Alarm-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 			);
@@ -283,9 +293,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74C5CFB120FABBA3004AEF35 /* SurfSpotCollectionViewCell.swift in Sources */,
 				7468C14D20F8F49500EE9663 /* Endpoint.swift in Sources */,
 				741FF7F520F7C239003D683A /* SpitcastClient.swift in Sources */,
-				7408647320F7144A00C62E29 /* ViewController.swift in Sources */,
 				743C835620F97C6E0062B994 /* SurfModel.swift in Sources */,
 				7408647120F7144A00C62E29 /* AppDelegate.swift in Sources */,
 				7468C16020F9519B00EE9663 /* StorageManager.swift in Sources */,
