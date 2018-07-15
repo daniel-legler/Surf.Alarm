@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  Surf.Alarm
-//
-//  Created by Daniel Legler on 7/11/18.
-//  Copyright © 2018 Surf.Alarm. All rights reserved.
-//
-
 import UIKit
 import CoreData
 
@@ -15,7 +7,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
-                
+        
+        if UserDefaults.standard.bool(forKey: Constants.isFirstAppLaunch) {
+
+        }
         return true
     }
 

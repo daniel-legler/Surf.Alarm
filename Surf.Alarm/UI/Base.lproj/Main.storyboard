@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--MainVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Surf_Alarm" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainVC" customModule="Surf_Alarm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,17 +21,46 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="4Rs-ea-lEa">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </mapView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p10-HW-qEi">
+                                <rect key="frame" x="0.0" y="452" width="375" height="215"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <segue destination="SGH-0L-sHG" kind="embed" id="SrO-ri-mh2"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="p10-HW-qEi" secondAttribute="trailing" id="2XB-bR-CzD"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="p10-HW-qEi" secondAttribute="bottom" id="AIY-lH-uZf"/>
+                            <constraint firstItem="4Rs-ea-lEa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="GzA-VQ-FQt"/>
+                            <constraint firstItem="p10-HW-qEi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Zc5-V0-R0M"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4Rs-ea-lEa" secondAttribute="bottom" id="dtc-fc-T0N"/>
+                            <constraint firstItem="p10-HW-qEi" firstAttribute="height" secondItem="4Rs-ea-lEa" secondAttribute="height" multiplier="0.333" id="f6A-M4-XfO"/>
+                            <constraint firstItem="4Rs-ea-lEa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lpN-QM-wmO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4Rs-ea-lEa" secondAttribute="trailing" id="ptC-Er-oDT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
+        </scene>
+        <!--Surf Spots CollectionVC-->
+        <scene sceneID="eEE-Dh-F1u">
+            <objects>
+                <viewController id="SGH-0L-sHG" customClass="SurfSpotsCollectionVC" customModule="Surf_Alarm" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0DN-QH-lyv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="215"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="scf-3V-oi9">
-                                <rect key="frame" x="0.0" y="451.5" width="375" height="215.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="215.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Age-vf-w50">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
+                                <collectionViewLayout key="collectionViewLayout" id="Uxu-qY-oZK" customClass="CenteredCollectionViewFlowLayout" customModule="CenteredCollectionView"/>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Ug0-44-8vz">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Ug0-44-8vz" customClass="SurfSpotCollectionViewCell" customModule="Surf_Alarm" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -42,23 +71,21 @@
                                 </cells>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="scf-3V-oi9" secondAttribute="trailing" id="7zr-os-1qS"/>
-                            <constraint firstItem="4Rs-ea-lEa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="GzA-VQ-FQt"/>
-                            <constraint firstItem="scf-3V-oi9" firstAttribute="height" secondItem="4Rs-ea-lEa" secondAttribute="height" multiplier="0.333" id="ZWR-Gs-vCh"/>
-                            <constraint firstItem="scf-3V-oi9" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="asy-3H-QzS"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4Rs-ea-lEa" secondAttribute="bottom" id="dtc-fc-T0N"/>
-                            <constraint firstItem="scf-3V-oi9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jWG-M1-wwc"/>
-                            <constraint firstItem="4Rs-ea-lEa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lpN-QM-wmO"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4Rs-ea-lEa" secondAttribute="trailing" id="ptC-Er-oDT"/>
+                            <constraint firstAttribute="bottom" secondItem="scf-3V-oi9" secondAttribute="bottom" id="9WU-kY-chT"/>
+                            <constraint firstItem="scf-3V-oi9" firstAttribute="top" secondItem="0DN-QH-lyv" secondAttribute="top" id="Bbv-q8-xtW"/>
+                            <constraint firstAttribute="trailing" secondItem="scf-3V-oi9" secondAttribute="trailing" id="IRU-eN-apk"/>
+                            <constraint firstItem="scf-3V-oi9" firstAttribute="leading" secondItem="0DN-QH-lyv" secondAttribute="leading" id="JrB-fd-Nqz"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="scf-3V-oi9" id="5sT-g6-LHx"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="enb-HA-UEk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
+            <point key="canvasLocation" x="974" y="132"/>
         </scene>
     </scenes>
 </document>
