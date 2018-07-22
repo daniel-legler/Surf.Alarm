@@ -5,10 +5,10 @@ target 'Surf.Alarm' do
   use_frameworks!
 
   # Pods for Surf.Alarm
+  pod 'SpitcastSwift'
   pod 'Alamofire'
   pod 'RealmSwift'
   pod 'R.swift'
   pod 'CenteredCollectionView'
-
 
 end

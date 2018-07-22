@@ -1,5 +1,6 @@
 import Foundation
 import RealmSwift
+import SpitcastSwift
 
 class RealmManager {
     
@@ -24,7 +25,7 @@ class RealmManager {
     
     // MARK: - Writing Data
     
-    static func updateSurfSpots(_ spots: [SpitcastSpot]) {
+    static func updateSurfSpots(_ spots: [SCSurfSpot]) {
         do {
             let surfSpots = spots.map({SurfSpot($0)})
             let realm = try Realm()

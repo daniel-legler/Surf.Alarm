@@ -1,7 +1,9 @@
+import SpitcastSwift
+
 class Coordinator {
     
     static func refreshAllSurfSpots() {
-        SpitcastClient.allSpots { (result) in
+        SpitcastAPI.allSpots { (result) in
             result.withValue({ (spots) in
                 RealmManager.updateSurfSpots(spots)
             })

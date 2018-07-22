@@ -1,6 +1,6 @@
 import Foundation
 import RealmSwift
-
+import SpitcastSwift
 //enum County: String {
 //    case delNorte = "Del Norte"
 //    case humboldt = "Humboldt"
@@ -34,7 +34,7 @@ class SurfSpot: Object {
         return "spotId"
     }
     
-    convenience init(_ spitcast: SpitcastSpot) {
+    convenience init(_ spitcast: SCSurfSpot) {
         self.init()
         self.spotId = spitcast.spotId
         self.county = spitcast.county
