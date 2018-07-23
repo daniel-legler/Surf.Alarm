@@ -1,5 +1,5 @@
 
 struct Constants {
-    static let isFirstAppLaunch = "isFirstAppLaunch"
+    static let firstLaunchOccurred = "firstLaunchOccurred"
 
 }

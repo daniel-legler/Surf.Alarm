@@ -8,9 +8,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
         
-        if UserDefaults.standard.bool(forKey: Constants.isFirstAppLaunch) {
-
+        if !UserDefaults.standard.bool(forKey: Constants.firstLaunchOccurred) {
+            UserDefaults.standard.set(true, forKey: Constants.firstLaunchOccurred)
+            Coordinator.refreshAllSurfSpots()
         }
+        
         return true
     }
 

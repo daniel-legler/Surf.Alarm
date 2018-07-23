@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4J8-yi-Sc7">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,6 +10,35 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Surf Spots MapVC-->
+        <scene sceneID="0Aa-xy-6Hn">
+            <objects>
+                <viewController id="4J8-yi-Sc7" customClass="SurfSpotsMapVC" customModule="Surf_Alarm" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="baY-Fj-cFX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="mutedStandard" showsUserLocation="YES" showsBuildings="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CSe-dR-t4k">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Nab-HC-UWf" firstAttribute="trailing" secondItem="CSe-dR-t4k" secondAttribute="trailing" id="JtC-kN-Iu5"/>
+                            <constraint firstItem="Nab-HC-UWf" firstAttribute="bottom" secondItem="CSe-dR-t4k" secondAttribute="bottom" id="qFx-SQ-36P"/>
+                            <constraint firstItem="CSe-dR-t4k" firstAttribute="leading" secondItem="Nab-HC-UWf" secondAttribute="leading" id="w2g-Tq-WdN"/>
+                            <constraint firstItem="CSe-dR-t4k" firstAttribute="top" secondItem="Nab-HC-UWf" secondAttribute="top" id="ye0-So-hZM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Nab-HC-UWf"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="CSe-dR-t4k" id="FSj-1d-0q1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yb2-zn-q7v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-560" y="324"/>
+        </scene>
         <!--MainVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -60,7 +89,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewLayout key="collectionViewLayout" id="Uxu-qY-oZK" customClass="CenteredCollectionViewFlowLayout" customModule="CenteredCollectionView"/>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Ug0-44-8vz" customClass="SurfSpotCollectionViewCell" customModule="Surf_Alarm" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SurfSpotCollectionViewCell" id="Ug0-44-8vz" customClass="SurfSpotCollectionViewCell" customModule="Surf_Alarm" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -78,6 +107,7 @@
                             <constraint firstAttribute="trailing" secondItem="scf-3V-oi9" secondAttribute="trailing" id="IRU-eN-apk"/>
                             <constraint firstItem="scf-3V-oi9" firstAttribute="leading" secondItem="0DN-QH-lyv" secondAttribute="leading" id="JrB-fd-Nqz"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="DRM-xl-w6s"/>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="scf-3V-oi9" id="5sT-g6-LHx"/>

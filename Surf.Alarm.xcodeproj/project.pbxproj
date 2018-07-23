@@ -11,12 +11,12 @@
 		7408647620F7144A00C62E29 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7408647420F7144A00C62E29 /* Main.storyboard */; };
 		7408647B20F7144B00C62E29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7408647A20F7144B00C62E29 /* Assets.xcassets */; };
 		7408647E20F7144B00C62E29 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7408647C20F7144B00C62E29 /* LaunchScreen.storyboard */; };
-		74308F7A20FAE885004A608B /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74308F7920FAE885004A608B /* MainVC.swift */; };
+		74308F7A20FAE885004A608B /* SurfSpotsMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74308F7920FAE885004A608B /* SurfSpotsMapVC.swift */; };
 		74308F7E20FAE9C8004A608B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74308F7D20FAE9C8004A608B /* Constants.swift */; };
 		743C835620F97C6E0062B994 /* SurfModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743C835520F97C6E0062B994 /* SurfModel.swift */; };
 		743C835820F9A2B90062B994 /* API Examples.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 743C835720F9A2B90062B994 /* API Examples.rtf */; };
 		743C835C20FA82FD0062B994 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743C835B20FA82FD0062B994 /* Coordinator.swift */; };
-		7468C16020F9519B00EE9663 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7468C15F20F9519B00EE9663 /* StorageManager.swift */; };
+		7468C16020F9519B00EE9663 /* Realm+SurfAlarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7468C15F20F9519B00EE9663 /* Realm+SurfAlarm.swift */; };
 		74C5CFAE20FA8621004AEF35 /* SurfSpotCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74C5CFAD20FA8621004AEF35 /* SurfSpotCell.xib */; };
 		74C5CFB120FABBA3004AEF35 /* SurfSpotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C5CFB020FABBA3004AEF35 /* SurfSpotCell.swift */; };
 		74C5CFB820FAC151004AEF35 /* SurfSpotsCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C5CFB620FAC151004AEF35 /* SurfSpotsCollectionVC.swift */; };
@@ -33,13 +33,13 @@
 		7408647A20F7144B00C62E29 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7408647D20F7144B00C62E29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7408647F20F7144B00C62E29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		74308F7920FAE885004A608B /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		74308F7920FAE885004A608B /* SurfSpotsMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotsMapVC.swift; sourceTree = "<group>"; };
 		74308F7D20FAE9C8004A608B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		743C835520F97C6E0062B994 /* SurfModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfModel.swift; sourceTree = "<group>"; };
 		743C835720F9A2B90062B994 /* API Examples.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "API Examples.rtf"; sourceTree = "<group>"; };
 		743C835B20FA82FD0062B994 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		7468C14A20F8EFDD00EE9663 /* Surf.Alarm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Surf.Alarm.entitlements; sourceTree = "<group>"; };
-		7468C15F20F9519B00EE9663 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		7468C15F20F9519B00EE9663 /* Realm+SurfAlarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Realm+SurfAlarm.swift"; sourceTree = "<group>"; };
 		74C5CFAD20FA8621004AEF35 /* SurfSpotCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SurfSpotCell.xib; sourceTree = "<group>"; };
 		74C5CFB020FABBA3004AEF35 /* SurfSpotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotCell.swift; sourceTree = "<group>"; };
 		74C5CFB620FAC151004AEF35 /* SurfSpotsCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotsCollectionVC.swift; sourceTree = "<group>"; };
@@ -121,8 +121,8 @@
 		7468C15020F9227400EE9663 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
+				7468C15F20F9519B00EE9663 /* Realm+SurfAlarm.swift */,
 				743C835520F97C6E0062B994 /* SurfModel.swift */,
-				7468C15F20F9519B00EE9663 /* StorageManager.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -163,7 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				74C5CFB620FAC151004AEF35 /* SurfSpotsCollectionVC.swift */,
-				74308F7920FAE885004A608B /* MainVC.swift */,
+				74308F7920FAE885004A608B /* SurfSpotsMapVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -317,13 +317,13 @@
 				74C5CFB120FABBA3004AEF35 /* SurfSpotCell.swift in Sources */,
 				743C835620F97C6E0062B994 /* SurfModel.swift in Sources */,
 				7408647120F7144A00C62E29 /* AppDelegate.swift in Sources */,
-				7468C16020F9519B00EE9663 /* StorageManager.swift in Sources */,
+				7468C16020F9519B00EE9663 /* Realm+SurfAlarm.swift in Sources */,
 				74C5CFC420FAC608004AEF35 /* R.generated.swift in Sources */,
 				74308F7E20FAE9C8004A608B /* Constants.swift in Sources */,
 				74EFF1EF20FAEE3100789C3C /* Double+SurfHeight.swift in Sources */,
 				74C5CFB820FAC151004AEF35 /* SurfSpotsCollectionVC.swift in Sources */,
 				743C835C20FA82FD0062B994 /* Coordinator.swift in Sources */,
-				74308F7A20FAE885004A608B /* MainVC.swift in Sources */,
+				74308F7A20FAE885004A608B /* SurfSpotsMapVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

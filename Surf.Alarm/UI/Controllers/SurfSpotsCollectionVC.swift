@@ -1,10 +1,10 @@
 import UIKit
 import Rswift
 
-private let reuseIdentifier = R.reuseIdentifier.surfSpotCell.identifier
-
 class SurfSpotsCollectionVC: UIViewController {
     
+    private let reuseIdentifier = R.reuseIdentifier.surfSpotCell.identifier
+
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -12,8 +12,6 @@ class SurfSpotsCollectionVC: UIViewController {
         collectionView.register(R.nib.surfSpotCell(),
                                 forCellWithReuseIdentifier: reuseIdentifier)
     }
-
-
 }
 
 // MARK: UICollectionViewDataSource
@@ -37,6 +35,7 @@ extension SurfSpotsCollectionVC: UICollectionViewDataSource {
     }
 
 }
+
 // MARK: UICollectionViewDelegate
 extension SurfSpotsCollectionVC: UICollectionViewDelegate {
     

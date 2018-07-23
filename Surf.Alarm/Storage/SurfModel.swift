@@ -1,34 +1,15 @@
 import Foundation
 import RealmSwift
 import SpitcastSwift
-//enum County: String {
-//    case delNorte = "Del Norte"
-//    case humboldt = "Humboldt"
-//    case sonoma = "Sonoma"
-//    case marin = "Marin"
-//    case sanFrancisco = "San Francisco"
-//    case sanMateo = "San Mateo"
-//    case santaCruz = "Santa Cruz"
-//    case monterey = "Monterey"
-//    case sanLuisObispo = "San Luis Obispo"
-//    case santaBarbara = "Santa Barbara"
-//    case ventura = "Ventura"
-//    case losAngeles = "Los Angeles"
-//    case orangeCounty = "Orange County"
-//    case sanDiego = "San Diego"
-//
-//    var name: String {
-//        return self.rawValue
-//    }
-//}
+import MapKit
 
+@objcMembers
 class SurfSpot: Object {
-    @objc dynamic var spotId = 0
-    @objc dynamic var name: String = ""
-    @objc dynamic var county: String = ""
-    @objc dynamic var latitude: Double = 0.0
-    @objc dynamic var longitude: Double = 0.0
-    let reports = LinkingObjects(fromType: SurfForecast.self, property: "spot")
+    dynamic var spotId = 0
+    dynamic var name: String = ""
+    dynamic var county: String = ""
+    dynamic var latitude: Double = 0.0
+    dynamic var longitude: Double = 0.0
 
     override static func primaryKey() -> String? {
         return "spotId"
@@ -42,13 +23,35 @@ class SurfSpot: Object {
         self.latitude = spitcast.latitude
         self.longitude = spitcast.longitude
     }
+    
+    var coordinate: CLLocationCoordinate2D {
+        return CLLocationCoordinate2DMake(latitude, longitude)
+    }
 }
 
+@objcMembers
 class SurfForecast: Object {
-    @objc dynamic var date: Date = Date()
-    @objc dynamic var name: String = ""
-    @objc dynamic var latitude: Double = 0.0
-    @objc dynamic var longitude: Double = 0.0
-    @objc dynamic var spot: SurfSpot?
+    dynamic var date: Date = Date()
+    dynamic var name: String = ""
+    dynamic var latitude: Double = 0.0
+    dynamic var longitude: Double = 0.0
+    dynamic var spotId: Int = 0
+    dynamic var waveHeight: Double = 0.0
+    dynamic var swellReport: String = ""
+    dynamic var tideReport: String = ""
+    dynamic var windReport: String = ""
+    
+    convenience init(_ spitcast: SCForecast) {
+        self.init()
+        self.spotId = spitcast.spotId
+        self.date = spitcast.date
+        self.name = spitcast.name
+        self.latitude = spitcast.latitude
+        self.longitude = spitcast.longitude
+        self.tideReport = spitcast.shapeDetails.tide
+        self.windReport = spitcast.shapeDetails.wind
+        self.swellReport = spitcast.shapeDetails.swell
+        self.waveHeight = spitcast.size
+    }
 }
 
