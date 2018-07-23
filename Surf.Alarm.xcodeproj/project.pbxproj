@@ -23,6 +23,7 @@
 		74C5CFB820FAC151004AEF35 /* SurfSpotsCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C5CFB620FAC151004AEF35 /* SurfSpotsCollectionVC.swift */; };
 		74C5CFC420FAC608004AEF35 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C5CFC320FAC608004AEF35 /* R.generated.swift */; };
 		74EFF1EF20FAEE3100789C3C /* Double+SurfHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EFF1EE20FAEE3100789C3C /* Double+SurfHeight.swift */; };
+		74FFBE2121061E5200DB03E5 /* ClusterAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FFBE2021061E5200DB03E5 /* ClusterAnnotationView.swift */; };
 		9BA655AE9A6214F1ED62CFF9 /* Pods_Surf_Alarm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 315DB3599D99B6DAD06F81D9 /* Pods_Surf_Alarm.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		74C5CFB620FAC151004AEF35 /* SurfSpotsCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotsCollectionVC.swift; sourceTree = "<group>"; };
 		74C5CFC320FAC608004AEF35 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		74EFF1EE20FAEE3100789C3C /* Double+SurfHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+SurfHeight.swift"; sourceTree = "<group>"; };
+		74FFBE2021061E5200DB03E5 /* ClusterAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClusterAnnotationView.swift; sourceTree = "<group>"; };
 		F23D36825BA411652143C334 /* Pods-Surf.Alarm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Surf.Alarm.release.xcconfig"; path = "Pods/Target Support Files/Pods-Surf.Alarm/Pods-Surf.Alarm.release.xcconfig"; sourceTree = "<group>"; };
 		F88502A7C8226CE5484A049C /* Pods-Surf.Alarm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Surf.Alarm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Surf.Alarm/Pods-Surf.Alarm.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,6 +160,7 @@
 				74C5CFAD20FA8621004AEF35 /* SurfSpotCell.xib */,
 				74C5CFB020FABBA3004AEF35 /* SurfSpotCell.swift */,
 				744E73A02105868900C2EF0C /* SurfSpotAnnotationView.swift */,
+				74FFBE2021061E5200DB03E5 /* ClusterAnnotationView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				74C5CFB820FAC151004AEF35 /* SurfSpotsCollectionVC.swift in Sources */,
 				743C835C20FA82FD0062B994 /* Coordinator.swift in Sources */,
 				744E73A12105868900C2EF0C /* SurfSpotAnnotationView.swift in Sources */,
+				74FFBE2121061E5200DB03E5 /* ClusterAnnotationView.swift in Sources */,
 				74308F7A20FAE885004A608B /* SurfSpotsMapVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
