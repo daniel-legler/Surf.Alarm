@@ -22,11 +22,12 @@ class SurfSpotsMapVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        centerMapOnLocation(location: initialLocation)
+        centerMapOnLocation(initialLocation)
         addSurfSpotAnnotations()
+        mapView.register(SurfSpotAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
     }
     
-    func centerMapOnLocation(location: CLLocation) {
+    func centerMapOnLocation(_ location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
                                                                   regionRadius, regionRadius)
         mapView.setRegion(coordinateRegion, animated: true)
@@ -39,5 +40,7 @@ class SurfSpotsMapVC: UIViewController {
 }
 
 extension SurfSpotsMapVC: MKMapViewDelegate {
-    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        return SurfSpotAnnotationView(annotation: annotation, reuseIdentifier: nil)
+    }
 }
