@@ -35,7 +35,7 @@ class SurfSpotsMapVC: UIViewController {
         mapView.delegate = self
         
         centerMapOnLocation(initialLocation)
-        
+
         mapView.addAnnotations(allAnnotations)
     }
     

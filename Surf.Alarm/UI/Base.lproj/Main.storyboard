@@ -47,27 +47,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="4Rs-ea-lEa">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y2t-Jx-Ppf">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                            </mapView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p10-HW-qEi">
-                                <rect key="frame" x="0.0" y="452" width="375" height="215"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <segue destination="SGH-0L-sHG" kind="embed" id="SrO-ri-mh2"/>
+                                    <segue destination="4xn-95-DkO" kind="embed" id="lc5-XU-2Nb"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="60N-dV-9nP">
+                                <rect key="frame" x="0.0" y="451.5" width="375" height="215.5"/>
+                                <connections>
+                                    <segue destination="oSa-kR-xJo" kind="embed" id="hXa-XO-VGP"/>
                                 </connections>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="p10-HW-qEi" secondAttribute="trailing" id="2XB-bR-CzD"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="p10-HW-qEi" secondAttribute="bottom" id="AIY-lH-uZf"/>
-                            <constraint firstItem="4Rs-ea-lEa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="GzA-VQ-FQt"/>
-                            <constraint firstItem="p10-HW-qEi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Zc5-V0-R0M"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4Rs-ea-lEa" secondAttribute="bottom" id="dtc-fc-T0N"/>
-                            <constraint firstItem="p10-HW-qEi" firstAttribute="height" secondItem="4Rs-ea-lEa" secondAttribute="height" multiplier="0.333" id="f6A-M4-XfO"/>
-                            <constraint firstItem="4Rs-ea-lEa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lpN-QM-wmO"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4Rs-ea-lEa" secondAttribute="trailing" id="ptC-Er-oDT"/>
+                            <constraint firstItem="60N-dV-9nP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7O6-po-xbk"/>
+                            <constraint firstItem="y2t-Jx-Ppf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="NIE-RS-gOm"/>
+                            <constraint firstItem="60N-dV-9nP" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="WZn-zw-jo3"/>
+                            <constraint firstItem="y2t-Jx-Ppf" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="de3-6a-ihd"/>
+                            <constraint firstItem="y2t-Jx-Ppf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="fRG-2D-JG9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="y2t-Jx-Ppf" secondAttribute="bottom" id="i4R-jw-Xe9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="60N-dV-9nP" secondAttribute="trailing" id="w3p-vw-wzS"/>
+                            <constraint firstItem="60N-dV-9nP" firstAttribute="height" secondItem="y2t-Jx-Ppf" secondAttribute="height" multiplier="0.333" id="zKq-3l-t66"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -76,20 +78,45 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
         </scene>
-        <!--Surf Spots CollectionVC-->
-        <scene sceneID="eEE-Dh-F1u">
+        <!--View Controller-->
+        <scene sceneID="AR2-Bc-nIN">
             <objects>
-                <viewController id="SGH-0L-sHG" customClass="SurfSpotsCollectionVC" customModule="Surf_Alarm" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="0DN-QH-lyv">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="215"/>
+                <viewController id="4xn-95-DkO" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pdk-PH-ENa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="scf-3V-oi9">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="4Rs-ea-lEa">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="4Rs-ea-lEa" secondAttribute="trailing" id="1zd-DT-1i0"/>
+                            <constraint firstAttribute="bottom" secondItem="4Rs-ea-lEa" secondAttribute="bottom" id="9lO-AX-oLl"/>
+                            <constraint firstItem="4Rs-ea-lEa" firstAttribute="leading" secondItem="pdk-PH-ENa" secondAttribute="leading" id="TVG-Sr-syr"/>
+                            <constraint firstItem="4Rs-ea-lEa" firstAttribute="top" secondItem="pdk-PH-ENa" secondAttribute="top" id="j04-YC-swi"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uoZ-35-ub1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="990" y="854"/>
+        </scene>
+        <!--Surf Spots CollectionVC-->
+        <scene sceneID="Q2j-CK-eNQ">
+            <objects>
+                <viewController id="oSa-kR-xJo" customClass="SurfSpotsCollectionVC" customModule="Surf_Alarm" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="D2f-Dk-R1d">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="215.5"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wFD-zl-6an">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="215.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewLayout key="collectionViewLayout" id="Uxu-qY-oZK" customClass="CenteredCollectionViewFlowLayout" customModule="CenteredCollectionView"/>
+                                <collectionViewLayout key="collectionViewLayout" id="mkN-Nl-eSW" customClass="CenteredCollectionViewFlowLayout" customModule="CenteredCollectionView"/>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SurfSpotCollectionViewCell" id="Ug0-44-8vz" customClass="SurfSpotCollectionViewCell" customModule="Surf_Alarm" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SurfSpotCollectionViewCell" id="BIu-rE-NDV" customClass="SurfSpotCollectionViewCell" customModule="Surf_Alarm" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -102,20 +129,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="scf-3V-oi9" secondAttribute="bottom" id="9WU-kY-chT"/>
-                            <constraint firstItem="scf-3V-oi9" firstAttribute="top" secondItem="0DN-QH-lyv" secondAttribute="top" id="Bbv-q8-xtW"/>
-                            <constraint firstAttribute="trailing" secondItem="scf-3V-oi9" secondAttribute="trailing" id="IRU-eN-apk"/>
-                            <constraint firstItem="scf-3V-oi9" firstAttribute="leading" secondItem="0DN-QH-lyv" secondAttribute="leading" id="JrB-fd-Nqz"/>
+                            <constraint firstAttribute="trailing" secondItem="wFD-zl-6an" secondAttribute="trailing" id="7GV-o1-3mr"/>
+                            <constraint firstAttribute="bottom" secondItem="wFD-zl-6an" secondAttribute="bottom" id="9VN-ek-HQr"/>
+                            <constraint firstItem="wFD-zl-6an" firstAttribute="top" secondItem="D2f-Dk-R1d" secondAttribute="top" id="VHC-db-ljp"/>
+                            <constraint firstItem="wFD-zl-6an" firstAttribute="leading" secondItem="D2f-Dk-R1d" secondAttribute="leading" id="dIk-Zb-azW"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="DRM-xl-w6s"/>
                     </view>
-                    <connections>
-                        <outlet property="collectionView" destination="scf-3V-oi9" id="5sT-g6-LHx"/>
-                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="enb-HA-UEk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qe9-gq-qpB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="974" y="132"/>
+            <point key="canvasLocation" x="1164" y="-89"/>
         </scene>
     </scenes>
 </document>
