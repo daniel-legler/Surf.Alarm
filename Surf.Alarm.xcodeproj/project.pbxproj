@@ -18,12 +18,14 @@
 		743C835C20FA82FD0062B994 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743C835B20FA82FD0062B994 /* Coordinator.swift */; };
 		744E73A12105868900C2EF0C /* SurfSpotAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744E73A02105868900C2EF0C /* SurfSpotAnnotationView.swift */; };
 		7468C16020F9519B00EE9663 /* Realm+SurfAlarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7468C15F20F9519B00EE9663 /* Realm+SurfAlarm.swift */; };
+		74BCAD2D2106BFC200711DD8 /* CountySelectorVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74BCAD2C2106BFC200711DD8 /* CountySelectorVC.xib */; };
 		74C5CFAE20FA8621004AEF35 /* SurfSpotCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74C5CFAD20FA8621004AEF35 /* SurfSpotCell.xib */; };
 		74C5CFB120FABBA3004AEF35 /* SurfSpotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C5CFB020FABBA3004AEF35 /* SurfSpotCell.swift */; };
 		74C5CFB820FAC151004AEF35 /* SurfSpotsCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C5CFB620FAC151004AEF35 /* SurfSpotsCollectionVC.swift */; };
 		74C5CFC420FAC608004AEF35 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C5CFC320FAC608004AEF35 /* R.generated.swift */; };
 		74EFF1EF20FAEE3100789C3C /* Double+SurfHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EFF1EE20FAEE3100789C3C /* Double+SurfHeight.swift */; };
 		74FFBE2121061E5200DB03E5 /* ClusterAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FFBE2021061E5200DB03E5 /* ClusterAnnotationView.swift */; };
+		74FFBE25210661DF00DB03E5 /* CountySelectorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FFBE23210661DF00DB03E5 /* CountySelectorVC.swift */; };
 		9BA655AE9A6214F1ED62CFF9 /* Pods_Surf_Alarm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 315DB3599D99B6DAD06F81D9 /* Pods_Surf_Alarm.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,12 +45,14 @@
 		744E73A02105868900C2EF0C /* SurfSpotAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotAnnotationView.swift; sourceTree = "<group>"; };
 		7468C14A20F8EFDD00EE9663 /* Surf.Alarm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Surf.Alarm.entitlements; sourceTree = "<group>"; };
 		7468C15F20F9519B00EE9663 /* Realm+SurfAlarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Realm+SurfAlarm.swift"; sourceTree = "<group>"; };
+		74BCAD2C2106BFC200711DD8 /* CountySelectorVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountySelectorVC.xib; sourceTree = "<group>"; };
 		74C5CFAD20FA8621004AEF35 /* SurfSpotCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SurfSpotCell.xib; sourceTree = "<group>"; };
 		74C5CFB020FABBA3004AEF35 /* SurfSpotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotCell.swift; sourceTree = "<group>"; };
 		74C5CFB620FAC151004AEF35 /* SurfSpotsCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotsCollectionVC.swift; sourceTree = "<group>"; };
 		74C5CFC320FAC608004AEF35 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		74EFF1EE20FAEE3100789C3C /* Double+SurfHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+SurfHeight.swift"; sourceTree = "<group>"; };
 		74FFBE2021061E5200DB03E5 /* ClusterAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClusterAnnotationView.swift; sourceTree = "<group>"; };
+		74FFBE23210661DF00DB03E5 /* CountySelectorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountySelectorVC.swift; sourceTree = "<group>"; };
 		F23D36825BA411652143C334 /* Pods-Surf.Alarm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Surf.Alarm.release.xcconfig"; path = "Pods/Target Support Files/Pods-Surf.Alarm/Pods-Surf.Alarm.release.xcconfig"; sourceTree = "<group>"; };
 		F88502A7C8226CE5484A049C /* Pods-Surf.Alarm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Surf.Alarm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Surf.Alarm/Pods-Surf.Alarm.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,8 +138,9 @@
 		7468C15120F9228400EE9663 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				74C5CFAF20FABB82004AEF35 /* Views */,
-				74C5CFB220FABEB2004AEF35 /* Controllers */,
+				74FFBE22210661BC00DB03E5 /* CountySelector */,
+				74C5CFAF20FABB82004AEF35 /* SurfSpotCollectionView */,
+				74C5CFB220FABEB2004AEF35 /* SurfSpotMapView */,
 				7408647420F7144A00C62E29 /* Main.storyboard */,
 				7408647C20F7144B00C62E29 /* LaunchScreen.storyboard */,
 				7408647A20F7144B00C62E29 /* Assets.xcassets */,
@@ -154,24 +159,33 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		74C5CFAF20FABB82004AEF35 /* Views */ = {
+		74C5CFAF20FABB82004AEF35 /* SurfSpotCollectionView */ = {
 			isa = PBXGroup;
 			children = (
 				74C5CFAD20FA8621004AEF35 /* SurfSpotCell.xib */,
 				74C5CFB020FABBA3004AEF35 /* SurfSpotCell.swift */,
-				744E73A02105868900C2EF0C /* SurfSpotAnnotationView.swift */,
-				74FFBE2021061E5200DB03E5 /* ClusterAnnotationView.swift */,
+				74C5CFB620FAC151004AEF35 /* SurfSpotsCollectionVC.swift */,
 			);
-			path = Views;
+			path = SurfSpotCollectionView;
 			sourceTree = "<group>";
 		};
-		74C5CFB220FABEB2004AEF35 /* Controllers */ = {
+		74C5CFB220FABEB2004AEF35 /* SurfSpotMapView */ = {
 			isa = PBXGroup;
 			children = (
-				74C5CFB620FAC151004AEF35 /* SurfSpotsCollectionVC.swift */,
+				74FFBE2021061E5200DB03E5 /* ClusterAnnotationView.swift */,
+				744E73A02105868900C2EF0C /* SurfSpotAnnotationView.swift */,
 				74308F7920FAE885004A608B /* SurfSpotsMapVC.swift */,
 			);
-			path = Controllers;
+			path = SurfSpotMapView;
+			sourceTree = "<group>";
+		};
+		74FFBE22210661BC00DB03E5 /* CountySelector */ = {
+			isa = PBXGroup;
+			children = (
+				74BCAD2C2106BFC200711DD8 /* CountySelectorVC.xib */,
+				74FFBE23210661DF00DB03E5 /* CountySelectorVC.swift */,
+			);
+			path = CountySelector;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,6 +260,7 @@
 				7408647E20F7144B00C62E29 /* LaunchScreen.storyboard in Resources */,
 				74C5CFAE20FA8621004AEF35 /* SurfSpotCell.xib in Resources */,
 				7408647B20F7144B00C62E29 /* Assets.xcassets in Resources */,
+				74BCAD2D2106BFC200711DD8 /* CountySelectorVC.xib in Resources */,
 				743C835820F9A2B90062B994 /* API Examples.rtf in Resources */,
 				7408647620F7144A00C62E29 /* Main.storyboard in Resources */,
 			);
@@ -323,6 +338,7 @@
 				74C5CFB120FABBA3004AEF35 /* SurfSpotCell.swift in Sources */,
 				743C835620F97C6E0062B994 /* SurfModel.swift in Sources */,
 				7408647120F7144A00C62E29 /* AppDelegate.swift in Sources */,
+				74FFBE25210661DF00DB03E5 /* CountySelectorVC.swift in Sources */,
 				7468C16020F9519B00EE9663 /* Realm+SurfAlarm.swift in Sources */,
 				74C5CFC420FAC608004AEF35 /* R.generated.swift in Sources */,
 				74308F7E20FAE9C8004A608B /* Constants.swift in Sources */,

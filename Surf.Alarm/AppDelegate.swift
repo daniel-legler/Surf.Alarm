@@ -1,5 +1,5 @@
 import UIKit
-import CoreData
+import Rswift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -12,6 +12,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.set(true, forKey: Constants.firstLaunchOccurred)
             Coordinator.refreshAllSurfSpots()
         }
+        
+        self.window?.rootViewController = CountySelectorVC(nib: R.nib.countySelectorVC)
+        self.window?.makeKeyAndVisible()
         
         return true
     }
