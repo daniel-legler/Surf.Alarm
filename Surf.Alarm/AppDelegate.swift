@@ -12,10 +12,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.set(true, forKey: Constants.firstLaunchOccurred)
             Coordinator.refreshAllSurfSpots()
         }
-        
-        self.window?.rootViewController = SurfSpotSearchController(nib: R.nib.surfSpotSearchController)
-        self.window?.makeKeyAndVisible()
-        
+
+//        let searchController = SurfSpotSearchController(nib: R.nib.surfSpotSearchController)
+//        self.window?.rootViewController = searchController
+//        self.window?.makeKeyAndVisible()
+//        
         return true
     }
 

@@ -71,7 +71,7 @@ extension SurfSpotSearchController: UITableViewDataSource {
         let spot = isSearching ? filteredSpots[indexPath.row] : surfSpots[indexPath.row]
         cell.textLabel?.text = spot.name
         cell.detailTextLabel?.text = spot.county
-        cell.textLabel?.textColor = R.color.surfTintColor()
+        cell.textLabel?.textColor = R.color.surfTintPrimary()
         return cell
     }
 }

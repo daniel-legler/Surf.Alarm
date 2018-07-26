@@ -22,12 +22,10 @@ class SurfSpotsMapVC: UIViewController {
     }
     
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var navBar: UINavigationBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMapView()
-        setupNavBar()
     }
     
     func setupMapView() {
@@ -39,11 +37,6 @@ class SurfSpotsMapVC: UIViewController {
         centerMapOnLocation(initialLocation)
 
         mapView.addAnnotations(allAnnotations)
-    }
-    
-    func setupNavBar() {
-        navBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        navBar.shadowImage = UIImage()
     }
     
     func centerMapOnLocation(_ location: CLLocation) {
