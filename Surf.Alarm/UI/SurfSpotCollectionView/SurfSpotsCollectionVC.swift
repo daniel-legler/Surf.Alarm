@@ -26,11 +26,12 @@ class SurfSpotsCollectionVC: UIViewController {
         centeredCollectionViewFlowLayout.minimumLineSpacing = 15
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
+        collectionView.reloadData()
     }
     
-    func selectSpot(at coordinate: CLLocationCoordinate2D) {
-        if let index = indexPathForSpot(at: coordinate) {
-            self.collectionView.selectItem(at: index, animated: false, scrollPosition: .centeredHorizontally)
+    func scrollToSurfSpot(at coordinate: CLLocationCoordinate2D) {
+        if let indexPath = indexPathForSpot(at: coordinate) {
+            self.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
         }
     }
     
@@ -38,7 +39,7 @@ class SurfSpotsCollectionVC: UIViewController {
         guard let spotIndex = spots.index(where: { $0.coordinate == coordinate }) else {
             return nil
         }
-        return IndexPath(item: spotIndex, section: 1)
+        return IndexPath(item: spotIndex, section: 0)
     }
 }
 

@@ -41,25 +41,15 @@ extension Realm {
         return sortedFutureForecasts.first
     }
     
-    func addSurfForecasts(_ forecasts: [SurfForecast]) {
+    func updateSurfForecasts(_ forecasts: [SurfForecast], to spot: SurfSpot) {
         do {
             try write {
-                self.add(forecasts, update: true)
-                forecasts.first?.surfSpot?.updatedAt = Date()
+                self.delete(objects(SurfForecast.self).filter("spotId = %@", spot.spotId))
+                self.add(forecasts)
+                spot.updatedAt = Date()
             }
         } catch {
             print("🌊Error: \(error.localizedDescription)")
         }
     }
-
-//    func forecastWasUpdated(for spot: SurfSpot) {
-//        do {
-//            try write {
-//                spot.updatedAt = Date()
-//            }
-//        } catch {
-//            print("🌊Error: \(error.localizedDescription)")
-//        }
-//    }
-    
 }

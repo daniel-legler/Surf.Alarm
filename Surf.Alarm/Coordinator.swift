@@ -22,8 +22,7 @@ class Coordinator {
         SpitcastAPI.spotForecast(id: spot.spotId) { (result) in
             result.withValue({ (forecasts) in
                 let forecasts = forecasts.map({SurfForecast($0)})
-                store.addSurfForecasts(forecasts)
-//                store.forecastWasUpdated(for: spot)
+                store.updateSurfForecasts(forecasts, to: spot)
             })
             result.withError({ (error) in
                 print("🌊Error: \(error.localizedDescription)")

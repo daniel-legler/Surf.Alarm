@@ -25,7 +25,6 @@ class SurfSpot: Object {
         self.name = spitcast.name
         self.latitude = spitcast.latitude
         self.longitude = spitcast.longitude
-        self.updatedAt = Date()
     }
     
     var coordinate: CLLocationCoordinate2D {

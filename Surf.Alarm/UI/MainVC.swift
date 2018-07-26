@@ -78,6 +78,7 @@ extension MainVC: SurfSpotMapDelegate {
 extension MainVC: SurfSpotSearchDelegate {
     func userTappedSearchedSpot(coordinate: CLLocationCoordinate2D) {
         self.surfMap.moveMapToSurfSpot(at: coordinate)
+        self.spotCollection.scrollToSurfSpot(at: coordinate)
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             self.moveSurfSpotCollectionView(hidden: false)
         }

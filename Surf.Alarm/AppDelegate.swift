@@ -11,12 +11,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if !UserDefaults.standard.bool(forKey: Constants.firstLaunchOccurred) {
             UserDefaults.standard.set(true, forKey: Constants.firstLaunchOccurred)
             Coordinator.refreshAllSurfSpots()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                let main = R.storyboard.main().instantiateInitialViewController()
+                self.window?.rootViewController = main
+                self.window?.makeKeyAndVisible()
+            }
         }
 
-//        let searchController = SurfSpotSearchController(nib: R.nib.surfSpotSearchController)
-//        self.window?.rootViewController = searchController
-//        self.window?.makeKeyAndVisible()
-//        
         return true
     }
 
