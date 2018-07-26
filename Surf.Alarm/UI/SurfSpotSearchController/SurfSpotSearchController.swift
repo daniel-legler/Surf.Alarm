@@ -1,31 +1,17 @@
 import UIKit
 import Rswift
-class CountySelectorVC: UIViewController {
+class SurfSpotSearchController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
-    let surfSpots = store.objects(SurfSpot.self)
-    var searchController: UISearchController!
+    let surfSpots = Array(store.objects(SurfSpot.self).sorted(byKeyPath: "county"))
+    var filteredSpots: [SurfSpot] = []
 
-    var filteredCounties: [String] = []
-    
-    var counties: [String] {
-        var countySet = Set<String>()
-        for spot in surfSpots {
-            countySet.insert(spot.county)
-        }
-        return Array(countySet).sorted()
-    }
-    
+    var searchController: UISearchController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTableView()
         setupSearchController()
-    }
-    
-    func setupTableView() {
-
     }
     
     func setupSearchController() {
@@ -41,7 +27,7 @@ class CountySelectorVC: UIViewController {
     }
 }
 
-extension CountySelectorVC: UISearchControllerDelegate, UISearchBarDelegate, UISearchResultsUpdating {
+extension SurfSpotSearchController: UISearchControllerDelegate, UISearchBarDelegate, UISearchResultsUpdating {
     
     var isSearching: Bool {
         return searchController.isActive && !searchBarIsEmpty
@@ -52,24 +38,22 @@ extension CountySelectorVC: UISearchControllerDelegate, UISearchBarDelegate, UIS
     }
     
     func updateSearchResults(for searchController: UISearchController) {
-        if let searchText = searchController.searchBar.text {
-            filteredCounties = counties.filter({ (county) -> Bool in
-                return county.lowercased().contains(searchText.lowercased())
-            }).sorted()
+        if let searchText = searchController.searchBar.text?.lowercased() {
+            filteredSpots = surfSpots.filter({ (spot) -> Bool in
+                return spot.county.lowercased().contains(searchText) || spot.name.lowercased().contains(searchText)
+            })
             tableView.reloadData()
         }
     }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        // TODO: Dismiss the keyboard (maybe)
+}
+
+extension SurfSpotSearchController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // TODO: Call some delegate
     }
 }
 
-extension CountySelectorVC: UITableViewDelegate {
-    
-}
-
-extension CountySelectorVC: UITableViewDataSource {
+extension SurfSpotSearchController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -77,17 +61,17 @@ extension CountySelectorVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isSearching {
-            return filteredCounties.count
+            return filteredSpots.count
         }
-        return counties.count
+        return surfSpots.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-        let county = isSearching ? filteredCounties[indexPath.row] : counties[indexPath.row]
-        cell.textLabel?.text = county
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
+        let spot = isSearching ? filteredSpots[indexPath.row] : surfSpots[indexPath.row]
+        cell.textLabel?.text = spot.name
+        cell.detailTextLabel?.text = spot.county
+        cell.textLabel?.textColor = R.color.surfTintColor()
         return cell
     }
-    
-    
 }

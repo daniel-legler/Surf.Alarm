@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             Coordinator.refreshAllSurfSpots()
         }
         
-        self.window?.rootViewController = CountySelectorVC(nib: R.nib.countySelectorVC)
+        self.window?.rootViewController = SurfSpotSearchController(nib: R.nib.surfSpotSearchController)
         self.window?.makeKeyAndVisible()
         
         return true
