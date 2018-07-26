@@ -17,11 +17,10 @@
 		743C835820F9A2B90062B994 /* API Examples.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 743C835720F9A2B90062B994 /* API Examples.rtf */; };
 		743C835C20FA82FD0062B994 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743C835B20FA82FD0062B994 /* Coordinator.swift */; };
 		744E73A12105868900C2EF0C /* SurfSpotAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744E73A02105868900C2EF0C /* SurfSpotAnnotationView.swift */; };
-		745E5BA1210958930075A851 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745E5BA0210958930075A851 /* DesignableView.swift */; };
+		745E5BA1210958930075A851 /* DesignableViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745E5BA0210958930075A851 /* DesignableViews.swift */; };
 		745E5BA3210972F80075A851 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745E5BA2210972F80075A851 /* MainVC.swift */; };
 		745E5BA721098FDE0075A851 /* SurfSpotMapDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745E5BA621098FDE0075A851 /* SurfSpotMapDelegate.swift */; };
 		745E5BA921099EC70075A851 /* SurfSpotSearchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745E5BA821099EC70075A851 /* SurfSpotSearchDelegate.swift */; };
-		745E5BAB2109A1C90075A851 /* SurfMapZoomLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745E5BAA2109A1C90075A851 /* SurfMapZoomLevel.swift */; };
 		7468C16020F9519B00EE9663 /* Realm+SurfAlarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7468C15F20F9519B00EE9663 /* Realm+SurfAlarm.swift */; };
 		74BCAD2D2106BFC200711DD8 /* SurfSpotSearchController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74BCAD2C2106BFC200711DD8 /* SurfSpotSearchController.xib */; };
 		74C5CFAE20FA8621004AEF35 /* SurfSpotCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74C5CFAD20FA8621004AEF35 /* SurfSpotCell.xib */; };
@@ -48,11 +47,10 @@
 		743C835720F9A2B90062B994 /* API Examples.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "API Examples.rtf"; sourceTree = "<group>"; };
 		743C835B20FA82FD0062B994 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		744E73A02105868900C2EF0C /* SurfSpotAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotAnnotationView.swift; sourceTree = "<group>"; };
-		745E5BA0210958930075A851 /* DesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
+		745E5BA0210958930075A851 /* DesignableViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableViews.swift; sourceTree = "<group>"; };
 		745E5BA2210972F80075A851 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		745E5BA621098FDE0075A851 /* SurfSpotMapDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotMapDelegate.swift; sourceTree = "<group>"; };
 		745E5BA821099EC70075A851 /* SurfSpotSearchDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotSearchDelegate.swift; sourceTree = "<group>"; };
-		745E5BAA2109A1C90075A851 /* SurfMapZoomLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfMapZoomLevel.swift; sourceTree = "<group>"; };
 		7468C14A20F8EFDD00EE9663 /* Surf.Alarm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Surf.Alarm.entitlements; sourceTree = "<group>"; };
 		7468C15F20F9519B00EE9663 /* Realm+SurfAlarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Realm+SurfAlarm.swift"; sourceTree = "<group>"; };
 		74BCAD2C2106BFC200711DD8 /* SurfSpotSearchController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SurfSpotSearchController.xib; sourceTree = "<group>"; };
@@ -139,7 +137,7 @@
 		745E5B9F210958870075A851 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				745E5BA0210958930075A851 /* DesignableView.swift */,
+				745E5BA0210958930075A851 /* DesignableViews.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -196,7 +194,6 @@
 				744E73A02105868900C2EF0C /* SurfSpotAnnotationView.swift */,
 				74308F7920FAE885004A608B /* SurfSpotsMapVC.swift */,
 				745E5BA621098FDE0075A851 /* SurfSpotMapDelegate.swift */,
-				745E5BAA2109A1C90075A851 /* SurfMapZoomLevel.swift */,
 			);
 			path = SurfSpotMapView;
 			sourceTree = "<group>";
@@ -368,13 +365,12 @@
 				74C5CFC420FAC608004AEF35 /* R.generated.swift in Sources */,
 				74308F7E20FAE9C8004A608B /* Constants.swift in Sources */,
 				74EFF1EF20FAEE3100789C3C /* Double+SurfHeight.swift in Sources */,
-				745E5BA1210958930075A851 /* DesignableView.swift in Sources */,
+				745E5BA1210958930075A851 /* DesignableViews.swift in Sources */,
 				74C5CFB820FAC151004AEF35 /* SurfSpotsCollectionVC.swift in Sources */,
 				745E5BA921099EC70075A851 /* SurfSpotSearchDelegate.swift in Sources */,
 				743C835C20FA82FD0062B994 /* Coordinator.swift in Sources */,
 				744E73A12105868900C2EF0C /* SurfSpotAnnotationView.swift in Sources */,
 				74FFBE2121061E5200DB03E5 /* ClusterAnnotationView.swift in Sources */,
-				745E5BAB2109A1C90075A851 /* SurfMapZoomLevel.swift in Sources */,
 				74308F7A20FAE885004A608B /* SurfSpotsMapVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

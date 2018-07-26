@@ -1,16 +1,33 @@
 import UIKit
 import Rswift
+import RealmSwift
+import CenteredCollectionView
 
 class SurfSpotsCollectionVC: UIViewController {
-    
-    private let reuseIdentifier = R.reuseIdentifier.surfSpotCell.identifier
-
+        
     @IBOutlet weak var collectionView: UICollectionView!
+    var centeredCollectionViewFlowLayout: CenteredCollectionViewFlowLayout!
+
+    let spots = store.objects(SurfSpot.self).sorted(byKeyPath: "latitude")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(R.nib.surfSpotCell(),
-                                forCellWithReuseIdentifier: reuseIdentifier)
+                                forCellWithReuseIdentifier: R.reuseIdentifier.surfSpotCell.identifier)
+        centeredCollectionViewFlowLayout = collectionView.collectionViewLayout as! CenteredCollectionViewFlowLayout
+        collectionView.decelerationRate = UIScrollViewDecelerationRateFast
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        centeredCollectionViewFlowLayout.itemSize = CGSize(
+            width: view.bounds.width * 0.9,
+            height: collectionView.bounds.height
+        )
+        
+        centeredCollectionViewFlowLayout.minimumLineSpacing = 15
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
+
+
     }
 }
 
@@ -27,8 +44,7 @@ extension SurfSpotsCollectionVC: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.surfSpotCell,
-                                                                         for: indexPath) {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.surfSpotCell, for: indexPath) {
             return cell
         }
         return UICollectionViewCell()

@@ -9,6 +9,8 @@ class SurfSpotAnnotationView: MKMarkerAnnotationView {
         if let annotation = annotation, let subtitle = annotation.subtitle {
             clusteringIdentifier = subtitle
         }
+        self.titleVisibility = .visible
+        self.subtitleVisibility = .visible
     }
     
     required init?(coder aDecoder: NSCoder) {

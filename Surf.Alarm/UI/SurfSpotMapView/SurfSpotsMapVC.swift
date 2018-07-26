@@ -47,6 +47,11 @@ class SurfSpotsMapVC: UIViewController {
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
+    enum SurfMapZoomLevel {
+        case singleSpot
+        case cluster
+    }
+
     func zoomToLocation(_ coordinate: CLLocationCoordinate2D, zoomDepth: SurfMapZoomLevel) {
         let currentSpan = mapView.region.span
         var zoomedSpan: MKCoordinateSpan

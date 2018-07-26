@@ -1,6 +1,6 @@
 import UIKit
 
-class SurfSpotCollectionViewCell: UICollectionViewCell {
+class SurfSpotCollectionViewCell: DesignableCollectionViewCell {
     @IBOutlet weak var spotNameLabel: UILabel!
     @IBOutlet weak var countyLabel: UILabel!
     
