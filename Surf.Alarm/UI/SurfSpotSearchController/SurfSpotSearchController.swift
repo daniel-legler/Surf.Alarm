@@ -8,6 +8,7 @@ class SurfSpotSearchController: UIViewController {
     var filteredSpots: [SurfSpot] = []
 
     var searchController: UISearchController!
+    weak var delegate: SurfSpotSearchDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,9 +29,12 @@ class SurfSpotSearchController: UIViewController {
     }
     
     @IBAction func closeButtonTapped(_ sender: UIButton!) {
+        self.closeSearch()
+    }
+    
+    func closeSearch() {
         self.searchController.dismiss(animated: true)
         self.dismiss(animated: true, completion: nil)
-
     }
 }
 
@@ -60,7 +64,14 @@ extension SurfSpotSearchController: UISearchControllerDelegate, UISearchBarDeleg
 
 extension SurfSpotSearchController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO: Call some delegate
+        var spot: SurfSpot
+        if self.isSearching {
+            spot = filteredSpots[indexPath.row]
+        } else {
+            spot = surfSpots[indexPath.row]
+        }
+        self.delegate?.selectedSpot(coordinate: spot.coordinate)
+        self.closeSearch()
     }
 }
 

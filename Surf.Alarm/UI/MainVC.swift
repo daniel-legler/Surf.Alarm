@@ -2,11 +2,13 @@
 
 import UIKit
 import Rswift
+import MapKit
 
-class MainVC: UIViewController, SurfSpotMapDelegate {
+class MainVC: UIViewController {
 
     @IBOutlet weak var instructionsView: DesignableView!
-    @IBOutlet weak var mapContainer: UIView!
+    
+    var surfMap: SurfSpotsMapVC!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,8 +18,19 @@ class MainVC: UIViewController, SurfSpotMapDelegate {
         let searchVC = SurfSpotSearchController(nib: R.nib.surfSpotSearchController)
         searchVC.modalPresentationStyle = .custom
         searchVC.modalTransitionStyle = .crossDissolve
+        searchVC.delegate = self
         self.present(searchVC, animated: true)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let map = segue.destination as? SurfSpotsMapVC {
+            map.delegate = self
+            self.surfMap = map
+        }
+    }
+}
+
+extension MainVC: SurfSpotMapDelegate {
     
     func userInteractedWithMap() {
         UIView.animate(withDuration: 0.5, animations: {
@@ -26,10 +39,10 @@ class MainVC: UIViewController, SurfSpotMapDelegate {
             self.instructionsView?.removeFromSuperview()
         })
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let map = segue.destination as? SurfSpotsMapVC {
-            map.delegate = self
-        }
+}
+
+extension MainVC: SurfSpotSearchDelegate {
+    func selectedSpot(coordinate: CLLocationCoordinate2D) {
+        self.surfMap.zoomToLocation(coordinate, zoomDepth: .singleSpot)
     }
 }

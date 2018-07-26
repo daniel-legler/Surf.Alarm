@@ -47,6 +47,20 @@ class SurfSpotsMapVC: UIViewController {
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
+    func zoomToLocation(_ coordinate: CLLocationCoordinate2D, zoomDepth: SurfMapZoomLevel) {
+        let currentSpan = mapView.region.span
+        var zoomedSpan: MKCoordinateSpan
+        switch zoomDepth {
+        case .singleSpot:
+            zoomedSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+        case .cluster:
+            zoomedSpan = MKCoordinateSpan(latitudeDelta: currentSpan.latitudeDelta / 4.0,
+                                          longitudeDelta: currentSpan.longitudeDelta / 4.0)
+        }
+        let zoomed = MKCoordinateRegion(center: coordinate, span: zoomedSpan)
+        mapView.setRegion(zoomed, animated: true)
+    }
+    
 }
 
 extension SurfSpotsMapVC: MKMapViewDelegate {
@@ -64,11 +78,8 @@ extension SurfSpotsMapVC: MKMapViewDelegate {
 
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         if view is ClusterAnnotationView {
-            let currentSpan = mapView.region.span
-            let zoomSpan = MKCoordinateSpan(latitudeDelta: currentSpan.latitudeDelta / 4.0, longitudeDelta: currentSpan.longitudeDelta / 4.0)
-            let zoomCoordinate = view.annotation?.coordinate ?? mapView.region.center
-            let zoomed = MKCoordinateRegion(center: zoomCoordinate, span: zoomSpan)
-            mapView.setRegion(zoomed, animated: true)
+            let coordinate = view.annotation?.coordinate ?? self.mapView.centerCoordinate
+            self.zoomToLocation(coordinate, zoomDepth: .cluster)
         } else if view is SurfSpotAnnotationView {
             // Show collection view from bottom
         }

@@ -141,7 +141,6 @@
                     </view>
                     <connections>
                         <outlet property="instructionsView" destination="xEj-yR-ZAM" id="ahL-hK-mhQ"/>
-                        <outlet property="mapContainer" destination="L6O-43-m4z" id="MqR-jz-KRr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DX3-19-a3R" userLabel="First Responder" sceneMemberID="firstResponder"/>
