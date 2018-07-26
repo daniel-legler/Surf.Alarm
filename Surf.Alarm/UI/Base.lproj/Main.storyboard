@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="G3n-nD-DPX">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -12,70 +12,38 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Surf Spots MapVC-->
-        <scene sceneID="0Aa-xy-6Hn">
-            <objects>
-                <viewController id="4J8-yi-Sc7" customClass="SurfSpotsMapVC" customModule="Surf_Alarm" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="baY-Fj-cFX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="mutedStandard" pitchEnabled="NO" showsBuildings="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CSe-dR-t4k">
-                                <rect key="frame" x="0.0" y="20" width="375" height="627"/>
-                            </mapView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="CSe-dR-t4k" firstAttribute="top" secondItem="Nab-HC-UWf" secondAttribute="top" id="F7c-Oz-hsm"/>
-                            <constraint firstItem="Nab-HC-UWf" firstAttribute="trailing" secondItem="CSe-dR-t4k" secondAttribute="trailing" id="JtC-kN-Iu5"/>
-                            <constraint firstItem="Nab-HC-UWf" firstAttribute="bottom" secondItem="CSe-dR-t4k" secondAttribute="bottom" id="qFx-SQ-36P"/>
-                            <constraint firstItem="CSe-dR-t4k" firstAttribute="leading" secondItem="Nab-HC-UWf" secondAttribute="leading" id="w2g-Tq-WdN"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="Nab-HC-UWf"/>
-                    </view>
-                    <connections>
-                        <outlet property="mapView" destination="CSe-dR-t4k" id="FSj-1d-0q1"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Yb2-zn-q7v" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="993" y="671"/>
-        </scene>
         <!--MainVC-->
-        <scene sceneID="tne-QT-ifu">
+        <scene sceneID="qqz-9j-Rbn">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainVC" customModule="Surf_Alarm" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController id="G3n-nD-DPX" customClass="MainVC" customModule="Surf_Alarm" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="L6R-31-pCe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y2t-Jx-Ppf">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L6O-43-m4z">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <connections>
-                                    <segue destination="4J8-yi-Sc7" kind="embed" id="gsS-To-0kW"/>
+                                    <segue destination="GXR-u2-9cP" kind="embed" id="m3V-5X-J1N"/>
                                 </connections>
                             </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="60N-dV-9nP">
-                                <rect key="frame" x="0.0" y="451.5" width="375" height="215.5"/>
-                            </containerView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bGX-fG-e4h" userLabel="Search Button Container" customClass="DesignableView" customModule="Surf_Alarm" customModuleProvider="target">
-                                <rect key="frame" x="20" y="40" width="50" height="50"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vm6-JL-dhe" userLabel="Search Button Container" customClass="DesignableView" customModule="Surf_Alarm" customModuleProvider="target">
+                                <rect key="frame" x="20" y="40" width="44" height="44"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search" translatesAutoresizingMaskIntoConstraints="NO" id="55W-4u-pl7">
-                                        <rect key="frame" x="12.5" y="12.5" width="25" height="25"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search" translatesAutoresizingMaskIntoConstraints="NO" id="ZPa-Jf-HWi">
+                                        <rect key="frame" x="11" y="11" width="22" height="22"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="55W-4u-pl7" secondAttribute="height" multiplier="1:1" id="PJA-zx-9TV"/>
-                                            <constraint firstAttribute="width" constant="25" id="kaT-Li-ds5"/>
+                                            <constraint firstAttribute="width" secondItem="ZPa-Jf-HWi" secondAttribute="height" multiplier="1:1" id="G65-Mi-OCT"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" name="SurfTintPrimary"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="8In-K6-E8m"/>
-                                    <constraint firstAttribute="width" constant="50" id="ViP-S1-zqu"/>
-                                    <constraint firstItem="55W-4u-pl7" firstAttribute="centerX" secondItem="bGX-fG-e4h" secondAttribute="centerX" id="f3V-Dh-7VP"/>
-                                    <constraint firstItem="55W-4u-pl7" firstAttribute="centerY" secondItem="bGX-fG-e4h" secondAttribute="centerY" id="fy8-Rv-PU0"/>
+                                    <constraint firstItem="ZPa-Jf-HWi" firstAttribute="width" secondItem="vm6-JL-dhe" secondAttribute="width" multiplier="0.5" id="1Ig-XC-nAa"/>
+                                    <constraint firstItem="ZPa-Jf-HWi" firstAttribute="centerX" secondItem="vm6-JL-dhe" secondAttribute="centerX" id="Cpt-Rd-RSa"/>
+                                    <constraint firstAttribute="width" constant="44" id="oMl-4L-r3x"/>
+                                    <constraint firstItem="ZPa-Jf-HWi" firstAttribute="centerY" secondItem="vm6-JL-dhe" secondAttribute="centerY" id="s4f-vI-Bam"/>
+                                    <constraint firstAttribute="width" secondItem="vm6-JL-dhe" secondAttribute="height" multiplier="1:1" id="ziL-73-7p1"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -85,82 +53,77 @@
                                         <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="25"/>
+                                        <real key="value" value="22"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="tQZ-sh-84J" appends="YES" id="yQb-fJ-KI2"/>
+                                    <outletCollection property="gestureRecognizers" destination="BLS-Q0-wtb" appends="YES" id="qc6-nn-0Ve"/>
                                 </connections>
                             </view>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="60N-dV-9nP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7O6-po-xbk"/>
-                            <constraint firstItem="y2t-Jx-Ppf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="NIE-RS-gOm"/>
-                            <constraint firstItem="60N-dV-9nP" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="WZn-zw-jo3"/>
-                            <constraint firstItem="bGX-fG-e4h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="XZe-jc-SUU"/>
-                            <constraint firstItem="y2t-Jx-Ppf" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="de3-6a-ihd"/>
-                            <constraint firstItem="y2t-Jx-Ppf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="fRG-2D-JG9"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="y2t-Jx-Ppf" secondAttribute="bottom" id="i4R-jw-Xe9"/>
-                            <constraint firstItem="bGX-fG-e4h" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="tDT-UM-mTV"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="60N-dV-9nP" secondAttribute="trailing" id="w3p-vw-wzS"/>
-                            <constraint firstItem="60N-dV-9nP" firstAttribute="height" secondItem="y2t-Jx-Ppf" secondAttribute="height" multiplier="0.333" id="zKq-3l-t66"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="tQZ-sh-84J">
-                    <connections>
-                        <action selector="searchPressed:" destination="BYZ-38-t0r" id="3T0-nh-HhX"/>
-                    </connections>
-                </tapGestureRecognizer>
-            </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
-        </scene>
-        <!--Surf Spots CollectionVC-->
-        <scene sceneID="Q2j-CK-eNQ">
-            <objects>
-                <viewController id="oSa-kR-xJo" customClass="SurfSpotsCollectionVC" customModule="Surf_Alarm" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="D2f-Dk-R1d">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wFD-zl-6an">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewLayout key="collectionViewLayout" id="mkN-Nl-eSW" customClass="CenteredCollectionViewFlowLayout" customModule="CenteredCollectionView"/>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SurfSpotCollectionViewCell" id="BIu-rE-NDV" customClass="SurfSpotCollectionViewCell" customModule="Surf_Alarm" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </view>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CrM-Wy-LdV">
+                                <rect key="frame" x="0.0" y="452" width="375" height="215"/>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="wFD-zl-6an" secondAttribute="trailing" id="7GV-o1-3mr"/>
-                            <constraint firstAttribute="bottom" secondItem="wFD-zl-6an" secondAttribute="bottom" id="9VN-ek-HQr"/>
-                            <constraint firstItem="wFD-zl-6an" firstAttribute="top" secondItem="D2f-Dk-R1d" secondAttribute="top" id="VHC-db-ljp"/>
-                            <constraint firstItem="wFD-zl-6an" firstAttribute="leading" secondItem="D2f-Dk-R1d" secondAttribute="leading" id="dIk-Zb-azW"/>
+                            <constraint firstItem="CrM-Wy-LdV" firstAttribute="height" secondItem="Q09-3E-CyD" secondAttribute="height" multiplier="0.333" id="BWE-G6-dxq"/>
+                            <constraint firstItem="Q09-3E-CyD" firstAttribute="trailing" secondItem="CrM-Wy-LdV" secondAttribute="trailing" id="Bxg-1N-bZ7"/>
+                            <constraint firstItem="Q09-3E-CyD" firstAttribute="bottom" secondItem="CrM-Wy-LdV" secondAttribute="bottom" id="OC2-q2-5RM"/>
+                            <constraint firstItem="L6O-43-m4z" firstAttribute="top" secondItem="Q09-3E-CyD" secondAttribute="top" id="ZAW-c6-T1N"/>
+                            <constraint firstItem="vm6-JL-dhe" firstAttribute="top" secondItem="Q09-3E-CyD" secondAttribute="top" constant="20" id="dE2-tM-bmh"/>
+                            <constraint firstItem="L6O-43-m4z" firstAttribute="leading" secondItem="Q09-3E-CyD" secondAttribute="leading" id="hSA-Bf-mQ7"/>
+                            <constraint firstItem="Q09-3E-CyD" firstAttribute="bottom" secondItem="L6O-43-m4z" secondAttribute="bottom" id="hhG-j9-gtt"/>
+                            <constraint firstItem="Q09-3E-CyD" firstAttribute="trailing" secondItem="L6O-43-m4z" secondAttribute="trailing" id="jLU-R2-LfB"/>
+                            <constraint firstItem="CrM-Wy-LdV" firstAttribute="leading" secondItem="Q09-3E-CyD" secondAttribute="leading" id="pIU-Go-0JP"/>
+                            <constraint firstItem="vm6-JL-dhe" firstAttribute="width" secondItem="vm6-JL-dhe" secondAttribute="height" multiplier="1:1" id="q2q-PV-Qv8"/>
+                            <constraint firstItem="vm6-JL-dhe" firstAttribute="leading" secondItem="Q09-3E-CyD" secondAttribute="leading" constant="20" id="zGm-Rc-laR"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="ZyM-f6-xCG"/>
+                        <viewLayoutGuide key="safeArea" id="Q09-3E-CyD"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qe9-gq-qpB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DX3-19-a3R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="BLS-Q0-wtb">
+                    <connections>
+                        <action selector="searchPressed:" destination="G3n-nD-DPX" id="8td-6u-PJ4"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="894" y="-9"/>
+            <point key="canvasLocation" x="-562" y="671"/>
+        </scene>
+        <!--Surf Spots MapVC-->
+        <scene sceneID="jD9-g7-abY">
+            <objects>
+                <viewController id="GXR-u2-9cP" customClass="SurfSpotsMapVC" customModule="Surf_Alarm" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="z89-LC-r7m">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="YLI-WL-nmy">
+                                <rect key="frame" x="0.0" y="20" width="375" height="627"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Bnu-sv-pZB" firstAttribute="bottom" secondItem="YLI-WL-nmy" secondAttribute="bottom" id="IyH-xQ-IDw"/>
+                            <constraint firstItem="YLI-WL-nmy" firstAttribute="top" secondItem="Bnu-sv-pZB" secondAttribute="top" id="nQp-dQ-uui"/>
+                            <constraint firstItem="Bnu-sv-pZB" firstAttribute="trailing" secondItem="YLI-WL-nmy" secondAttribute="trailing" id="q8j-eQ-dtB"/>
+                            <constraint firstItem="YLI-WL-nmy" firstAttribute="leading" secondItem="Bnu-sv-pZB" secondAttribute="leading" id="wVw-Ov-4RJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Bnu-sv-pZB"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="YLI-WL-nmy" id="iQJ-07-63W"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DUi-p9-aQi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="226" y="500"/>
         </scene>
     </scenes>
     <resources>
         <image name="search" width="55" height="57"/>
         <namedColor name="SurfTintPrimary">
-            <color red="0.18823529411764706" green="0.24705882352941178" blue="0.62352941176470589" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.18823529410000001" green="0.2470588235" blue="0.62352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

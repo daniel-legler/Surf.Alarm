@@ -14,6 +14,10 @@ class SurfSpotSearchController: UIViewController {
         setupSearchController()
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
+    }
+    
     func setupSearchController() {
         self.searchController = UISearchController(searchResultsController: nil)
         self.searchController.delegate = self
@@ -24,6 +28,11 @@ class SurfSpotSearchController: UIViewController {
         self.tableView.tableHeaderView = self.searchController.searchBar
         self.definesPresentationContext = true  //default false
         self.searchController.searchBar.searchBarStyle = .minimal
+        self.searchController.searchBar.tintColor = R.color.surfTintPrimary()
+    }
+    
+    @IBAction func closeButtonTapped(_ sender: UIButton!) {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 
@@ -44,6 +53,10 @@ extension SurfSpotSearchController: UISearchControllerDelegate, UISearchBarDeleg
             })
             tableView.reloadData()
         }
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 
@@ -72,6 +85,7 @@ extension SurfSpotSearchController: UITableViewDataSource {
         cell.textLabel?.text = spot.name
         cell.detailTextLabel?.text = spot.county
         cell.textLabel?.textColor = R.color.surfTintPrimary()
+        cell.detailTextLabel?.textColor = UIColor.gray
         return cell
     }
 }

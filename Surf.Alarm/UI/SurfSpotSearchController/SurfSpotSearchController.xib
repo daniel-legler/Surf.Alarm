@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,23 +22,42 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TmG-5W-VTx">
-                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                    <rect key="frame" x="0.0" y="50" width="375" height="617"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="3aL-pO-1S3"/>
                         <outlet property="delegate" destination="-1" id="vNp-No-tHc"/>
                     </connections>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uvY-Fe-bvw">
+                    <rect key="frame" x="16" y="28" width="39" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="22" id="dwK-5C-zdo"/>
+                    </constraints>
+                    <state key="normal" title="Close">
+                        <color key="titleColor" name="SurfTintPrimary"/>
+                    </state>
+                    <connections>
+                        <action selector="closeButtonTapped:" destination="-1" eventType="touchUpInside" id="NLv-Zw-oNF"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="TmG-5W-VTx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="8qY-vX-e5O"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="TmG-5W-VTx" secondAttribute="trailing" id="JTt-Q9-Zs6"/>
-                <constraint firstItem="TmG-5W-VTx" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="LOg-bC-OfY"/>
+                <constraint firstItem="uvY-Fe-bvw" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="L9C-eC-klf"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="TmG-5W-VTx" secondAttribute="bottom" id="OuI-3f-sw6"/>
+                <constraint firstItem="uvY-Fe-bvw" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="lkz-FP-5Lm"/>
+                <constraint firstItem="TmG-5W-VTx" firstAttribute="top" secondItem="uvY-Fe-bvw" secondAttribute="bottom" id="xxs-re-1xh"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>
     </objects>
+    <resources>
+        <namedColor name="SurfTintPrimary">
+            <color red="0.18823529411764706" green="0.24705882352941178" blue="0.62352941176470589" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
