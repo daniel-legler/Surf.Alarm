@@ -7,6 +7,8 @@ import SpitcastSwift
 
 class SurfSpotsMapVC: UIViewController {
     
+    weak var delegate: SurfSpotMapDelegate?
+    
     let initialLocation = CLLocation(latitude: 36.603954, longitude: -121.898460)
     let regionRadius: CLLocationDistance = 1000000
     let allSpots = store.allSurfSpots
@@ -44,6 +46,7 @@ class SurfSpotsMapVC: UIViewController {
                                                                   regionRadius, regionRadius)
         mapView.setRegion(coordinateRegion, animated: true)
     }
+    
 }
 
 extension SurfSpotsMapVC: MKMapViewDelegate {
@@ -69,5 +72,22 @@ extension SurfSpotsMapVC: MKMapViewDelegate {
         } else if view is SurfSpotAnnotationView {
             // Show collection view from bottom
         }
+    }
+    
+    func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
+        if userInteractedWithMap() {
+            self.delegate?.userInteractedWithMap()
+        }
+    }
+    
+    func userInteractedWithMap() -> Bool {
+        if let gestureRecognizers = self.mapView.subviews.first?.gestureRecognizers {
+            for gestureRecognizer in gestureRecognizers {
+                if (gestureRecognizer.state == .began || gestureRecognizer.state == .ended) {
+                    return true
+                }
+            }
+        }
+        return false
     }
 }
