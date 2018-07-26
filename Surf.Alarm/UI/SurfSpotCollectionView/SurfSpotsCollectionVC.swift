@@ -18,16 +18,12 @@ class SurfSpotsCollectionVC: UIViewController {
         collectionView.decelerationRate = UIScrollViewDecelerationRateFast
         collectionView.delegate = self
         collectionView.dataSource = self
-        centeredCollectionViewFlowLayout.itemSize = CGSize(
-            width: view.bounds.width * 0.9,
-            height: collectionView.bounds.height
-        )
+        centeredCollectionViewFlowLayout.itemSize = CGSize(width: view.bounds.width * 0.9,
+                                                           height: collectionView.bounds.height)
         
         centeredCollectionViewFlowLayout.minimumLineSpacing = 15
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
-
-
     }
 }
 
@@ -49,10 +45,16 @@ extension SurfSpotsCollectionVC: UICollectionViewDataSource {
         }
         return UICollectionViewCell()
     }
-
 }
 
 // MARK: UICollectionViewDelegate
 extension SurfSpotsCollectionVC: UICollectionViewDelegate {
     
+}
+
+// MARK: SurfSpotCollectionViewDelegate
+extension SurfSpotsCollectionVC: SurfSpotCollectionViewDelegate {
+    func createAlarmPressed() {
+        
+    }
 }

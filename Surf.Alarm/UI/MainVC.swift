@@ -8,10 +8,17 @@ class MainVC: UIViewController {
 
     @IBOutlet weak var instructionsView: DesignableView!
     @IBOutlet weak var collectionContainerView: UIView!
+    @IBOutlet weak var collectionContainerAnchor: NSLayoutConstraint!
+    
     var surfMap: SurfSpotsMapVC!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.hideInstructionsBanner()
     }
     
     @IBAction func searchPressed(_ sender: Any) {
@@ -28,23 +35,41 @@ class MainVC: UIViewController {
             self.surfMap = map
         }
     }
+    
+    func hideInstructionsBanner() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            UIView.animate(withDuration: 0.5, animations: {
+                self.instructionsView?.alpha = 0
+            }, completion: { _ in
+                self.instructionsView?.removeFromSuperview()
+            })
+        }
+    }
+    
+    func moveSurfSpotCollectionView(hidden: Bool) {
+        UIView.animate(withDuration: 0.3) {
+            let bottomConstant = hidden ? self.collectionContainerView.frame.height : -10.0
+            self.collectionContainerAnchor.constant = bottomConstant
+            self.view.layoutIfNeeded()
+        }
+    }
 }
 
 extension MainVC: SurfSpotMapDelegate {
-    
     func userInteractedWithMap() {
-        UIView.animate(withDuration: 0.5, animations: {
-            self.instructionsView?.alpha = 0
-            self.collectionContainerView?.center.y += self.view.bounds.height
-        }, completion: { _ in
-            self.instructionsView?.removeFromSuperview()
-        })
+        self.moveSurfSpotCollectionView(hidden: true)
+    }
+    
+    func userTappedSurfSpot() {
+        self.moveSurfSpotCollectionView(hidden: false)
     }
 }
 
 extension MainVC: SurfSpotSearchDelegate {
-    func selectedSpot(coordinate: CLLocationCoordinate2D) {
-        self.userInteractedWithMap()
+    func userTappedSearchedSpot(coordinate: CLLocationCoordinate2D) {
         self.surfMap.zoomToLocation(coordinate, zoomDepth: .singleSpot)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.moveSurfSpotCollectionView(hidden: false)
+        }
     }
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="G3n-nD-DPX">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -17,20 +17,20 @@
             <objects>
                 <viewController id="G3n-nD-DPX" customClass="MainVC" customModule="Surf_Alarm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L6R-31-pCe">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L6O-43-m4z">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
                                 <connections>
                                     <segue destination="GXR-u2-9cP" kind="embed" identifier="EmbedMap" id="m3V-5X-J1N"/>
                                 </connections>
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xEj-yR-ZAM" userLabel="Prompt Container" customClass="DesignableView" customModule="Surf_Alarm" customModuleProvider="target">
-                                <rect key="frame" x="20" y="603" width="335" height="44"/>
+                                <rect key="frame" x="20" y="672" width="374" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search or scroll to find your favorite spot" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ct1-lZ-XqZ">
-                                        <rect key="frame" x="46" y="14.5" width="243" height="16"/>
+                                        <rect key="frame" x="65.666666666666686" y="14.666666666666629" width="243" height="15.666666666666664"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -89,7 +89,7 @@
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AJn-rj-vY3" userLabel="Alarm Button Container" customClass="DesignableView" customModule="Surf_Alarm" customModuleProvider="target">
-                                <rect key="frame" x="311" y="40" width="44" height="44"/>
+                                <rect key="frame" x="350" y="40" width="44" height="44"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="alarm" translatesAutoresizingMaskIntoConstraints="NO" id="SFy-Sp-QqO">
                                         <rect key="frame" x="9" y="9" width="26" height="26"/>
@@ -120,7 +120,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ccE-qf-KFx" userLabel="Spot Collection Container">
-                                <rect key="frame" x="0.0" y="452" width="375" height="215"/>
+                                <rect key="frame" x="0.0" y="798" width="414" height="238"/>
                                 <connections>
                                     <segue destination="aSR-Dc-2Xc" kind="embed" id="sH3-I8-B31"/>
                                 </connections>
@@ -129,7 +129,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="AJn-rj-vY3" firstAttribute="top" secondItem="Q09-3E-CyD" secondAttribute="top" constant="20" id="4dA-AI-Fvo"/>
-                            <constraint firstItem="ccE-qf-KFx" firstAttribute="bottom" secondItem="Q09-3E-CyD" secondAttribute="bottom" id="FWA-4C-Jsn"/>
+                            <constraint firstItem="ccE-qf-KFx" firstAttribute="bottom" secondItem="Q09-3E-CyD" secondAttribute="bottom" constant="300" id="FWA-4C-Jsn"/>
                             <constraint firstItem="Q09-3E-CyD" firstAttribute="trailing" secondItem="AJn-rj-vY3" secondAttribute="trailing" constant="20" id="GoX-5S-mds"/>
                             <constraint firstItem="Q09-3E-CyD" firstAttribute="bottom" secondItem="xEj-yR-ZAM" secondAttribute="bottom" constant="20" id="KLS-PG-6Hr"/>
                             <constraint firstItem="Q09-3E-CyD" firstAttribute="trailing" secondItem="xEj-yR-ZAM" secondAttribute="trailing" constant="20" id="Lgk-v6-ryD"/>
@@ -150,6 +150,7 @@
                         <viewLayoutGuide key="safeArea" id="Q09-3E-CyD"/>
                     </view>
                     <connections>
+                        <outlet property="collectionContainerAnchor" destination="FWA-4C-Jsn" id="CZN-Xd-qMt"/>
                         <outlet property="collectionContainerView" destination="ccE-qf-KFx" id="WOK-ia-HiY"/>
                         <outlet property="instructionsView" destination="xEj-yR-ZAM" id="ahL-hK-mhQ"/>
                     </connections>
@@ -168,16 +169,15 @@
             <objects>
                 <viewController id="GXR-u2-9cP" customClass="SurfSpotsMapVC" customModule="Surf_Alarm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="z89-LC-r7m">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="mutedStandard" pitchEnabled="NO" showsBuildings="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLI-WL-nmy">
-                                <rect key="frame" x="0.0" y="20" width="375" height="627"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="696"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="BEy-Dc-8Wg" appends="YES" id="n8a-iN-21s"/>
                                     <outletCollection property="gestureRecognizers" destination="ODe-z7-loG" appends="YES" id="ki6-RQ-7OO"/>
-                                    <outletCollection property="gestureRecognizers" destination="Mu4-pF-Ea5" appends="YES" id="ml2-9b-LU1"/>
                                 </connections>
                             </mapView>
                         </subviews>
@@ -195,9 +195,8 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DUi-p9-aQi" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="BEy-Dc-8Wg"/>
-                <pinchGestureRecognizer id="ODe-z7-loG"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="Mu4-pF-Ea5"/>
+                <tapGestureRecognizer cancelsTouchesInView="NO" id="BEy-Dc-8Wg"/>
+                <pinchGestureRecognizer cancelsTouchesInView="NO" id="ODe-z7-loG"/>
             </objects>
             <point key="canvasLocation" x="226" y="500"/>
         </scene>
@@ -206,11 +205,11 @@
             <objects>
                 <viewController id="aSR-Dc-2Xc" customClass="SurfSpotsCollectionVC" customModule="Surf_Alarm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ezQ-6k-37T">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="215"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="238"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="oZv-VL-z8Q">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="215"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="238"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewLayout key="collectionViewLayout" id="HDS-06-1FI" customClass="CenteredCollectionViewFlowLayout" customModule="CenteredCollectionView"/>
                                 <cells>

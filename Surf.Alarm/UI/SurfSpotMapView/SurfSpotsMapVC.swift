@@ -82,11 +82,12 @@ extension SurfSpotsMapVC: MKMapViewDelegate {
     }
 
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        let coordinate = view.annotation?.coordinate ?? self.mapView.centerCoordinate
         if view is ClusterAnnotationView {
-            let coordinate = view.annotation?.coordinate ?? self.mapView.centerCoordinate
             self.zoomToLocation(coordinate, zoomDepth: .cluster)
         } else if view is SurfSpotAnnotationView {
-            // Show collection view from bottom
+            self.zoomToLocation(coordinate, zoomDepth: .singleSpot)
+            self.delegate?.userTappedSurfSpot()
         }
     }
     
@@ -94,6 +95,10 @@ extension SurfSpotsMapVC: MKMapViewDelegate {
         if userInteractedWithMap() {
             self.delegate?.userInteractedWithMap()
         }
+    }
+    
+    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        self.delegate?.userInteractedWithMap()
     }
     
     func userInteractedWithMap() -> Bool {

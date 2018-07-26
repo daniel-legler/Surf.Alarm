@@ -70,7 +70,7 @@ extension SurfSpotSearchController: UITableViewDelegate {
         } else {
             spot = surfSpots[indexPath.row]
         }
-        self.delegate?.selectedSpot(coordinate: spot.coordinate)
+        self.delegate?.userTappedSearchedSpot(coordinate: spot.coordinate)
         self.closeSearch()
     }
 }
