@@ -88,13 +88,48 @@
                                     <outletCollection property="gestureRecognizers" destination="BLS-Q0-wtb" appends="YES" id="qc6-nn-0Ve"/>
                                 </connections>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AJn-rj-vY3" userLabel="Alarm Button Container" customClass="DesignableView" customModule="Surf_Alarm" customModuleProvider="target">
+                                <rect key="frame" x="311" y="40" width="44" height="44"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="alarm" translatesAutoresizingMaskIntoConstraints="NO" id="SFy-Sp-QqO">
+                                        <rect key="frame" x="9" y="9" width="26" height="26"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="SFy-Sp-QqO" secondAttribute="height" multiplier="1:1" id="a6d-gD-fMa"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" name="SurfTintPrimary"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="SFy-Sp-QqO" firstAttribute="centerX" secondItem="AJn-rj-vY3" secondAttribute="centerX" id="MGw-Am-cE4"/>
+                                    <constraint firstItem="SFy-Sp-QqO" firstAttribute="centerY" secondItem="AJn-rj-vY3" secondAttribute="centerY" id="aUf-Ne-pKr"/>
+                                    <constraint firstAttribute="width" secondItem="AJn-rj-vY3" secondAttribute="height" multiplier="1:1" id="ayw-Gz-Ewa"/>
+                                    <constraint firstItem="SFy-Sp-QqO" firstAttribute="width" secondItem="AJn-rj-vY3" secondAttribute="width" multiplier="0.6" id="ghw-NY-nJl"/>
+                                    <constraint firstAttribute="width" constant="44" id="yBp-Nu-Iuc"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="22"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="AJn-rj-vY3" firstAttribute="top" secondItem="Q09-3E-CyD" secondAttribute="top" constant="20" id="4dA-AI-Fvo"/>
+                            <constraint firstItem="Q09-3E-CyD" firstAttribute="trailing" secondItem="AJn-rj-vY3" secondAttribute="trailing" constant="20" id="GoX-5S-mds"/>
                             <constraint firstItem="Q09-3E-CyD" firstAttribute="bottom" secondItem="xEj-yR-ZAM" secondAttribute="bottom" constant="20" id="KLS-PG-6Hr"/>
                             <constraint firstItem="Q09-3E-CyD" firstAttribute="trailing" secondItem="xEj-yR-ZAM" secondAttribute="trailing" constant="20" id="Lgk-v6-ryD"/>
                             <constraint firstItem="xEj-yR-ZAM" firstAttribute="leading" secondItem="Q09-3E-CyD" secondAttribute="leading" constant="20" id="VLf-lP-fHb"/>
+                            <constraint firstItem="AJn-rj-vY3" firstAttribute="width" secondItem="AJn-rj-vY3" secondAttribute="height" multiplier="1:1" id="Yxi-Wc-YXj"/>
                             <constraint firstItem="L6O-43-m4z" firstAttribute="top" secondItem="Q09-3E-CyD" secondAttribute="top" id="ZAW-c6-T1N"/>
+                            <constraint firstItem="AJn-rj-vY3" firstAttribute="width" secondItem="AJn-rj-vY3" secondAttribute="height" multiplier="1:1" id="bDu-jf-VfJ"/>
                             <constraint firstItem="vm6-JL-dhe" firstAttribute="top" secondItem="Q09-3E-CyD" secondAttribute="top" constant="20" id="dE2-tM-bmh"/>
                             <constraint firstItem="L6O-43-m4z" firstAttribute="leading" secondItem="Q09-3E-CyD" secondAttribute="leading" id="hSA-Bf-mQ7"/>
                             <constraint firstItem="Q09-3E-CyD" firstAttribute="bottom" secondItem="L6O-43-m4z" secondAttribute="bottom" id="hhG-j9-gtt"/>
@@ -158,9 +193,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="alarm" width="48" height="48"/>
         <image name="search" width="55" height="57"/>
         <namedColor name="SurfTintPrimary">
             <color red="0.18823529411764706" green="0.24705882352941178" blue="0.62352941176470589" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SurfTintPrimary">
+            <color red="0.18823529410000001" green="0.2470588235" blue="0.62352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="SurfTintPrimary">
             <color red="0.18823529410000001" green="0.2470588235" blue="0.62352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

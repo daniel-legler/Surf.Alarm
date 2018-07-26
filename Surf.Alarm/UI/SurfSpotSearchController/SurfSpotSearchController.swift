@@ -14,10 +14,6 @@ class SurfSpotSearchController: UIViewController {
         setupSearchController()
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .default
-    }
-    
     func setupSearchController() {
         self.searchController = UISearchController(searchResultsController: nil)
         self.searchController.delegate = self
@@ -32,7 +28,9 @@ class SurfSpotSearchController: UIViewController {
     }
     
     @IBAction func closeButtonTapped(_ sender: UIButton!) {
+        self.searchController.dismiss(animated: true)
         self.dismiss(animated: true, completion: nil)
+
     }
 }
 

@@ -20,7 +20,11 @@ class MainVC: UIViewController, SurfSpotMapDelegate {
     }
     
     func userInteractedWithMap() {
-        self.instructionsView?.removeFromSuperview()
+        UIView.animate(withDuration: 0.5, animations: {
+            self.instructionsView?.alpha = 0
+        }, completion: { _ in
+            self.instructionsView?.removeFromSuperview()
+        })
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
