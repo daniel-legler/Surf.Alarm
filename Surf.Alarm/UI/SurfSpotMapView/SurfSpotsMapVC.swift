@@ -7,6 +7,8 @@ import SpitcastSwift
 
 class SurfSpotsMapVC: UIViewController {
     
+    @IBOutlet weak var mapView: MKMapView!
+
     weak var delegate: SurfSpotMapDelegate?
     
     let initialLocation = CLLocation(latitude: 36.603954, longitude: -121.898460)
@@ -22,8 +24,6 @@ class SurfSpotsMapVC: UIViewController {
             return annotation
         })
     }
-    
-    @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +51,13 @@ class SurfSpotsMapVC: UIViewController {
         case singleSpot
         case cluster
     }
+    
+    func moveMapToSurfSpot(at coordinate: CLLocationCoordinate2D) {
+        self.zoomToLocation(coordinate, zoomDepth: .singleSpot)
+        if let annotation = self.getAnnotationAt(coordinate: coordinate) {
+            self.mapView.selectAnnotation(annotation, animated: true)
+        }
+    }
 
     func zoomToLocation(_ coordinate: CLLocationCoordinate2D, zoomDepth: SurfMapZoomLevel) {
         let currentSpan = mapView.region.span
@@ -64,6 +71,12 @@ class SurfSpotsMapVC: UIViewController {
         }
         let zoomed = MKCoordinateRegion(center: coordinate, span: zoomedSpan)
         mapView.setRegion(zoomed, animated: true)
+    }
+    
+    func getAnnotationAt(coordinate: CLLocationCoordinate2D) -> MKAnnotation? {
+        return self.mapView.annotations.first(where: { (annotation) -> Bool in
+            return annotation.coordinate == coordinate
+        })
     }
     
 }
@@ -85,7 +98,7 @@ extension SurfSpotsMapVC: MKMapViewDelegate {
         let coordinate = view.annotation?.coordinate ?? self.mapView.centerCoordinate
         if view is ClusterAnnotationView {
             self.zoomToLocation(coordinate, zoomDepth: .cluster)
-        } else if view is SurfSpotAnnotationView {
+        } else if view is SurfSpotAnnotationView && userInteractedWithMap() {
             self.zoomToLocation(coordinate, zoomDepth: .singleSpot)
             self.delegate?.userTappedSurfSpot()
         }
