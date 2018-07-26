@@ -1,4 +1,5 @@
 import UIKit
+import RealmSwift
 
 class SurfSpotCollectionViewCell: DesignableCollectionViewCell {
     @IBOutlet weak var spotNameLabel: UILabel!
@@ -14,19 +15,38 @@ class SurfSpotCollectionViewCell: DesignableCollectionViewCell {
         
     }
 
-    func configureCell(_ forecast: SurfForecast) {
-        self.spotNameLabel.text = forecast.name
-        
-        self.heightLabel.text = forecast.waveHeight.toSurfRange()
-        self.windLabel.text = forecast.windReport
-        self.tideLabel.text = forecast.tideReport
+    var token: NotificationToken?
+    var spot: SurfSpot!
+    
+    func configureCell(_ spot: SurfSpot) {
+        Coordinator.refreshForecast(for: spot)
+        self.spot = spot
+        self.spotNameLabel.text = spot.name
+        self.countyLabel.text = spot.county
+        let forecast = store.currentSpotForecast(spot)
+        self.updateForecast(forecast)
+        self.token = spot.observe({ (change) in
+            switch change {
+            case .change(let properties):
+                for property in properties where property.name == "updatedAt" {
+                    let forecast = store.currentSpotForecast(spot)
+                    DispatchQueue.main.async {
+                        self.updateForecast(forecast)
+                    }
+                }
+            case .error(let error):
+                print("🌊Error: \(error.localizedDescription)")
+            case .deleted:
+                print("🌊Error: SurfSpot object was deleted")
+            }
+        })
     }
     
-    func configureUI() {
-        self.layer.masksToBounds = true
-        self.layer.cornerRadius = 6.0
-
-        self.createAlarmButton.layer.masksToBounds = true
-        self.createAlarmButton.layer.cornerRadius = 6.0
+    func updateForecast(_ forecast: SurfForecast?) {
+        if let forecast = forecast {
+            self.heightLabel.text = forecast.waveHeight.toSurfRange()
+            self.windLabel.text = forecast.windReport
+            self.tideLabel.text = forecast.tideReport
+        }
     }
 }

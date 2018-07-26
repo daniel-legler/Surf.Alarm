@@ -2,12 +2,14 @@ import UIKit
 import Rswift
 import RealmSwift
 import CenteredCollectionView
+import MapKit
 
 class SurfSpotsCollectionVC: UIViewController {
         
     @IBOutlet weak var collectionView: UICollectionView!
     var centeredCollectionViewFlowLayout: CenteredCollectionViewFlowLayout!
-
+    weak var delegate: SurfSpotsCollectionDelegate?
+    
     let spots = store.objects(SurfSpot.self).sorted(byKeyPath: "latitude")
     
     override func viewDidLoad() {
@@ -25,6 +27,19 @@ class SurfSpotsCollectionVC: UIViewController {
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
     }
+    
+    func selectSpot(at coordinate: CLLocationCoordinate2D) {
+        if let index = indexPathForSpot(at: coordinate) {
+            self.collectionView.selectItem(at: index, animated: false, scrollPosition: .centeredHorizontally)
+        }
+    }
+    
+    private func indexPathForSpot(at coordinate: CLLocationCoordinate2D) -> IndexPath? {
+        guard let spotIndex = spots.index(where: { $0.coordinate == coordinate }) else {
+            return nil
+        }
+        return IndexPath(item: spotIndex, section: 1)
+    }
 }
 
 // MARK: UICollectionViewDataSource
@@ -36,11 +51,13 @@ extension SurfSpotsCollectionVC: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return spots.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.surfSpotCell, for: indexPath) {
+            cell.configureCell(spots[indexPath.item])
             return cell
         }
         return UICollectionViewCell()
@@ -49,12 +66,5 @@ extension SurfSpotsCollectionVC: UICollectionViewDataSource {
 
 // MARK: UICollectionViewDelegate
 extension SurfSpotsCollectionVC: UICollectionViewDelegate {
-    
-}
 
-// MARK: SurfSpotCollectionViewDelegate
-extension SurfSpotsCollectionVC: SurfSpotCollectionViewDelegate {
-    func createAlarmPressed() {
-        
-    }
 }

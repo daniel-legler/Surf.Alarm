@@ -11,6 +11,7 @@ class MainVC: UIViewController {
     @IBOutlet weak var collectionContainerAnchor: NSLayoutConstraint!
     
     var surfMap: SurfSpotsMapVC!
+    var spotCollection: SurfSpotsCollectionVC!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +34,9 @@ class MainVC: UIViewController {
         if let map = segue.destination as? SurfSpotsMapVC {
             map.delegate = self
             self.surfMap = map
+        } else if let collection = segue.destination as? SurfSpotsCollectionVC {
+            collection.delegate = self
+            self.spotCollection = collection
         }
     }
     
@@ -52,6 +56,12 @@ class MainVC: UIViewController {
             self.collectionContainerAnchor.constant = bottomConstant
             self.view.layoutIfNeeded()
         }
+    }
+}
+
+extension MainVC: SurfSpotsCollectionDelegate {
+    func createAlarmPressed() {
+        
     }
 }
 

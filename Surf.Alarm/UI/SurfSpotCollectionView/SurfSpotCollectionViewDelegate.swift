@@ -1,6 +1,6 @@
 // Surf.Alarm
 
 import UIKit
-protocol SurfSpotCollectionViewDelegate {
+protocol SurfSpotsCollectionDelegate: class {
     func createAlarmPressed()
 }

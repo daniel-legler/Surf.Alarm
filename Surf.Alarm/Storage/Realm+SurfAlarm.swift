@@ -2,6 +2,8 @@ import Foundation
 import RealmSwift
 import SpitcastSwift
 
+let store = try! Realm()
+
 extension Realm {
     
     // MARK: - SurfSpot
@@ -26,9 +28,15 @@ extension Realm {
     
     // MARK: - SurfForecasts
     
-    func currentSpotForecast(spotId: Int) -> SurfForecast? {
-        let forecastsForSpot = self.objects(SurfForecast.self).filter("spotId = %@", spotId)
-        let futureForecasts = forecastsForSpot.filter("date > %@", Date())
+    func shouldRefreshForecast(for spot: SurfSpot) -> Bool {
+        if let twelveHoursAgo = Calendar.current.date(byAdding: .hour, value: -12, to: Date()) {
+            return spot.updatedAt < twelveHoursAgo
+        }
+        return true
+    }
+    
+    func currentSpotForecast(_ spot: SurfSpot) -> SurfForecast? {
+        let futureForecasts = spot.forecasts.filter("date > %@", Date())
         let sortedFutureForecasts = futureForecasts.sorted(byKeyPath: "date")
         return sortedFutureForecasts.first
     }
@@ -37,12 +45,21 @@ extension Realm {
         do {
             try write {
                 self.add(forecasts, update: true)
+                forecasts.first?.surfSpot?.updatedAt = Date()
             }
         } catch {
             print("🌊Error: \(error.localizedDescription)")
         }
     }
+
+//    func forecastWasUpdated(for spot: SurfSpot) {
+//        do {
+//            try write {
+//                spot.updatedAt = Date()
+//            }
+//        } catch {
+//            print("🌊Error: \(error.localizedDescription)")
+//        }
+//    }
     
 }
-
-let store = try! Realm()

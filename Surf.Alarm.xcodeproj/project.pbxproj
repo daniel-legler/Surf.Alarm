@@ -13,7 +13,7 @@
 		7408647E20F7144B00C62E29 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7408647C20F7144B00C62E29 /* LaunchScreen.storyboard */; };
 		74308F7A20FAE885004A608B /* SurfSpotsMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74308F7920FAE885004A608B /* SurfSpotsMapVC.swift */; };
 		74308F7E20FAE9C8004A608B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74308F7D20FAE9C8004A608B /* Constants.swift */; };
-		743C835620F97C6E0062B994 /* SurfModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743C835520F97C6E0062B994 /* SurfModel.swift */; };
+		743C835620F97C6E0062B994 /* SurfSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743C835520F97C6E0062B994 /* SurfSpot.swift */; };
 		743C835820F9A2B90062B994 /* API Examples.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 743C835720F9A2B90062B994 /* API Examples.rtf */; };
 		743C835C20FA82FD0062B994 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743C835B20FA82FD0062B994 /* Coordinator.swift */; };
 		744E73A12105868900C2EF0C /* SurfSpotAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744E73A02105868900C2EF0C /* SurfSpotAnnotationView.swift */; };
@@ -23,6 +23,7 @@
 		745E5BA921099EC70075A851 /* SurfSpotSearchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745E5BA821099EC70075A851 /* SurfSpotSearchDelegate.swift */; };
 		745E5BAD210A1F630075A851 /* SurfSpotCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745E5BAC210A1F630075A851 /* SurfSpotCollectionViewDelegate.swift */; };
 		745E5BB1210A3A2E0075A851 /* CLLocationCoordinate2D+Equality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745E5BB0210A3A2E0075A851 /* CLLocationCoordinate2D+Equality.swift */; };
+		745E5BB3210A62550075A851 /* SurfForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745E5BB2210A62550075A851 /* SurfForecast.swift */; };
 		7468C16020F9519B00EE9663 /* Realm+SurfAlarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7468C15F20F9519B00EE9663 /* Realm+SurfAlarm.swift */; };
 		74BCAD2D2106BFC200711DD8 /* SurfSpotSearchController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74BCAD2C2106BFC200711DD8 /* SurfSpotSearchController.xib */; };
 		74C5CFAE20FA8621004AEF35 /* SurfSpotCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74C5CFAD20FA8621004AEF35 /* SurfSpotCell.xib */; };
@@ -45,7 +46,7 @@
 		7408647F20F7144B00C62E29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74308F7920FAE885004A608B /* SurfSpotsMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotsMapVC.swift; sourceTree = "<group>"; };
 		74308F7D20FAE9C8004A608B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		743C835520F97C6E0062B994 /* SurfModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfModel.swift; sourceTree = "<group>"; };
+		743C835520F97C6E0062B994 /* SurfSpot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpot.swift; sourceTree = "<group>"; };
 		743C835720F9A2B90062B994 /* API Examples.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "API Examples.rtf"; sourceTree = "<group>"; };
 		743C835B20FA82FD0062B994 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		744E73A02105868900C2EF0C /* SurfSpotAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotAnnotationView.swift; sourceTree = "<group>"; };
@@ -55,6 +56,7 @@
 		745E5BA821099EC70075A851 /* SurfSpotSearchDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotSearchDelegate.swift; sourceTree = "<group>"; };
 		745E5BAC210A1F630075A851 /* SurfSpotCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		745E5BB0210A3A2E0075A851 /* CLLocationCoordinate2D+Equality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Equality.swift"; sourceTree = "<group>"; };
+		745E5BB2210A62550075A851 /* SurfForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfForecast.swift; sourceTree = "<group>"; };
 		7468C14A20F8EFDD00EE9663 /* Surf.Alarm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Surf.Alarm.entitlements; sourceTree = "<group>"; };
 		7468C15F20F9519B00EE9663 /* Realm+SurfAlarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Realm+SurfAlarm.swift"; sourceTree = "<group>"; };
 		74BCAD2C2106BFC200711DD8 /* SurfSpotSearchController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SurfSpotSearchController.xib; sourceTree = "<group>"; };
@@ -151,7 +153,8 @@
 			isa = PBXGroup;
 			children = (
 				7468C15F20F9519B00EE9663 /* Realm+SurfAlarm.swift */,
-				743C835520F97C6E0062B994 /* SurfModel.swift */,
+				743C835520F97C6E0062B994 /* SurfSpot.swift */,
+				745E5BB2210A62550075A851 /* SurfForecast.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -361,9 +364,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				745E5BB3210A62550075A851 /* SurfForecast.swift in Sources */,
 				74C5CFB120FABBA3004AEF35 /* SurfSpotCell.swift in Sources */,
 				745E5BA3210972F80075A851 /* MainVC.swift in Sources */,
-				743C835620F97C6E0062B994 /* SurfModel.swift in Sources */,
+				743C835620F97C6E0062B994 /* SurfSpot.swift in Sources */,
 				745E5BA721098FDE0075A851 /* SurfSpotMapDelegate.swift in Sources */,
 				7408647120F7144A00C62E29 /* AppDelegate.swift in Sources */,
 				745E5BB1210A3A2E0075A851 /* CLLocationCoordinate2D+Equality.swift in Sources */,

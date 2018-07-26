@@ -1,33 +1,8 @@
+// Surf.Alarm
+
 import Foundation
 import RealmSwift
 import SpitcastSwift
-import MapKit
-
-@objcMembers
-class SurfSpot: Object {
-    dynamic var spotId = 0
-    dynamic var name: String = ""
-    dynamic var county: String = ""
-    dynamic var latitude: Double = 0.0
-    dynamic var longitude: Double = 0.0
-
-    override static func primaryKey() -> String? {
-        return "spotId"
-    }
-    
-    convenience init(_ spitcast: SCSurfSpot) {
-        self.init()
-        self.spotId = spitcast.spotId
-        self.county = spitcast.county
-        self.name = spitcast.name
-        self.latitude = spitcast.latitude
-        self.longitude = spitcast.longitude
-    }
-    
-    var coordinate: CLLocationCoordinate2D {
-        return CLLocationCoordinate2DMake(latitude, longitude)
-    }
-}
 
 @objcMembers
 class SurfForecast: Object {
@@ -40,6 +15,7 @@ class SurfForecast: Object {
     dynamic var swellReport: String = ""
     dynamic var tideReport: String = ""
     dynamic var windReport: String = ""
+    dynamic var surfSpot: SurfSpot?
     
     convenience init(_ spitcast: SCForecast) {
         self.init()
@@ -54,4 +30,3 @@ class SurfForecast: Object {
         self.waveHeight = spitcast.size
     }
 }
-

@@ -13,4 +13,21 @@ class Coordinator {
             })
         }
     }
+    
+    static func refreshForecast(for spot: SurfSpot) {
+        guard store.shouldRefreshForecast(for: spot) else {
+            return
+        }
+        
+        SpitcastAPI.spotForecast(id: spot.spotId) { (result) in
+            result.withValue({ (forecasts) in
+                let forecasts = forecasts.map({SurfForecast($0)})
+                store.addSurfForecasts(forecasts)
+//                store.forecastWasUpdated(for: spot)
+            })
+            result.withError({ (error) in
+                print("🌊Error: \(error.localizedDescription)")
+            })
+        }
+    }
 }
