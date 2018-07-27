@@ -9,6 +9,7 @@ target 'Surf.Alarm' do
   pod 'Alamofire'
   pod 'RealmSwift'
   pod 'R.swift'
+  pod 'SkeletonView'
   pod 'CenteredCollectionView'
 
 end

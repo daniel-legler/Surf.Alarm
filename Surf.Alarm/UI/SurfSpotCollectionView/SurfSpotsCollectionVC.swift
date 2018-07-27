@@ -10,7 +10,7 @@ class SurfSpotsCollectionVC: UIViewController {
     var centeredCollectionViewFlowLayout: CenteredCollectionViewFlowLayout!
     weak var delegate: SurfSpotsCollectionDelegate?
     
-    let spots = store.objects(SurfSpot.self).sorted(byKeyPath: "latitude")
+    let spots = store.objects(SurfSpot.self).sorted(byKeyPath: "latitude", ascending: false)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,16 +30,21 @@ class SurfSpotsCollectionVC: UIViewController {
     }
     
     func scrollToSurfSpot(at coordinate: CLLocationCoordinate2D) {
-        if let indexPath = indexPathForSpot(at: coordinate) {
-            self.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
+        if let index = indexForSpot(at: coordinate) {
+            self.scrollToSpotIndex(index)
         }
     }
     
-    private func indexPathForSpot(at coordinate: CLLocationCoordinate2D) -> IndexPath? {
+    func scrollToSpotIndex(_ index: Int) {
+        let indexPath = IndexPath(item: index, section: 0)
+        self.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
+    }
+
+    private func indexForSpot(at coordinate: CLLocationCoordinate2D) -> Int? {
         guard let spotIndex = spots.index(where: { $0.coordinate == coordinate }) else {
             return nil
         }
-        return IndexPath(item: spotIndex, section: 0)
+        return spotIndex
     }
 }
 
@@ -58,7 +63,9 @@ extension SurfSpotsCollectionVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.surfSpotCell, for: indexPath) {
-            cell.configureCell(spots[indexPath.item])
+            let spot = spots[indexPath.item]
+            Coordinator.refreshForecast(for: spot)
+            cell.configureCell(spot)
             return cell
         }
         return UICollectionViewCell()
@@ -66,6 +73,20 @@ extension SurfSpotsCollectionVC: UICollectionViewDataSource {
 }
 
 // MARK: UICollectionViewDelegate
-extension SurfSpotsCollectionVC: UICollectionViewDelegate {
 
+extension SurfSpotsCollectionVC: UICollectionViewDelegate {
+    
+    func didScrollToSurfSpot() {
+        if let index = centeredCollectionViewFlowLayout.currentCenteredPage {
+            self.delegate?.didScrollToSurfSpot(spots[index])
+        }
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        didScrollToSurfSpot()
+    }
+    
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        didScrollToSurfSpot()
+    }
 }

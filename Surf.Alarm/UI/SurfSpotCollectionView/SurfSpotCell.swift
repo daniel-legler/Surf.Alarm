@@ -2,6 +2,7 @@ import UIKit
 import RealmSwift
 
 class SurfSpotCollectionViewCell: DesignableCollectionViewCell {
+
     @IBOutlet weak var spotNameLabel: UILabel!
     @IBOutlet weak var countyLabel: UILabel!
     
@@ -19,7 +20,6 @@ class SurfSpotCollectionViewCell: DesignableCollectionViewCell {
     var spot: SurfSpot!
     
     func configureCell(_ spot: SurfSpot) {
-        Coordinator.refreshForecast(for: spot)
         self.spot = spot
         self.spotNameLabel.text = spot.name
         self.countyLabel.text = spot.county
@@ -49,4 +49,5 @@ class SurfSpotCollectionViewCell: DesignableCollectionViewCell {
             self.tideLabel.text = forecast.tideReport
         }
     }
+    
 }

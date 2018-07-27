@@ -59,7 +59,7 @@ class SurfSpotsMapVC: UIViewController {
         }
     }
 
-    func zoomToLocation(_ coordinate: CLLocationCoordinate2D, zoomDepth: SurfMapZoomLevel) {
+    private func zoomToLocation(_ coordinate: CLLocationCoordinate2D, zoomDepth: SurfMapZoomLevel) {
         let currentSpan = mapView.region.span
         var zoomedSpan: MKCoordinateSpan
         switch zoomDepth {
@@ -111,7 +111,7 @@ extension SurfSpotsMapVC: MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-        self.delegate?.userInteractedWithMap()
+//        self.delegate?.userInteractedWithMap()
     }
     
     func userInteractedWithMap() -> Bool {

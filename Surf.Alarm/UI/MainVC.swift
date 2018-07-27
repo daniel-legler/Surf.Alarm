@@ -63,6 +63,10 @@ extension MainVC: SurfSpotsCollectionDelegate {
     func createAlarmPressed() {
         
     }
+    
+    func didScrollToSurfSpot(_ spot: SurfSpot) {
+        self.surfMap.moveMapToSurfSpot(at: spot.coordinate)
+    }
 }
 
 extension MainVC: SurfSpotMapDelegate {
