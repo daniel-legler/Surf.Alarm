@@ -25,6 +25,12 @@
 		745E5BB1210A3A2E0075A851 /* CLLocationCoordinate2D+Equality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745E5BB0210A3A2E0075A851 /* CLLocationCoordinate2D+Equality.swift */; };
 		745E5BB3210A62550075A851 /* SurfForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745E5BB2210A62550075A851 /* SurfForecast.swift */; };
 		745E5BB5210ADD500075A851 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745E5BB4210ADD500075A851 /* Alarm.swift */; };
+		745E5BB8210ADFE40075A851 /* SurfAlarmBuilderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745E5BB6210ADFE40075A851 /* SurfAlarmBuilderVC.swift */; };
+		745E5BBC210AE30A0075A851 /* SurfAlarmBuilder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 745E5BBB210AE30A0075A851 /* SurfAlarmBuilder.storyboard */; };
+		745E5BBF210B55C70075A851 /* SurfHeightSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745E5BBD210B55C70075A851 /* SurfHeightSelectorCell.swift */; };
+		745E5BC0210B55C70075A851 /* SurfHeightSelectorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 745E5BBE210B55C70075A851 /* SurfHeightSelectorCell.xib */; };
+		745E5BC2210B636F0075A851 /* AddAlarmButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745E5BC1210B636F0075A851 /* AddAlarmButton.swift */; };
+		745E5BC4210B6CE10075A851 /* AlarmDaysTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745E5BC3210B6CE10075A851 /* AlarmDaysTableVC.swift */; };
 		7468C16020F9519B00EE9663 /* Realm+SurfAlarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7468C15F20F9519B00EE9663 /* Realm+SurfAlarm.swift */; };
 		74BCAD2D2106BFC200711DD8 /* SurfSpotSearchController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74BCAD2C2106BFC200711DD8 /* SurfSpotSearchController.xib */; };
 		74C5CFAE20FA8621004AEF35 /* SurfSpotCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74C5CFAD20FA8621004AEF35 /* SurfSpotCell.xib */; };
@@ -59,6 +65,12 @@
 		745E5BB0210A3A2E0075A851 /* CLLocationCoordinate2D+Equality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Equality.swift"; sourceTree = "<group>"; };
 		745E5BB2210A62550075A851 /* SurfForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfForecast.swift; sourceTree = "<group>"; };
 		745E5BB4210ADD500075A851 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
+		745E5BB6210ADFE40075A851 /* SurfAlarmBuilderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfAlarmBuilderVC.swift; sourceTree = "<group>"; };
+		745E5BBB210AE30A0075A851 /* SurfAlarmBuilder.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SurfAlarmBuilder.storyboard; sourceTree = "<group>"; };
+		745E5BBD210B55C70075A851 /* SurfHeightSelectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfHeightSelectorCell.swift; sourceTree = "<group>"; };
+		745E5BBE210B55C70075A851 /* SurfHeightSelectorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SurfHeightSelectorCell.xib; sourceTree = "<group>"; };
+		745E5BC1210B636F0075A851 /* AddAlarmButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmButton.swift; sourceTree = "<group>"; };
+		745E5BC3210B6CE10075A851 /* AlarmDaysTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDaysTableVC.swift; sourceTree = "<group>"; };
 		7468C14A20F8EFDD00EE9663 /* Surf.Alarm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Surf.Alarm.entitlements; sourceTree = "<group>"; };
 		7468C15F20F9519B00EE9663 /* Realm+SurfAlarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Realm+SurfAlarm.swift"; sourceTree = "<group>"; };
 		74BCAD2C2106BFC200711DD8 /* SurfSpotSearchController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SurfSpotSearchController.xib; sourceTree = "<group>"; };
@@ -143,12 +155,24 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		745E5B9F210958870075A851 /* Views */ = {
+		745E5B9F210958870075A851 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				745E5BA0210958930075A851 /* DesignableViews.swift */,
 			);
-			path = Views;
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		745E5BBA210ADFED0075A851 /* SurfAlarmBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				745E5BB6210ADFE40075A851 /* SurfAlarmBuilderVC.swift */,
+				745E5BBB210AE30A0075A851 /* SurfAlarmBuilder.storyboard */,
+				745E5BBD210B55C70075A851 /* SurfHeightSelectorCell.swift */,
+				745E5BBE210B55C70075A851 /* SurfHeightSelectorCell.xib */,
+				745E5BC3210B6CE10075A851 /* AlarmDaysTableVC.swift */,
+			);
+			path = SurfAlarmBuilder;
 			sourceTree = "<group>";
 		};
 		7468C15020F9227400EE9663 /* Storage */ = {
@@ -165,14 +189,15 @@
 		7468C15120F9228400EE9663 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				745E5B9F210958870075A851 /* Views */,
-				74FFBE22210661BC00DB03E5 /* SurfSpotSearchController */,
-				74C5CFAF20FABB82004AEF35 /* SurfSpotCollectionView */,
-				74C5CFB220FABEB2004AEF35 /* SurfSpotMapView */,
 				7408647420F7144A00C62E29 /* Main.storyboard */,
 				745E5BA2210972F80075A851 /* MainVC.swift */,
 				7408647C20F7144B00C62E29 /* LaunchScreen.storyboard */,
 				7408647A20F7144B00C62E29 /* Assets.xcassets */,
+				745E5BBA210ADFED0075A851 /* SurfAlarmBuilder */,
+				74FFBE22210661BC00DB03E5 /* SurfSpotSearchController */,
+				74C5CFAF20FABB82004AEF35 /* SurfSpotCollectionView */,
+				74C5CFB220FABEB2004AEF35 /* SurfSpotMapView */,
+				745E5B9F210958870075A851 /* Helpers */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -195,6 +220,7 @@
 				74C5CFB020FABBA3004AEF35 /* SurfSpotCell.swift */,
 				74C5CFB620FAC151004AEF35 /* SurfSpotsCollectionVC.swift */,
 				745E5BAC210A1F630075A851 /* SurfSpotCollectionViewDelegate.swift */,
+				745E5BC1210B636F0075A851 /* AddAlarmButton.swift */,
 			);
 			path = SurfSpotCollectionView;
 			sourceTree = "<group>";
@@ -294,6 +320,8 @@
 				7408647B20F7144B00C62E29 /* Assets.xcassets in Resources */,
 				74BCAD2D2106BFC200711DD8 /* SurfSpotSearchController.xib in Resources */,
 				743C835820F9A2B90062B994 /* API Examples.rtf in Resources */,
+				745E5BC0210B55C70075A851 /* SurfHeightSelectorCell.xib in Resources */,
+				745E5BBC210AE30A0075A851 /* SurfAlarmBuilder.storyboard in Resources */,
 				7408647620F7144A00C62E29 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,7 +372,6 @@
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SkeletonView/SkeletonView.framework",
 				"${BUILT_PRODUCTS_DIR}/SpitcastSwift/SpitcastSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -354,7 +381,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkeletonView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SpitcastSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -370,13 +396,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				745E5BB3210A62550075A851 /* SurfForecast.swift in Sources */,
+				745E5BC4210B6CE10075A851 /* AlarmDaysTableVC.swift in Sources */,
 				74C5CFB120FABBA3004AEF35 /* SurfSpotCell.swift in Sources */,
+				745E5BBF210B55C70075A851 /* SurfHeightSelectorCell.swift in Sources */,
 				745E5BA3210972F80075A851 /* MainVC.swift in Sources */,
 				743C835620F97C6E0062B994 /* SurfSpot.swift in Sources */,
 				745E5BA721098FDE0075A851 /* SurfSpotMapDelegate.swift in Sources */,
 				745E5BB5210ADD500075A851 /* Alarm.swift in Sources */,
 				7408647120F7144A00C62E29 /* AppDelegate.swift in Sources */,
 				745E5BB1210A3A2E0075A851 /* CLLocationCoordinate2D+Equality.swift in Sources */,
+				745E5BC2210B636F0075A851 /* AddAlarmButton.swift in Sources */,
 				74FFBE25210661DF00DB03E5 /* SurfSpotSearchController.swift in Sources */,
 				7468C16020F9519B00EE9663 /* Realm+SurfAlarm.swift in Sources */,
 				74C5CFC420FAC608004AEF35 /* R.generated.swift in Sources */,
@@ -389,6 +418,7 @@
 				744E73A12105868900C2EF0C /* SurfSpotAnnotationView.swift in Sources */,
 				74FFBE2121061E5200DB03E5 /* ClusterAnnotationView.swift in Sources */,
 				74308F7A20FAE885004A608B /* SurfSpotsMapVC.swift in Sources */,
+				745E5BB8210ADFE40075A851 /* SurfAlarmBuilderVC.swift in Sources */,
 				745E5BAD210A1F630075A851 /* SurfSpotCollectionViewDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

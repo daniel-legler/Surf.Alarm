@@ -47,13 +47,12 @@ class SurfSpotsCollectionVC: UIViewController {
     }
     
     func scrollToSurfSpot(at coordinate: CLLocationCoordinate2D) {
-        collectionView.reloadData()
         if let index = indexForSpot(at: coordinate) {
             self.scrollToSpotIndex(index)
         }
     }
     
-    func scrollToSpotIndex(_ index: Int) {
+    private func scrollToSpotIndex(_ index: Int) {
         let indexPath = IndexPath(item: index, section: 0)
         self.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
     }
@@ -65,7 +64,7 @@ class SurfSpotsCollectionVC: UIViewController {
         return spotIndex
     }
     
-    func userScrolledToSpot() {
+    private func userScrolledToSpot() {
         if let index = centeredCollectionViewFlowLayout.currentCenteredPage {
             self.delegate?.userScrolledToSurfSpot(spots[index])
         }
@@ -79,6 +78,9 @@ class SurfSpotsCollectionVC: UIViewController {
         userScrolledToSpot()
     }
 
+    @objc func addAlarmTapped(_ sender: AddAlarmButton!) {
+        self.delegate?.userTappedAddAlarm(to: sender.spot)
+    }
 }
 
 // MARK: UICollectionViewDataSource
@@ -99,10 +101,11 @@ extension SurfSpotsCollectionVC: UICollectionViewDataSource {
             
             let spot = spots[indexPath.item]
             Coordinator.refreshForecast(for: spot)
-
             let forecast = store.currentSpotForecast(spot)
+            
             cell.configure(spot)
             cell.updateForecast(forecast)
+            cell.createAlarmButton.addTarget(self, action: #selector(self.addAlarmTapped(_:)), for: .touchUpInside)
             return cell
         }
         return UICollectionViewCell()

@@ -37,6 +37,15 @@ class MainVC: UIViewController {
         } else if let collection = segue.destination as? SurfSpotsCollectionVC {
             collection.delegate = self
             self.spotCollection = collection
+        } else if segue.identifier == R.segue.mainVC.showAlarmBuilder.identifier {
+            guard
+                let navController = segue.destination as? UINavigationController,
+                let alarmBuilder = navController.topViewController as? SurfAlarmBuilderVC,
+                let spot = sender as? SurfSpot
+            else {
+                    return
+            }
+            alarmBuilder.surfSpot = spot
         }
     }
     
@@ -59,13 +68,13 @@ class MainVC: UIViewController {
     }
 }
 
-extension MainVC: SurfSpotsCollectionDelegate {
-    func createAlarmPressed() {
-        
-    }
-    
+extension MainVC: SurfSpotsCollectionDelegate {    
     func userScrolledToSurfSpot(_ spot: SurfSpot) {
         self.surfMap.moveMapToSurfSpot(at: spot.coordinate)
+    }
+    
+    func userTappedAddAlarm(to spot: SurfSpot) {
+        self.performSegue(withIdentifier: R.segue.mainVC.showAlarmBuilder, sender: spot)
     }
 }
 

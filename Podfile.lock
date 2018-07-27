@@ -9,7 +9,6 @@ PODS:
   - Realm/Headers (3.7.5)
   - RealmSwift (3.7.5):
     - Realm (= 3.7.5)
-  - SkeletonView (1.2.3)
   - SpitcastSwift (0.0.2):
     - Alamofire
 
@@ -18,7 +17,6 @@ DEPENDENCIES:
   - CenteredCollectionView
   - R.swift
   - RealmSwift
-  - SkeletonView
   - SpitcastSwift
 
 SPEC REPOS:
@@ -29,7 +27,6 @@ SPEC REPOS:
     - R.swift.Library
     - Realm
     - RealmSwift
-    - SkeletonView
     - SpitcastSwift
 
 SPEC CHECKSUMS:
@@ -39,9 +36,8 @@ SPEC CHECKSUMS:
   R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
   Realm: c286caf4dbf346ce24aad49ca76c7ce622d4a082
   RealmSwift: 2a9281e37d6de55f66f76254d49d28aeb1b729e4
-  SkeletonView: 6a5772bc32783f4c3e1f818a7d8680d42701dc80
   SpitcastSwift: 985b283db3a1ace8dc71f8e98efd87fd3e2f3757
 
-PODFILE CHECKSUM: cd74fbf547ba5ae2b41b80b8a1235411c02bf601
+PODFILE CHECKSUM: 75ba8ab4acbfe4586f4527b6600f4b073800ae2f
 
 COCOAPODS: 1.5.3

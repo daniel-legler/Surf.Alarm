@@ -10,16 +10,13 @@ class SurfSpotCollectionViewCell: DesignableCollectionViewCell {
     @IBOutlet weak var windLabel: UILabel!
     @IBOutlet weak var tideLabel: UILabel!
     
-    @IBOutlet weak var createAlarmButton: UIButton!
+    @IBOutlet weak var createAlarmButton: AddAlarmButton!
     
-    @IBAction func createAlarmPressed(_ sender: UIButton!) {
-        
-    }
-
     var spot: SurfSpot!
     
     func configure(_ spot: SurfSpot) {
         self.spot = spot
+        self.createAlarmButton.spot = spot
         self.spotNameLabel.text = spot.name
         self.countyLabel.text = spot.county
     }

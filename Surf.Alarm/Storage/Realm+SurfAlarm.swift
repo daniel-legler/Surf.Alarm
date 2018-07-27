@@ -6,6 +6,17 @@ let store = try! Realm()
 
 extension Realm {
     
+    func writeBlock(_ block: () -> Void) {
+        do {
+            try write {
+                block()
+            }
+        }
+        catch {
+            print("🌊Error: \(error.localizedDescription)")
+        }
+    }
+
     // MARK: - SurfSpot
     
     var allSurfSpots: Results<SurfSpot> {
@@ -17,12 +28,8 @@ extension Realm {
     }
     
     func updateSurfSpots(_ spots: [SurfSpot]) {
-        do {
-            try write {
-                self.add(spots, update: true)
-            }
-        } catch {
-            print("🌊Error: \(error.localizedDescription)")
+        writeBlock {
+            self.add(spots, update: true)
         }
     }
     
@@ -42,14 +49,22 @@ extension Realm {
     }
     
     func updateSurfForecasts(_ forecasts: [SurfForecast], for spot: SurfSpot) {
-        do {
-            try write {
-                self.delete(objects(SurfForecast.self).filter("spotId = %@", spot.spotId))
-                self.add(forecasts)
-                spot.updatedAt = Date()
-            }
-        } catch {
-            print("🌊Error: \(error.localizedDescription)")
+        writeBlock {
+            self.delete(objects(SurfForecast.self).filter("spotId = %@", spot.spotId))
+            self.add(forecasts)
+            spot.updatedAt = Date()
         }
+    }
+    
+    // MARK: - Surf Alarms
+    
+    func saveAlarm(_ alarm: SurfAlarm) {
+        writeBlock {
+            self.add(alarm, update: true)
+        }
+    }
+    
+    func allAlarms() -> Results<SurfAlarm> {
+        return self.objects(SurfAlarm.self)
     }
 }
