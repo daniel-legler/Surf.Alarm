@@ -74,8 +74,9 @@ extension MainVC: SurfSpotMapDelegate {
         self.moveSurfSpotCollectionView(hidden: true)
     }
     
-    func userTappedSurfSpot() {
+    func userTappedSurfSpot(at coordinate: CLLocationCoordinate2D) {
         self.moveSurfSpotCollectionView(hidden: false)
+        self.spotCollection.scrollToSurfSpot(at: coordinate)
     }
 }
 

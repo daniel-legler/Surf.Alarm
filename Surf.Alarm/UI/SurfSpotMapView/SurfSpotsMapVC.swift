@@ -78,7 +78,6 @@ class SurfSpotsMapVC: UIViewController {
             return annotation.coordinate == coordinate
         })
     }
-    
 }
 
 extension SurfSpotsMapVC: MKMapViewDelegate {
@@ -100,7 +99,7 @@ extension SurfSpotsMapVC: MKMapViewDelegate {
             self.zoomToLocation(coordinate, zoomDepth: .cluster)
         } else if view is SurfSpotAnnotationView && userInteractedWithMap() {
             self.zoomToLocation(coordinate, zoomDepth: .singleSpot)
-            self.delegate?.userTappedSurfSpot()
+            self.delegate?.userTappedSurfSpot(at: coordinate)
         }
     }
     
@@ -108,10 +107,6 @@ extension SurfSpotsMapVC: MKMapViewDelegate {
         if userInteractedWithMap() {
             self.delegate?.userInteractedWithMap()
         }
-    }
-    
-    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-//        self.delegate?.userInteractedWithMap()
     }
     
     func userInteractedWithMap() -> Bool {

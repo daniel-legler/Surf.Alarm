@@ -10,7 +10,9 @@ class SurfSpotsCollectionVC: UIViewController {
     var centeredCollectionViewFlowLayout: CenteredCollectionViewFlowLayout!
     weak var delegate: SurfSpotsCollectionDelegate?
     
-    let spots = store.objects(SurfSpot.self).sorted(byKeyPath: "latitude", ascending: false)
+    static let realm = try! Realm()
+    let spots = realm.objects(SurfSpot.self).sorted(byKeyPath: "latitude", ascending: false)
+    var token: NotificationToken?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +29,23 @@ class SurfSpotsCollectionVC: UIViewController {
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.reloadData()
+        
+        token = spots.observe({ [weak self] (changes: RealmCollectionChange) in
+            switch changes {
+            case .update(_, let deletions, let insertions, let modifications):
+                self?.collectionView.performBatchUpdates({
+                    self?.collectionView.insertItems(at: insertions.map({IndexPath(item: $0, section: 0)}))
+                    self?.collectionView.deleteItems(at: deletions.map({IndexPath(item: $0, section: 0)}))
+                    self?.collectionView.reloadItems(at: modifications.map({IndexPath(item: $0, section: 0)}))
+                }, completion: nil)
+            default:
+                break
+            }
+        })
+    }
+    
+    deinit {
+        token?.invalidate()
     }
     
     func scrollToSurfSpot(at coordinate: CLLocationCoordinate2D) {
@@ -63,9 +82,13 @@ extension SurfSpotsCollectionVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.surfSpotCell, for: indexPath) {
+            
             let spot = spots[indexPath.item]
             Coordinator.refreshForecast(for: spot)
-            cell.configureCell(spot)
+
+            let forecast = store.currentSpotForecast(spot)
+            cell.configure(spot)
+            cell.updateForecast(forecast)
             return cell
         }
         return UICollectionViewCell()

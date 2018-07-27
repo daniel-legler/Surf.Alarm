@@ -5,5 +5,5 @@ import UIKit
 
 protocol SurfSpotMapDelegate: class {
     func userInteractedWithMap()
-    func userTappedSurfSpot()
+    func userTappedSurfSpot(at coordinate: CLLocationCoordinate2D)
 }

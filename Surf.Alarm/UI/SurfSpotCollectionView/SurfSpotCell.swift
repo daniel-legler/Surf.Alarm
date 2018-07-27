@@ -16,30 +16,12 @@ class SurfSpotCollectionViewCell: DesignableCollectionViewCell {
         
     }
 
-    var token: NotificationToken?
     var spot: SurfSpot!
     
-    func configureCell(_ spot: SurfSpot) {
+    func configure(_ spot: SurfSpot) {
         self.spot = spot
         self.spotNameLabel.text = spot.name
         self.countyLabel.text = spot.county
-        let forecast = store.currentSpotForecast(spot)
-        self.updateForecast(forecast)
-        self.token = spot.observe({ (change) in
-            switch change {
-            case .change(let properties):
-                for property in properties where property.name == "updatedAt" {
-                    let forecast = store.currentSpotForecast(spot)
-                    DispatchQueue.main.async {
-                        self.updateForecast(forecast)
-                    }
-                }
-            case .error(let error):
-                print("🌊Error: \(error.localizedDescription)")
-            case .deleted:
-                print("🌊Error: SurfSpot object was deleted")
-            }
-        })
     }
     
     func updateForecast(_ forecast: SurfForecast?) {
