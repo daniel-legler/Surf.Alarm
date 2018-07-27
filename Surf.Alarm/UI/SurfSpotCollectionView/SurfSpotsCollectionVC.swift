@@ -20,8 +20,9 @@ class SurfSpotsCollectionVC: UIViewController {
         centeredCollectionViewFlowLayout = collectionView.collectionViewLayout as! CenteredCollectionViewFlowLayout
         collectionView.decelerationRate = UIScrollViewDecelerationRateFast
         collectionView.dataSource = self
+        collectionView.delegate = self
         centeredCollectionViewFlowLayout.itemSize = CGSize(width: view.bounds.width * 0.9,
-                                                           height: collectionView.bounds.height)
+                                                           height: collectionView.bounds.height * 0.9)
         
         centeredCollectionViewFlowLayout.minimumLineSpacing = 15
         collectionView.showsVerticalScrollIndicator = false
@@ -73,14 +74,6 @@ class SurfSpotsCollectionVC: UIViewController {
         }
     }
     
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        userScrolledToSpot()
-    }
-    
-    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-        userScrolledToSpot()
-    }
-
     @objc func addAlarmTapped(_ sender: AddAlarmButton!) {
         self.delegate?.userTappedAddAlarm(to: sender.spot)
     }
@@ -111,5 +104,15 @@ extension SurfSpotsCollectionVC: UICollectionViewDataSource {
             return cell
         }
         return UICollectionViewCell()
+    }
+}
+
+extension SurfSpotsCollectionVC: UICollectionViewDelegate {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        userScrolledToSpot()
+    }
+    
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        userScrolledToSpot()
     }
 }
