@@ -44,17 +44,20 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tQU-UV-Z6L">
-                                <rect key="frame" x="20" y="73" width="252" height="41.5"/>
+                            <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="tQU-UV-Z6L">
+                                <rect key="frame" x="0.0" y="73" width="292" height="41.5"/>
                                 <subviews>
-                                    <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="P6d-Yb-kva">
-                                        <rect key="frame" x="0.0" y="0.0" width="121" height="41.5"/>
+                                    <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="P6d-Yb-kva">
+                                        <rect key="frame" x="0.0" y="0.0" width="146" height="41.5"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wind" translatesAutoresizingMaskIntoConstraints="NO" id="Sec-jb-lle">
-                                                <rect key="frame" x="0.0" y="0.0" width="60.5" height="41.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="41.5" height="41.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="Sec-jb-lle" secondAttribute="height" multiplier="1:1" id="Njn-Su-pqE"/>
+                                                </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" text="Fair" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jRz-OY-int" userLabel="Fair">
-                                                <rect key="frame" x="60.5" y="9" width="60.5" height="24"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" text="Fair" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jRz-OY-int" userLabel="Fair">
+                                                <rect key="frame" x="51.5" y="0.0" width="94.5" height="41.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="20"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -67,14 +70,17 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="XMY-zS-yNh">
-                                        <rect key="frame" x="131" y="0.0" width="121" height="41.5"/>
+                                    <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="XMY-zS-yNh">
+                                        <rect key="frame" x="146" y="0.0" width="146" height="41.5"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tide" translatesAutoresizingMaskIntoConstraints="NO" id="O6C-0r-v9k">
-                                                <rect key="frame" x="0.0" y="0.0" width="60.5" height="41.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="41.5" height="41.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="O6C-0r-v9k" secondAttribute="height" multiplier="1:1" id="Xdy-SM-MCY"/>
+                                                </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Low" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pSL-S3-O7F">
-                                                <rect key="frame" x="60.5" y="9" width="60.5" height="24"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Poor-Fair" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pSL-S3-O7F">
+                                                <rect key="frame" x="51.5" y="0.0" width="94.5" height="41.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="20"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -92,9 +98,9 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="1n8-jD-FmZ" firstAttribute="width" secondItem="iy7-2H-ied" secondAttribute="width" multiplier="0.5" id="AiU-7g-OXd"/>
-                            <constraint firstAttribute="trailing" secondItem="tQU-UV-Z6L" secondAttribute="trailing" constant="20" id="ETO-kq-mdY"/>
+                            <constraint firstItem="tQU-UV-Z6L" firstAttribute="leading" secondItem="iy7-2H-ied" secondAttribute="leading" id="Gb2-8x-NNq"/>
+                            <constraint firstAttribute="trailing" secondItem="tQU-UV-Z6L" secondAttribute="trailing" id="ZND-VI-HcZ"/>
                             <constraint firstItem="1n8-jD-FmZ" firstAttribute="height" secondItem="iy7-2H-ied" secondAttribute="height" multiplier="0.55" id="b7u-II-JLa"/>
-                            <constraint firstItem="tQU-UV-Z6L" firstAttribute="leading" secondItem="iy7-2H-ied" secondAttribute="leading" constant="20" id="qGe-m8-bma"/>
                         </constraints>
                     </stackView>
                     <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="25o-IF-Fdg">

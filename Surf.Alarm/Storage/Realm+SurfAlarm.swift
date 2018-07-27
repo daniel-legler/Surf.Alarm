@@ -41,7 +41,7 @@ extension Realm {
         return sortedFutureForecasts.first
     }
     
-    func updateSurfForecasts(_ forecasts: [SurfForecast], to spot: SurfSpot) {
+    func updateSurfForecasts(_ forecasts: [SurfForecast], for spot: SurfSpot) {
         do {
             try write {
                 self.delete(objects(SurfForecast.self).filter("spotId = %@", spot.spotId))

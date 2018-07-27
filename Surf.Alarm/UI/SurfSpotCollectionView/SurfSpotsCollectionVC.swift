@@ -49,6 +49,7 @@ class SurfSpotsCollectionVC: UIViewController {
     }
     
     func scrollToSurfSpot(at coordinate: CLLocationCoordinate2D) {
+        collectionView.reloadData()
         if let index = indexForSpot(at: coordinate) {
             self.scrollToSpotIndex(index)
         }
