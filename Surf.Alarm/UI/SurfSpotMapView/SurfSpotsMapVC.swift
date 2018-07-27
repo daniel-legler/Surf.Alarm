@@ -1,6 +1,7 @@
 // Surf.Alarm
 
 import UIKit
+import Rswift
 import MapKit
 import RealmSwift
 import SpitcastSwift
@@ -11,8 +12,6 @@ class SurfSpotsMapVC: UIViewController {
 
     weak var delegate: SurfSpotMapDelegate?
     
-    let initialLocation = CLLocation(latitude: 36.603954, longitude: -121.898460)
-    let regionRadius: CLLocationDistance = 1000000
     let allSpots = store.allSurfSpots
     
     var allAnnotations: [MKPointAnnotation] {
@@ -36,15 +35,16 @@ class SurfSpotsMapVC: UIViewController {
         
         mapView.delegate = self
         
-        centerMapOnLocation(initialLocation)
+        setInitialLocation()
 
         mapView.addAnnotations(allAnnotations)
     }
     
-    func centerMapOnLocation(_ location: CLLocation) {
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
-                                                                  regionRadius, regionRadius)
-        mapView.setRegion(coordinateRegion, animated: true)
+    func setInitialLocation() {
+        let center = CLLocationCoordinate2D(latitude: 37, longitude: -121)
+        let radius: CLLocationDistance = 1000000
+        let region = MKCoordinateRegionMakeWithDistance(center, radius, radius)
+        mapView.setRegion(region, animated: true)
     }
     
     enum SurfMapZoomLevel {
@@ -78,9 +78,21 @@ class SurfSpotsMapVC: UIViewController {
             return annotation.coordinate == coordinate
         })
     }
+    
+    func userInteractedWithMap() -> Bool {
+        if let gestureRecognizers = self.mapView.subviews.first?.gestureRecognizers {
+            for gestureRecognizer in gestureRecognizers {
+                if (gestureRecognizer.state == .began || gestureRecognizer.state == .ended) {
+                    return true
+                }
+            }
+        }
+        return false
+    }
 }
 
 extension SurfSpotsMapVC: MKMapViewDelegate {
+    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKClusterAnnotation {
             let clusterView = mapView.dequeueReusableAnnotationView(withIdentifier: "clusterView") as? ClusterAnnotationView
@@ -107,16 +119,5 @@ extension SurfSpotsMapVC: MKMapViewDelegate {
         if userInteractedWithMap() {
             self.delegate?.userInteractedWithMap()
         }
-    }
-    
-    func userInteractedWithMap() -> Bool {
-        if let gestureRecognizers = self.mapView.subviews.first?.gestureRecognizers {
-            for gestureRecognizer in gestureRecognizers {
-                if (gestureRecognizer.state == .began || gestureRecognizer.state == .ended) {
-                    return true
-                }
-            }
-        }
-        return false
     }
 }

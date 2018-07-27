@@ -10,8 +10,7 @@ class SurfSpotsCollectionVC: UIViewController {
     var centeredCollectionViewFlowLayout: CenteredCollectionViewFlowLayout!
     weak var delegate: SurfSpotsCollectionDelegate?
     
-    static let realm = try! Realm()
-    let spots = realm.objects(SurfSpot.self).sorted(byKeyPath: "latitude", ascending: false)
+    let spots = store.objects(SurfSpot.self).sorted(byKeyPath: "latitude", ascending: false)
     var token: NotificationToken?
     
     override func viewDidLoad() {
@@ -20,7 +19,6 @@ class SurfSpotsCollectionVC: UIViewController {
                                 forCellWithReuseIdentifier: R.reuseIdentifier.surfSpotCell.identifier)
         centeredCollectionViewFlowLayout = collectionView.collectionViewLayout as! CenteredCollectionViewFlowLayout
         collectionView.decelerationRate = UIScrollViewDecelerationRateFast
-        collectionView.delegate = self
         collectionView.dataSource = self
         centeredCollectionViewFlowLayout.itemSize = CGSize(width: view.bounds.width * 0.9,
                                                            height: collectionView.bounds.height)
@@ -66,6 +64,21 @@ class SurfSpotsCollectionVC: UIViewController {
         }
         return spotIndex
     }
+    
+    func userScrolledToSpot() {
+        if let index = centeredCollectionViewFlowLayout.currentCenteredPage {
+            self.delegate?.userScrolledToSurfSpot(spots[index])
+        }
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        userScrolledToSpot()
+    }
+    
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        userScrolledToSpot()
+    }
+
 }
 
 // MARK: UICollectionViewDataSource
@@ -93,24 +106,5 @@ extension SurfSpotsCollectionVC: UICollectionViewDataSource {
             return cell
         }
         return UICollectionViewCell()
-    }
-}
-
-// MARK: UICollectionViewDelegate
-
-extension SurfSpotsCollectionVC: UICollectionViewDelegate {
-    
-    func didScrollToSurfSpot() {
-        if let index = centeredCollectionViewFlowLayout.currentCenteredPage {
-            self.delegate?.didScrollToSurfSpot(spots[index])
-        }
-    }
-    
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        didScrollToSurfSpot()
-    }
-    
-    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-        didScrollToSurfSpot()
     }
 }

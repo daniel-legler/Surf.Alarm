@@ -3,5 +3,5 @@
 import UIKit
 protocol SurfSpotsCollectionDelegate: class {
     func createAlarmPressed()
-    func didScrollToSurfSpot(_ spot: SurfSpot)
+    func userScrolledToSurfSpot(_ spot: SurfSpot)
 }

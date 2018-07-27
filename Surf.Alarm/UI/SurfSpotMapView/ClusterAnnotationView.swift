@@ -3,7 +3,7 @@ import MapKit
 import Rswift
 
 class ClusterAnnotationView: MKMarkerAnnotationView {
-    
+        
     override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
         collisionMode = .circle

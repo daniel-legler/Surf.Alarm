@@ -64,7 +64,7 @@ extension MainVC: SurfSpotsCollectionDelegate {
         
     }
     
-    func didScrollToSurfSpot(_ spot: SurfSpot) {
+    func userScrolledToSurfSpot(_ spot: SurfSpot) {
         self.surfMap.moveMapToSurfSpot(at: spot.coordinate)
     }
 }
