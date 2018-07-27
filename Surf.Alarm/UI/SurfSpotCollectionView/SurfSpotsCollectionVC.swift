@@ -47,13 +47,16 @@ class SurfSpotsCollectionVC: UIViewController {
     }
     
     func scrollToSurfSpot(at coordinate: CLLocationCoordinate2D) {
-        if let index = indexForSpot(at: coordinate) {
-            self.scrollToSpotIndex(index)
+        guard let index = indexForSpot(at: coordinate) else {
+            print("Error: Couldn't determine collection index for coordinate")
+            return
         }
+        self.scrollToSpotIndex(index)
     }
     
     private func scrollToSpotIndex(_ index: Int) {
         let indexPath = IndexPath(item: index, section: 0)
+        self.collectionView.reloadItems(at: [indexPath])
         self.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
     }
 
@@ -102,7 +105,6 @@ extension SurfSpotsCollectionVC: UICollectionViewDataSource {
             let spot = spots[indexPath.item]
             Coordinator.refreshForecast(for: spot)
             let forecast = store.currentSpotForecast(spot)
-            
             cell.configure(spot)
             cell.updateForecast(forecast)
             cell.createAlarmButton.addTarget(self, action: #selector(self.addAlarmTapped(_:)), for: .touchUpInside)
