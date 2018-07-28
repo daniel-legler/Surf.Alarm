@@ -120,4 +120,10 @@ extension SurfSpotsMapVC: MKMapViewDelegate {
             self.delegate?.userInteractedWithMap()
         }
     }
+    
+    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        if userInteractedWithMap() {
+            self.delegate?.userInteractedWithMap()
+        }
+    }
 }

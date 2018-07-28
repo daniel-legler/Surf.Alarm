@@ -10,6 +10,11 @@ class SurfAlarmDaySelectionTableVC: UITableViewController {
         return Calendar.current.weekdaySymbols
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationController?.navigationBar.tintColor = R.color.surfTintPrimary()
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) else { return }
         
