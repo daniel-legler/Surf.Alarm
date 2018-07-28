@@ -45,6 +45,9 @@
                                 <date key="date" timeIntervalSinceReferenceDate="554361828.00921094">
                                     <!--2018-07-27 05:23:48 +0000-->
                                 </date>
+                                <connections>
+                                    <action selector="timeChanged:" destination="Yb9-WE-WCX" eventType="valueChanged" id="gda-Gd-JzQ"/>
+                                </connections>
                             </datePicker>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="BAf-oI-3gy">
                                 <rect key="frame" x="0.0" y="318" width="375" height="349"/>
@@ -117,6 +120,9 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="8hQ-te-mwf">
                             <color key="tintColor" name="SurfTintPrimary"/>
+                            <connections>
+                                <action selector="saveAlarmPressed" destination="Yb9-WE-WCX" id="AF0-HJ-wPr"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -130,10 +136,10 @@
             </objects>
             <point key="canvasLocation" x="77.599999999999994" y="-32.833583208395808"/>
         </scene>
-        <!--Alarm Days TableVC-->
+        <!--Surf Alarm Day Selection TableVC-->
         <scene sceneID="spd-QF-mT8">
             <objects>
-                <tableViewController id="LgA-rK-fbb" customClass="AlarmDaysTableVC" customModule="Surf_Alarm" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="LgA-rK-fbb" customClass="SurfAlarmDaySelectionTableVC" customModule="Surf_Alarm" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Ad6-e2-xYS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

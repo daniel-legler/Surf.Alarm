@@ -3,7 +3,7 @@ import MapKit
 import Rswift
 
 class ClusterAnnotationView: MKMarkerAnnotationView {
-        
+    
     override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
         collisionMode = .circle
@@ -17,9 +17,7 @@ class ClusterAnnotationView: MKMarkerAnnotationView {
     override var annotation: MKAnnotation? {
         didSet {
             guard annotation is MKClusterAnnotation else { return }
-            markerTintColor = R.color.surfTintPrimary()
-            glyphImage = R.image.surfboards()
-            
+            markerTintColor = R.color.surfTintPrimary()            
             displayPriority = .defaultHigh
         }
     }

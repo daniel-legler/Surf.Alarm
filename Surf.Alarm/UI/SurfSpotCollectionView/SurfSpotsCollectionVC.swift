@@ -10,7 +10,7 @@ class SurfSpotsCollectionVC: UIViewController {
     var centeredCollectionViewFlowLayout: CenteredCollectionViewFlowLayout!
     weak var delegate: SurfSpotsCollectionDelegate?
     
-    let spots = store.objects(SurfSpot.self).sorted(byKeyPath: "latitude", ascending: false)
+    let spots = store.allSurfSpots.sorted(byKeyPath: "latitude", ascending: false)
     var token: NotificationToken?
     
     override func viewDidLoad() {

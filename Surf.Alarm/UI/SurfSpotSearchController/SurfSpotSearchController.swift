@@ -3,8 +3,8 @@ import Rswift
 class SurfSpotSearchController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-
-    let surfSpots = Array(store.objects(SurfSpot.self).sorted(byKeyPath: "county"))
+    
+    let surfSpots = Array(store.allSurfSpots.sorted(byKeyPath: "county"))
     var filteredSpots: [SurfSpot] = []
 
     var searchController: UISearchController!
