@@ -96,7 +96,7 @@ extension SurfAlarmBuilderVC: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension SurfAlarmBuilderVC: SurfHeightSliderDelegate, SurfAlarmDaySelectionDelegate {
-    func minimumHeightSelectionChanged(to newHeight: Double) {
+    func minimumHeightSelectionChanged(to newHeight: Int) {
         self.alarm.minHeight = newHeight
     }
     

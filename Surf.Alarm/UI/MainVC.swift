@@ -30,6 +30,12 @@ class MainVC: UIViewController {
         self.present(searchVC, animated: true)
     }
     
+    @IBAction func alarmPressed(_ sender: Any) {
+        if let alarmsTableVc = R.storyboard.surfAlarmTableVC.instantiateInitialViewController() {
+            self.present(alarmsTableVc, animated: true, completion: nil)
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let map = segue.destination as? SurfSpotsMapVC {
             map.delegate = self

@@ -17,7 +17,7 @@ class ClusterAnnotationView: MKMarkerAnnotationView {
     override var annotation: MKAnnotation? {
         didSet {
             guard annotation is MKClusterAnnotation else { return }
-            markerTintColor = R.color.surfTintPrimary()            
+            markerTintColor = R.color.saPrimaryDark()            
             displayPriority = .defaultHigh
         }
     }

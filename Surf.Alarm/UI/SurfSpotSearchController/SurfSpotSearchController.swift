@@ -23,9 +23,9 @@ class SurfSpotSearchController: UIViewController {
         self.searchController.dimsBackgroundDuringPresentation = false
         self.searchController.searchBar.sizeToFit()
         self.tableView.tableHeaderView = self.searchController.searchBar
-        self.definesPresentationContext = true  //default false
+        self.definesPresentationContext = true
         self.searchController.searchBar.searchBarStyle = .minimal
-        self.searchController.searchBar.tintColor = R.color.surfTintPrimary()
+        self.searchController.searchBar.tintColor = R.color.saPrimaryDark()
     }
     
     @IBAction func closeButtonTapped(_ sender: UIButton!) {
@@ -93,7 +93,7 @@ extension SurfSpotSearchController: UITableViewDataSource {
         let spot = isSearching ? filteredSpots[indexPath.row] : surfSpots[indexPath.row]
         cell.textLabel?.text = spot.name
         cell.detailTextLabel?.text = spot.county
-        cell.textLabel?.textColor = R.color.surfTintPrimary()
+        cell.textLabel?.textColor = R.color.saPrimaryDark()
         cell.detailTextLabel?.textColor = UIColor.gray
         return cell
     }

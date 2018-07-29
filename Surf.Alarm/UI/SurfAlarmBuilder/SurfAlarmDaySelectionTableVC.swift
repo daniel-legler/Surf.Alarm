@@ -12,7 +12,7 @@ class SurfAlarmDaySelectionTableVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.tintColor = R.color.surfTintPrimary()
+        self.navigationController?.navigationBar.tintColor = R.color.saPrimaryDark()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

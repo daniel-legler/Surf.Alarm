@@ -36,7 +36,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" name="SurfTintPrimary"/>
+                                <color key="backgroundColor" name="SAPrimaryDark"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="wBP-8S-Igu"/>
                                     <constraint firstItem="ct1-lZ-XqZ" firstAttribute="centerX" secondItem="xEj-yR-ZAM" secondAttribute="centerX" id="x8a-GZ-vQl"/>
@@ -64,7 +64,7 @@
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" name="SurfTintPrimary"/>
+                                <color key="backgroundColor" name="SAPrimaryDark"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="ZPa-Jf-HWi" firstAttribute="width" secondItem="vm6-JL-dhe" secondAttribute="width" multiplier="0.5" id="1Ig-XC-nAa"/>
@@ -98,7 +98,7 @@
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" name="SurfTintPrimary"/>
+                                <color key="backgroundColor" name="SAPrimaryDark"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="SFy-Sp-QqO" firstAttribute="centerX" secondItem="AJn-rj-vY3" secondAttribute="centerX" id="MGw-Am-cE4"/>
@@ -118,6 +118,9 @@
                                         <real key="value" value="22"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="lSD-VP-7gK" appends="YES" id="G5o-fQ-epI"/>
+                                </connections>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ccE-qf-KFx" userLabel="Spot Collection Container">
                                 <rect key="frame" x="0.0" y="798" width="414" height="238"/>
@@ -160,6 +163,11 @@
                 <tapGestureRecognizer id="BLS-Q0-wtb">
                     <connections>
                         <action selector="searchPressed:" destination="G3n-nD-DPX" id="8td-6u-PJ4"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="lSD-VP-7gK">
+                    <connections>
+                        <action selector="alarmPressed:" destination="G3n-nD-DPX" id="KM9-Ir-UNj"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -254,7 +262,7 @@
     <resources>
         <image name="alarm" width="48" height="48"/>
         <image name="search" width="55" height="57"/>
-        <namedColor name="SurfTintPrimary">
+        <namedColor name="SAPrimaryDark">
             <color red="0.18823529411764706" green="0.24705882352941178" blue="0.62352941176470589" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>

@@ -31,6 +31,10 @@
 		745E5BC0210B55C70075A851 /* SurfHeightSelectorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 745E5BBE210B55C70075A851 /* SurfHeightSelectorCell.xib */; };
 		745E5BC2210B636F0075A851 /* AddAlarmButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745E5BC1210B636F0075A851 /* AddAlarmButton.swift */; };
 		745E5BC4210B6CE10075A851 /* SurfAlarmDaySelectionTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745E5BC3210B6CE10075A851 /* SurfAlarmDaySelectionTableVC.swift */; };
+		745E5BC7210D09750075A851 /* SurfAlarmTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745E5BC5210D09750075A851 /* SurfAlarmTableVC.swift */; };
+		745E5BCB210D0A1A0075A851 /* SurfAlarmTableVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 745E5BCA210D0A1A0075A851 /* SurfAlarmTableVC.storyboard */; };
+		745E5BD0210D0B850075A851 /* SurfAlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745E5BCE210D0B850075A851 /* SurfAlarmTableViewCell.swift */; };
+		745E5BD3210D26DA0075A851 /* DateHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745E5BD2210D26DA0075A851 /* DateHelpers.swift */; };
 		7468C16020F9519B00EE9663 /* Realm+SurfAlarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7468C15F20F9519B00EE9663 /* Realm+SurfAlarm.swift */; };
 		74BCAD2D2106BFC200711DD8 /* SurfSpotSearchController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74BCAD2C2106BFC200711DD8 /* SurfSpotSearchController.xib */; };
 		74C5CFAE20FA8621004AEF35 /* SurfSpotCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74C5CFAD20FA8621004AEF35 /* SurfSpotCell.xib */; };
@@ -71,6 +75,10 @@
 		745E5BBE210B55C70075A851 /* SurfHeightSelectorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SurfHeightSelectorCell.xib; sourceTree = "<group>"; };
 		745E5BC1210B636F0075A851 /* AddAlarmButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmButton.swift; sourceTree = "<group>"; };
 		745E5BC3210B6CE10075A851 /* SurfAlarmDaySelectionTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfAlarmDaySelectionTableVC.swift; sourceTree = "<group>"; };
+		745E5BC5210D09750075A851 /* SurfAlarmTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfAlarmTableVC.swift; sourceTree = "<group>"; };
+		745E5BCA210D0A1A0075A851 /* SurfAlarmTableVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SurfAlarmTableVC.storyboard; sourceTree = "<group>"; };
+		745E5BCE210D0B850075A851 /* SurfAlarmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfAlarmTableViewCell.swift; sourceTree = "<group>"; };
+		745E5BD2210D26DA0075A851 /* DateHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelpers.swift; sourceTree = "<group>"; };
 		7468C14A20F8EFDD00EE9663 /* Surf.Alarm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Surf.Alarm.entitlements; sourceTree = "<group>"; };
 		7468C15F20F9519B00EE9663 /* Realm+SurfAlarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Realm+SurfAlarm.swift"; sourceTree = "<group>"; };
 		74BCAD2C2106BFC200711DD8 /* SurfSpotSearchController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SurfSpotSearchController.xib; sourceTree = "<group>"; };
@@ -151,6 +159,7 @@
 				74308F7D20FAE9C8004A608B /* Constants.swift */,
 				74EFF1EE20FAEE3100789C3C /* Double+SurfHeight.swift */,
 				745E5BB0210A3A2E0075A851 /* CLLocationCoordinate2D+Equality.swift */,
+				745E5BD2210D26DA0075A851 /* DateHelpers.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -175,6 +184,16 @@
 			path = SurfAlarmBuilder;
 			sourceTree = "<group>";
 		};
+		745E5BC9210D097A0075A851 /* SurfAlarmTableVC */ = {
+			isa = PBXGroup;
+			children = (
+				745E5BC5210D09750075A851 /* SurfAlarmTableVC.swift */,
+				745E5BCA210D0A1A0075A851 /* SurfAlarmTableVC.storyboard */,
+				745E5BCE210D0B850075A851 /* SurfAlarmTableViewCell.swift */,
+			);
+			path = SurfAlarmTableVC;
+			sourceTree = "<group>";
+		};
 		7468C15020F9227400EE9663 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +213,7 @@
 				7408647C20F7144B00C62E29 /* LaunchScreen.storyboard */,
 				7408647A20F7144B00C62E29 /* Assets.xcassets */,
 				745E5BBA210ADFED0075A851 /* SurfAlarmBuilder */,
+				745E5BC9210D097A0075A851 /* SurfAlarmTableVC */,
 				74FFBE22210661BC00DB03E5 /* SurfSpotSearchController */,
 				74C5CFAF20FABB82004AEF35 /* SurfSpotCollectionView */,
 				74C5CFB220FABEB2004AEF35 /* SurfSpotMapView */,
@@ -322,6 +342,7 @@
 				743C835820F9A2B90062B994 /* API Examples.rtf in Resources */,
 				745E5BC0210B55C70075A851 /* SurfHeightSelectorCell.xib in Resources */,
 				745E5BBC210AE30A0075A851 /* SurfAlarmBuilder.storyboard in Resources */,
+				745E5BCB210D0A1A0075A851 /* SurfAlarmTableVC.storyboard in Resources */,
 				7408647620F7144A00C62E29 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -410,6 +431,9 @@
 				7468C16020F9519B00EE9663 /* Realm+SurfAlarm.swift in Sources */,
 				74C5CFC420FAC608004AEF35 /* R.generated.swift in Sources */,
 				74308F7E20FAE9C8004A608B /* Constants.swift in Sources */,
+				745E5BC7210D09750075A851 /* SurfAlarmTableVC.swift in Sources */,
+				745E5BD0210D0B850075A851 /* SurfAlarmTableViewCell.swift in Sources */,
+				745E5BD3210D26DA0075A851 /* DateHelpers.swift in Sources */,
 				74EFF1EF20FAEE3100789C3C /* Double+SurfHeight.swift in Sources */,
 				745E5BA1210958930075A851 /* DesignableViews.swift in Sources */,
 				74C5CFB820FAC151004AEF35 /* SurfSpotsCollectionVC.swift in Sources */,
