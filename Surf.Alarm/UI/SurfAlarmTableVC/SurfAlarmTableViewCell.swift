@@ -17,7 +17,7 @@ class SurfAlarmTableViewCell: UITableViewCell {
             self.surfHeightLabel.text = "\(surfAlarm.minHeight)+ ft"
             self.timeLabel.text = Date.alarmString(hour: surfAlarm.alarmHour,
                                                    minute: surfAlarm.alarmMinute)
-            
+            self.calendarDays.text = Date.alarmString(disabledWeekdays: Array(surfAlarm.disabledDays))
         }
     }
     

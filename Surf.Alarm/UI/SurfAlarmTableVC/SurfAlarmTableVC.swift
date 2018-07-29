@@ -18,20 +18,30 @@ class SurfAlarmTableVC: UIViewController {
 extension SurfAlarmTableVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 152
+        return 150
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return alarms.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return alarms.count
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 15
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = .clear
+        return headerView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.surfAlarmDetailCell, for: indexPath) {
-            cell.surfAlarm = alarms[indexPath.row]
+            cell.surfAlarm = alarms[indexPath.section]
             return cell
         }
         return UITableViewCell()
