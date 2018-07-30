@@ -23,6 +23,8 @@ extension Date {
             return "Weekdays"
         } else if missingIndices.sorted() == [1,2,3,4,5] {
             return "Weekends"
+        } else if missingIndices.isEmpty {
+            return "Every Day"
         }
         
         for index in missingIndices {

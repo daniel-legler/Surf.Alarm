@@ -32,12 +32,14 @@ class MainVC: UIViewController {
     
     @IBAction func alarmPressed(_ sender: Any) {
         guard
-            let alarmsTableScene = R.storyboard.surfAlarmTableVC.instantiateInitialViewController(),
-            let alarmsTableVc = alarmsTableScene.topViewController as? SurfAlarmTableVC
+            let alarmsTableScene = R.storyboard.surfAlarmTableVC.instantiateInitialViewController() as? SurfAlarmTableVC
+//            let alarmsTableVc = alarmsTableScene.topViewController as? SurfAlarmTableVC
         else {
             return
         }
-        alarmsTableVc.delegate = self
+        alarmsTableScene.modalPresentationStyle = .custom
+        alarmsTableScene.modalTransitionStyle = .crossDissolve
+        alarmsTableScene.delegate = self
         self.present(alarmsTableScene, animated: true, completion: nil)
     }
     

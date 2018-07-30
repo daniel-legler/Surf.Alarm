@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eZp-5U-eBl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Dmv-a0-T9g">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -25,9 +25,6 @@
                             <color key="textColor" name="SAPrimaryDark"/>
                         </textAttributes>
                     </navigationBar>
-                    <connections>
-                        <segue destination="Dmv-a0-T9g" kind="relationship" relationship="rootViewController" id="v9Q-hw-mGc"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IFI-G6-wr8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -41,8 +38,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HG6-6m-29m">
+                                <rect key="frame" x="8" y="28" width="39" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="8RV-FH-sdT"/>
+                                </constraints>
+                                <state key="normal" title="Close">
+                                    <color key="titleColor" name="SAPrimaryDark"/>
+                                </state>
+                                <connections>
+                                    <action selector="doneButtonTapped:" destination="Dmv-a0-T9g" eventType="touchUpInside" id="W6x-V9-T0D"/>
+                                </connections>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="2rt-Pw-YFP">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="55" width="375" height="612"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="surfAlarmDetailCell" rowHeight="165" id="Ljt-h4-MOU" customClass="SurfAlarmTableViewCell" customModule="Surf_Alarm" customModuleProvider="target">
@@ -190,6 +199,7 @@
                                         <connections>
                                             <outlet property="calendarDays" destination="7Zp-wd-uXe" id="4iQ-Qk-7yR"/>
                                             <outlet property="countyLabel" destination="74m-FA-JdO" id="xBM-jf-ybc"/>
+                                            <outlet property="enabledSwitch" destination="HKD-Og-Ozr" id="4eo-aS-zdH"/>
                                             <outlet property="spotLabel" destination="j9J-Am-KB3" id="svr-bX-HWT"/>
                                             <outlet property="surfHeightLabel" destination="ZkD-Fr-np1" id="uFQ-bM-nA9"/>
                                             <outlet property="timeLabel" destination="vW9-BZ-2o3" id="3bt-pf-v9R"/>
@@ -201,18 +211,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="mLC-fM-1oC" firstAttribute="bottom" secondItem="2rt-Pw-YFP" secondAttribute="bottom" id="3my-Z7-Ngx"/>
+                            <constraint firstItem="HG6-6m-29m" firstAttribute="top" secondItem="mLC-fM-1oC" secondAttribute="top" constant="8" id="9qC-mz-5Tg"/>
                             <constraint firstItem="2rt-Pw-YFP" firstAttribute="leading" secondItem="mLC-fM-1oC" secondAttribute="leading" id="C9J-d5-2Fh"/>
+                            <constraint firstItem="HG6-6m-29m" firstAttribute="leading" secondItem="mLC-fM-1oC" secondAttribute="leading" constant="8" id="IHN-lU-ad4"/>
+                            <constraint firstItem="2rt-Pw-YFP" firstAttribute="top" secondItem="HG6-6m-29m" secondAttribute="bottom" constant="5" id="ZBf-Ti-eZ5"/>
                             <constraint firstItem="mLC-fM-1oC" firstAttribute="trailing" secondItem="2rt-Pw-YFP" secondAttribute="trailing" id="rhm-ih-PEb"/>
-                            <constraint firstItem="2rt-Pw-YFP" firstAttribute="top" secondItem="mLC-fM-1oC" secondAttribute="top" id="tfS-Jr-dyv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mLC-fM-1oC"/>
                     </view>
                     <navigationItem key="navigationItem" title="Alarms" largeTitleDisplayMode="never" id="jnZ-Kf-myy">
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="YrV-dx-FxZ">
                             <color key="tintColor" name="SAPrimary"/>
-                            <connections>
-                                <action selector="doneButtonTapped:" destination="Dmv-a0-T9g" id="tII-fl-qyK"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -236,6 +245,9 @@
         </namedColor>
         <namedColor name="SAPrimary">
             <color red="0.24705882352941178" green="0.31764705882352939" blue="0.70980392156862748" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SAPrimaryDark">
+            <color red="0.18823529410000001" green="0.2470588235" blue="0.62352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="SAPrimaryDark">
             <color red="0.18823529411764706" green="0.24705882352941178" blue="0.62352941176470589" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

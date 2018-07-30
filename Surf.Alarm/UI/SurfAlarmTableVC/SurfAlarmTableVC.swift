@@ -15,8 +15,8 @@ class SurfAlarmTableVC: UIViewController {
         tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     }
     
-    @IBAction func doneButtonTapped(_ sender: UIBarButtonItem!) {
-        self.navigationController?.dismiss(animated: true, completion: nil)
+    @IBAction func doneButtonTapped(_ sender: UIButton!) {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 extension SurfAlarmTableVC: UITableViewDelegate, UITableViewDataSource {

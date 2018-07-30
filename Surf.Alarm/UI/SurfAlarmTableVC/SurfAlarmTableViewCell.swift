@@ -9,6 +9,7 @@ class SurfAlarmTableViewCell: UITableViewCell {
     @IBOutlet weak var surfHeightLabel: UILabel!
     @IBOutlet weak var calendarDays: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var enabledSwitch: UISwitch!
     
     var surfAlarm: SurfAlarm! {
         didSet {
@@ -18,6 +19,7 @@ class SurfAlarmTableViewCell: UITableViewCell {
             self.timeLabel.text = Date.alarmString(hour: surfAlarm.alarmHour,
                                                    minute: surfAlarm.alarmMinute)
             self.calendarDays.text = Date.alarmString(disabledWeekdays: Array(surfAlarm.disabledDays))
+            self.enabledSwitch.isOn = surfAlarm.isEnabledByUser
         }
     }
     

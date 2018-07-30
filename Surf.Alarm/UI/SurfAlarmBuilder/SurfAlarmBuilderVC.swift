@@ -91,6 +91,7 @@ extension SurfAlarmBuilderVC: UITableViewDataSource, UITableViewDelegate {
         switch indexPath.section {
         case Section.weekdays:
             self.performSegue(withIdentifier: R.segue.surfAlarmBuilderVC.showDaysOfWeek, sender: nil)
+            tableView.deselectRow(at: indexPath, animated: true)
         default:
             break
         }
@@ -105,10 +106,20 @@ extension SurfAlarmBuilderVC: SurfHeightSliderDelegate, SurfAlarmDaySelectionDel
     func enabledDay(_ day: String) {
         if let index = self.alarm.disabledDays.index(of: day) {
             self.alarm.disabledDays.remove(at: index)
+            self.updateEnabledDaysLabel()
         }
     }
     
     func disabledDay(_ day: String) {
         self.alarm.disabledDays.append(day)
+        self.updateEnabledDaysLabel()
+    }
+    
+    func updateEnabledDaysLabel() {
+        let indexPath = IndexPath(row: 0, section: Section.weekdays)
+        if let daysCell = self.tableView.cellForRow(at: indexPath) {
+            daysCell.detailTextLabel?.text = Date.alarmString(disabledWeekdays: Array(self.alarm.disabledDays))
+            tableView.reloadData()
+        }
     }
 }
