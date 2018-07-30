@@ -37,13 +37,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="CQq-7C-LU6">
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CQq-7C-LU6">
                                 <rect key="frame" x="0.0" y="148" width="375" height="162"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="162" id="LrW-gg-D7v"/>
                                 </constraints>
-                                <date key="date" timeIntervalSinceReferenceDate="554361828.00921094">
-                                    <!--2018-07-27 05:23:48 +0000-->
+                                <date key="date" timeIntervalSinceReferenceDate="554310000.00921094">
+                                    <!--2018-07-26 15:00:00 +0000-->
                                 </date>
                                 <connections>
                                     <action selector="timeChanged:" destination="Yb9-WE-WCX" eventType="valueChanged" id="gda-Gd-JzQ"/>

@@ -12,8 +12,8 @@ class SurfAlarm: Object {
     dynamic var latitude: Double = 0.0
     dynamic var longitude: Double = 0.0
     dynamic var minHeight: Int = 0
-    dynamic var alarmHour: Int = -1
-    dynamic var alarmMinute: Int = -1
+    dynamic var alarmHour: Int = 8
+    dynamic var alarmMinute: Int = 0
     dynamic var isEnabledByUser: Bool = true
     let disabledDays = List<String>()
     
