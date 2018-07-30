@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #303f9f;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <g id="SurfAlarmIcon" transform="translate(885 -405)">
+    <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-1" width="40" height="40" rx="8" transform="translate(-885 405)"/>
+    <g id="surfboard_1_" data-name="surfboard (1)" transform="translate(-870.059 421.246)">
+      <g id="Group_3" data-name="Group 3" transform="translate(2.472)">
+        <g id="Group_2" data-name="Group 2" transform="translate(0)">
+          <path id="Path_3" data-name="Path 3" class="cls-2" d="M7.039.112l-1.6,1.6-.418-.43,1.6-1.6a4.325,4.325,0,0,0-1.6.039,6.584,6.584,0,0,0-1.863.7A10.022,10.022,0,0,0,.879,2.143,17.643,17.643,0,0,0-.566,3.783H2.97V7.3A17.639,17.639,0,0,0,4.605,5.854,9.9,9.9,0,0,0,6.317,3.588,6.579,6.579,0,0,0,7,1.713,4.338,4.338,0,0,0,7.039.112Z" transform="translate(0.566 0.374)"/>
+        </g>
+      </g>
+      <g id="Group_5" data-name="Group 5" transform="translate(1.407 4.743)">
+        <g id="Group_4" data-name="Group 4" transform="translate(0)">
+          <path id="Path_4" data-name="Path 4" class="cls-2" d="M.133-.069C-.1.259-.332.574-.513.869h3.08L2.529,3.916c.295-.181.622-.392.951-.625V-.069Z" transform="translate(0.513 0.069)"/>
+        </g>
+      </g>
+      <g id="Group_7" data-name="Group 7" transform="translate(0 6.267)">
+        <g id="Group_6" data-name="Group 6">
+          <path id="Path_5" data-name="Path 5" class="cls-2" d="M1.1-.3c-.08.144-.124.3-.19.43a10.939,10.939,0,0,0-.8,1.914l-.076.234.951.352.342.937.266-.039a12.778,12.778,0,0,0,1.9-.82c.129-.066.274-.116.418-.2V-.3Z" transform="translate(-0.035 0.296)"/>
+        </g>
+      </g>
+    </g>
+    <g id="baseline-alarm-24px" transform="translate(-882.44 407.552)">
+      <path id="Path_6" data-name="Path 6" class="cls-3" d="M0,0H34.875V34.875H0Z"/>
+      <path id="Path_7" data-name="Path 7" class="cls-2" d="M31.062,7.469,24.378,1.86,22.5,4.083l6.684,5.609ZM10.544,4.083,8.684,1.86,2,7.455,3.875,9.678l6.67-5.595Zm5.987.886A13.078,13.078,0,1,0,29.609,18.048,13.079,13.079,0,0,0,16.531,4.97Zm0,23.25A10.172,10.172,0,1,1,26.7,18.048,10.164,10.164,0,0,1,16.531,28.22Z" transform="translate(0.906 0.96)"/>
+    </g>
+  </g>
+</svg>
