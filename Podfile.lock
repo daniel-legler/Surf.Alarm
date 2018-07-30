@@ -9,7 +9,7 @@ PODS:
   - Realm/Headers (3.7.5)
   - RealmSwift (3.7.5):
     - Realm (= 3.7.5)
-  - SpitcastSwift (0.0.2):
+  - SpitcastSwift (0.0.3):
     - Alamofire
 
 DEPENDENCIES:
@@ -36,7 +36,7 @@ SPEC CHECKSUMS:
   R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
   Realm: c286caf4dbf346ce24aad49ca76c7ce622d4a082
   RealmSwift: 2a9281e37d6de55f66f76254d49d28aeb1b729e4
-  SpitcastSwift: 985b283db3a1ace8dc71f8e98efd87fd3e2f3757
+  SpitcastSwift: 6fda0fc94131d0de365a8cfd1c56ade435910170
 
 PODFILE CHECKSUM: 75ba8ab4acbfe4586f4527b6600f4b073800ae2f
 
