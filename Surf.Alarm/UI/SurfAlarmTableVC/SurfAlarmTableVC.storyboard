@@ -11,25 +11,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="LYB-YE-ZHA">
-            <objects>
-                <navigationController id="eZp-5U-eBl" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4ff-MZ-oNn">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                            <color key="textColor" name="SAPrimaryDark"/>
-                        </textAttributes>
-                    </navigationBar>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IFI-G6-wr8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-810" y="126"/>
-        </scene>
         <!--Alarms-->
         <scene sceneID="82j-1S-eSv">
             <objects>
@@ -39,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HG6-6m-29m">
-                                <rect key="frame" x="8" y="28" width="39" height="22"/>
+                                <rect key="frame" x="328" y="28" width="39" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="8RV-FH-sdT"/>
                                 </constraints>
@@ -47,7 +28,7 @@
                                     <color key="titleColor" name="SAPrimaryDark"/>
                                 </state>
                                 <connections>
-                                    <action selector="doneButtonTapped:" destination="Dmv-a0-T9g" eventType="touchUpInside" id="W6x-V9-T0D"/>
+                                    <action selector="closeButtonTapped:" destination="Dmv-a0-T9g" eventType="touchUpInside" id="W6x-V9-T0D"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="2rt-Pw-YFP">
@@ -213,8 +194,8 @@
                             <constraint firstItem="mLC-fM-1oC" firstAttribute="bottom" secondItem="2rt-Pw-YFP" secondAttribute="bottom" id="3my-Z7-Ngx"/>
                             <constraint firstItem="HG6-6m-29m" firstAttribute="top" secondItem="mLC-fM-1oC" secondAttribute="top" constant="8" id="9qC-mz-5Tg"/>
                             <constraint firstItem="2rt-Pw-YFP" firstAttribute="leading" secondItem="mLC-fM-1oC" secondAttribute="leading" id="C9J-d5-2Fh"/>
-                            <constraint firstItem="HG6-6m-29m" firstAttribute="leading" secondItem="mLC-fM-1oC" secondAttribute="leading" constant="8" id="IHN-lU-ad4"/>
                             <constraint firstItem="2rt-Pw-YFP" firstAttribute="top" secondItem="HG6-6m-29m" secondAttribute="bottom" constant="5" id="ZBf-Ti-eZ5"/>
+                            <constraint firstItem="mLC-fM-1oC" firstAttribute="trailing" secondItem="HG6-6m-29m" secondAttribute="trailing" constant="8" id="iaY-NB-Ksn"/>
                             <constraint firstItem="mLC-fM-1oC" firstAttribute="trailing" secondItem="2rt-Pw-YFP" secondAttribute="trailing" id="rhm-ih-PEb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mLC-fM-1oC"/>
@@ -248,9 +229,6 @@
         </namedColor>
         <namedColor name="SAPrimaryDark">
             <color red="0.18823529410000001" green="0.2470588235" blue="0.62352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="SAPrimaryDark">
-            <color red="0.18823529411764706" green="0.24705882352941178" blue="0.62352941176470589" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

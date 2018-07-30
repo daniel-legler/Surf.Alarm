@@ -15,10 +15,25 @@ class SurfAlarmTableVC: UIViewController {
         tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     }
     
-    @IBAction func doneButtonTapped(_ sender: UIButton!) {
+    @IBAction func closeButtonTapped(_ sender: UIButton!) {
         self.dismiss(animated: true, completion: nil)
     }
 }
+
+extension SurfAlarmTableVC: SurfAlarmTableViewCellDelegate {
+    func userTappedAlarmSettings(_ alarm: SurfAlarm) {
+        guard
+            let alarmBuilderNav = R.storyboard.surfAlarmBuilder.instantiateInitialViewController(),
+            let alarmBuilder = alarmBuilderNav.topViewController as? SurfAlarmBuilderVC
+        else {
+            return
+        }
+        
+        alarmBuilder.alarm = alarm
+        self.present(alarmBuilderNav, animated: true, completion: nil)
+    }
+}
+
 extension SurfAlarmTableVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -46,6 +61,7 @@ extension SurfAlarmTableVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.surfAlarmDetailCell, for: indexPath) {
             cell.surfAlarm = alarms[indexPath.section]
+            cell.delegate = self
             return cell
         }
         return UITableViewCell()

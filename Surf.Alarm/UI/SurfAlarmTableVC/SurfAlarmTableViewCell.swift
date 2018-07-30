@@ -11,6 +11,8 @@ class SurfAlarmTableViewCell: UITableViewCell {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var enabledSwitch: UISwitch!
     
+    weak var delegate: SurfAlarmTableViewCellDelegate?
+    
     var surfAlarm: SurfAlarm! {
         didSet {
             self.spotLabel.text = surfAlarm.spotName
@@ -25,10 +27,14 @@ class SurfAlarmTableViewCell: UITableViewCell {
     
     
     @IBAction func settingsTapped(_ sender: UIButton!) {
-        
+        self.delegate?.userTappedAlarmSettings(surfAlarm)
     }
     
     @IBAction func alarmSwitchChanged(_ sender: UISwitch) {
         store.setAlarmState(surfAlarm, enabled: sender.isOn)
     }
+}
+
+protocol SurfAlarmTableViewCellDelegate: class {
+    func userTappedAlarmSettings(_ alarm: SurfAlarm)
 }

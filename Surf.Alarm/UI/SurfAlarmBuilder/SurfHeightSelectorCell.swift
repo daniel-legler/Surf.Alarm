@@ -7,19 +7,23 @@ class SurfHeightSelectorCell: UITableViewCell {
     @IBOutlet weak var heightSlider: UISlider!
     @IBOutlet weak var heightLabel: UILabel!
     weak var delegate: SurfHeightSliderDelegate?
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-    }
     
     @IBAction func heightChanged(_ sender: UISlider) {
-        if sender.value == 0 {
-            self.delegate?.minimumHeightSelectionChanged(to: 0)
+        let intValue = Int((sender.value * 10).rounded())
+        self.delegate?.minimumHeightSelectionChanged(to: intValue)
+        self.updateHeightLabel(intValue)
+    }
+    
+    func configure(with alarm: SurfAlarm) {
+        self.updateHeightLabel(alarm.minHeight)
+        self.heightSlider.value = Float(alarm.minHeight) / 10.0
+    }
+    
+    func updateHeightLabel(_ value: Int) {
+        if value == 0 {
             heightLabel.text = "No Min"
         } else {
-            let ftValue = Int((sender.value * 10).rounded())
-            self.delegate?.minimumHeightSelectionChanged(to: ftValue)
-            heightLabel.text = "\(ftValue)+ ft"
+            heightLabel.text = "\(value)+ ft"
         }
     }
 }

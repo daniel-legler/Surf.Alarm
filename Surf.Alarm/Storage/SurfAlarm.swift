@@ -20,8 +20,18 @@ class SurfAlarm: Object {
     override static func primaryKey() -> String? {
         return "spotId"
     }
+}
+
+extension SurfAlarm {
     
     var currentWeekdayIsEnabled: Bool {
         return !disabledDays.contains(Date.currentDayOfWeek())
+    }
+    
+    var date: Date {
+        var components = DateComponents()
+        components.hour = self.alarmHour
+        components.minute = self.alarmMinute
+        return Calendar.current.date(from: components) ?? Date()
     }
 }

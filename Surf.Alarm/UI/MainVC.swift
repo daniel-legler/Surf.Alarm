@@ -31,16 +31,12 @@ class MainVC: UIViewController {
     }
     
     @IBAction func alarmPressed(_ sender: Any) {
-        guard
-            let alarmsTableScene = R.storyboard.surfAlarmTableVC.instantiateInitialViewController() as? SurfAlarmTableVC
-//            let alarmsTableVc = alarmsTableScene.topViewController as? SurfAlarmTableVC
-        else {
-            return
+        if let alarmsTableScene = R.storyboard.surfAlarmTableVC.instantiateInitialViewController() {
+            alarmsTableScene.modalPresentationStyle = .custom
+            alarmsTableScene.modalTransitionStyle = .crossDissolve
+            alarmsTableScene.delegate = self
+            self.present(alarmsTableScene, animated: true, completion: nil)
         }
-        alarmsTableScene.modalPresentationStyle = .custom
-        alarmsTableScene.modalTransitionStyle = .crossDissolve
-        alarmsTableScene.delegate = self
-        self.present(alarmsTableScene, animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -58,7 +54,7 @@ class MainVC: UIViewController {
             else {
                     return
             }
-            alarmBuilder.surfSpot = spot
+            alarmBuilder.configure(with: spot)
         }
     }
     

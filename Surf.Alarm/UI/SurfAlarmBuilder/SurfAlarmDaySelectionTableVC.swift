@@ -4,15 +4,31 @@ import UIKit
 
 class SurfAlarmDaySelectionTableVC: UITableViewController {
 
+    var initialDisabledDays: [String] = []
     weak var delegate: SurfAlarmDaySelectionDelegate?
     
-    var weekdays: [String] {
-        return Calendar.current.weekdaySymbols
-    }
+    private let weekdays: [String] = Calendar.current.weekdaySymbols
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.tintColor = R.color.saPrimaryDark()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.setInitialCheckMarks()
+    }
+    
+    private func setInitialCheckMarks() {
+        for day in initialDisabledDays {
+            guard
+                let dayIndex = weekdays.index(of: day),
+                let cell = tableView.cellForRow(at: IndexPath(row: dayIndex, section: 0))
+            else {
+                return
+            }
+            cell.accessoryType = .none
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

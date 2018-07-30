@@ -29,7 +29,7 @@
             </objects>
             <point key="canvasLocation" x="-744" y="-31"/>
         </scene>
-        <!--Add Alarm-->
+        <!--Surf Alarm BuilderVC-->
         <scene sceneID="WSs-EZ-4b7">
             <objects>
                 <viewController id="Yb9-WE-WCX" customClass="SurfAlarmBuilderVC" customModule="Surf_Alarm" customModuleProvider="target" sceneMemberID="viewController">
@@ -53,15 +53,15 @@
                                 <rect key="frame" x="0.0" y="318" width="375" height="349"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="selectDaysCell" textLabel="gz1-du-FGc" detailTextLabel="zAh-4j-uyJ" style="IBUITableViewCellStyleValue1" id="HYJ-rU-psI">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="selectDaysCell" textLabel="gz1-du-FGc" detailTextLabel="zAh-4j-uyJ" rowHeight="44" style="IBUITableViewCellStyleValue1" id="HYJ-rU-psI">
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HYJ-rU-psI" id="SQx-hZ-GuJ">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Days of the Week" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gz1-du-FGc">
-                                                    <rect key="frame" x="15" y="12" width="134" height="20.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Repeat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gz1-du-FGc">
+                                                    <rect key="frame" x="15" y="12" width="54" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" name="SAPrimary"/>
@@ -71,7 +71,7 @@
                                                     <rect key="frame" x="263.5" y="12" width="76.5" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" name="SAPrimaryLight"/>
+                                                    <color key="textColor" name="SAPrimary"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -85,13 +85,13 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blacks Beach" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w9q-G2-UTJ">
                                         <rect key="frame" x="0.0" y="0.0" width="141.5" height="30"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="25"/>
-                                        <color key="textColor" name="SurfTintPrimary"/>
+                                        <color key="textColor" name="SAPrimaryDark"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="San Diego" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="94q-uv-BQi">
                                         <rect key="frame" x="27" y="30" width="88" height="24"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
-                                        <color key="textColor" name="SurfTintPrimary"/>
+                                        <color key="textColor" name="SAPrimary"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -111,7 +111,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yLG-wh-45q"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Alarm" id="wQO-z3-5Ev">
+                    <navigationItem key="navigationItem" id="wQO-z3-5Ev">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="sKZ-Fo-YfE">
                             <color key="tintColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
                             <connections>
@@ -119,7 +119,7 @@
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="8hQ-te-mwf">
-                            <color key="tintColor" name="SurfTintPrimary"/>
+                            <color key="tintColor" name="SAPrimaryDark"/>
                             <connections>
                                 <action selector="saveAlarmPressed" destination="Yb9-WE-WCX" id="AF0-HJ-wPr"/>
                             </connections>
@@ -129,6 +129,7 @@
                         <outlet property="countyNameLabel" destination="94q-uv-BQi" id="lc5-JZ-tKt"/>
                         <outlet property="spotNameLabel" destination="w9q-G2-UTJ" id="t7l-O0-bnG"/>
                         <outlet property="tableView" destination="BAf-oI-3gy" id="TxT-lE-u68"/>
+                        <outlet property="timePicker" destination="CQq-7C-LU6" id="gJ4-x1-qUF"/>
                         <segue destination="LgA-rK-fbb" kind="show" identifier="showDaysOfWeek" id="YyU-9g-dGk"/>
                     </connections>
                 </viewController>
@@ -162,8 +163,9 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="tintColor" name="SAPrimaryDark"/>
                                         </tableViewCellContentView>
-                                        <color key="tintColor" name="SurfTintPrimary"/>
+                                        <color key="tintColor" name="SAPrimaryDark"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" textLabel="GxA-1z-3jr" style="IBUITableViewCellStyleDefault" id="nJx-jD-uZy">
                                         <rect key="frame" x="0.0" y="79" width="375" height="44"/>
@@ -181,7 +183,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="tintColor" name="SurfTintPrimary"/>
+                                        <color key="tintColor" name="SAPrimaryDark"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" textLabel="QtU-WB-Rv1" style="IBUITableViewCellStyleDefault" id="n7R-1w-aJA">
                                         <rect key="frame" x="0.0" y="123" width="375" height="44"/>
@@ -199,7 +201,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="tintColor" name="SurfTintPrimary"/>
+                                        <color key="tintColor" name="SAPrimaryDark"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" textLabel="bNI-C4-LEi" style="IBUITableViewCellStyleDefault" id="QTe-8G-EtZ">
                                         <rect key="frame" x="0.0" y="167" width="375" height="44"/>
@@ -217,7 +219,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="tintColor" name="SurfTintPrimary"/>
+                                        <color key="tintColor" name="SAPrimaryDark"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" textLabel="evl-06-VU7" style="IBUITableViewCellStyleDefault" id="HRV-ku-eKs">
                                         <rect key="frame" x="0.0" y="211" width="375" height="44"/>
@@ -235,7 +237,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="tintColor" name="SurfTintPrimary"/>
+                                        <color key="tintColor" name="SAPrimaryDark"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" textLabel="qxk-xj-0Ca" style="IBUITableViewCellStyleDefault" id="2xr-fT-QOg">
                                         <rect key="frame" x="0.0" y="255" width="375" height="44"/>
@@ -253,7 +255,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="tintColor" name="SurfTintPrimary"/>
+                                        <color key="tintColor" name="SAPrimaryDark"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" textLabel="xb1-BQ-63b" style="IBUITableViewCellStyleDefault" id="85W-YZ-fgv">
                                         <rect key="frame" x="0.0" y="299" width="375" height="44"/>
@@ -271,7 +273,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="tintColor" name="SurfTintPrimary"/>
+                                        <color key="tintColor" name="SAPrimaryDark"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -294,10 +296,7 @@
         <namedColor name="SAPrimaryDark">
             <color red="0.18823529411764706" green="0.24705882352941178" blue="0.62352941176470589" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="SAPrimaryLight">
-            <color red="0.77254901960784317" green="0.792156862745098" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="SurfTintPrimary">
+        <namedColor name="SAPrimaryDark">
             <color red="0.18823529411764706" green="0.24705882352941178" blue="0.62352941176470589" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>

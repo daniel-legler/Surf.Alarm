@@ -8,9 +8,10 @@ class SurfAlarmBuilderVC: UIViewController {
     @IBOutlet weak var spotNameLabel: UILabel!
     @IBOutlet weak var countyNameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var timePicker: UIDatePicker!
     
     var surfSpot: SurfSpot!
-    var alarm: SurfAlarm = SurfAlarm()
+    var alarm: SurfAlarm!
     
     private struct Section {
         static let heightSelector = 0
@@ -24,15 +25,23 @@ class SurfAlarmBuilderVC: UIViewController {
         self.tableView.delegate = self
         self.tableView.register(R.nib.surfHeightSelectorCell)
         
-        self.spotNameLabel.text = surfSpot.name
-        self.countyNameLabel.text = surfSpot.county
-        self.alarm.county = surfSpot.county
-        self.alarm.spotId = surfSpot.spotId
-        self.alarm.spotName = surfSpot.name
-        self.alarm.latitude = surfSpot.latitude
-        self.alarm.longitude = surfSpot.longitude
+        self.spotNameLabel.text = surfSpot?.name ?? alarm.spotName
+        self.countyNameLabel.text = surfSpot?.county ?? alarm.county
+        
+        self.updateEnabledDaysLabel()
+        self.timePicker.setDate(alarm.date, animated: false)
     }
     
+    func configure(with spot: SurfSpot) {
+        surfSpot = spot
+        alarm = SurfAlarm()
+        alarm.county = surfSpot.county
+        alarm.spotId = surfSpot.spotId
+        alarm.spotName = surfSpot.name
+        alarm.latitude = surfSpot.latitude
+        alarm.longitude = surfSpot.longitude
+    }
+        
     @IBAction func timeChanged(_ sender: UIDatePicker) {
         self.alarm.alarmHour = sender.calendar.component(.hour, from: sender.date)
         self.alarm.alarmMinute = sender.calendar.component(.minute, from: sender.date)
@@ -50,6 +59,7 @@ class SurfAlarmBuilderVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let daySelector = segue.destination as? SurfAlarmDaySelectionTableVC {
             daySelector.delegate = self
+            daySelector.initialDisabledDays = Array(self.alarm.disabledDays)
         }
     }
 }
@@ -69,9 +79,11 @@ extension SurfAlarmBuilderVC: UITableViewDataSource, UITableViewDelegate {
         case Section.heightSelector:
             let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.surfHeightSlider.identifier) as? SurfHeightSelectorCell ?? SurfHeightSelectorCell()
             cell.delegate = self
+            cell.configure(with: alarm)
             return cell
         case Section.weekdays:
             let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.selectDaysCell.identifier) ?? UITableViewCell()
+            cell.detailTextLabel?.text = Date.alarmString(disabledWeekdays: Array(self.alarm.disabledDays))
             return cell
         default:
             return UITableViewCell()
