@@ -64,6 +64,18 @@ extension Realm {
         }
     }
     
+    func setAlarmState(_ alarm: SurfAlarm, enabled: Bool) {
+        writeBlock {
+            alarm.isEnabledByUser = enabled
+        }
+    }
+    
+    func deleteAlarm(_ alarm: SurfAlarm) {
+        writeBlock {
+            self.delete(alarm)
+        }
+    }
+    
     func allAlarms() -> Results<SurfAlarm> {
         return self.objects(SurfAlarm.self)
     }

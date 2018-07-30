@@ -29,6 +29,8 @@ class SurfAlarmBuilderVC: UIViewController {
         self.alarm.county = surfSpot.county
         self.alarm.spotId = surfSpot.spotId
         self.alarm.spotName = surfSpot.name
+        self.alarm.latitude = surfSpot.latitude
+        self.alarm.longitude = surfSpot.longitude
     }
     
     @IBAction func timeChanged(_ sender: UIDatePicker) {

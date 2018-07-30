@@ -9,6 +9,8 @@ class SurfAlarm: Object {
     dynamic var spotId: Int = 0
     dynamic var spotName: String = ""
     dynamic var county: String = ""
+    dynamic var latitude: Double = 0.0
+    dynamic var longitude: Double = 0.0
     dynamic var minHeight: Int = 0
     dynamic var alarmHour: Int = -1
     dynamic var alarmMinute: Int = -1

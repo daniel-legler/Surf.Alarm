@@ -31,9 +31,14 @@ class MainVC: UIViewController {
     }
     
     @IBAction func alarmPressed(_ sender: Any) {
-        if let alarmsTableVc = R.storyboard.surfAlarmTableVC.instantiateInitialViewController() {
-            self.present(alarmsTableVc, animated: true, completion: nil)
+        guard
+            let alarmsTableScene = R.storyboard.surfAlarmTableVC.instantiateInitialViewController(),
+            let alarmsTableVc = alarmsTableScene.topViewController as? SurfAlarmTableVC
+        else {
+            return
         }
+        alarmsTableVc.delegate = self
+        self.present(alarmsTableScene, animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -102,5 +107,14 @@ extension MainVC: SurfSpotSearchDelegate {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             self.moveSurfSpotCollectionView(hidden: false)
         }
+    }
+}
+
+extension MainVC: SurfAlarmTableViewDelegate {
+    func userTappedViewMap(for alarm: SurfAlarm) {
+        let coordinate = CLLocationCoordinate2D(latitude: alarm.latitude, longitude: alarm.longitude)
+        self.surfMap.moveMapToSurfSpot(at: coordinate)
+        self.spotCollection.scrollToSurfSpot(at: coordinate)
+        self.moveSurfSpotCollectionView(hidden: false)
     }
 }

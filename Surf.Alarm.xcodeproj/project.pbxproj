@@ -11,6 +11,7 @@
 		7408647620F7144A00C62E29 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7408647420F7144A00C62E29 /* Main.storyboard */; };
 		7408647B20F7144B00C62E29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7408647A20F7144B00C62E29 /* Assets.xcassets */; };
 		7408647E20F7144B00C62E29 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7408647C20F7144B00C62E29 /* LaunchScreen.storyboard */; };
+		74107DAB210E9EDB00E71A3E /* UISwipeActionsConfiguration+SurfAlarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74107DAA210E9EDB00E71A3E /* UISwipeActionsConfiguration+SurfAlarm.swift */; };
 		74308F7A20FAE885004A608B /* SurfSpotsMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74308F7920FAE885004A608B /* SurfSpotsMapVC.swift */; };
 		74308F7E20FAE9C8004A608B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74308F7D20FAE9C8004A608B /* Constants.swift */; };
 		743C835620F97C6E0062B994 /* SurfSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743C835520F97C6E0062B994 /* SurfSpot.swift */; };
@@ -55,6 +56,7 @@
 		7408647A20F7144B00C62E29 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7408647D20F7144B00C62E29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7408647F20F7144B00C62E29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74107DAA210E9EDB00E71A3E /* UISwipeActionsConfiguration+SurfAlarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISwipeActionsConfiguration+SurfAlarm.swift"; sourceTree = "<group>"; };
 		74308F7920FAE885004A608B /* SurfSpotsMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotsMapVC.swift; sourceTree = "<group>"; };
 		74308F7D20FAE9C8004A608B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		743C835520F97C6E0062B994 /* SurfSpot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpot.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				745E5BC5210D09750075A851 /* SurfAlarmTableVC.swift */,
 				745E5BCA210D0A1A0075A851 /* SurfAlarmTableVC.storyboard */,
 				745E5BCE210D0B850075A851 /* SurfAlarmTableViewCell.swift */,
+				74107DAA210E9EDB00E71A3E /* UISwipeActionsConfiguration+SurfAlarm.swift */,
 			);
 			path = SurfAlarmTableVC;
 			sourceTree = "<group>";
@@ -429,6 +432,7 @@
 				745E5BC2210B636F0075A851 /* AddAlarmButton.swift in Sources */,
 				74FFBE25210661DF00DB03E5 /* SurfSpotSearchController.swift in Sources */,
 				7468C16020F9519B00EE9663 /* Realm+SurfAlarm.swift in Sources */,
+				74107DAB210E9EDB00E71A3E /* UISwipeActionsConfiguration+SurfAlarm.swift in Sources */,
 				74C5CFC420FAC608004AEF35 /* R.generated.swift in Sources */,
 				74308F7E20FAE9C8004A608B /* Constants.swift in Sources */,
 				745E5BC7210D09750075A851 /* SurfAlarmTableVC.swift in Sources */,

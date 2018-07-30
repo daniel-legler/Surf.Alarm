@@ -4,8 +4,9 @@ import UIKit
 import Rswift
 class SurfAlarmTableVC: UIViewController {
 
-    let alarms = store.allAlarms().sorted(byKeyPath: "spotName")
     @IBOutlet weak var tableView: UITableView!
+    let alarms = store.allAlarms().sorted(byKeyPath: "spotName")
+    weak var delegate: SurfAlarmTableViewDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -14,6 +15,9 @@ class SurfAlarmTableVC: UIViewController {
         tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     }
     
+    @IBAction func doneButtonTapped(_ sender: UIBarButtonItem!) {
+        self.navigationController?.dismiss(animated: true, completion: nil)
+    }
 }
 extension SurfAlarmTableVC: UITableViewDelegate, UITableViewDataSource {
     
@@ -30,7 +34,7 @@ extension SurfAlarmTableVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 15
+        return 10
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -46,4 +50,29 @@ extension SurfAlarmTableVC: UITableViewDelegate, UITableViewDataSource {
         }
         return UITableViewCell()
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        return UISwipeActionsConfiguration.deleteConfiguration({ (action, view, handler) in
+            store.deleteAlarm(self.alarms[indexPath.section])
+            let indexSet = IndexSet(arrayLiteral: indexPath.section)
+            self.tableView.deleteSections(indexSet, with: .automatic)
+            self.tableView.reloadData()
+        })
+    }
+    
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        return UISwipeActionsConfiguration.viewMapConfiguration({ (action, view, handler) in
+            self.navigationController?.dismiss(animated: true, completion: nil)
+            self.delegate?.userTappedViewMap(for: self.alarms[indexPath.section])
+        })
+    }
+}
+
+protocol SurfAlarmTableViewDelegate: class {
+    func userTappedViewMap(for alarm: SurfAlarm)
 }

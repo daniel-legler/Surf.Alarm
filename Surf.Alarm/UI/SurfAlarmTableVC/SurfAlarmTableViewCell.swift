@@ -27,6 +27,6 @@ class SurfAlarmTableViewCell: UITableViewCell {
     }
     
     @IBAction func alarmSwitchChanged(_ sender: UISwitch) {
-    
+        store.setAlarmState(surfAlarm, enabled: sender.isOn)
     }
 }
