@@ -35,6 +35,7 @@ class SurfAlarmBuilderVC: UIViewController {
     func configure(with spot: SurfSpot) {
         surfSpot = spot
         alarm = SurfAlarm()
+        alarm.surfSpot = spot
         alarm.county = surfSpot.county
         alarm.spotId = surfSpot.spotId
         alarm.spotName = surfSpot.name

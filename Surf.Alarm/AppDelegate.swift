@@ -10,7 +10,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if !UserDefaults.standard.bool(forKey: Constants.firstLaunchOccurred) {
             UserDefaults.standard.set(true, forKey: Constants.firstLaunchOccurred)
-            Coordinator.refreshAllSurfSpots()
+            NetworkService.refreshAllSurfSpots()
             DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                 let main = R.storyboard.main().instantiateInitialViewController()
                 self.window?.rootViewController = main
@@ -19,6 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         return true
+    }
+    
+    func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {
+        
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -41,7 +45,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-        // Saves changes in the application's managed object context before the application terminates.
     }
 }
 

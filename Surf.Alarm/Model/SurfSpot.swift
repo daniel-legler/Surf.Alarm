@@ -26,6 +26,16 @@ class SurfSpot: Object {
         self.latitude = spitcast.latitude
         self.longitude = spitcast.longitude
     }
+}
+
+extension SurfSpot {
+    
+    var shouldRefresh: Bool {
+        if let sixHoursAgo = Calendar.current.date(byAdding: .hour, value: -6, to: Date()) {
+            return self.updatedAt < sixHoursAgo
+        }
+        return true
+    }
     
     var coordinate: CLLocationCoordinate2D {
         return CLLocationCoordinate2DMake(latitude, longitude)

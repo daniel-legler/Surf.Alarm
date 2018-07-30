@@ -96,7 +96,7 @@ extension SurfSpotsCollectionVC: UICollectionViewDataSource {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.surfSpotCell, for: indexPath) {
             
             let spot = spots[indexPath.item]
-            Coordinator.refreshForecast(for: spot)
+            NetworkService.refreshForecast(for: spot)
             let forecast = store.currentSpotForecast(spot)
             cell.configure(spot)
             cell.updateForecast(forecast)

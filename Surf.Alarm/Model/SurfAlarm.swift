@@ -15,6 +15,7 @@ class SurfAlarm: Object {
     dynamic var alarmHour: Int = 8
     dynamic var alarmMinute: Int = 0
     dynamic var isEnabledByUser: Bool = true
+    dynamic var surfSpot: SurfSpot?
     let disabledDays = List<String>()
     
     override static func primaryKey() -> String? {

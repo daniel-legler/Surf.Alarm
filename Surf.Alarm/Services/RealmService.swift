@@ -35,13 +35,6 @@ extension Realm {
     
     // MARK: - SurfForecasts
     
-    func shouldRefreshForecast(for spot: SurfSpot) -> Bool {
-        if let twelveHoursAgo = Calendar.current.date(byAdding: .hour, value: -12, to: Date()) {
-            return spot.updatedAt < twelveHoursAgo
-        }
-        return true
-    }
-    
     func currentSpotForecast(_ spot: SurfSpot) -> SurfForecast? {
         let futureForecasts = spot.forecasts.filter("date > %@", Date())
         let sortedFutureForecasts = futureForecasts.sorted(byKeyPath: "date")

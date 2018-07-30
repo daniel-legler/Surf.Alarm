@@ -1,6 +1,6 @@
 import SpitcastSwift
 
-class Coordinator {
+class NetworkService {
     
     static func refreshAllSurfSpots() {
         SpitcastAPI.allSpots { (result) in
@@ -15,7 +15,7 @@ class Coordinator {
     }
     
     static func refreshForecast(for spot: SurfSpot) {
-        guard store.shouldRefreshForecast(for: spot) else {
+        guard spot.shouldRefresh else {
             return
         }
         
