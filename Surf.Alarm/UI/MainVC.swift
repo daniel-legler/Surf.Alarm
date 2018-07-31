@@ -13,13 +13,10 @@ class MainVC: UIViewController {
     var surfMap: SurfSpotsMapVC!
     var spotCollection: SurfSpotsCollectionVC!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.hideInstructionsBanner()
+        self.checkNotificationAuthorizationStatus()
     }
     
     @IBAction func searchPressed(_ sender: Any) {

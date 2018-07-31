@@ -21,7 +21,7 @@ class NotificationScheduler {
             if error != nil {
                 print("🌊 Error Scheduling Notification: \(String(describing: error!.localizedDescription))")
             } else {
-                print("Notification alarm is now scheduled for \(self.alarm.spotName)")
+                print("Notification alarm is now scheduled")
             }
         }
     }

@@ -59,6 +59,7 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search" translatesAutoresizingMaskIntoConstraints="NO" id="ZPa-Jf-HWi">
                                         <rect key="frame" x="11" y="11" width="22" height="22"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="ZPa-Jf-HWi" secondAttribute="height" multiplier="1:1" id="G65-Mi-OCT"/>
                                         </constraints>
@@ -93,6 +94,7 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="alarm" translatesAutoresizingMaskIntoConstraints="NO" id="SFy-Sp-QqO">
                                         <rect key="frame" x="9" y="9" width="26" height="26"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="SFy-Sp-QqO" secondAttribute="height" multiplier="1:1" id="a6d-gD-fMa"/>
                                         </constraints>

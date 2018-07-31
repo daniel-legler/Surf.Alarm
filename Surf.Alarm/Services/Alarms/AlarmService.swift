@@ -28,11 +28,12 @@ class AlarmService {
         self.token?.invalidate()
     }
     
-    func refreshForecastsForAlarms() {
+    func refreshAlarms() {
         for alarm in alarms where alarm.isEnabledByUser {
             if let spot = alarm.surfSpot, spot.shouldRefresh {
                 NetworkService.refreshForecast(for: spot)
             }
+            self.scheduleAlarmNotifications(alarm)
         }
     }
     
