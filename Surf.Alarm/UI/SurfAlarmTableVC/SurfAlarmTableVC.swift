@@ -8,6 +8,7 @@ class SurfAlarmTableVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     let alarms = store.allAlarms().sorted(byKeyPath: "spotName")
+    
     weak var delegate: SurfAlarmTableViewDelegate?
     
     override func viewDidLoad() {
@@ -15,14 +16,15 @@ class SurfAlarmTableVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        tableView.isHidden = alarms.isEmpty
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         emptyAlarmsImage.makeRound()
     }
     
-    @IBAction func closeButtonTapped(_ sender: UIButton!) {
+    @IBAction func closeButtonTapped(_ sender: Any!) {
         self.dismiss(animated: true, completion: nil)
     }
 }

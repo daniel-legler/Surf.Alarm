@@ -12,7 +12,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Alarms-->
+        <!--Surf Alarm TableVC-->
         <scene sceneID="82j-1S-eSv">
             <objects>
                 <viewController id="Dmv-a0-T9g" customClass="SurfAlarmTableVC" customModule="Surf_Alarm" customModuleProvider="target" sceneMemberID="viewController">
@@ -21,41 +21,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="1xt-m7-L7A">
-                                <rect key="frame" x="94" y="208" width="187.5" height="251.5"/>
+                                <rect key="frame" x="95.5" y="214.5" width="185" height="239"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" image="alarm-large" translatesAutoresizingMaskIntoConstraints="NO" id="WeE-Ut-RCB">
-                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="187.5"/>
+                                        <rect key="frame" x="5" y="0.0" width="175" height="175"/>
                                         <color key="backgroundColor" name="SAPrimaryDark"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="WeE-Ut-RCB" secondAttribute="height" multiplier="1:1" id="BEz-k7-67U"/>
+                                            <constraint firstAttribute="width" constant="175" id="dJ5-VG-8w6"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.clipsToBounds" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Alarms Added Yet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFL-IG-BCZ">
-                                        <rect key="frame" x="1.5" y="227.5" width="185" height="24"/>
+                                        <rect key="frame" x="0.0" y="215" width="185" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" name="SAPrimaryDark"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HG6-6m-29m">
-                                <rect key="frame" x="328" y="28" width="39" height="22"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="22" id="8RV-FH-sdT"/>
-                                </constraints>
-                                <state key="normal" title="Close">
-                                    <color key="titleColor" name="SAPrimaryDark"/>
-                                </state>
-                                <connections>
-                                    <action selector="closeButtonTapped:" destination="Dmv-a0-T9g" eventType="touchUpInside" id="W6x-V9-T0D"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="2rt-Pw-YFP">
-                                <rect key="frame" x="0.0" y="55" width="375" height="612"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="0.0" y="84" width="375" height="583"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="surfAlarmDetailCell" rowHeight="165" id="Ljt-h4-MOU" customClass="SurfAlarmTableViewCell" customModule="Surf_Alarm" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="165"/>
@@ -210,33 +199,67 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wjK-RA-Xau" userLabel="Close Button Container" customClass="DesignableView" customModule="Surf_Alarm" customModuleProvider="target">
+                                <rect key="frame" x="311" y="40" width="44" height="44"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="close" translatesAutoresizingMaskIntoConstraints="NO" id="qTg-u2-lCI">
+                                        <rect key="frame" x="9" y="9" width="26" height="26"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="qTg-u2-lCI" secondAttribute="height" multiplier="1:1" id="Cxi-f3-VyY"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" name="SAPrimaryDark"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="qTg-u2-lCI" firstAttribute="centerX" secondItem="wjK-RA-Xau" secondAttribute="centerX" id="3KB-c8-7fD"/>
+                                    <constraint firstItem="qTg-u2-lCI" firstAttribute="width" secondItem="wjK-RA-Xau" secondAttribute="width" multiplier="0.6" id="It4-Kd-CFk"/>
+                                    <constraint firstAttribute="width" constant="44" id="cgH-Fy-Fnq"/>
+                                    <constraint firstItem="qTg-u2-lCI" firstAttribute="centerY" secondItem="wjK-RA-Xau" secondAttribute="centerY" id="rYr-Ob-vaX"/>
+                                    <constraint firstAttribute="width" secondItem="wjK-RA-Xau" secondAttribute="height" multiplier="1:1" id="wEs-GU-wI6"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="3vL-9j-LhB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="22"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Axb-3V-GKX" appends="YES" id="PQY-Zv-uRI"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="WeE-Ut-RCB" firstAttribute="width" secondItem="NPK-EN-w0r" secondAttribute="width" multiplier="0.5" id="0cK-Lb-x8y"/>
                             <constraint firstItem="mLC-fM-1oC" firstAttribute="bottom" secondItem="2rt-Pw-YFP" secondAttribute="bottom" id="3my-Z7-Ngx"/>
                             <constraint firstItem="1xt-m7-L7A" firstAttribute="centerX" secondItem="NPK-EN-w0r" secondAttribute="centerX" id="7qd-OO-ecG"/>
-                            <constraint firstItem="HG6-6m-29m" firstAttribute="top" secondItem="mLC-fM-1oC" secondAttribute="top" constant="8" id="9qC-mz-5Tg"/>
                             <constraint firstItem="2rt-Pw-YFP" firstAttribute="leading" secondItem="mLC-fM-1oC" secondAttribute="leading" id="C9J-d5-2Fh"/>
                             <constraint firstItem="1xt-m7-L7A" firstAttribute="centerY" secondItem="NPK-EN-w0r" secondAttribute="centerY" id="ITR-JN-vg7"/>
+                            <constraint firstItem="2rt-Pw-YFP" firstAttribute="top" secondItem="wjK-RA-Xau" secondAttribute="bottom" id="PE8-x3-4C4"/>
                             <constraint firstItem="2rt-Pw-YFP" firstAttribute="width" secondItem="NPK-EN-w0r" secondAttribute="width" id="Y68-Ym-DYh"/>
-                            <constraint firstItem="2rt-Pw-YFP" firstAttribute="top" secondItem="HG6-6m-29m" secondAttribute="bottom" constant="5" id="ZBf-Ti-eZ5"/>
-                            <constraint firstItem="mLC-fM-1oC" firstAttribute="trailing" secondItem="HG6-6m-29m" secondAttribute="trailing" constant="8" id="iaY-NB-Ksn"/>
                             <constraint firstItem="mLC-fM-1oC" firstAttribute="trailing" secondItem="2rt-Pw-YFP" secondAttribute="trailing" id="rhm-ih-PEb"/>
+                            <constraint firstItem="mLC-fM-1oC" firstAttribute="trailing" secondItem="wjK-RA-Xau" secondAttribute="trailing" constant="20" id="u37-TT-TIj"/>
+                            <constraint firstItem="wjK-RA-Xau" firstAttribute="top" secondItem="mLC-fM-1oC" secondAttribute="top" constant="20" id="zXN-mF-oLh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mLC-fM-1oC"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Alarms" largeTitleDisplayMode="never" id="jnZ-Kf-myy">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="YrV-dx-FxZ">
-                            <color key="tintColor" name="SAPrimary"/>
-                        </barButtonItem>
-                    </navigationItem>
                     <connections>
                         <outlet property="emptyAlarmsImage" destination="WeE-Ut-RCB" id="ph0-hd-q8C"/>
                         <outlet property="tableView" destination="2rt-Pw-YFP" id="8Hr-Ta-8az"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cE4-1h-fRe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Axb-3V-GKX">
+                    <connections>
+                        <action selector="closeButtonTapped:" destination="Dmv-a0-T9g" id="OQN-xi-xBQ"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="28" y="136.28185907046478"/>
         </scene>
@@ -244,6 +267,7 @@
     <resources>
         <image name="alarm-large" width="750" height="750"/>
         <image name="calendar" width="48" height="48"/>
+        <image name="close" width="48" height="48"/>
         <image name="settings" width="48" height="48"/>
         <image name="surfboard" width="266" height="660"/>
         <namedColor name="SAAccent">

@@ -28,7 +28,7 @@ class SurfSpotSearchController: UIViewController {
         self.searchController.searchBar.tintColor = R.color.saPrimaryDark()
     }
     
-    @IBAction func closeButtonTapped(_ sender: UIButton!) {
+    @IBAction func closeButtonTapped(_ sender: Any) {
         self.closeSearch()
     }
     

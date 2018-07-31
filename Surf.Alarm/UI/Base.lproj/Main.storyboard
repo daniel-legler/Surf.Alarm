@@ -137,15 +137,12 @@
                             <constraint firstItem="Q09-3E-CyD" firstAttribute="bottom" secondItem="xEj-yR-ZAM" secondAttribute="bottom" constant="20" id="KLS-PG-6Hr"/>
                             <constraint firstItem="Q09-3E-CyD" firstAttribute="trailing" secondItem="xEj-yR-ZAM" secondAttribute="trailing" constant="20" id="Lgk-v6-ryD"/>
                             <constraint firstItem="xEj-yR-ZAM" firstAttribute="leading" secondItem="Q09-3E-CyD" secondAttribute="leading" constant="20" id="VLf-lP-fHb"/>
-                            <constraint firstItem="AJn-rj-vY3" firstAttribute="width" secondItem="AJn-rj-vY3" secondAttribute="height" multiplier="1:1" id="Yxi-Wc-YXj"/>
                             <constraint firstItem="L6O-43-m4z" firstAttribute="top" secondItem="Q09-3E-CyD" secondAttribute="top" id="ZAW-c6-T1N"/>
-                            <constraint firstItem="AJn-rj-vY3" firstAttribute="width" secondItem="AJn-rj-vY3" secondAttribute="height" multiplier="1:1" id="bDu-jf-VfJ"/>
                             <constraint firstItem="vm6-JL-dhe" firstAttribute="top" secondItem="Q09-3E-CyD" secondAttribute="top" constant="20" id="dE2-tM-bmh"/>
                             <constraint firstItem="L6O-43-m4z" firstAttribute="leading" secondItem="Q09-3E-CyD" secondAttribute="leading" id="hSA-Bf-mQ7"/>
                             <constraint firstItem="Q09-3E-CyD" firstAttribute="bottom" secondItem="L6O-43-m4z" secondAttribute="bottom" id="hhG-j9-gtt"/>
                             <constraint firstItem="Q09-3E-CyD" firstAttribute="trailing" secondItem="L6O-43-m4z" secondAttribute="trailing" id="jLU-R2-LfB"/>
                             <constraint firstItem="ccE-qf-KFx" firstAttribute="leading" secondItem="Q09-3E-CyD" secondAttribute="leading" id="lZQ-sT-y8M"/>
-                            <constraint firstItem="vm6-JL-dhe" firstAttribute="width" secondItem="vm6-JL-dhe" secondAttribute="height" multiplier="1:1" id="q2q-PV-Qv8"/>
                             <constraint firstItem="Q09-3E-CyD" firstAttribute="trailing" secondItem="ccE-qf-KFx" secondAttribute="trailing" id="uba-Pf-k4l"/>
                             <constraint firstItem="ccE-qf-KFx" firstAttribute="height" secondItem="Q09-3E-CyD" secondAttribute="height" multiplier="0.333" id="uwn-wX-oQt"/>
                             <constraint firstItem="vm6-JL-dhe" firstAttribute="leading" secondItem="Q09-3E-CyD" secondAttribute="leading" constant="20" id="zGm-Rc-laR"/>
