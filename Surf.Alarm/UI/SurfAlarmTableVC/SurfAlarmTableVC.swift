@@ -4,6 +4,8 @@ import UIKit
 import Rswift
 class SurfAlarmTableVC: UIViewController {
 
+    @IBOutlet weak var emptyAlarmsImage: UIImageView!
+    
     @IBOutlet weak var tableView: UITableView!
     let alarms = store.allAlarms().sorted(byKeyPath: "spotName")
     weak var delegate: SurfAlarmTableViewDelegate?
@@ -13,6 +15,11 @@ class SurfAlarmTableVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        emptyAlarmsImage.makeRound()
     }
     
     @IBAction func closeButtonTapped(_ sender: UIButton!) {
