@@ -34,22 +34,44 @@ extension Realm {
     
     // MARK: - SurfForecasts
     
-    func currentSpotForecast(_ spot: SurfSpot) -> SurfForecast? {
-        let futureForecasts = spot.forecasts.filter("date > %@", Date())
-        let sortedFutureForecasts = futureForecasts.sorted(byKeyPath: "date")
-        return sortedFutureForecasts.first
+    var allForecasts: Results<SurfForecast> {
+        return objects(SurfForecast.self)
     }
-        
+    
+    func currentSpotForecast(_ spot: SurfSpot) -> SurfForecast? {
+        if let soonestForecast = spot.forecasts
+                                        .filter("date > %@", Date())
+                                        .sorted(byKeyPath: "date")
+                                        .first {
+            return soonestForecast
+        } else if let mostRecentForecast = spot.forecasts
+                                            .filter("date < %@", Date())
+                                            .sorted(byKeyPath: "date")
+                                            .last {
+            return mostRecentForecast
+        }
+        return nil
+    }
+    
     func updateSurfForecasts(_ forecasts: [SurfForecast], for spot: SurfSpot) {
+        let soonestNewForecastDate = forecasts.map({$0.date}).min() ?? Date.distantFuture
+        let outdatedForecasts = allForecasts
+                                .filter("spotId = %@ AND date > %@", spot.spotId, soonestNewForecastDate)
         writeBlock {
-            self.delete(objects(SurfForecast.self).filter("spotId = %@", spot.spotId))
-            self.add(forecasts)
+            if !outdatedForecasts.isEmpty {
+                delete(outdatedForecasts)
+            }
+            add(forecasts)
             spot.updatedAt = Date()
         }
     }
     
     // MARK: - Surf Alarms
     
+    var allAlarms: Results<SurfAlarm> {
+        return self.objects(SurfAlarm.self)
+    }
+
     func saveAlarm(_ alarm: SurfAlarm) {
         writeBlock {
             self.add(alarm, update: true)
@@ -66,9 +88,5 @@ extension Realm {
         writeBlock {
             self.delete(alarm)
         }
-    }
-    
-    func allAlarms() -> Results<SurfAlarm> {
-        return self.objects(SurfAlarm.self)
     }
 }

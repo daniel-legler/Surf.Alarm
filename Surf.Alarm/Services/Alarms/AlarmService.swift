@@ -7,7 +7,7 @@ import UserNotifications
 class AlarmService {
     
     static let shared = AlarmService()
-    let alarms = store.allAlarms()
+    let alarms = store.allAlarms
 
     var token: NotificationToken?
     

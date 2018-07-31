@@ -18,7 +18,11 @@ class NotificationScheduler {
     func schedule() {
         let request = self.notification(for: alarm, forecast: forecast)
         UNUserNotificationCenter.current().add(request) { (error) in
-            print("🌊 Error Scheduling Notification: \(String(describing: error?.localizedDescription))")
+            if error != nil {
+                print("🌊 Error Scheduling Notification: \(String(describing: error!.localizedDescription))")
+            } else {
+                print("Notification alarm is now scheduled for \(self.alarm.spotName)")
+            }
         }
     }
     

@@ -7,7 +7,7 @@ class SurfAlarmTableVC: UIViewController {
     @IBOutlet weak var emptyAlarmsImage: UIImageView!
     
     @IBOutlet weak var tableView: UITableView!
-    let alarms = store.allAlarms().sorted(byKeyPath: "spotName")
+    let alarms = store.allAlarms.sorted(byKeyPath: "spotName")
     
     weak var delegate: SurfAlarmTableViewDelegate?
     
