@@ -12,7 +12,7 @@
 		7408647B20F7144B00C62E29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7408647A20F7144B00C62E29 /* Assets.xcassets */; };
 		7408647E20F7144B00C62E29 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7408647C20F7144B00C62E29 /* LaunchScreen.storyboard */; };
 		74107DAB210E9EDB00E71A3E /* UISwipeActionsConfiguration+SurfAlarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74107DAA210E9EDB00E71A3E /* UISwipeActionsConfiguration+SurfAlarm.swift */; };
-		74107DAE210FA7CC00E71A3E /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74107DAD210FA7CC00E71A3E /* NotificationService.swift */; };
+		74107DAE210FA7CC00E71A3E /* AlarmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74107DAD210FA7CC00E71A3E /* AlarmService.swift */; };
 		74308F7A20FAE885004A608B /* SurfSpotsMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74308F7920FAE885004A608B /* SurfSpotsMapVC.swift */; };
 		74308F7E20FAE9C8004A608B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74308F7D20FAE9C8004A608B /* Constants.swift */; };
 		743C835620F97C6E0062B994 /* SurfSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743C835520F97C6E0062B994 /* SurfSpot.swift */; };
@@ -43,6 +43,7 @@
 		74C5CFB120FABBA3004AEF35 /* SurfSpotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C5CFB020FABBA3004AEF35 /* SurfSpotCell.swift */; };
 		74C5CFB820FAC151004AEF35 /* SurfSpotsCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C5CFB620FAC151004AEF35 /* SurfSpotsCollectionVC.swift */; };
 		74C5CFC420FAC608004AEF35 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C5CFC320FAC608004AEF35 /* R.generated.swift */; };
+		74CA3B40210FD52500AB1483 /* NotificationScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CA3B3F210FD52500AB1483 /* NotificationScheduler.swift */; };
 		74EFF1EF20FAEE3100789C3C /* Double+SurfHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EFF1EE20FAEE3100789C3C /* Double+SurfHeight.swift */; };
 		74FFBE2121061E5200DB03E5 /* ClusterAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FFBE2021061E5200DB03E5 /* ClusterAnnotationView.swift */; };
 		74FFBE25210661DF00DB03E5 /* SurfSpotSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FFBE23210661DF00DB03E5 /* SurfSpotSearchController.swift */; };
@@ -58,7 +59,7 @@
 		7408647D20F7144B00C62E29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7408647F20F7144B00C62E29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74107DAA210E9EDB00E71A3E /* UISwipeActionsConfiguration+SurfAlarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISwipeActionsConfiguration+SurfAlarm.swift"; sourceTree = "<group>"; };
-		74107DAD210FA7CC00E71A3E /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		74107DAD210FA7CC00E71A3E /* AlarmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmService.swift; sourceTree = "<group>"; };
 		74308F7920FAE885004A608B /* SurfSpotsMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotsMapVC.swift; sourceTree = "<group>"; };
 		74308F7D20FAE9C8004A608B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		743C835520F97C6E0062B994 /* SurfSpot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpot.swift; sourceTree = "<group>"; };
@@ -90,6 +91,7 @@
 		74C5CFB020FABBA3004AEF35 /* SurfSpotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotCell.swift; sourceTree = "<group>"; };
 		74C5CFB620FAC151004AEF35 /* SurfSpotsCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotsCollectionVC.swift; sourceTree = "<group>"; };
 		74C5CFC320FAC608004AEF35 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		74CA3B3F210FD52500AB1483 /* NotificationScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationScheduler.swift; sourceTree = "<group>"; };
 		74EFF1EE20FAEE3100789C3C /* Double+SurfHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+SurfHeight.swift"; sourceTree = "<group>"; };
 		74FFBE2021061E5200DB03E5 /* ClusterAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClusterAnnotationView.swift; sourceTree = "<group>"; };
 		74FFBE23210661DF00DB03E5 /* SurfSpotSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotSearchController.swift; sourceTree = "<group>"; };
@@ -202,7 +204,7 @@
 		7468C15020F9227400EE9663 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				74107DAD210FA7CC00E71A3E /* NotificationService.swift */,
+				74CA3B3E210FD51700AB1483 /* Alarms */,
 				743C835B20FA82FD0062B994 /* NetworkService.swift */,
 				7468C15F20F9519B00EE9663 /* RealmService.swift */,
 			);
@@ -268,6 +270,15 @@
 				745E5BB4210ADD500075A851 /* SurfAlarm.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		74CA3B3E210FD51700AB1483 /* Alarms */ = {
+			isa = PBXGroup;
+			children = (
+				74107DAD210FA7CC00E71A3E /* AlarmService.swift */,
+				74CA3B3F210FD52500AB1483 /* NotificationScheduler.swift */,
+			);
+			path = Alarms;
 			sourceTree = "<group>";
 		};
 		74FFBE22210661BC00DB03E5 /* SurfSpotSearchController */ = {
@@ -434,6 +445,7 @@
 				745E5BC4210B6CE10075A851 /* SurfAlarmDaySelectionTableVC.swift in Sources */,
 				74C5CFB120FABBA3004AEF35 /* SurfSpotCell.swift in Sources */,
 				745E5BBF210B55C70075A851 /* SurfHeightSelectorCell.swift in Sources */,
+				74CA3B40210FD52500AB1483 /* NotificationScheduler.swift in Sources */,
 				745E5BA3210972F80075A851 /* MainVC.swift in Sources */,
 				743C835620F97C6E0062B994 /* SurfSpot.swift in Sources */,
 				745E5BA721098FDE0075A851 /* SurfSpotMapDelegate.swift in Sources */,
@@ -459,7 +471,7 @@
 				74308F7A20FAE885004A608B /* SurfSpotsMapVC.swift in Sources */,
 				745E5BB8210ADFE40075A851 /* SurfAlarmBuilderVC.swift in Sources */,
 				745E5BAD210A1F630075A851 /* SurfSpotCollectionViewDelegate.swift in Sources */,
-				74107DAE210FA7CC00E71A3E /* NotificationService.swift in Sources */,
+				74107DAE210FA7CC00E71A3E /* AlarmService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

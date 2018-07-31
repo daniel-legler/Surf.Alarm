@@ -14,6 +14,10 @@ class SurfSpot: Object {
     
     let forecasts = LinkingObjects(fromType: SurfForecast.self, property: "surfSpot")
     
+    var alarm: SurfAlarm? {
+        return LinkingObjects(fromType: SurfAlarm.self, property: "surfSpot").first
+    }
+    
     override static func primaryKey() -> String? {
         return "spotId"
     }

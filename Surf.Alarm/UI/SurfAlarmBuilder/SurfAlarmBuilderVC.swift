@@ -29,7 +29,7 @@ class SurfAlarmBuilderVC: UIViewController {
         self.countyNameLabel.text = surfSpot?.county ?? alarm.county
         
         self.updateEnabledDaysLabel()
-        self.timePicker.setDate(alarm.date, animated: false)
+        self.timePicker.setDate(alarm.pickerDate, animated: false)
     }
     
     func configure(with spot: SurfSpot) {

@@ -11,8 +11,7 @@ extension Realm {
             try write {
                 block()
             }
-        }
-        catch {
+        } catch {
             print("🌊Error: \(error.localizedDescription)")
         }
     }
@@ -40,7 +39,7 @@ extension Realm {
         let sortedFutureForecasts = futureForecasts.sorted(byKeyPath: "date")
         return sortedFutureForecasts.first
     }
-    
+        
     func updateSurfForecasts(_ forecasts: [SurfForecast], for spot: SurfSpot) {
         writeBlock {
             self.delete(objects(SurfForecast.self).filter("spotId = %@", spot.spotId))

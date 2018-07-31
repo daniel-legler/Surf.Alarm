@@ -8,6 +8,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
         
+        UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+
         if !UserDefaults.standard.bool(forKey: Constants.firstLaunchOccurred) {
             UserDefaults.standard.set(true, forKey: Constants.firstLaunchOccurred)
             NetworkService.refreshAllSurfSpots()
@@ -21,7 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {
+    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        
+        AlarmService.shared.refreshForecastsForAlarms()
         
     }
 

@@ -3,6 +3,7 @@
 import Foundation
 
 extension Date {
+    
     static func currentDayOfWeek() -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "EEEE"

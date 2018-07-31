@@ -7,7 +7,7 @@ import SpitcastSwift
 @objcMembers
 class SurfForecast: Object {
     dynamic var date: Date = Date()
-    dynamic var name: String = ""
+    dynamic var spotName: String = ""
     dynamic var latitude: Double = 0.0
     dynamic var longitude: Double = 0.0
     dynamic var spotId: Int = 0
@@ -21,7 +21,7 @@ class SurfForecast: Object {
         self.init()
         self.spotId = spitcast.spotId
         self.date = spitcast.date
-        self.name = spitcast.name
+        self.spotName = spitcast.name
         self.latitude = spitcast.latitude
         self.longitude = spitcast.longitude
         self.tideReport = spitcast.shapeDetails.tide

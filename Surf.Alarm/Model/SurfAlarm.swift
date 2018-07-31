@@ -29,7 +29,7 @@ extension SurfAlarm {
         return !disabledDays.contains(Date.currentDayOfWeek())
     }
     
-    var date: Date {
+    var pickerDate: Date {
         var components = DateComponents()
         components.hour = self.alarmHour
         components.minute = self.alarmMinute
