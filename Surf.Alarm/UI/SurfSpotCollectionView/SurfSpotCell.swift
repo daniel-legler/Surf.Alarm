@@ -10,6 +10,9 @@ class SurfSpotCollectionViewCell: DesignableCollectionViewCell {
     @IBOutlet weak var windLabel: UILabel!
     @IBOutlet weak var tideLabel: UILabel!
     
+    @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var statusContainer: DesignableView!
+    
     @IBOutlet weak var createAlarmButton: AddAlarmButton!
     
     var spot: SurfSpot!
@@ -26,6 +29,11 @@ class SurfSpotCollectionViewCell: DesignableCollectionViewCell {
             self.heightLabel.text = forecast.waveHeight.toSurfRange()
             self.windLabel.text = forecast.windReport
             self.tideLabel.text = forecast.tideReport
+            self.statusLabel.text = "Updated \(spot.updatedAt.relativeToNow())"
+            self.statusContainer.backgroundColor = R.color.saAccent()
+        } else {
+            self.statusLabel.text = "Data Unavailable"
+            self.statusContainer.backgroundColor = .red
         }
     }
     

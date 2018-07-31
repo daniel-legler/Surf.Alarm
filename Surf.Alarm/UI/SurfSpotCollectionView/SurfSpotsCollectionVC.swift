@@ -31,6 +31,9 @@ class SurfSpotsCollectionVC: UIViewController {
         
         token = spots.observe({ [weak self] (changes: RealmCollectionChange) in
             switch changes {
+            case .initial:
+                self?.collectionView.reloadData()
+                break
             case .update(_, let deletions, let insertions, let modifications):
                 self?.collectionView.performBatchUpdates({
                     self?.collectionView.insertItems(at: insertions.map({IndexPath(item: $0, section: 0)}))
@@ -96,11 +99,13 @@ extension SurfSpotsCollectionVC: UICollectionViewDataSource {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.surfSpotCell, for: indexPath) {
             
             let spot = spots[indexPath.item]
-            NetworkService.refreshForecast(for: spot)
             let forecast = store.currentSpotForecast(spot)
             cell.configure(spot)
             cell.updateForecast(forecast)
             cell.createAlarmButton.addTarget(self, action: #selector(self.addAlarmTapped(_:)), for: .touchUpInside)
+            
+            NetworkService.refreshForecast(for: spot)
+            
             return cell
         }
         return UICollectionViewCell()

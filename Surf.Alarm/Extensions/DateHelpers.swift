@@ -10,6 +10,15 @@ extension Date {
         return formatter.string(from: Date())
     }
     
+    func relativeToNow() -> String {
+        let isToday = Calendar.current.isDateInToday(self)
+        let formatter = DateFormatter()
+        formatter.doesRelativeDateFormatting = true
+        formatter.dateStyle = isToday ? .none : .short
+        formatter.timeStyle = isToday ? .short : .none
+        return formatter.string(from: self)
+    }
+    
     static func alarmString(disabledWeekdays: [String]) -> String {
         let allWeekdays = Calendar.current.weekdaySymbols
         var missingWeekdays: [String?] = Calendar.current.shortWeekdaySymbols
