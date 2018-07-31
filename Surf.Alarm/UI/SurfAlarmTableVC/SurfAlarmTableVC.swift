@@ -13,10 +13,8 @@ class SurfAlarmTableVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        tableView.isHidden = alarms.isEmpty
+        setupTableView()
+        checkNotificationAuthorization()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -26,6 +24,23 @@ class SurfAlarmTableVC: UIViewController {
     
     @IBAction func closeButtonTapped(_ sender: Any!) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        tableView.isHidden = alarms.isEmpty
+    }
+    
+    func checkNotificationAuthorization() {
+        NotificationAuthorizer.checkAuthorization({ (granted) in
+            if !granted && NotificationAuthorizer.userDisabledNotifications {
+                DispatchQueue.main.async {
+                    self.showBottomMessage("Enable Notifications in iOS Settings to set alarms", lengthOfTime: 4.0)
+                }
+            }
+        })
     }
 }
 

@@ -1,5 +1,5 @@
 
 struct Constants {
     static let firstLaunchOccurred = "firstLaunchOccurred"
-    static let userIgnoredOpenAppSettingsForNotifications = "userIgnoredOpenAppSettingsForNotifications"
+    static let userDisabledNotifications = "userDisabledNotifications"
 }

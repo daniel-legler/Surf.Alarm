@@ -6,16 +6,19 @@ import MapKit
 
 class MainVC: UIViewController {
 
-    @IBOutlet weak var instructionsView: DesignableView!
     @IBOutlet weak var collectionContainerView: UIView!
     @IBOutlet weak var collectionContainerAnchor: NSLayoutConstraint!
     
     var surfMap: SurfSpotsMapVC!
     var spotCollection: SurfSpotsCollectionVC!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.showBottomMessage("Search or scroll to find your surf spot", lengthOfTime: 4)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.hideInstructionsBanner()
         self.checkNotificationAuthorizationStatus()
     }
     
@@ -54,22 +57,22 @@ class MainVC: UIViewController {
             alarmBuilder.configure(with: spot)
         }
     }
-    
-    func hideInstructionsBanner() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-            UIView.animate(withDuration: 0.5, animations: {
-                self.instructionsView?.alpha = 0
-            }, completion: { _ in
-                self.instructionsView?.removeFromSuperview()
-            })
-        }
-    }
-    
+        
     func moveSurfSpotCollectionView(hidden: Bool) {
         UIView.animate(withDuration: 0.3) {
             let bottomConstant = hidden ? self.collectionContainerView.frame.height : -10.0
             self.collectionContainerAnchor.constant = bottomConstant
             self.view.layoutIfNeeded()
+        }
+    }
+    
+    func checkNotificationAuthorizationStatus() {
+        NotificationAuthorizer.checkAuthorization { (authorized) in
+            if !authorized && !NotificationAuthorizer.userDisabledNotifications {
+                DispatchQueue.main.async {
+                    self.showAppSettingsDialog(title: "Notifications Disabled")
+                }
+            }
         }
     }
 }

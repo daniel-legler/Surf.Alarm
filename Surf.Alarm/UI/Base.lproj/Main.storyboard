@@ -26,34 +26,6 @@
                                     <segue destination="GXR-u2-9cP" kind="embed" identifier="EmbedMap" id="m3V-5X-J1N"/>
                                 </connections>
                             </containerView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xEj-yR-ZAM" userLabel="Prompt Container" customClass="DesignableView" customModule="Surf_Alarm" customModuleProvider="target">
-                                <rect key="frame" x="20" y="672" width="374" height="44"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search or scroll to find your favorite spot" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ct1-lZ-XqZ">
-                                        <rect key="frame" x="65.666666666666686" y="14.666666666666629" width="243" height="15.666666666666664"/>
-                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" name="SAPrimaryDark"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="wBP-8S-Igu"/>
-                                    <constraint firstItem="ct1-lZ-XqZ" firstAttribute="centerX" secondItem="xEj-yR-ZAM" secondAttribute="centerX" id="x8a-GZ-vQl"/>
-                                    <constraint firstItem="ct1-lZ-XqZ" firstAttribute="centerY" secondItem="xEj-yR-ZAM" secondAttribute="centerY" id="yGj-Hu-QQi"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="22"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vm6-JL-dhe" userLabel="Search Button Container" customClass="DesignableView" customModule="Surf_Alarm" customModuleProvider="target">
                                 <rect key="frame" x="20" y="40" width="44" height="44"/>
                                 <subviews>
@@ -136,9 +108,6 @@
                             <constraint firstItem="AJn-rj-vY3" firstAttribute="top" secondItem="Q09-3E-CyD" secondAttribute="top" constant="20" id="4dA-AI-Fvo"/>
                             <constraint firstItem="ccE-qf-KFx" firstAttribute="bottom" secondItem="Q09-3E-CyD" secondAttribute="bottom" constant="300" id="FWA-4C-Jsn"/>
                             <constraint firstItem="Q09-3E-CyD" firstAttribute="trailing" secondItem="AJn-rj-vY3" secondAttribute="trailing" constant="20" id="GoX-5S-mds"/>
-                            <constraint firstItem="Q09-3E-CyD" firstAttribute="bottom" secondItem="xEj-yR-ZAM" secondAttribute="bottom" constant="20" id="KLS-PG-6Hr"/>
-                            <constraint firstItem="Q09-3E-CyD" firstAttribute="trailing" secondItem="xEj-yR-ZAM" secondAttribute="trailing" constant="20" id="Lgk-v6-ryD"/>
-                            <constraint firstItem="xEj-yR-ZAM" firstAttribute="leading" secondItem="Q09-3E-CyD" secondAttribute="leading" constant="20" id="VLf-lP-fHb"/>
                             <constraint firstItem="L6O-43-m4z" firstAttribute="top" secondItem="Q09-3E-CyD" secondAttribute="top" id="ZAW-c6-T1N"/>
                             <constraint firstItem="vm6-JL-dhe" firstAttribute="top" secondItem="Q09-3E-CyD" secondAttribute="top" constant="20" id="dE2-tM-bmh"/>
                             <constraint firstItem="L6O-43-m4z" firstAttribute="leading" secondItem="Q09-3E-CyD" secondAttribute="leading" id="hSA-Bf-mQ7"/>
@@ -154,7 +123,6 @@
                     <connections>
                         <outlet property="collectionContainerAnchor" destination="FWA-4C-Jsn" id="CZN-Xd-qMt"/>
                         <outlet property="collectionContainerView" destination="ccE-qf-KFx" id="WOK-ia-HiY"/>
-                        <outlet property="instructionsView" destination="xEj-yR-ZAM" id="ahL-hK-mhQ"/>
                         <segue destination="Anh-2s-lie" kind="presentation" identifier="showAlarmBuilder" id="7Wg-WJ-efe"/>
                     </connections>
                 </viewController>
