@@ -107,7 +107,7 @@ extension SurfAlarmTableVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         return UISwipeActionsConfiguration.viewMapConfiguration({ (action, view, handler) in
-            self.navigationController?.dismiss(animated: true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
             self.delegate?.userTappedViewMap(for: self.alarms[indexPath.section])
         })
     }
