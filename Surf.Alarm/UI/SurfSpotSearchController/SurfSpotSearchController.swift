@@ -4,18 +4,22 @@ class SurfSpotSearchController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    let surfSpots = Array(store.allSurfSpots.sorted(byKeyPath: "county"))
-    var filteredSpots: [SurfSpot] = []
-
-    var searchController: UISearchController!
     weak var delegate: SurfSpotSearchDelegate?
+    
+    private let surfSpots = Array(store.allSurfSpots.sorted(byKeyPath: "county"))
+    private var filteredSpots: [SurfSpot] = []
+    private var searchController: UISearchController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSearchController()
     }
     
-    func setupSearchController() {
+    @IBAction func closeButtonTapped(_ sender: Any) {
+        self.closeSearch()
+    }
+
+    private func setupSearchController() {
         self.searchController = UISearchController(searchResultsController: nil)
         self.searchController.delegate = self
         self.searchController.searchBar.delegate = self
@@ -28,11 +32,7 @@ class SurfSpotSearchController: UIViewController {
         self.searchController.searchBar.tintColor = R.color.saPrimaryDark()
     }
     
-    @IBAction func closeButtonTapped(_ sender: Any) {
-        self.closeSearch()
-    }
-    
-    func closeSearch() {
+    private func closeSearch() {
         self.searchController.dismiss(animated: true)
         self.dismiss(animated: true, completion: nil)
     }
@@ -62,20 +62,7 @@ extension SurfSpotSearchController: UISearchControllerDelegate, UISearchBarDeleg
     }
 }
 
-extension SurfSpotSearchController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var spot: SurfSpot
-        if self.isSearching {
-            spot = filteredSpots[indexPath.row]
-        } else {
-            spot = surfSpots[indexPath.row]
-        }
-        self.delegate?.userTappedSearchedSpot(coordinate: spot.coordinate)
-        self.closeSearch()
-    }
-}
-
-extension SurfSpotSearchController: UITableViewDataSource {
+extension SurfSpotSearchController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -97,4 +84,16 @@ extension SurfSpotSearchController: UITableViewDataSource {
         cell.detailTextLabel?.textColor = UIColor.gray
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var spot: SurfSpot
+        if self.isSearching {
+            spot = filteredSpots[indexPath.row]
+        } else {
+            spot = surfSpots[indexPath.row]
+        }
+        self.delegate?.userTappedSearchedSpot(coordinate: spot.coordinate)
+        self.closeSearch()
+    }
+
 }

@@ -7,12 +7,13 @@ import MapKit
 class SurfSpotsCollectionVC: UIViewController {
         
     @IBOutlet weak var collectionView: UICollectionView!
-    var centeredCollectionViewFlowLayout: CenteredCollectionViewFlowLayout!
-    weak var delegate: SurfSpotsCollectionDelegate?
     
     let spots = store.allSurfSpots.sorted(byKeyPath: "latitude", ascending: false)
     var token: NotificationToken?
-    
+    weak var delegate: SurfSpotsCollectionDelegate?
+
+    private var centeredCollectionViewFlowLayout: CenteredCollectionViewFlowLayout!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(R.nib.surfSpotCell(),
@@ -96,19 +97,20 @@ extension SurfSpotsCollectionVC: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.surfSpotCell, for: indexPath) {
-            
-            let spot = spots[indexPath.item]
-            let forecast = store.currentSpotForecast(spot)
-            cell.configure(spot)
-            cell.updateForecast(forecast)
-            cell.createAlarmButton.addTarget(self, action: #selector(self.addAlarmTapped(_:)), for: .touchUpInside)
-            
-            NetworkService.refreshForecast(for: spot)
-            
-            return cell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.surfSpotCell, for: indexPath) else {
+            return UICollectionViewCell()
         }
-        return UICollectionViewCell()
+            
+        let spot = spots[indexPath.item]
+
+        NetworkService.refreshForecast(for: spot)
+
+        let forecast = store.currentSpotForecast(spot)
+        cell.configure(spot: spot, forecast: forecast)
+        cell.createAlarmButton.addTarget(self,
+                                         action: #selector(self.addAlarmTapped(_:)),
+                                         for: .touchUpInside)
+        return cell
     }
 }
 

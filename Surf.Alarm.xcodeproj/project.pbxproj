@@ -44,7 +44,7 @@
 		74C5CFB820FAC151004AEF35 /* SurfSpotsCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C5CFB620FAC151004AEF35 /* SurfSpotsCollectionVC.swift */; };
 		74C5CFC420FAC608004AEF35 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C5CFC320FAC608004AEF35 /* R.generated.swift */; };
 		74CA3B40210FD52500AB1483 /* NotificationScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CA3B3F210FD52500AB1483 /* NotificationScheduler.swift */; };
-		74CA3B42210FF33B00AB1483 /* RoundedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CA3B41210FF33B00AB1483 /* RoundedViews.swift */; };
+		74CA3B42210FF33B00AB1483 /* View+Rounding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CA3B41210FF33B00AB1483 /* View+Rounding.swift */; };
 		74CA3B442110D21400AB1483 /* NotificationPermissionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CA3B432110D21400AB1483 /* NotificationPermissionsManager.swift */; };
 		74CA3B462110D96700AB1483 /* BottomMessage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74CA3B452110D96700AB1483 /* BottomMessage.xib */; };
 		74CA3B482110DA5F00AB1483 /* BottomMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CA3B472110DA5F00AB1483 /* BottomMessage.swift */; };
@@ -97,7 +97,7 @@
 		74C5CFB620FAC151004AEF35 /* SurfSpotsCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotsCollectionVC.swift; sourceTree = "<group>"; };
 		74C5CFC320FAC608004AEF35 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		74CA3B3F210FD52500AB1483 /* NotificationScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationScheduler.swift; sourceTree = "<group>"; };
-		74CA3B41210FF33B00AB1483 /* RoundedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedViews.swift; sourceTree = "<group>"; };
+		74CA3B41210FF33B00AB1483 /* View+Rounding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Rounding.swift"; sourceTree = "<group>"; };
 		74CA3B432110D21400AB1483 /* NotificationPermissionsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPermissionsManager.swift; sourceTree = "<group>"; };
 		74CA3B452110D96700AB1483 /* BottomMessage.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomMessage.xib; sourceTree = "<group>"; };
 		74CA3B472110DA5F00AB1483 /* BottomMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomMessage.swift; sourceTree = "<group>"; };
@@ -184,9 +184,9 @@
 			isa = PBXGroup;
 			children = (
 				745E5BA0210958930075A851 /* DesignableViews.swift */,
-				74CA3B41210FF33B00AB1483 /* RoundedViews.swift */,
 				74CA3B452110D96700AB1483 /* BottomMessage.xib */,
 				74CA3B472110DA5F00AB1483 /* BottomMessage.swift */,
+				74CA3B41210FF33B00AB1483 /* View+Rounding.swift */,
 				74CA3B4921111A4E00AB1483 /* ViewController+Extensions.swift */,
 			);
 			path = Extensions;
@@ -472,7 +472,7 @@
 				7408647120F7144A00C62E29 /* AppDelegate.swift in Sources */,
 				745E5BB1210A3A2E0075A851 /* CLLocationCoordinate2D+Equality.swift in Sources */,
 				745E5BC2210B636F0075A851 /* AddAlarmButton.swift in Sources */,
-				74CA3B42210FF33B00AB1483 /* RoundedViews.swift in Sources */,
+				74CA3B42210FF33B00AB1483 /* View+Rounding.swift in Sources */,
 				74FFBE25210661DF00DB03E5 /* SurfSpotSearchController.swift in Sources */,
 				7468C16020F9519B00EE9663 /* RealmService.swift in Sources */,
 				74107DAB210E9EDB00E71A3E /* UISwipeActionsConfiguration+SurfAlarm.swift in Sources */,

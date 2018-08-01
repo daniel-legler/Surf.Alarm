@@ -26,14 +26,14 @@ class SurfAlarmTableVC: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    func setupTableView() {
+    private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         tableView.isHidden = alarms.isEmpty
     }
     
-    func checkNotificationAuthorization() {
+    private func checkNotificationAuthorization() {
         NotificationAuthorizer.checkAuthorization({ (granted) in
             if !granted && NotificationAuthorizer.userDisabledNotifications {
                 DispatchQueue.main.async {

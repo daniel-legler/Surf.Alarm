@@ -17,14 +17,12 @@ class SurfSpotCollectionViewCell: DesignableCollectionViewCell {
     
     var spot: SurfSpot!
     
-    func configure(_ spot: SurfSpot) {
+    func configure(spot: SurfSpot, forecast: SurfForecast?) {
         self.spot = spot
         self.createAlarmButton.spot = spot
         self.spotNameLabel.text = spot.name
         self.countyLabel.text = spot.county
-    }
-    
-    func updateForecast(_ forecast: SurfForecast?) {
+        
         if let forecast = forecast {
             self.heightLabel.text = forecast.waveHeight.toSurfRange()
             self.windLabel.text = forecast.windReport
@@ -36,5 +34,4 @@ class SurfSpotCollectionViewCell: DesignableCollectionViewCell {
             self.statusContainer.backgroundColor = .red
         }
     }
-    
 }
