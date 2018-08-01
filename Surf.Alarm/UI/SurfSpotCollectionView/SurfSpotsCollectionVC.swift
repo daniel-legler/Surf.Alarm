@@ -16,18 +16,8 @@ class SurfSpotsCollectionVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.register(R.nib.surfSpotCell(),
-                                forCellWithReuseIdentifier: R.reuseIdentifier.surfSpotCell.identifier)
-        centeredCollectionViewFlowLayout = collectionView.collectionViewLayout as! CenteredCollectionViewFlowLayout
-        collectionView.decelerationRate = UIScrollViewDecelerationRateFast
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        centeredCollectionViewFlowLayout.itemSize = CGSize(width: view.bounds.width * 0.9,
-                                                           height: collectionView.bounds.height * 0.9)
         
-        centeredCollectionViewFlowLayout.minimumLineSpacing = 15
-        collectionView.showsVerticalScrollIndicator = false
-        collectionView.showsHorizontalScrollIndicator = false
+        setupCollectionView()
         collectionView.reloadData()
         
         token = spots.observe({ [weak self] (changes: RealmCollectionChange) in
@@ -49,6 +39,21 @@ class SurfSpotsCollectionVC: UIViewController {
     
     deinit {
         token?.invalidate()
+    }
+    
+    private func setupCollectionView() {
+        collectionView.register(R.nib.surfSpotCell(),
+                                forCellWithReuseIdentifier: R.reuseIdentifier.surfSpotCell.identifier)
+        centeredCollectionViewFlowLayout = collectionView.collectionViewLayout as! CenteredCollectionViewFlowLayout
+        collectionView.decelerationRate = UIScrollViewDecelerationRateFast
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        centeredCollectionViewFlowLayout.itemSize = CGSize(width: view.bounds.width * 0.9,
+                                                           height: collectionView.bounds.height * 0.9)
+        
+        centeredCollectionViewFlowLayout.minimumLineSpacing = 15
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
     }
     
     func scrollToSurfSpot(at coordinate: CLLocationCoordinate2D) {
@@ -97,16 +102,16 @@ extension SurfSpotsCollectionVC: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+        let spot = spots[indexPath.item]
+        
+        NetworkService.refreshForecast(for: spot)
+
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.surfSpotCell, for: indexPath) else {
             return UICollectionViewCell()
         }
             
-        let spot = spots[indexPath.item]
-
-        NetworkService.refreshForecast(for: spot)
-
-        let forecast = store.currentSpotForecast(spot)
-        cell.configure(spot: spot, forecast: forecast)
+        cell.spot = spot
+        cell.forecast = store.currentSpotForecast(spot)
         cell.createAlarmButton.addTarget(self,
                                          action: #selector(self.addAlarmTapped(_:)),
                                          for: .touchUpInside)

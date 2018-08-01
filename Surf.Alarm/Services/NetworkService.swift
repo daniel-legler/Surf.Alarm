@@ -23,10 +23,10 @@ class NetworkService {
             result.withValue({ (forecasts) in
                 let forecasts = forecasts.map({SurfForecast($0)})
                 forecasts.forEach({$0.surfSpot = spot})
-                store.updateSurfForecasts(forecasts, for: spot)
+                store.saveForecasts(forecasts, for: spot)
             })
             result.withError({ (error) in
-                store.updateSurfForecasts([], for: spot)
+                store.saveForecasts([], for: spot)
                 print("🌊Error: \(error.localizedDescription)")
             })
         }

@@ -39,6 +39,9 @@ extension Realm {
     }
     
     func currentSpotForecast(_ spot: SurfSpot) -> SurfForecast? {
+        // Returns the forecast closest to the present time, which is either:
+            // 1) The forecast nearest in the future
+            // 2) Or if not available, the most recent forecast in the past
         if let soonestForecast = spot.forecasts
                                         .filter("date > %@", Date())
                                         .sorted(byKeyPath: "date")
@@ -53,7 +56,7 @@ extension Realm {
         return nil
     }
     
-    func updateSurfForecasts(_ forecasts: [SurfForecast], for spot: SurfSpot) {
+    func saveForecasts(_ forecasts: [SurfForecast], for spot: SurfSpot) {
         let soonestNewForecastDate = forecasts.map({$0.date}).min() ?? Date.distantFuture
         let outdatedForecasts = allForecasts
                                 .filter("spotId = %@ AND date > %@", spot.spotId, soonestNewForecastDate)

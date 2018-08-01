@@ -15,23 +15,26 @@ class SurfSpotCollectionViewCell: DesignableCollectionViewCell {
     
     @IBOutlet weak var createAlarmButton: AddAlarmButton!
     
-    var spot: SurfSpot!
+    var spot: SurfSpot! {
+        didSet {
+            self.createAlarmButton.spot = spot
+            self.spotNameLabel.text = spot.name
+            self.countyLabel.text = spot.county
+        }
+    }
     
-    func configure(spot: SurfSpot, forecast: SurfForecast?) {
-        self.spot = spot
-        self.createAlarmButton.spot = spot
-        self.spotNameLabel.text = spot.name
-        self.countyLabel.text = spot.county
-        
-        if let forecast = forecast {
-            self.heightLabel.text = forecast.waveHeight.toSurfRange()
-            self.windLabel.text = forecast.windReport
-            self.tideLabel.text = forecast.tideReport
-            self.statusLabel.text = "Updated \(spot.updatedAt.relativeToNow())"
-            self.statusContainer.backgroundColor = R.color.saAccent()
-        } else {
-            self.statusLabel.text = "Data Unavailable"
-            self.statusContainer.backgroundColor = .red
+    var forecast: SurfForecast? {
+        didSet {
+            if let forecast = forecast {
+                self.heightLabel.text = forecast.waveHeight.toSurfRange()
+                self.windLabel.text = forecast.windReport
+                self.tideLabel.text = forecast.tideReport
+                self.statusLabel.text = "Updated \(spot.updatedAt.relativeToNow())"
+                self.statusContainer.backgroundColor = R.color.saAccent()
+            } else {
+                self.statusLabel.text = "Data Unavailable"
+                self.statusContainer.backgroundColor = .red
+            }
         }
     }
 }
