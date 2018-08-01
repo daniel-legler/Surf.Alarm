@@ -37,6 +37,8 @@ class NotificationScheduler {
         content.title = "Time to surf!"
         content.body = "Waves are \(forecast.waveHeight.toSurfRange()) at \(forecast.spotName)"
         content.sound = self.sound
+        content.categoryIdentifier = NotificationIdentifiers.Categories.alarm
+        content.userInfo = ["spotId" : forecast.spotId]
         return content
     }
     
@@ -48,8 +50,36 @@ class NotificationScheduler {
         return UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
     }
     
+    // MARK: Class Methods
+    
+    static func snooze(_ notification: UNNotification) {
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60 * 15, repeats: false)
+        let request = UNNotificationRequest(identifier: notification.request.identifier,
+                                            content: notification.request.content,
+                                            trigger: trigger)
+        UNUserNotificationCenter.current().add(request) { (error) in
+            if error != nil {
+                print("🌊 Error Snoozing Notification: \(String(describing: error!.localizedDescription))")
+            } else {
+                print("Notification for snoozed alarm is now scheduled")
+            }
+        }
+    }
+    
     static func cancel(_ alarm: SurfAlarm) {
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [alarm.spotName])
     }
-
+    
+    static func declareNotificationCategories() {
+        let snoozeAction = UNNotificationAction(identifier: NotificationIdentifiers.Actions.snooze,
+                                                title: "Snooze for 15 minutes",
+                                                options: UNNotificationActionOptions(rawValue: 0))
+        let alarmCategory = UNNotificationCategory(identifier: NotificationIdentifiers.Categories.alarm,
+                                                   actions: [snoozeAction],
+                                                   intentIdentifiers: [],
+                                                   hiddenPreviewsBodyPlaceholder: "",
+                                                   options: .customDismissAction)
+        
+        UNUserNotificationCenter.current().setNotificationCategories([alarmCategory])
+    }
 }

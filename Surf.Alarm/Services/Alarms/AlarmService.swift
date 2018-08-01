@@ -4,14 +4,15 @@ import Foundation
 import RealmSwift
 import UserNotifications
 
-class AlarmService {
+class AlarmService: NSObject {
     
     static let shared = AlarmService()
     
     let alarms = store.allAlarms
     var token: NotificationToken?
     
-    private init() {
+    private override init() {
+        super.init()
         token = alarms.observe({ (changes) in
             switch changes {
             case .update(_, _, _, let modifications):
@@ -53,14 +54,8 @@ class AlarmService {
     
     private func shouldScheduleAlarmNotifications(alarm: SurfAlarm, forecast: SurfForecast) -> Bool {
         // Check alarm is enabled by user and forecast meets alarm conditions
-        guard
-            alarm.isEnabledByUser,
-            alarm.currentWeekdayIsEnabled,
-            forecast.waveHeight >= Double(alarm.minHeight)
-        else {
-            return false
-        }
-        
-        return true
+        return alarm.isEnabledByUser &&
+               alarm.currentWeekdayIsEnabled &&
+               forecast.waveHeight >= Double(alarm.minHeight)
     }
 }

@@ -1,5 +1,6 @@
 import UIKit
 import Rswift
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -10,6 +11,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
 
+        UNUserNotificationCenter.current().delegate = NotificationHandler.shared
+        NotificationScheduler.declareNotificationCategories()
+        
         if !UserDefaults.standard.bool(forKey: Constants.firstLaunchOccurred) {
             UserDefaults.standard.set(true, forKey: Constants.firstLaunchOccurred)
             NetworkService.refreshAllSurfSpots()

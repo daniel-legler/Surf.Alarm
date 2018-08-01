@@ -49,6 +49,8 @@
 		74CA3B462110D96700AB1483 /* BottomMessage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74CA3B452110D96700AB1483 /* BottomMessage.xib */; };
 		74CA3B482110DA5F00AB1483 /* BottomMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CA3B472110DA5F00AB1483 /* BottomMessage.swift */; };
 		74CA3B4A21111A4E00AB1483 /* ViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CA3B4921111A4E00AB1483 /* ViewController+Extensions.swift */; };
+		74CA3B4C2111539500AB1483 /* NotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CA3B4B2111539500AB1483 /* NotificationHandler.swift */; };
+		74CA3B4E2111572E00AB1483 /* NotificationIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CA3B4D2111572E00AB1483 /* NotificationIdentifiers.swift */; };
 		74EFF1EF20FAEE3100789C3C /* Double+SurfHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EFF1EE20FAEE3100789C3C /* Double+SurfHeight.swift */; };
 		74FFBE2121061E5200DB03E5 /* ClusterAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FFBE2021061E5200DB03E5 /* ClusterAnnotationView.swift */; };
 		74FFBE25210661DF00DB03E5 /* SurfSpotSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FFBE23210661DF00DB03E5 /* SurfSpotSearchController.swift */; };
@@ -102,6 +104,8 @@
 		74CA3B452110D96700AB1483 /* BottomMessage.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomMessage.xib; sourceTree = "<group>"; };
 		74CA3B472110DA5F00AB1483 /* BottomMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomMessage.swift; sourceTree = "<group>"; };
 		74CA3B4921111A4E00AB1483 /* ViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extensions.swift"; sourceTree = "<group>"; };
+		74CA3B4B2111539500AB1483 /* NotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHandler.swift; sourceTree = "<group>"; };
+		74CA3B4D2111572E00AB1483 /* NotificationIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationIdentifiers.swift; sourceTree = "<group>"; };
 		74EFF1EE20FAEE3100789C3C /* Double+SurfHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+SurfHeight.swift"; sourceTree = "<group>"; };
 		74FFBE2021061E5200DB03E5 /* ClusterAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClusterAnnotationView.swift; sourceTree = "<group>"; };
 		74FFBE23210661DF00DB03E5 /* SurfSpotSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotSearchController.swift; sourceTree = "<group>"; };
@@ -292,6 +296,8 @@
 				74107DAD210FA7CC00E71A3E /* AlarmService.swift */,
 				74CA3B3F210FD52500AB1483 /* NotificationScheduler.swift */,
 				74CA3B432110D21400AB1483 /* NotificationPermissionsManager.swift */,
+				74CA3B4B2111539500AB1483 /* NotificationHandler.swift */,
+				74CA3B4D2111572E00AB1483 /* NotificationIdentifiers.swift */,
 			);
 			path = Alarms;
 			sourceTree = "<group>";
@@ -458,12 +464,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				745E5BB3210A62550075A851 /* SurfForecast.swift in Sources */,
+				74CA3B4C2111539500AB1483 /* NotificationHandler.swift in Sources */,
 				745E5BC4210B6CE10075A851 /* SurfAlarmDaySelectionTableVC.swift in Sources */,
 				74C5CFB120FABBA3004AEF35 /* SurfSpotCell.swift in Sources */,
 				745E5BBF210B55C70075A851 /* SurfHeightSelectorCell.swift in Sources */,
 				74CA3B40210FD52500AB1483 /* NotificationScheduler.swift in Sources */,
 				745E5BA3210972F80075A851 /* MainVC.swift in Sources */,
 				74CA3B4A21111A4E00AB1483 /* ViewController+Extensions.swift in Sources */,
+				74CA3B4E2111572E00AB1483 /* NotificationIdentifiers.swift in Sources */,
 				74CA3B482110DA5F00AB1483 /* BottomMessage.swift in Sources */,
 				743C835620F97C6E0062B994 /* SurfSpot.swift in Sources */,
 				74CA3B442110D21400AB1483 /* NotificationPermissionsManager.swift in Sources */,

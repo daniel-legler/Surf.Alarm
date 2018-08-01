@@ -22,7 +22,7 @@ extension Realm {
         return objects(SurfSpot.self)
     }
     
-    func getSurfSpot(spotId: Int) -> SurfSpot? {
+    func surfSpot(for spotId: Int) -> SurfSpot? {
         return self.object(ofType: SurfSpot.self, forPrimaryKey: spotId)
     }
     
@@ -73,6 +73,10 @@ extension Realm {
     
     var allAlarms: Results<SurfAlarm> {
         return self.objects(SurfAlarm.self)
+    }
+    
+    func alarmForSpot(with spotId: Int) -> SurfAlarm? {
+        return object(ofType: SurfAlarm.self, forPrimaryKey: spotId)
     }
 
     func saveAlarm(_ alarm: SurfAlarm) {
