@@ -23,7 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 self.window?.makeKeyAndVisible()
             }
         }
-
         return true
     }
     
@@ -34,8 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        AlarmService.shared.refreshAlarms()
-//        AlarmService.shared.testAlarm()
+//        AlarmService.shared.refreshAlarms()
+        AlarmService.shared.testAlarm()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -43,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        UIApplication.shared.applicationIconBadgeNumber = 0
     }
 
     func applicationWillTerminate(_ application: UIApplication) {

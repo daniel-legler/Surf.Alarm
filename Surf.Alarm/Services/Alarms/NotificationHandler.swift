@@ -1,6 +1,6 @@
 // Surf.Alarm
 
-import Foundation
+import UIKit
 import UserNotifications
 
 class NotificationHandler: NSObject, UNUserNotificationCenterDelegate {
@@ -10,7 +10,7 @@ class NotificationHandler: NSObject, UNUserNotificationCenterDelegate {
     override private init() {
         super.init()
     }
-    
+
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         
         switch response.actionIdentifier {
