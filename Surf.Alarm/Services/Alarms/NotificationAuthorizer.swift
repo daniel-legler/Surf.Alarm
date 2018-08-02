@@ -13,13 +13,6 @@ class NotificationAuthorizer {
         }
     }
     
-    static func requestAuthorization() {
-        let options: UNAuthorizationOptions = [.alert, .sound, .badge]
-        UNUserNotificationCenter.current().requestAuthorization(options: options) { (granted, error) in
-            
-        }
-    }
-    
     static func checkAuthorization(_ result: @escaping (Bool) -> Void) {
         UNUserNotificationCenter.current().getNotificationSettings { (settings) in
             switch settings.authorizationStatus {
@@ -32,5 +25,10 @@ class NotificationAuthorizer {
                 requestAuthorization()
             }
         }
+    }
+    
+    private static func requestAuthorization() {
+        let options: UNAuthorizationOptions = [.alert, .sound, .badge]
+        UNUserNotificationCenter.current().requestAuthorization(options: options) { (_, _) in }
     }
 }
