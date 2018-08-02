@@ -45,12 +45,13 @@
 		74C5CFC420FAC608004AEF35 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C5CFC320FAC608004AEF35 /* R.generated.swift */; };
 		74CA3B40210FD52500AB1483 /* NotificationScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CA3B3F210FD52500AB1483 /* NotificationScheduler.swift */; };
 		74CA3B42210FF33B00AB1483 /* View+Rounding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CA3B41210FF33B00AB1483 /* View+Rounding.swift */; };
-		74CA3B442110D21400AB1483 /* NotificationPermissionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CA3B432110D21400AB1483 /* NotificationPermissionsManager.swift */; };
+		74CA3B442110D21400AB1483 /* NotificationAuthorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CA3B432110D21400AB1483 /* NotificationAuthorizer.swift */; };
 		74CA3B462110D96700AB1483 /* BottomMessage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74CA3B452110D96700AB1483 /* BottomMessage.xib */; };
 		74CA3B482110DA5F00AB1483 /* BottomMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CA3B472110DA5F00AB1483 /* BottomMessage.swift */; };
 		74CA3B4A21111A4E00AB1483 /* ViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CA3B4921111A4E00AB1483 /* ViewController+Extensions.swift */; };
 		74CA3B4C2111539500AB1483 /* NotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CA3B4B2111539500AB1483 /* NotificationHandler.swift */; };
 		74CA3B4E2111572E00AB1483 /* NotificationIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CA3B4D2111572E00AB1483 /* NotificationIdentifiers.swift */; };
+		74CA3B502112837900AB1483 /* alarm.caf in Resources */ = {isa = PBXBuildFile; fileRef = 74CA3B4F2112837400AB1483 /* alarm.caf */; };
 		74EFF1EF20FAEE3100789C3C /* Double+SurfHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EFF1EE20FAEE3100789C3C /* Double+SurfHeight.swift */; };
 		74FFBE2121061E5200DB03E5 /* ClusterAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FFBE2021061E5200DB03E5 /* ClusterAnnotationView.swift */; };
 		74FFBE25210661DF00DB03E5 /* SurfSpotSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FFBE23210661DF00DB03E5 /* SurfSpotSearchController.swift */; };
@@ -100,12 +101,13 @@
 		74C5CFC320FAC608004AEF35 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		74CA3B3F210FD52500AB1483 /* NotificationScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationScheduler.swift; sourceTree = "<group>"; };
 		74CA3B41210FF33B00AB1483 /* View+Rounding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Rounding.swift"; sourceTree = "<group>"; };
-		74CA3B432110D21400AB1483 /* NotificationPermissionsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPermissionsManager.swift; sourceTree = "<group>"; };
+		74CA3B432110D21400AB1483 /* NotificationAuthorizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationAuthorizer.swift; sourceTree = "<group>"; };
 		74CA3B452110D96700AB1483 /* BottomMessage.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomMessage.xib; sourceTree = "<group>"; };
 		74CA3B472110DA5F00AB1483 /* BottomMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomMessage.swift; sourceTree = "<group>"; };
 		74CA3B4921111A4E00AB1483 /* ViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extensions.swift"; sourceTree = "<group>"; };
 		74CA3B4B2111539500AB1483 /* NotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHandler.swift; sourceTree = "<group>"; };
 		74CA3B4D2111572E00AB1483 /* NotificationIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationIdentifiers.swift; sourceTree = "<group>"; };
+		74CA3B4F2112837400AB1483 /* alarm.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = alarm.caf; sourceTree = "<group>"; };
 		74EFF1EE20FAEE3100789C3C /* Double+SurfHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+SurfHeight.swift"; sourceTree = "<group>"; };
 		74FFBE2021061E5200DB03E5 /* ClusterAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClusterAnnotationView.swift; sourceTree = "<group>"; };
 		74FFBE23210661DF00DB03E5 /* SurfSpotSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotSearchController.swift; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				74C5CFC320FAC608004AEF35 /* R.generated.swift */,
+				74CA3B4F2112837400AB1483 /* alarm.caf */,
 				7408647F20F7144B00C62E29 /* Info.plist */,
 				7468C14A20F8EFDD00EE9663 /* Surf.Alarm.entitlements */,
 				743C835720F9A2B90062B994 /* API Examples.rtf */,
@@ -295,7 +298,7 @@
 			children = (
 				74107DAD210FA7CC00E71A3E /* AlarmService.swift */,
 				74CA3B3F210FD52500AB1483 /* NotificationScheduler.swift */,
-				74CA3B432110D21400AB1483 /* NotificationPermissionsManager.swift */,
+				74CA3B432110D21400AB1483 /* NotificationAuthorizer.swift */,
 				74CA3B4B2111539500AB1483 /* NotificationHandler.swift */,
 				74CA3B4D2111572E00AB1483 /* NotificationIdentifiers.swift */,
 			);
@@ -384,6 +387,7 @@
 				7408647E20F7144B00C62E29 /* LaunchScreen.storyboard in Resources */,
 				74C5CFAE20FA8621004AEF35 /* SurfSpotCell.xib in Resources */,
 				74CA3B462110D96700AB1483 /* BottomMessage.xib in Resources */,
+				74CA3B502112837900AB1483 /* alarm.caf in Resources */,
 				7408647B20F7144B00C62E29 /* Assets.xcassets in Resources */,
 				74BCAD2D2106BFC200711DD8 /* SurfSpotSearchController.xib in Resources */,
 				743C835820F9A2B90062B994 /* API Examples.rtf in Resources */,
@@ -474,7 +478,7 @@
 				74CA3B4E2111572E00AB1483 /* NotificationIdentifiers.swift in Sources */,
 				74CA3B482110DA5F00AB1483 /* BottomMessage.swift in Sources */,
 				743C835620F97C6E0062B994 /* SurfSpot.swift in Sources */,
-				74CA3B442110D21400AB1483 /* NotificationPermissionsManager.swift in Sources */,
+				74CA3B442110D21400AB1483 /* NotificationAuthorizer.swift in Sources */,
 				745E5BA721098FDE0075A851 /* SurfSpotMapDelegate.swift in Sources */,
 				745E5BB5210ADD500075A851 /* SurfAlarm.swift in Sources */,
 				7408647120F7144A00C62E29 /* AppDelegate.swift in Sources */,

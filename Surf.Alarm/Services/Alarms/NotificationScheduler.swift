@@ -7,12 +7,12 @@ class NotificationScheduler {
     
     var alarm: SurfAlarm
     var forecast: SurfForecast
-    
-    var sound: UNNotificationSound = .default()
+    var sound: UNNotificationSound
     
     init(alarm: SurfAlarm, forecast: SurfForecast) {
         self.alarm = alarm
         self.forecast = forecast
+        self.sound = UNNotificationSound(named: "alarm.caf")
     }
     
     func schedule() {

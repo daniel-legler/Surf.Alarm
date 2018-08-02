@@ -42,7 +42,7 @@ class AlarmService: NSObject {
         guard
             let spot = alarm.surfSpot,
             let forecast = store.currentSpotForecast(spot),
-            shouldScheduleAlarmNotifications(alarm: alarm, forecast: forecast)
+            shouldScheduleNotifications(for: alarm, forecast: forecast)
         else {
             NotificationScheduler.cancel(alarm)
             return
@@ -52,8 +52,7 @@ class AlarmService: NSObject {
         scheduler.schedule()
     }
     
-    private func shouldScheduleAlarmNotifications(alarm: SurfAlarm, forecast: SurfForecast) -> Bool {
-        // Check alarm is enabled by user and forecast meets alarm conditions
+    private func shouldScheduleNotifications(for alarm: SurfAlarm, forecast: SurfForecast) -> Bool {
         return alarm.isEnabledByUser &&
                alarm.currentWeekdayIsEnabled &&
                forecast.waveHeight >= Double(alarm.minHeight)
