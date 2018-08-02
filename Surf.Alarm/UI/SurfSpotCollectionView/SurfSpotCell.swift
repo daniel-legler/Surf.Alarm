@@ -12,6 +12,7 @@ class SurfSpotCollectionViewCell: DesignableCollectionViewCell {
     
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var statusContainer: DesignableView!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak var createAlarmButton: AddAlarmButton!
     
@@ -26,15 +27,42 @@ class SurfSpotCollectionViewCell: DesignableCollectionViewCell {
     var forecast: SurfForecast? {
         didSet {
             if let forecast = forecast {
-                self.heightLabel.text = forecast.waveHeight.toSurfRange()
-                self.windLabel.text = forecast.windReport
-                self.tideLabel.text = forecast.tideReport
-                self.statusLabel.text = "Updated \(spot.updatedAt.relativeToNow())"
-                self.statusContainer.backgroundColor = R.color.saAccent()
+                setForecast(forecast)
             } else {
-                self.statusLabel.text = "Data Unavailable"
-                self.statusContainer.backgroundColor = .red
+                setUnavailable()
             }
         }
+    }
+    
+    func setLoading() {
+        loadingIndicator.startAnimating()
+        loadingIndicator.isHidden = false
+        statusLabel.text = "Loading..."
+        statusContainer.backgroundColor = R.color.saAccent()
+        resetSurfLabels()
+
+    }
+    
+    private func setForecast(_ forecast: SurfForecast) {
+        loadingIndicator.stopAnimating()
+        statusLabel.text = "Updated \(spot.updatedAt.relativeToNow())"
+        statusContainer.backgroundColor = R.color.saAccent()
+        heightLabel.text = forecast.waveHeight.toSurfRange()
+        windLabel.text = forecast.windReport
+        tideLabel.text = forecast.tideReport
+
+    }
+    
+    private func setUnavailable() {
+        loadingIndicator.stopAnimating()
+        resetSurfLabels()
+        statusLabel.text = "Data Unavailable"
+        statusContainer.backgroundColor = .red
+    }
+    
+    private func resetSurfLabels() {
+        heightLabel.text = "- - -"
+        windLabel.text = "- - -"
+        tideLabel.text = "- - -"
     }
 }
