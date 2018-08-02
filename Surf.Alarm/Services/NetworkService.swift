@@ -3,7 +3,7 @@ import SpitcastSwift
 class NetworkService {
     
     static func refreshAllSurfSpots() {
-        SpitcastAPI.allSpots { (result) in
+        SpitcastAPI.forecastableSpots { (result) in
             result.withValue({ (spots) in
                 let spots = spots.map({SurfSpot($0)})
                 store.updateSurfSpots(spots)

@@ -7,7 +7,7 @@
 		<key>Background Fetch Test.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>7</integer>
+			<integer>0</integer>
 		</dict>
 		<key>ForecastExtension.xcscheme</key>
 		<dict>
@@ -17,7 +17,7 @@
 		<key>Surf.Alarm.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>8</integer>
+			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
