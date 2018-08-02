@@ -52,11 +52,42 @@
 		74CA3B4C2111539500AB1483 /* NotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CA3B4B2111539500AB1483 /* NotificationHandler.swift */; };
 		74CA3B4E2111572E00AB1483 /* NotificationIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CA3B4D2111572E00AB1483 /* NotificationIdentifiers.swift */; };
 		74CA3B502112837900AB1483 /* alarm.caf in Resources */ = {isa = PBXBuildFile; fileRef = 74CA3B4F2112837400AB1483 /* alarm.caf */; };
+		74CA3B5721128D1800AB1483 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74CA3B5621128D1800AB1483 /* UserNotifications.framework */; };
+		74CA3B5921128D1800AB1483 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74CA3B5821128D1800AB1483 /* UserNotificationsUI.framework */; };
+		74CA3B5C21128D1800AB1483 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CA3B5B21128D1800AB1483 /* NotificationViewController.swift */; };
+		74CA3B5F21128D1800AB1483 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74CA3B5D21128D1800AB1483 /* MainInterface.storyboard */; };
+		74CA3B6321128D1800AB1483 /* ForecastExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 74CA3B5521128D1800AB1483 /* ForecastExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		74CA3B6821128F9100AB1483 /* Double+SurfHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EFF1EE20FAEE3100789C3C /* Double+SurfHeight.swift */; };
+		74CA3B69211291FB00AB1483 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7408647A20F7144B00C62E29 /* Assets.xcassets */; };
 		74EFF1EF20FAEE3100789C3C /* Double+SurfHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EFF1EE20FAEE3100789C3C /* Double+SurfHeight.swift */; };
 		74FFBE2121061E5200DB03E5 /* ClusterAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FFBE2021061E5200DB03E5 /* ClusterAnnotationView.swift */; };
 		74FFBE25210661DF00DB03E5 /* SurfSpotSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FFBE23210661DF00DB03E5 /* SurfSpotSearchController.swift */; };
 		9BA655AE9A6214F1ED62CFF9 /* Pods_Surf_Alarm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 315DB3599D99B6DAD06F81D9 /* Pods_Surf_Alarm.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		74CA3B6121128D1800AB1483 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7408646520F7144A00C62E29 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 74CA3B5421128D1800AB1483;
+			remoteInfo = ForecastExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		74CA3B6721128D1800AB1483 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				74CA3B6321128D1800AB1483 /* ForecastExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		315DB3599D99B6DAD06F81D9 /* Pods_Surf_Alarm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Surf_Alarm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,6 +139,12 @@
 		74CA3B4B2111539500AB1483 /* NotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHandler.swift; sourceTree = "<group>"; };
 		74CA3B4D2111572E00AB1483 /* NotificationIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationIdentifiers.swift; sourceTree = "<group>"; };
 		74CA3B4F2112837400AB1483 /* alarm.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = alarm.caf; sourceTree = "<group>"; };
+		74CA3B5521128D1800AB1483 /* ForecastExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ForecastExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		74CA3B5621128D1800AB1483 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		74CA3B5821128D1800AB1483 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
+		74CA3B5B21128D1800AB1483 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		74CA3B5E21128D1800AB1483 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		74CA3B6021128D1800AB1483 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74EFF1EE20FAEE3100789C3C /* Double+SurfHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+SurfHeight.swift"; sourceTree = "<group>"; };
 		74FFBE2021061E5200DB03E5 /* ClusterAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClusterAnnotationView.swift; sourceTree = "<group>"; };
 		74FFBE23210661DF00DB03E5 /* SurfSpotSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotSearchController.swift; sourceTree = "<group>"; };
@@ -124,6 +161,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		74CA3B5221128D1800AB1483 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74CA3B5921128D1800AB1483 /* UserNotificationsUI.framework in Frameworks */,
+				74CA3B5721128D1800AB1483 /* UserNotifications.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -131,6 +177,8 @@
 			isa = PBXGroup;
 			children = (
 				315DB3599D99B6DAD06F81D9 /* Pods_Surf_Alarm.framework */,
+				74CA3B5621128D1800AB1483 /* UserNotifications.framework */,
+				74CA3B5821128D1800AB1483 /* UserNotificationsUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -148,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				7408646F20F7144A00C62E29 /* Surf.Alarm */,
+				74CA3B5A21128D1800AB1483 /* ForecastExtension */,
 				7408646E20F7144A00C62E29 /* Products */,
 				6880569E42FCDD99E5028678 /* Pods */,
 				220571301EBB0B377593361E /* Frameworks */,
@@ -158,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				7408646D20F7144A00C62E29 /* Surf.Alarm.app */,
+				74CA3B5521128D1800AB1483 /* ForecastExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -305,6 +355,16 @@
 			path = Alarms;
 			sourceTree = "<group>";
 		};
+		74CA3B5A21128D1800AB1483 /* ForecastExtension */ = {
+			isa = PBXGroup;
+			children = (
+				74CA3B5B21128D1800AB1483 /* NotificationViewController.swift */,
+				74CA3B5D21128D1800AB1483 /* MainInterface.storyboard */,
+				74CA3B6021128D1800AB1483 /* Info.plist */,
+			);
+			path = ForecastExtension;
+			sourceTree = "<group>";
+		};
 		74FFBE22210661BC00DB03E5 /* SurfSpotSearchController */ = {
 			isa = PBXGroup;
 			children = (
@@ -328,15 +388,34 @@
 				7408646A20F7144A00C62E29 /* Frameworks */,
 				7408646B20F7144A00C62E29 /* Resources */,
 				DF9295013BF301C35DE44756 /* [CP] Embed Pods Frameworks */,
+				74CA3B6721128D1800AB1483 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				74CA3B6221128D1800AB1483 /* PBXTargetDependency */,
 			);
 			name = Surf.Alarm;
 			productName = Surf.Alarm;
 			productReference = 7408646D20F7144A00C62E29 /* Surf.Alarm.app */;
 			productType = "com.apple.product-type.application";
+		};
+		74CA3B5421128D1800AB1483 /* ForecastExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 74CA3B6421128D1800AB1483 /* Build configuration list for PBXNativeTarget "ForecastExtension" */;
+			buildPhases = (
+				74CA3B5121128D1800AB1483 /* Sources */,
+				74CA3B5221128D1800AB1483 /* Frameworks */,
+				74CA3B5321128D1800AB1483 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ForecastExtension;
+			productName = ForecastExtension;
+			productReference = 74CA3B5521128D1800AB1483 /* ForecastExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -344,7 +423,7 @@
 		7408646520F7144A00C62E29 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1000;
+				LastSwiftUpdateCheck = 0940;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = Surf.Alarm;
 				TargetAttributes = {
@@ -358,6 +437,9 @@
 								enabled = 0;
 							};
 						};
+					};
+					74CA3B5421128D1800AB1483 = {
+						CreatedOnToolsVersion = 9.4.1;
 					};
 				};
 			};
@@ -375,6 +457,7 @@
 			projectRoot = "";
 			targets = (
 				7408646C20F7144A00C62E29 /* Surf.Alarm */,
+				74CA3B5421128D1800AB1483 /* ForecastExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -395,6 +478,15 @@
 				745E5BBC210AE30A0075A851 /* SurfAlarmBuilder.storyboard in Resources */,
 				745E5BCB210D0A1A0075A851 /* SurfAlarmTableVC.storyboard in Resources */,
 				7408647620F7144A00C62E29 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74CA3B5321128D1800AB1483 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74CA3B69211291FB00AB1483 /* Assets.xcassets in Resources */,
+				74CA3B5F21128D1800AB1483 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,7 +599,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		74CA3B5121128D1800AB1483 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74CA3B5C21128D1800AB1483 /* NotificationViewController.swift in Sources */,
+				74CA3B6821128F9100AB1483 /* Double+SurfHeight.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		74CA3B6221128D1800AB1483 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 74CA3B5421128D1800AB1483 /* ForecastExtension */;
+			targetProxy = 74CA3B6121128D1800AB1483 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		7408647420F7144A00C62E29 /* Main.storyboard */ = {
@@ -524,6 +633,14 @@
 				7408647D20F7144B00C62E29 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		74CA3B5D21128D1800AB1483 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				74CA3B5E21128D1800AB1483 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -649,6 +766,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F88502A7C8226CE5484A049C /* Pods-Surf.Alarm.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NZ4TW8FFF3;
@@ -669,6 +787,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F23D36825BA411652143C334 /* Pods-Surf.Alarm.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NZ4TW8FFF3;
@@ -682,6 +801,47 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		74CA3B6521128D1800AB1483 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NZ4TW8FFF3;
+				INFOPLIST_FILE = ForecastExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "My.Surf-Alarm.ForecastExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		74CA3B6621128D1800AB1483 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NZ4TW8FFF3;
+				INFOPLIST_FILE = ForecastExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "My.Surf-Alarm.ForecastExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -702,6 +862,15 @@
 			buildConfigurations = (
 				7408648320F7144B00C62E29 /* Debug */,
 				7408648420F7144B00C62E29 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		74CA3B6421128D1800AB1483 /* Build configuration list for PBXNativeTarget "ForecastExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				74CA3B6521128D1800AB1483 /* Debug */,
+				74CA3B6621128D1800AB1483 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

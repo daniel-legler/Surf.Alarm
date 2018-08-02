@@ -29,6 +29,19 @@ class AlarmService: NSObject {
         self.token?.invalidate()
     }
     
+    func testAlarm() {
+        guard
+            let alarm = alarms.first,
+            let spot = alarm.surfSpot,
+            let forecast = store.currentSpotForecast(spot)
+        else {
+            return
+        }
+        
+        let scheduler = NotificationScheduler(alarm: alarm, forecast: forecast)
+        scheduler.scheduleTestNotification()
+    }
+    
     func refreshAlarms() {
         for alarm in alarms where alarm.isEnabledByUser {
             if let spot = alarm.surfSpot, spot.shouldRefresh {

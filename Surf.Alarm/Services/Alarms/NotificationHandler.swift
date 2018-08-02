@@ -17,7 +17,7 @@ class NotificationHandler: NSObject, UNUserNotificationCenterDelegate {
         case NotificationIdentifiers.Actions.snooze:
             NotificationScheduler.snooze(response.notification)
         default:
-            return
+            break
         }
         completionHandler()
     }

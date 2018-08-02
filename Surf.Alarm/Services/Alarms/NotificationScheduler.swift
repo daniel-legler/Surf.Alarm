@@ -26,6 +26,20 @@ class NotificationScheduler {
         }
     }
     
+    func scheduleTestNotification() {
+        let request = UNNotificationRequest(identifier: alarm.spotName,
+                                            content: self.notificationContent(for: forecast),
+                                            trigger: UNTimeIntervalNotificationTrigger(timeInterval: 5.0, repeats: false))
+        
+        UNUserNotificationCenter.current().add(request) { (error) in
+            if error != nil {
+                print("🌊 Error Scheduling Notification: \(String(describing: error!.localizedDescription))")
+            } else {
+                print("Notification for alarm is now scheduled")
+            }
+        }
+    }
+    
     private func notification(for alarm: SurfAlarm, forecast: SurfForecast) -> UNNotificationRequest {
        return UNNotificationRequest(identifier: alarm.spotName,
                                     content: self.notificationContent(for: forecast),
@@ -38,7 +52,7 @@ class NotificationScheduler {
         content.body = "Waves are \(forecast.waveHeight.toSurfRange()) at \(forecast.spotName)"
         content.sound = self.sound
         content.categoryIdentifier = NotificationIdentifiers.Categories.alarm
-        content.userInfo = ["spotId" : forecast.spotId]
+        content.userInfo = forecast.dictionaryWithValues(forKeys: ["spotName","waveHeight","tideReport","windReport"])
         return content
     }
     
