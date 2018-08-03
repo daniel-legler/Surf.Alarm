@@ -13,7 +13,8 @@ class SurfSpotsMapVC: UIViewController {
     weak var delegate: SurfSpotMapDelegate?
     
     let allSpots = store.allSurfSpots
-    
+    var token: NotificationToken?
+
     var allAnnotations: [MKPointAnnotation] {
         return allSpots.map({ (spot) -> MKPointAnnotation in
             let annotation = MKPointAnnotation()
@@ -27,20 +28,40 @@ class SurfSpotsMapVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMapView()
+        setupRealm()
     }
     
     func setupMapView() {
-        mapView.register(SurfSpotAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
-        mapView.register(ClusterAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultClusterAnnotationViewReuseIdentifier)
-        
+        mapView.register(SurfSpotAnnotationView.self,
+                         forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+        mapView.register(ClusterAnnotationView.self,
+                         forAnnotationViewWithReuseIdentifier: MKMapViewDefaultClusterAnnotationViewReuseIdentifier)
         mapView.delegate = self
         
         setInitialLocation()
-
-        mapView.addAnnotations(allAnnotations)
     }
     
-    func setInitialLocation() {
+    func setupRealm() {
+        token = allSpots.observe({ [weak self] (changes: RealmCollectionChange) in
+            guard let mapVC = self else { return }
+            switch changes {
+            case .initial:
+                mapVC.mapView.addAnnotations(mapVC.allAnnotations)
+            case .update(_, _, let insertions, _):
+                guard !insertions.isEmpty else { break }
+                mapVC.mapView.removeAnnotations(mapVC.mapView.annotations)
+                mapVC.mapView.addAnnotations(mapVC.allAnnotations)
+            case .error(let error):
+                print("🌊 Error Loading SurfSpots from Realm: \(error.localizedDescription)")
+            }
+        })
+    }
+    
+    deinit {
+        token?.invalidate()
+    }
+    
+    private func setInitialLocation() {
         let center = CLLocationCoordinate2D(latitude: 35, longitude: -120)
         let radius: CLLocationDistance = 800000
         let region = MKCoordinateRegionMakeWithDistance(center, radius, radius)

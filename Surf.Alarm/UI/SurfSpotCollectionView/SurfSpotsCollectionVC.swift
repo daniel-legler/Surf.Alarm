@@ -32,15 +32,12 @@ class SurfSpotsCollectionVC: UIViewController {
         centeredCollectionViewFlowLayout.minimumLineSpacing = 15
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
-        
-        collectionView.reloadData()
     }
     
     private func setupRealm() {
         token = spots.observe({ [weak self] (changes: RealmCollectionChange) in
             switch changes {
             case .initial:
-                self?.collectionView.reloadData()
                 break
             case .update(_, let deletions, let insertions, let modifications):
                 self?.collectionView.performBatchUpdates({
