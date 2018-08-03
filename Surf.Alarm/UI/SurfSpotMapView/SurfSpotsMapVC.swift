@@ -4,7 +4,6 @@ import UIKit
 import Rswift
 import MapKit
 import RealmSwift
-import SpitcastSwift
 
 class SurfSpotsMapVC: UIViewController {
     
@@ -94,13 +93,13 @@ class SurfSpotsMapVC: UIViewController {
         mapView.setRegion(zoomed, animated: true)
     }
     
-    func getAnnotationAt(coordinate: CLLocationCoordinate2D) -> MKAnnotation? {
+    private func getAnnotationAt(coordinate: CLLocationCoordinate2D) -> MKAnnotation? {
         return self.mapView.annotations.first(where: { (annotation) -> Bool in
             return annotation.coordinate == coordinate
         })
     }
     
-    func userInteractedWithMap() -> Bool {
+    private func userInteractedWithMap() -> Bool {
         if let gestureRecognizers = self.mapView.subviews.first?.gestureRecognizers {
             for gestureRecognizer in gestureRecognizers {
                 if (gestureRecognizer.state == .began || gestureRecognizer.state == .ended) {

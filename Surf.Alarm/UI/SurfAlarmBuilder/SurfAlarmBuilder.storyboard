@@ -115,7 +115,7 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="sKZ-Fo-YfE">
                             <color key="tintColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
                             <connections>
-                                <action selector="closeAlarmBuilder" destination="Yb9-WE-WCX" id="Od9-jV-LfD"/>
+                                <action selector="cancelButtonPressed" destination="Yb9-WE-WCX" id="rbR-Cd-NRx"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="8hQ-te-mwf">

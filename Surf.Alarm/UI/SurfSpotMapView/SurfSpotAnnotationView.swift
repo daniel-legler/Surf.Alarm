@@ -19,7 +19,7 @@ class SurfSpotAnnotationView: MKMarkerAnnotationView {
     
     override func prepareForDisplay() {
         super.prepareForDisplay()
-        displayPriority = .defaultLow
+        displayPriority = .required
         markerTintColor = R.color.saPrimaryDark()
         glyphImage = R.image.surfboard()
     }

@@ -20,7 +20,7 @@
 		743C835C20FA82FD0062B994 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743C835B20FA82FD0062B994 /* NetworkService.swift */; };
 		744E73A12105868900C2EF0C /* SurfSpotAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744E73A02105868900C2EF0C /* SurfSpotAnnotationView.swift */; };
 		745E5BA1210958930075A851 /* DesignableViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745E5BA0210958930075A851 /* DesignableViews.swift */; };
-		745E5BA3210972F80075A851 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745E5BA2210972F80075A851 /* MainVC.swift */; };
+		745E5BA3210972F80075A851 /* CoordinatorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745E5BA2210972F80075A851 /* CoordinatorVC.swift */; };
 		745E5BA721098FDE0075A851 /* SurfSpotMapDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745E5BA621098FDE0075A851 /* SurfSpotMapDelegate.swift */; };
 		745E5BA921099EC70075A851 /* SurfSpotSearchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745E5BA821099EC70075A851 /* SurfSpotSearchDelegate.swift */; };
 		745E5BAD210A1F630075A851 /* SurfSpotCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745E5BAC210A1F630075A851 /* SurfSpotCollectionViewDelegate.swift */; };
@@ -106,7 +106,7 @@
 		743C835B20FA82FD0062B994 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		744E73A02105868900C2EF0C /* SurfSpotAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotAnnotationView.swift; sourceTree = "<group>"; };
 		745E5BA0210958930075A851 /* DesignableViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableViews.swift; sourceTree = "<group>"; };
-		745E5BA2210972F80075A851 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		745E5BA2210972F80075A851 /* CoordinatorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorVC.swift; sourceTree = "<group>"; };
 		745E5BA621098FDE0075A851 /* SurfSpotMapDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotMapDelegate.swift; sourceTree = "<group>"; };
 		745E5BA821099EC70075A851 /* SurfSpotSearchDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotSearchDelegate.swift; sourceTree = "<group>"; };
 		745E5BAC210A1F630075A851 /* SurfSpotCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotCollectionViewDelegate.swift; sourceTree = "<group>"; };
@@ -285,7 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				7408647420F7144A00C62E29 /* Main.storyboard */,
-				745E5BA2210972F80075A851 /* MainVC.swift */,
+				745E5BA2210972F80075A851 /* CoordinatorVC.swift */,
 				7408647C20F7144B00C62E29 /* LaunchScreen.storyboard */,
 				7408647A20F7144B00C62E29 /* Assets.xcassets */,
 				745E5BBA210ADFED0075A851 /* SurfAlarmBuilder */,
@@ -565,7 +565,7 @@
 				74C5CFB120FABBA3004AEF35 /* SurfSpotCell.swift in Sources */,
 				745E5BBF210B55C70075A851 /* SurfHeightSelectorCell.swift in Sources */,
 				74CA3B40210FD52500AB1483 /* NotificationScheduler.swift in Sources */,
-				745E5BA3210972F80075A851 /* MainVC.swift in Sources */,
+				745E5BA3210972F80075A851 /* CoordinatorVC.swift in Sources */,
 				74CA3B4A21111A4E00AB1483 /* ViewController+Extensions.swift in Sources */,
 				74CA3B4E2111572E00AB1483 /* NotificationIdentifiers.swift in Sources */,
 				74CA3B482110DA5F00AB1483 /* BottomMessage.swift in Sources */,

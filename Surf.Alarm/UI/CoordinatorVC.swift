@@ -4,7 +4,7 @@ import UIKit
 import Rswift
 import MapKit
 
-class MainVC: UIViewController {
+class CoordinatorVC: UIViewController {
 
     @IBOutlet weak var collectionContainerView: UIView!
     @IBOutlet weak var collectionContainerAnchor: NSLayoutConstraint!
@@ -46,7 +46,7 @@ class MainVC: UIViewController {
         } else if let collection = segue.destination as? SurfSpotsCollectionVC {
             collection.delegate = self
             self.spotCollection = collection
-        } else if segue.identifier == R.segue.mainVC.showAlarmBuilder.identifier {
+        } else if segue.identifier == R.segue.coordinatorVC.showAlarmBuilder.identifier {
             guard
                 let navController = segue.destination as? UINavigationController,
                 let alarmBuilder = navController.topViewController as? SurfAlarmBuilderVC,
@@ -77,17 +77,17 @@ class MainVC: UIViewController {
     }
 }
 
-extension MainVC: SurfSpotsCollectionDelegate {    
+extension CoordinatorVC: SurfSpotsCollectionDelegate {    
     func userScrolledToSurfSpot(_ spot: SurfSpot) {
         self.surfMap.moveMapToSurfSpot(at: spot.coordinate)
     }
     
     func userTappedAddAlarm(to spot: SurfSpot) {
-        self.performSegue(withIdentifier: R.segue.mainVC.showAlarmBuilder, sender: spot)
+        self.performSegue(withIdentifier: R.segue.coordinatorVC.showAlarmBuilder, sender: spot)
     }
 }
 
-extension MainVC: SurfSpotMapDelegate {
+extension CoordinatorVC: SurfSpotMapDelegate {
     func userInteractedWithMap() {
         self.moveSurfSpotCollectionView(hidden: true)
     }
@@ -98,7 +98,7 @@ extension MainVC: SurfSpotMapDelegate {
     }
 }
 
-extension MainVC: SurfSpotSearchDelegate {
+extension CoordinatorVC: SurfSpotSearchDelegate {
     func userTappedSearchedSpot(coordinate: CLLocationCoordinate2D) {
         self.surfMap.moveMapToSurfSpot(at: coordinate)
         self.spotCollection.scrollToSurfSpot(at: coordinate)
@@ -108,7 +108,7 @@ extension MainVC: SurfSpotSearchDelegate {
     }
 }
 
-extension MainVC: SurfAlarmTableViewDelegate {
+extension CoordinatorVC: SurfAlarmTableViewDelegate {
     func userTappedViewMap(for alarm: SurfAlarm) {
         let coordinate = CLLocationCoordinate2D(latitude: alarm.latitude, longitude: alarm.longitude)
         self.surfMap.moveMapToSurfSpot(at: coordinate)

@@ -12,10 +12,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--MainVC-->
+        <!--CoordinatorVC-->
         <scene sceneID="qqz-9j-Rbn">
             <objects>
-                <viewController id="G3n-nD-DPX" customClass="MainVC" customModule="Surf_Alarm" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="G3n-nD-DPX" customClass="CoordinatorVC" customModule="Surf_Alarm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L6R-31-pCe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -97,7 +97,7 @@
                                 </connections>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ccE-qf-KFx" userLabel="Spot Collection Container">
-                                <rect key="frame" x="0.0" y="798" width="414" height="238"/>
+                                <rect key="frame" x="0.0" y="797.66666666666663" width="414" height="238.33333333333337"/>
                                 <connections>
                                     <segue destination="aSR-Dc-2Xc" kind="embed" id="sH3-I8-B31"/>
                                 </connections>
@@ -189,11 +189,11 @@
             <objects>
                 <viewController id="aSR-Dc-2Xc" customClass="SurfSpotsCollectionVC" customModule="Surf_Alarm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ezQ-6k-37T">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="238"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="238.33333333333337"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="oZv-VL-z8Q">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="238"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="238.33333333333334"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewLayout key="collectionViewLayout" id="HDS-06-1FI" customClass="CenteredCollectionViewFlowLayout" customModule="CenteredCollectionView"/>
                                 <cells>

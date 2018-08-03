@@ -13,23 +13,28 @@ class SurfAlarmBuilderVC: UIViewController {
     var surfSpot: SurfSpot!
     var alarm: SurfAlarm!
     
-    private struct Section {
-        static let heightSelector = 0
-        static let weekdays = 1
+    enum Section: Int {
+        case heightSelector = 0
+        case weekdays = 1
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupTableView()
+        setupInitialUI()
+    }
+    
+    private func setupInitialUI() {
+        self.spotNameLabel.text = surfSpot.name
+        self.countyNameLabel.text = surfSpot.county
+        self.timePicker.setDate(alarm.pickerDate, animated: false)
+        updateEnabledDaysLabel()
+    }
+    
+    private func setupTableView() {
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.register(R.nib.surfHeightSelectorCell)
-        
-        self.spotNameLabel.text = surfSpot?.name ?? alarm.spotName
-        self.countyNameLabel.text = surfSpot?.county ?? alarm.county
-        
-        self.updateEnabledDaysLabel()
-        self.timePicker.setDate(alarm.pickerDate, animated: false)
     }
     
     func configure(with spot: SurfSpot) {
@@ -48,7 +53,7 @@ class SurfAlarmBuilderVC: UIViewController {
         self.alarm.alarmMinute = sender.calendar.component(.minute, from: sender.date)
     }
     
-    @IBAction func closeAlarmBuilder() {
+    @IBAction func cancelButtonPressed() {
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -80,24 +85,24 @@ extension SurfAlarmBuilderVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.section {
-        case Section.heightSelector:
+        guard let section = Section(rawValue: indexPath.section) else { return UITableViewCell() }
+        switch section {
+        case .heightSelector:
             let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.surfHeightSlider.identifier) as? SurfHeightSelectorCell ?? SurfHeightSelectorCell()
             cell.delegate = self
             cell.configure(with: alarm)
             return cell
-        case Section.weekdays:
+        case .weekdays:
             let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.selectDaysCell.identifier) ?? UITableViewCell()
             cell.detailTextLabel?.text = Date.alarmString(disabledWeekdays: Array(self.alarm.disabledDays))
             return cell
-        default:
-            return UITableViewCell()
         }
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        guard let section = Section(rawValue: section) else { return nil }
         switch section {
-        case Section.heightSelector:
+        case .heightSelector:
             return "Minimum Surf Height"
         default:
             return nil
@@ -105,8 +110,9 @@ extension SurfAlarmBuilderVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch indexPath.section {
-        case Section.weekdays:
+        guard let section = Section(rawValue: indexPath.section) else { return }
+        switch section {
+        case .weekdays:
             self.performSegue(withIdentifier: R.segue.surfAlarmBuilderVC.showDaysOfWeek, sender: nil)
             tableView.deselectRow(at: indexPath, animated: true)
         default:
@@ -133,7 +139,7 @@ extension SurfAlarmBuilderVC: SurfHeightSliderDelegate, SurfAlarmDaySelectionDel
     }
     
     func updateEnabledDaysLabel() {
-        let indexPath = IndexPath(row: 0, section: Section.weekdays)
+        let indexPath = IndexPath(row: 0, section: Section.weekdays.rawValue)
         if let daysCell = self.tableView.cellForRow(at: indexPath) {
             daysCell.detailTextLabel?.text = Date.alarmString(disabledWeekdays: Array(self.alarm.disabledDays))
             tableView.reloadData()

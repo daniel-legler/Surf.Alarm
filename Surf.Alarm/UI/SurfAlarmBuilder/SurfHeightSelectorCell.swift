@@ -19,7 +19,7 @@ class SurfHeightSelectorCell: UITableViewCell {
         self.heightSlider.value = Float(alarm.minHeight) / 10.0
     }
     
-    func updateHeightLabel(_ value: Int) {
+    private func updateHeightLabel(_ value: Int) {
         if value == 0 {
             heightLabel.text = "No Min"
         } else {
