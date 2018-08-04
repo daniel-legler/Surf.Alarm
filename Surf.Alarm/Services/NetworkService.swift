@@ -21,8 +21,7 @@ class NetworkService {
         
         SpitcastAPI.spotForecast(id: spot.spotId) { (result) in
             result.withValue({ (forecasts) in
-                let forecasts = forecasts.map({SurfForecast($0)})
-                forecasts.forEach({$0.surfSpot = spot})
+                let forecasts = forecasts.map({SurfForecast(spot: spot, $0)})
                 store.saveForecasts(forecasts, for: spot)
             })
             result.withError({ (error) in

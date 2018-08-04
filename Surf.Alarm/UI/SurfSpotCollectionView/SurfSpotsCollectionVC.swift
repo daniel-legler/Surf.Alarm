@@ -56,25 +56,19 @@ class SurfSpotsCollectionVC: UIViewController {
         token?.invalidate()
     }
     
-    func scrollToSurfSpot(at coordinate: CLLocationCoordinate2D) {
-        guard let index = indexForSpot(at: coordinate) else {
-            print("Error: Couldn't determine collection index for coordinate")
-            return
+    func scrollToSurfSpot(_ spot: SurfSpot) {
+        if let index = spots.index(of: spot) {
+            self.scrollToSpotIndex(index)
         }
-        self.scrollToSpotIndex(index)
+//        if let index = spots.index(where: { $0.spotId == spot.spotId }) {
+//            self.scrollToSpotIndex(index)
+//        }
     }
     
     private func scrollToSpotIndex(_ index: Int) {
         let indexPath = IndexPath(item: index, section: 0)
         self.collectionView.reloadItems(at: [indexPath])
         self.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
-    }
-
-    private func indexForSpot(at coordinate: CLLocationCoordinate2D) -> Int? {
-        guard let spotIndex = spots.index(where: { $0.coordinate == coordinate }) else {
-            return nil
-        }
-        return spotIndex
     }
     
     private func userScrolledToSpot() {

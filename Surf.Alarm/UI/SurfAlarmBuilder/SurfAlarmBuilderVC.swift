@@ -25,8 +25,8 @@ class SurfAlarmBuilderVC: UIViewController {
     }
     
     private func setupInitialUI() {
-        self.spotNameLabel.text = surfSpot.name
-        self.countyNameLabel.text = surfSpot.county
+        self.spotNameLabel.text = surfSpot?.name ?? alarm.surfSpot?.name
+        self.countyNameLabel.text = surfSpot?.county ?? alarm.surfSpot?.county
         self.timePicker.setDate(alarm.pickerDate, animated: false)
         updateEnabledDaysLabel()
     }
@@ -39,18 +39,16 @@ class SurfAlarmBuilderVC: UIViewController {
     
     func configure(with spot: SurfSpot) {
         surfSpot = spot
-        alarm = SurfAlarm()
-        alarm.surfSpot = spot
-        alarm.county = surfSpot.county
-        alarm.spotId = surfSpot.spotId
-        alarm.spotName = surfSpot.name
-        alarm.latitude = surfSpot.latitude
-        alarm.longitude = surfSpot.longitude
+        alarm = SurfAlarm(spot: spot)
     }
         
     @IBAction func timeChanged(_ sender: UIDatePicker) {
-        self.alarm.alarmHour = sender.calendar.component(.hour, from: sender.date)
-        self.alarm.alarmMinute = sender.calendar.component(.minute, from: sender.date)
+        let hour = sender.calendar.component(.hour, from: sender.date)
+        let minute = sender.calendar.component(.minute, from: sender.date)
+        store.writeBlock {
+            alarm.hour = hour
+            alarm.minute = minute
+        }
     }
     
     @IBAction func cancelButtonPressed() {
@@ -123,19 +121,25 @@ extension SurfAlarmBuilderVC: UITableViewDataSource, UITableViewDelegate {
 
 extension SurfAlarmBuilderVC: SurfHeightSliderDelegate, SurfAlarmDaySelectionDelegate {
     func minimumHeightSelectionChanged(to newHeight: Int) {
-        self.alarm.minHeight = newHeight
+        store.writeBlock {
+            self.alarm.minHeight = newHeight
+        }
     }
     
     func enabledDay(_ day: String) {
         if let index = self.alarm.disabledDays.index(of: day) {
-            self.alarm.disabledDays.remove(at: index)
-            self.updateEnabledDaysLabel()
+            store.writeBlock {
+                self.alarm.disabledDays.remove(at: index)
+                self.updateEnabledDaysLabel()
+            }
         }
     }
     
     func disabledDay(_ day: String) {
-        self.alarm.disabledDays.append(day)
-        self.updateEnabledDaysLabel()
+        store.writeBlock {
+            self.alarm.disabledDays.append(day)
+            self.updateEnabledDaysLabel()
+        }
     }
     
     func updateEnabledDaysLabel() {

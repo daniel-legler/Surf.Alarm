@@ -7,12 +7,18 @@ class NotificationScheduler {
     
     var alarm: SurfAlarm
     var forecast: SurfForecast
-    var sound: UNNotificationSound
+    
+    var surfSpot: SurfSpot {
+        guard let spot = alarm.surfSpot ?? forecast.surfSpot else {
+            print("🌊 Error: Trying to schedule alarm without a surf spot in mind")
+            fatalError()
+        }
+        return spot
+    }
     
     init(alarm: SurfAlarm, forecast: SurfForecast) {
         self.alarm = alarm
         self.forecast = forecast
-        self.sound = UNNotificationSound(named: "alarm.caf")
     }
     
     func schedule() {
@@ -21,14 +27,14 @@ class NotificationScheduler {
     }
     
     func scheduleTestNotification() {
-        let request = UNNotificationRequest(identifier: alarm.spotName,
+        let request = UNNotificationRequest(identifier: surfSpot.name,
                                             content: self.notificationContent(for: forecast),
                                             trigger: UNTimeIntervalNotificationTrigger(timeInterval: 3.0, repeats: false))
         NotificationScheduler.addNotificationRequest(request)
     }
     
     private func notificationRequest(for alarm: SurfAlarm, forecast: SurfForecast) -> UNNotificationRequest {
-       return UNNotificationRequest(identifier: alarm.spotName,
+       return UNNotificationRequest(identifier: surfSpot.name,
                                     content: self.notificationContent(for: forecast),
                                     trigger: self.notificationTrigger(for: alarm))
     }
@@ -36,8 +42,8 @@ class NotificationScheduler {
     private func notificationContent(for forecast: SurfForecast) -> UNNotificationContent {
         let content = UNMutableNotificationContent()
         content.title = "Time to surf!"
-        content.body = "Waves are \(forecast.waveHeight.toSurfRange()) at \(forecast.spotName)"
-        content.sound = self.sound
+        content.body = "Waves are \(forecast.waveHeight.toSurfRange()) at \(surfSpot.name)"
+        content.sound = UNNotificationSound(named: "alarm.caf")
         content.badge = 1
         content.categoryIdentifier = NotificationIdentifiers.Categories.alarm
         content.userInfo = forecast.dictionaryWithValues(forKeys: ["spotName","waveHeight","tideReport","windReport"])
@@ -46,8 +52,8 @@ class NotificationScheduler {
     
     private func notificationTrigger(for alarm: SurfAlarm) -> UNCalendarNotificationTrigger {
         var dateComponents = DateComponents()
-        dateComponents.hour = alarm.alarmHour
-        dateComponents.minute = alarm.alarmMinute
+        dateComponents.hour = alarm.hour
+        dateComponents.minute = alarm.minute
         dateComponents.second = 0
         return UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
     }
@@ -63,7 +69,8 @@ class NotificationScheduler {
     }
     
     static func cancel(_ alarm: SurfAlarm) {
-        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [alarm.spotName])
+        guard let spot = alarm.surfSpot else { return }
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [spot.name])
     }
     
     private static func addNotificationRequest(_ request: UNNotificationRequest) {

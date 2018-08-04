@@ -72,9 +72,9 @@ class SurfSpotsMapVC: UIViewController {
         case cluster
     }
     
-    func moveMapToSurfSpot(at coordinate: CLLocationCoordinate2D) {
-        self.zoomToLocation(coordinate, zoomDepth: .singleSpot)
-        if let annotation = self.getAnnotationAt(coordinate: coordinate) {
+    func moveMapToSurfSpot(_ spot: SurfSpot) {
+        self.zoomToLocation(spot.coordinate, zoomDepth: .singleSpot)
+        if let annotation = self.getAnnotationAt(coordinate: spot.coordinate) {
             self.mapView.selectAnnotation(annotation, animated: true)
         }
     }
@@ -108,6 +108,12 @@ class SurfSpotsMapVC: UIViewController {
             }
         }
         return false
+    }
+    
+    private func deselectAnnotations() {
+        for annotation in mapView.selectedAnnotations {
+            mapView.deselectAnnotation(annotation, animated: true)
+        }
     }
 }
 

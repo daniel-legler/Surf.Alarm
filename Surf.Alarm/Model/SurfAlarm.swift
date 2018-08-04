@@ -6,20 +6,21 @@ import RealmSwift
 @objcMembers
 class SurfAlarm: Object {
     
-    dynamic var spotId: Int = 0
-    dynamic var spotName: String = ""
-    dynamic var county: String = ""
-    dynamic var latitude: Double = 0.0
-    dynamic var longitude: Double = 0.0
+    dynamic var id: String = UUID().uuidString
     dynamic var minHeight: Int = 0
-    dynamic var alarmHour: Int = 8
-    dynamic var alarmMinute: Int = 0
+    dynamic var hour: Int = 8
+    dynamic var minute: Int = 0
     dynamic var isEnabledByUser: Bool = true
     dynamic var surfSpot: SurfSpot?
     let disabledDays = List<String>()
+
+    convenience init(spot: SurfSpot) {
+        self.init()
+        self.surfSpot = spot
+    }
     
     override static func primaryKey() -> String? {
-        return "spotId"
+        return "id"
     }
 }
 
@@ -31,8 +32,8 @@ extension SurfAlarm {
     
     var pickerDate: Date {
         var components = DateComponents()
-        components.hour = self.alarmHour
-        components.minute = self.alarmMinute
+        components.hour = hour
+        components.minute = minute
         return Calendar.current.date(from: components) ?? Date()
     }
 }

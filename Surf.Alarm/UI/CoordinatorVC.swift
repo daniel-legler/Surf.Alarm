@@ -79,7 +79,7 @@ class CoordinatorVC: UIViewController {
 
 extension CoordinatorVC: SurfSpotsCollectionDelegate {    
     func userScrolledToSurfSpot(_ spot: SurfSpot) {
-        self.surfMap.moveMapToSurfSpot(at: spot.coordinate)
+        self.surfMap.moveMapToSurfSpot(spot)
     }
     
     func userTappedAddAlarm(to spot: SurfSpot) {
@@ -94,14 +94,16 @@ extension CoordinatorVC: SurfSpotMapDelegate {
     
     func userTappedSurfSpot(at coordinate: CLLocationCoordinate2D) {
         self.moveSurfSpotCollectionView(hidden: false)
-        self.spotCollection.scrollToSurfSpot(at: coordinate)
+        if let spot = store.allSurfSpots.first(where: { $0.coordinate == coordinate }) {
+            self.spotCollection.scrollToSurfSpot(spot)
+        }
     }
 }
 
 extension CoordinatorVC: SurfSpotSearchDelegate {
-    func userTappedSearchedSpot(coordinate: CLLocationCoordinate2D) {
-        self.surfMap.moveMapToSurfSpot(at: coordinate)
-        self.spotCollection.scrollToSurfSpot(at: coordinate)
+    func userTappedSearchedSpot(_ spot: SurfSpot) {
+        self.surfMap.moveMapToSurfSpot(spot)
+        self.spotCollection.scrollToSurfSpot(spot)
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             self.moveSurfSpotCollectionView(hidden: false)
         }
@@ -110,9 +112,9 @@ extension CoordinatorVC: SurfSpotSearchDelegate {
 
 extension CoordinatorVC: SurfAlarmTableViewDelegate {
     func userTappedViewMap(for alarm: SurfAlarm) {
-        let coordinate = CLLocationCoordinate2D(latitude: alarm.latitude, longitude: alarm.longitude)
-        self.surfMap.moveMapToSurfSpot(at: coordinate)
-        self.spotCollection.scrollToSurfSpot(at: coordinate)
+        guard let spot = alarm.surfSpot else { return }
+        self.surfMap.moveMapToSurfSpot(spot)
+        self.spotCollection.scrollToSurfSpot(spot)
         self.moveSurfSpotCollectionView(hidden: false)
     }
 }

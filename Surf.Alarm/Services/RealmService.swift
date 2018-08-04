@@ -23,12 +23,12 @@ extension Realm {
     }
     
     func surfSpot(for spotId: Int) -> SurfSpot? {
-        return self.object(ofType: SurfSpot.self, forPrimaryKey: spotId)
+        return object(ofType: SurfSpot.self, forPrimaryKey: spotId)
     }
     
     func updateSurfSpots(_ spots: [SurfSpot]) {
         writeBlock {
-            self.add(spots, update: true)
+            add(spots, update: true)
         }
     }
     
@@ -58,8 +58,7 @@ extension Realm {
     
     func saveForecasts(_ forecasts: [SurfForecast], for spot: SurfSpot) {
         let soonestNewForecastDate = forecasts.map({$0.date}).min() ?? Date.distantFuture
-        let outdatedForecasts = allForecasts
-                                .filter("spotId = %@ AND date > %@", spot.spotId, soonestNewForecastDate)
+        let outdatedForecasts = spot.forecasts.filter("date > %@", soonestNewForecastDate)
         writeBlock {
             if !outdatedForecasts.isEmpty {
                 delete(outdatedForecasts)
@@ -72,7 +71,7 @@ extension Realm {
     // MARK: - Surf Alarms
     
     var allAlarms: Results<SurfAlarm> {
-        return self.objects(SurfAlarm.self)
+        return objects(SurfAlarm.self)
     }
     
     func alarmForSpot(with spotId: Int) -> SurfAlarm? {
@@ -81,19 +80,13 @@ extension Realm {
 
     func saveAlarm(_ alarm: SurfAlarm) {
         writeBlock {
-            self.add(alarm, update: true)
+            add(alarm, update: true)
         }
     }
-    
-    func setAlarmState(_ alarm: SurfAlarm, enabled: Bool) {
-        writeBlock {
-            alarm.isEnabledByUser = enabled
-        }
-    }
-    
+        
     func deleteAlarm(_ alarm: SurfAlarm) {
         writeBlock {
-            self.delete(alarm)
+            delete(alarm)
         }
     }
 }

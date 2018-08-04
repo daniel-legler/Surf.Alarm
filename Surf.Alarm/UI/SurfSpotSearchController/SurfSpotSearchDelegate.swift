@@ -3,5 +3,5 @@
 import Foundation
 import MapKit
 protocol SurfSpotSearchDelegate: class {
-    func userTappedSearchedSpot(coordinate: CLLocationCoordinate2D)
+    func userTappedSearchedSpot(_ spot: SurfSpot)
 }
