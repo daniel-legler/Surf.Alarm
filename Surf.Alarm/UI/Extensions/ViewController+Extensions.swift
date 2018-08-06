@@ -9,8 +9,8 @@ extension UIViewController {
         NSLayoutConstraint.activate([
             bottom.leftAnchor.constraint(greaterThanOrEqualTo: self.view.leftAnchor, constant: 20),
             bottom.rightAnchor.constraint(lessThanOrEqualTo: self.view.rightAnchor, constant: -20),
-            bottom.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -20),
-            bottom.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 0)
+            bottom.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            bottom.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor, constant: 0)
             ])
         
         DispatchQueue.main.asyncAfter(deadline: .now() + time) {
