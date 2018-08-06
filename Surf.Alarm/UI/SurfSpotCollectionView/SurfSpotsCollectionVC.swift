@@ -60,21 +60,12 @@ class SurfSpotsCollectionVC: UIViewController {
         if let index = spots.index(of: spot) {
             self.scrollToSpotIndex(index)
         }
-//        if let index = spots.index(where: { $0.spotId == spot.spotId }) {
-//            self.scrollToSpotIndex(index)
-//        }
     }
     
     private func scrollToSpotIndex(_ index: Int) {
         let indexPath = IndexPath(item: index, section: 0)
         self.collectionView.reloadItems(at: [indexPath])
         self.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
-    }
-    
-    private func userScrolledToSpot() {
-        if let index = centeredCollectionViewFlowLayout.currentCenteredPage {
-            self.delegate?.userScrolledToSurfSpot(spots[index])
-        }
     }
     
     @objc func addAlarmTapped(_ sender: AddAlarmButton!) {
@@ -116,11 +107,18 @@ extension SurfSpotsCollectionVC: UICollectionViewDataSource {
 }
 
 extension SurfSpotsCollectionVC: UICollectionViewDelegate {
+    
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         userScrolledToSpot()
     }
     
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         userScrolledToSpot()
+    }
+    
+    private func userScrolledToSpot() {
+        if let index = centeredCollectionViewFlowLayout.currentCenteredPage {
+            self.delegate?.userScrolledToSurfSpot(spots[index])
+        }
     }
 }

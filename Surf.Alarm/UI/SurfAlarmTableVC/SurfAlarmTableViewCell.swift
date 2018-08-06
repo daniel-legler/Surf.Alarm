@@ -31,6 +31,10 @@ class SurfAlarmTableViewCell: UITableViewCell {
     }
     
     @IBAction func alarmSwitchChanged(_ sender: UISwitch) {
+        if !sender.isOn {
+            NotificationScheduler.cancel(surfAlarm)
+        }
+        
         store.writeBlock {
             self.surfAlarm.isEnabledByUser = sender.isOn
         }
