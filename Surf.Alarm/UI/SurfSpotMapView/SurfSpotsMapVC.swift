@@ -110,6 +110,17 @@ class SurfSpotsMapVC: UIViewController {
         return false
     }
     
+    private func userDraggedMap() -> Bool {
+        if let gestureRecognizers = self.mapView.subviews.first?.gestureRecognizers {
+            for recognizer in gestureRecognizers where recognizer is UIPanGestureRecognizer {
+                if recognizer.state == .began || recognizer.state == .ended {
+                    return true
+                }
+            }
+        }
+        return false
+    }
+    
     private func deselectAnnotations() {
         for annotation in mapView.selectedAnnotations {
             mapView.deselectAnnotation(annotation, animated: true)
@@ -141,15 +152,21 @@ extension SurfSpotsMapVC: MKMapViewDelegate {
         }
     }
     
-    func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
-        if userInteractedWithMap() {
-            self.delegate?.userInteractedWithMap()
-        }
-    }
-    
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
         if userInteractedWithMap() {
             self.delegate?.userInteractedWithMap()
         }
     }
+
+    func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
+        if userInteractedWithMap() {
+            self.delegate?.userInteractedWithMap()
+        }
+    }
+
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        if userDraggedMap() {
+            deselectAnnotations()
+        }
+    }    
 }
