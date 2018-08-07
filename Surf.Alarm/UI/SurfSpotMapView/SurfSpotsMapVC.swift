@@ -84,7 +84,7 @@ class SurfSpotsMapVC: UIViewController {
         var zoomedSpan: MKCoordinateSpan
         switch zoomDepth {
         case .singleSpot:
-            zoomedSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+            zoomedSpan = MKCoordinateSpan(latitudeDelta: 0.08, longitudeDelta: 0.08)
         case .cluster:
             zoomedSpan = MKCoordinateSpan(latitudeDelta: currentSpan.latitudeDelta / 4.0,
                                           longitudeDelta: currentSpan.longitudeDelta / 4.0)
@@ -168,5 +168,5 @@ extension SurfSpotsMapVC: MKMapViewDelegate {
         if userDraggedMap() {
             deselectAnnotations()
         }
-    }    
+    }
 }

@@ -101,6 +101,7 @@ extension SurfAlarmTableVC: UITableViewDelegate, UITableViewDataSource {
             let indexSet = IndexSet(arrayLiteral: indexPath.section)
             self.tableView.deleteSections(indexSet, with: .automatic)
             self.tableView.reloadData()
+            self.tableView.isHidden = self.alarms.isEmpty
         })
     }
     
