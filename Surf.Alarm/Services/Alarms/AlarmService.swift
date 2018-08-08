@@ -28,7 +28,8 @@ class AlarmService: NSObject {
     deinit {
         self.token?.invalidate()
     }
-    
+
+#if DEBUG
     func testAlarm() {
         guard
             let alarm = alarms.first,
@@ -41,7 +42,7 @@ class AlarmService: NSObject {
         let scheduler = NotificationScheduler(alarm: alarm, forecast: forecast)
         scheduler.scheduleTestNotification()
     }
-    
+#endif
     func refreshAlarms() {
         for alarm in alarms where alarm.isEnabledByUser {
             if let spot = alarm.surfSpot, spot.shouldRefresh {
