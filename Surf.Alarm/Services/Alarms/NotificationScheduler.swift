@@ -26,12 +26,14 @@ class NotificationScheduler {
         NotificationScheduler.addNotificationRequest(request)
     }
     
+#if DEBUG
     func scheduleTestNotification() {
         let request = UNNotificationRequest(identifier: surfSpot.name,
                                             content: self.notificationContent(for: forecast),
                                             trigger: UNTimeIntervalNotificationTrigger(timeInterval: 3.0, repeats: false))
         NotificationScheduler.addNotificationRequest(request)
     }
+#endif
     
     private func notificationRequest(for alarm: SurfAlarm, forecast: SurfForecast) -> UNNotificationRequest {
        return UNNotificationRequest(identifier: surfSpot.name,

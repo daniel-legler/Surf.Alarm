@@ -30,8 +30,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
+        #if DEBUG
+
+        AlarmService.shared.testAlarm()
+
+        #else
+        
         AlarmService.shared.refreshAlarms()
-//        AlarmService.shared.testAlarm()
+
+        #endif
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
