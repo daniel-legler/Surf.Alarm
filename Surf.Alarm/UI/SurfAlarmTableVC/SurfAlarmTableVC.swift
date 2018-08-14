@@ -19,6 +19,7 @@ class SurfAlarmTableVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         emptyAlarmsImage.makeRound()
+        tableView.reloadData()
     }
     
     @IBAction func closeButtonTapped(_ sender: Any!) {
