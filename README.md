@@ -3,6 +3,6 @@
 
 Surf.Alarm addresses the lazy surfer's problem of waking up to check surf cams & reports only to see the waves weren't worth it. This app refreshes data while you're asleep to see if it should bother waking you up in the morning with an alarm, based on specified conditions.
 
-This app is free of charge and will be available on the App Store soon.
+This app is free of charge and available on the [App Store](https://itunes.apple.com/us/app/surf-alarm/id1423800102?mt=8)
 
 All surf, wind, and tide reports and forecasts are made available thanks to the [Spitcast API](http://www.spitcast.com/api/docs/)
