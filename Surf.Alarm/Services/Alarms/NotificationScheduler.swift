@@ -48,7 +48,9 @@ class NotificationScheduler {
         content.sound = UNNotificationSound(named: "alarm.caf")
         content.badge = 1
         content.categoryIdentifier = NotificationIdentifiers.Categories.alarm
-        content.userInfo = forecast.dictionaryWithValues(forKeys: ["spotName","waveHeight","tideReport","windReport"])
+        var userInfo = forecast.dictionaryWithValues(forKeys: ["waveHeight","tideReport","windReport"])
+        userInfo["spotName"] = surfSpot.name
+        content.userInfo = userInfo
         return content
     }
     
