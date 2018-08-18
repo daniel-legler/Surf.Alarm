@@ -98,6 +98,7 @@ extension SurfAlarmTableVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         return UISwipeActionsConfiguration.deleteConfiguration({ (action, view, handler) in
+            NotificationScheduler.cancel(self.alarms[indexPath.section])
             store.deleteAlarm(self.alarms[indexPath.section])
             let indexSet = IndexSet(arrayLiteral: indexPath.section)
             self.tableView.deleteSections(indexSet, with: .automatic)
