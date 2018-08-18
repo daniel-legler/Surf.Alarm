@@ -61,13 +61,13 @@
                                         <rect key="frame" x="0.0" y="61.5" width="136" height="41"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tide" translatesAutoresizingMaskIntoConstraints="NO" id="O6C-0r-v9k">
-                                                <rect key="frame" x="0.0" y="0.0" width="41.5" height="41"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="42" height="41"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="O6C-0r-v9k" secondAttribute="height" multiplier="1:1" id="Xdy-SM-MCY"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="- - -" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pSL-S3-O7F">
-                                                <rect key="frame" x="51.5" y="0.0" width="84.5" height="41"/>
+                                                <rect key="frame" x="52" y="0.0" width="84" height="41"/>
                                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="20"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -79,16 +79,16 @@
                         </subviews>
                     </stackView>
                     <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="25o-IF-Fdg">
-                        <rect key="frame" x="91" y="19.5" width="150" height="45"/>
+                        <rect key="frame" x="55" y="19.5" width="222" height="45"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Manhattan Beach" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="65C-cP-qKd">
-                                <rect key="frame" x="0.0" y="0.0" width="150" height="27"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Really Long Surf Spot Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="65C-cP-qKd">
+                                <rect key="frame" x="0.0" y="0.0" width="222" height="27"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Los Angeles County" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SFv-gS-aVZ">
-                                <rect key="frame" x="7.5" y="27" width="135" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Really Really Long Name For A County" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SFv-gS-aVZ">
+                                <rect key="frame" x="0.0" y="27" width="222" height="18"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -149,6 +149,7 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="25o-IF-Fdg" firstAttribute="centerX" secondItem="2E4-m5-iyR" secondAttribute="centerX" id="0uh-6r-QQ8"/>
+                <constraint firstItem="oCI-4b-SsF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="25o-IF-Fdg" secondAttribute="trailing" id="1oJ-OK-jt0"/>
                 <constraint firstItem="5jJ-IV-yy3" firstAttribute="leading" secondItem="Nxo-bV-QbY" secondAttribute="trailing" constant="5" id="4xp-0R-hJ9"/>
                 <constraint firstAttribute="trailing" secondItem="iy7-2H-ied" secondAttribute="trailing" constant="20" id="GIK-Pr-shO"/>
                 <constraint firstItem="iy7-2H-ied" firstAttribute="leading" secondItem="2E4-m5-iyR" secondAttribute="leading" constant="20" id="GZG-YO-oRX"/>
