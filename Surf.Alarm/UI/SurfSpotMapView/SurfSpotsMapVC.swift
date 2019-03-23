@@ -63,7 +63,7 @@ class SurfSpotsMapVC: UIViewController {
     private func setInitialLocation() {
         let center = CLLocationCoordinate2D(latitude: 35, longitude: -120)
         let radius: CLLocationDistance = 800000
-        let region = MKCoordinateRegionMakeWithDistance(center, radius, radius)
+        let region = MKCoordinateRegion(center: center, latitudinalMeters: radius, longitudinalMeters: radius)
         mapView.setRegion(region, animated: true)
     }
     

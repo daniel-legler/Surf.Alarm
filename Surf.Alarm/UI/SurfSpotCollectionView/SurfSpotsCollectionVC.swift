@@ -22,8 +22,8 @@ class SurfSpotsCollectionVC: UIViewController {
     private func setupCollectionView() {
         collectionView.register(R.nib.surfSpotCell(),
                                 forCellWithReuseIdentifier: R.reuseIdentifier.surfSpotCell.identifier)
-        centeredCollectionViewFlowLayout = collectionView.collectionViewLayout as! CenteredCollectionViewFlowLayout
-        collectionView.decelerationRate = UIScrollViewDecelerationRateFast
+        centeredCollectionViewFlowLayout = (collectionView.collectionViewLayout as! CenteredCollectionViewFlowLayout)
+        collectionView.decelerationRate = .fast
         collectionView.dataSource = self
         collectionView.delegate = self
         centeredCollectionViewFlowLayout.itemSize = CGSize(width: view.bounds.width * 0.9,

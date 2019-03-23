@@ -1,14 +1,14 @@
 PODS:
-  - Alamofire (4.7.3)
-  - CenteredCollectionView (2.0.0)
-  - R.swift (4.0.0):
-    - R.swift.Library (~> 4.0.0)
-  - R.swift.Library (4.0.0)
-  - Realm (3.7.5):
-    - Realm/Headers (= 3.7.5)
-  - Realm/Headers (3.7.5)
-  - RealmSwift (3.7.5):
-    - Realm (= 3.7.5)
+  - Alamofire (4.8.1)
+  - CenteredCollectionView (2.1.1)
+  - R.swift (5.0.3):
+    - R.swift.Library (~> 5.0.0)
+  - R.swift.Library (5.0.0)
+  - Realm (3.13.1):
+    - Realm/Headers (= 3.13.1)
+  - Realm/Headers (3.13.1)
+  - RealmSwift (3.13.1):
+    - Realm (= 3.13.1)
   - SpitcastSwift (0.0.4):
     - Alamofire
 
@@ -30,12 +30,12 @@ SPEC REPOS:
     - SpitcastSwift
 
 SPEC CHECKSUMS:
-  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
-  CenteredCollectionView: 6548b515645aea6ea89618f4b5ca090191dc8628
-  R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
-  R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
-  Realm: c286caf4dbf346ce24aad49ca76c7ce622d4a082
-  RealmSwift: 2a9281e37d6de55f66f76254d49d28aeb1b729e4
+  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  CenteredCollectionView: 58c978cd221665dd6eaa43fd6b7e81de432ecc0f
+  R.swift: f5a87643b91ea569d23d6afb3eee9c743edde239
+  R.swift.Library: 0bf390e729bc10bb2c9e4fb78bd043164a7be4ff
+  Realm: 50071da38fe079e0735e47c9f2eae738c68c5996
+  RealmSwift: 8a1e6a02b7a08cd17a31e3115143fb69fe5f3fb9
   SpitcastSwift: 8c3173a1c55e19ff1722a04a52a18549c66c29ad
 
 PODFILE CHECKSUM: 75ba8ab4acbfe4586f4527b6600f4b073800ae2f

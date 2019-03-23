@@ -517,12 +517,14 @@
 			files = (
 			);
 			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
 			);
 			outputPaths = (
+				"$SRCROOT/Surf.Alarm/Supporting Files/R.generated.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT\"";
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/Surf.Alarm/Supporting Files/R.generated.swift\"\n";
 		};
 		DF9295013BF301C35DE44756 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -766,7 +768,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F88502A7C8226CE5484A049C /* Pods-Surf.Alarm.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NZ4TW8FFF3;
@@ -787,7 +788,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F23D36825BA411652143C334 /* Pods-Surf.Alarm.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NZ4TW8FFF3;

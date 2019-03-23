@@ -27,7 +27,7 @@ extension UIViewController {
                                        message: "Please enable in the iOS Settings app",
                                        preferredStyle: .alert)
         let settingsAction = UIAlertAction(title: "Settings", style: .default) { (action) in
-            UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!,
+            UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!,
                                       options: [:],
                                       completionHandler: nil)
         }

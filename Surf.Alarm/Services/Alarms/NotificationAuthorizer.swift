@@ -19,7 +19,7 @@ class NotificationAuthorizer {
             case .authorized:
                 userDisabledNotifications = false
                 result(true)
-            case .denied:
+            case .denied, .provisional:
                 result(false)
             case .notDetermined:
                 requestAuthorization()

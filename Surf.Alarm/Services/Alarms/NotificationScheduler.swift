@@ -45,7 +45,8 @@ class NotificationScheduler {
         let content = UNMutableNotificationContent()
         content.title = "Time to surf!"
         content.body = "Waves are \(forecast.waveHeight.toSurfRange()) at \(surfSpot.name)"
-        content.sound = UNNotificationSound(named: "alarm.caf")
+        let soundName = UNNotificationSoundName(rawValue: "alarm.caf")
+        content.sound = UNNotificationSound(named: soundName)
         content.badge = 1
         content.categoryIdentifier = NotificationIdentifiers.Categories.alarm
         var userInfo = forecast.dictionaryWithValues(forKeys: ["waveHeight","tideReport","windReport"])
