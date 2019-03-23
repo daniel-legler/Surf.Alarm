@@ -3,5 +3,5 @@
 import UIKit
 
 class AddAlarmButton: DesignableButton {
-    var spot: SurfSpot!
+  var spot: SurfSpot!
 }
