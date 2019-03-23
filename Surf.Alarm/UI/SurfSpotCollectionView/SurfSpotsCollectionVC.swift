@@ -20,18 +20,18 @@ class SurfSpotsCollectionVC: UIViewController {
     }
     
     private func setupCollectionView() {
-        collectionView.register(R.nib.surfSpotCell(),
-                                forCellWithReuseIdentifier: R.reuseIdentifier.surfSpotCell.identifier)
-        centeredCollectionViewFlowLayout = (collectionView.collectionViewLayout as! CenteredCollectionViewFlowLayout)
-        collectionView.decelerationRate = .fast
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        centeredCollectionViewFlowLayout.itemSize = CGSize(width: view.bounds.width * 0.9,
-                                                           height: collectionView.bounds.height * 0.9)
-        
-        centeredCollectionViewFlowLayout.minimumLineSpacing = 15
-        collectionView.showsVerticalScrollIndicator = false
-        collectionView.showsHorizontalScrollIndicator = false
+      let nib = UINib(resource: R.nib.surfSpotCell)
+      collectionView.register(nib, forCellWithReuseIdentifier: R.reuseIdentifier.surfSpotCell.identifier)
+      centeredCollectionViewFlowLayout = (collectionView.collectionViewLayout as! CenteredCollectionViewFlowLayout)
+      collectionView.decelerationRate = .fast
+      collectionView.dataSource = self
+      collectionView.delegate = self
+      centeredCollectionViewFlowLayout.itemSize = CGSize(width: view.bounds.width * 0.9,
+                                                         height: collectionView.bounds.height * 0.9)
+      
+      centeredCollectionViewFlowLayout.minimumLineSpacing = 15
+      collectionView.showsVerticalScrollIndicator = false
+      collectionView.showsHorizontalScrollIndicator = false
     }
     
     private func setupRealm() {

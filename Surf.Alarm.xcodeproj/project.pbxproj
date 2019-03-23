@@ -13,6 +13,7 @@
 		7408647E20F7144B00C62E29 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7408647C20F7144B00C62E29 /* LaunchScreen.storyboard */; };
 		74107DAB210E9EDB00E71A3E /* UISwipeActionsConfiguration+SurfAlarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74107DAA210E9EDB00E71A3E /* UISwipeActionsConfiguration+SurfAlarm.swift */; };
 		74107DAE210FA7CC00E71A3E /* AlarmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74107DAD210FA7CC00E71A3E /* AlarmService.swift */; };
+		741EC1D02246F68D00CF8FD6 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EC1CF2246F68D00CF8FD6 /* R.generated.swift */; };
 		74308F7A20FAE885004A608B /* SurfSpotsMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74308F7920FAE885004A608B /* SurfSpotsMapVC.swift */; };
 		74308F7E20FAE9C8004A608B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74308F7D20FAE9C8004A608B /* Constants.swift */; };
 		743C835620F97C6E0062B994 /* SurfSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743C835520F97C6E0062B994 /* SurfSpot.swift */; };
@@ -42,7 +43,6 @@
 		74C5CFAE20FA8621004AEF35 /* SurfSpotCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74C5CFAD20FA8621004AEF35 /* SurfSpotCell.xib */; };
 		74C5CFB120FABBA3004AEF35 /* SurfSpotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C5CFB020FABBA3004AEF35 /* SurfSpotCell.swift */; };
 		74C5CFB820FAC151004AEF35 /* SurfSpotsCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C5CFB620FAC151004AEF35 /* SurfSpotsCollectionVC.swift */; };
-		74C5CFC420FAC608004AEF35 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C5CFC320FAC608004AEF35 /* R.generated.swift */; };
 		74CA3B40210FD52500AB1483 /* NotificationScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CA3B3F210FD52500AB1483 /* NotificationScheduler.swift */; };
 		74CA3B42210FF33B00AB1483 /* View+Rounding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CA3B41210FF33B00AB1483 /* View+Rounding.swift */; };
 		74CA3B442110D21400AB1483 /* NotificationAuthorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CA3B432110D21400AB1483 /* NotificationAuthorizer.swift */; };
@@ -99,6 +99,7 @@
 		7408647F20F7144B00C62E29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74107DAA210E9EDB00E71A3E /* UISwipeActionsConfiguration+SurfAlarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISwipeActionsConfiguration+SurfAlarm.swift"; sourceTree = "<group>"; };
 		74107DAD210FA7CC00E71A3E /* AlarmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmService.swift; sourceTree = "<group>"; };
+		741EC1CF2246F68D00CF8FD6 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		74308F7920FAE885004A608B /* SurfSpotsMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotsMapVC.swift; sourceTree = "<group>"; };
 		74308F7D20FAE9C8004A608B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		743C835520F97C6E0062B994 /* SurfSpot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpot.swift; sourceTree = "<group>"; };
@@ -129,7 +130,6 @@
 		74C5CFAD20FA8621004AEF35 /* SurfSpotCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SurfSpotCell.xib; sourceTree = "<group>"; };
 		74C5CFB020FABBA3004AEF35 /* SurfSpotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotCell.swift; sourceTree = "<group>"; };
 		74C5CFB620FAC151004AEF35 /* SurfSpotsCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotsCollectionVC.swift; sourceTree = "<group>"; };
-		74C5CFC320FAC608004AEF35 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		74CA3B3F210FD52500AB1483 /* NotificationScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationScheduler.swift; sourceTree = "<group>"; };
 		74CA3B41210FF33B00AB1483 /* View+Rounding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Rounding.swift"; sourceTree = "<group>"; };
 		74CA3B432110D21400AB1483 /* NotificationAuthorizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationAuthorizer.swift; sourceTree = "<group>"; };
@@ -301,8 +301,8 @@
 		7468C15220F9229100EE9663 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				74C5CFC320FAC608004AEF35 /* R.generated.swift */,
 				74CA3B4F2112837400AB1483 /* alarm.caf */,
+				741EC1CF2246F68D00CF8FD6 /* R.generated.swift */,
 				7408647F20F7144B00C62E29 /* Info.plist */,
 				7468C14A20F8EFDD00EE9663 /* Surf.Alarm.entitlements */,
 				743C835720F9A2B90062B994 /* API Examples.rtf */,
@@ -383,7 +383,7 @@
 			buildConfigurationList = 7408648220F7144B00C62E29 /* Build configuration list for PBXNativeTarget "Surf.Alarm" */;
 			buildPhases = (
 				25F3BFFA6265F4EDA7BD6B39 /* [CP] Check Pods Manifest.lock */,
-				74C5CFBA20FAC24E004AEF35 /* ShellScript */,
+				74C5CFBA20FAC24E004AEF35 /* Run Script */,
 				7408646920F7144A00C62E29 /* Sources */,
 				7408646A20F7144A00C62E29 /* Frameworks */,
 				7408646B20F7144A00C62E29 /* Resources */,
@@ -511,7 +511,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		74C5CFBA20FAC24E004AEF35 /* ShellScript */ = {
+		74C5CFBA20FAC24E004AEF35 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -519,12 +519,13 @@
 			inputPaths = (
 				"$TEMP_DIR/rswift-lastrun",
 			);
+			name = "Run Script";
 			outputPaths = (
-				"$SRCROOT/Surf.Alarm/Supporting Files/R.generated.swift",
+				$SRCROOT/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/Surf.Alarm/Supporting Files/R.generated.swift\"\n";
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
 		};
 		DF9295013BF301C35DE44756 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -571,6 +572,7 @@
 				74CA3B4A21111A4E00AB1483 /* ViewController+Extensions.swift in Sources */,
 				74CA3B4E2111572E00AB1483 /* NotificationIdentifiers.swift in Sources */,
 				74CA3B482110DA5F00AB1483 /* BottomMessage.swift in Sources */,
+				741EC1D02246F68D00CF8FD6 /* R.generated.swift in Sources */,
 				743C835620F97C6E0062B994 /* SurfSpot.swift in Sources */,
 				74CA3B442110D21400AB1483 /* NotificationAuthorizer.swift in Sources */,
 				745E5BA721098FDE0075A851 /* SurfSpotMapDelegate.swift in Sources */,
@@ -582,7 +584,6 @@
 				74FFBE25210661DF00DB03E5 /* SurfSpotSearchController.swift in Sources */,
 				7468C16020F9519B00EE9663 /* RealmService.swift in Sources */,
 				74107DAB210E9EDB00E71A3E /* UISwipeActionsConfiguration+SurfAlarm.swift in Sources */,
-				74C5CFC420FAC608004AEF35 /* R.generated.swift in Sources */,
 				74308F7E20FAE9C8004A608B /* Constants.swift in Sources */,
 				745E5BC7210D09750075A851 /* SurfAlarmTableVC.swift in Sources */,
 				745E5BD0210D0B850075A851 /* SurfAlarmTableViewCell.swift in Sources */,
