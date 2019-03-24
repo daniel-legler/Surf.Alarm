@@ -10,5 +10,6 @@ target 'Surf.Alarm' do
   pod 'RealmSwift'
   pod 'R.swift'
   pod 'CenteredCollectionView'
+  pod 'SwiftLint'
 
 end

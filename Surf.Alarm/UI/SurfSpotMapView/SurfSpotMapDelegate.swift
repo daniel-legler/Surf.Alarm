@@ -2,7 +2,7 @@
 
 import MapKit
 
-protocol SurfSpotMapDelegate: class {
+protocol SurfSpotMapDelegate: AnyObject {
   func userInteractedWithMap()
   func userTappedSurfSpot(at coordinate: CLLocationCoordinate2D)
 }

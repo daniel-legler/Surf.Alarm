@@ -3,13 +3,12 @@
 import Foundation
 
 extension Date {
-  
   static func currentDayOfWeek() -> String {
     let formatter = DateFormatter()
     formatter.dateFormat = "EEEE"
     return formatter.string(from: Date())
   }
-  
+
   func relativeToNow() -> String {
     let isToday = Calendar.current.isDateInToday(self)
     let formatter = DateFormatter()
@@ -18,7 +17,7 @@ extension Date {
     formatter.timeStyle = isToday ? .short : .none
     return formatter.string(from: self)
   }
-  
+
   static func alarmString(disabledWeekdays: [String]) -> String {
     let allWeekdays = Calendar.current.weekdaySymbols
     var missingWeekdays: [String?] = Calendar.current.shortWeekdaySymbols
@@ -28,23 +27,22 @@ extension Date {
         missingIndices.append(index)
       }
     }
-    
-    if missingIndices.sorted() == [0,6] {
+
+    if missingIndices.sorted() == [0, 6] {
       return "Weekdays"
-    } else if missingIndices.sorted() == [1,2,3,4,5] {
+    } else if missingIndices.sorted() == [1, 2, 3, 4, 5] {
       return "Weekends"
     } else if missingIndices.isEmpty {
       return "Every Day"
     }
-    
+
     for index in missingIndices {
       missingWeekdays[index] = nil
     }
-    
-    return missingWeekdays.compactMap({$0}).joined(separator: " ")
+
+    return missingWeekdays.compactMap { $0 }.joined(separator: " ")
   }
-  
-  
+
   static func alarmString(hour: Int, minute: Int) -> String {
     let postfix = (hour < 12 || hour == 24) ? "AM" : "PM"
     let min = minute < 10 ? "0\(minute)" : "\(minute)"
@@ -56,5 +54,4 @@ extension Date {
     }
     return "\(hr):\(min) " + postfix
   }
-  
 }

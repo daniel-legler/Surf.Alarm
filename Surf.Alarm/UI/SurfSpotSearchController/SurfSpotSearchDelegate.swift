@@ -2,6 +2,6 @@
 
 import Foundation
 import MapKit
-protocol SurfSpotSearchDelegate: class {
+protocol SurfSpotSearchDelegate: AnyObject {
   func userTappedSearchedSpot(_ spot: SurfSpot)
 }

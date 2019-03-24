@@ -3,20 +3,19 @@
 import UIKit
 
 class SurfHeightSelectorCell: UITableViewCell {
-
-  @IBOutlet weak var heightSlider: UISlider!
-  @IBOutlet weak var heightLabel: UILabel!
+  @IBOutlet var heightSlider: UISlider!
+  @IBOutlet var heightLabel: UILabel!
   weak var delegate: SurfHeightSliderDelegate?
 
   @IBAction func heightChanged(_ sender: UISlider) {
     let intValue = Int((sender.value * 10).rounded())
-    self.delegate?.minimumHeightSelectionChanged(to: intValue)
-    self.updateHeightLabel(intValue)
+    delegate?.minimumHeightSelectionChanged(to: intValue)
+    updateHeightLabel(intValue)
   }
 
   func configure(with alarm: SurfAlarm) {
-    self.updateHeightLabel(alarm.minHeight)
-    self.heightSlider.value = Float(alarm.minHeight) / 10.0
+    updateHeightLabel(alarm.minHeight)
+    heightSlider.value = Float(alarm.minHeight) / 10.0
   }
 
   private func updateHeightLabel(_ value: Int) {
@@ -28,6 +27,6 @@ class SurfHeightSelectorCell: UITableViewCell {
   }
 }
 
-protocol SurfHeightSliderDelegate: class {
+protocol SurfHeightSliderDelegate: AnyObject {
   func minimumHeightSelectionChanged(to newHeight: Int)
 }

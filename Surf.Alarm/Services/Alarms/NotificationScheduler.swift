@@ -4,10 +4,9 @@ import Foundation
 import UserNotifications
 
 class NotificationScheduler {
-  
   var alarm: SurfAlarm
   var forecast: SurfForecast
-  
+
   var surfSpot: SurfSpot {
     guard let spot = alarm.surfSpot ?? forecast.surfSpot else {
       print("🌊 Error: Trying to schedule alarm without a surf spot in mind")
@@ -15,32 +14,37 @@ class NotificationScheduler {
     }
     return spot
   }
-  
+
   init(alarm: SurfAlarm, forecast: SurfForecast) {
     self.alarm = alarm
     self.forecast = forecast
   }
-  
+
   func schedule() {
-    let request = self.notificationRequest(for: alarm, forecast: forecast)
+    let request = notificationRequest(for: alarm, forecast: forecast)
     NotificationScheduler.addNotificationRequest(request)
   }
-  
+
   #if DEBUG
     func scheduleTestNotification() {
-      let request = UNNotificationRequest(identifier: surfSpot.name,
-                                          content: self.notificationContent(for: forecast),
-                                          trigger: UNTimeIntervalNotificationTrigger(timeInterval: 3.0, repeats: false))
+      let request = UNNotificationRequest(
+        identifier: surfSpot.name,
+        content: notificationContent(for: forecast),
+        trigger: UNTimeIntervalNotificationTrigger(timeInterval: 3.0, repeats: false)
+      )
       NotificationScheduler.addNotificationRequest(request)
     }
   #endif
-  
-  private func notificationRequest(for alarm: SurfAlarm, forecast: SurfForecast) -> UNNotificationRequest {
+
+  private func notificationRequest(
+    for alarm: SurfAlarm,
+    forecast: SurfForecast
+  ) -> UNNotificationRequest {
     return UNNotificationRequest(identifier: surfSpot.name,
-                                 content: self.notificationContent(for: forecast),
-                                 trigger: self.notificationTrigger(for: alarm))
+                                 content: notificationContent(for: forecast),
+                                 trigger: notificationTrigger(for: alarm))
   }
-  
+
   private func notificationContent(for forecast: SurfForecast) -> UNNotificationContent {
     let content = UNMutableNotificationContent()
     content.title = "Time to surf!"
@@ -48,13 +52,14 @@ class NotificationScheduler {
     let soundName = UNNotificationSoundName(rawValue: "alarm.caf")
     content.sound = UNNotificationSound(named: soundName)
     content.badge = 1
-    content.categoryIdentifier = NotificationIdentifiers.Categories.alarm
-    var userInfo = forecast.dictionaryWithValues(forKeys: ["waveHeight","tideReport","windReport"])
+    content.categoryIdentifier = SANotification.Category.alarm
+    let forecastKeys = ["waveHeight", "tideReport", "windReport"]
+    var userInfo = forecast.dictionaryWithValues(forKeys: forecastKeys)
     userInfo["spotName"] = surfSpot.name
     content.userInfo = userInfo
     return content
   }
-  
+
   private func notificationTrigger(for alarm: SurfAlarm) -> UNCalendarNotificationTrigger {
     var dateComponents = DateComponents()
     dateComponents.hour = alarm.hour
@@ -62,9 +67,9 @@ class NotificationScheduler {
     dateComponents.second = 0
     return UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
   }
-  
+
   // MARK: Class Methods
-  
+
   static func snooze(_ notification: UNNotification) {
     let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60 * 15, repeats: false)
     let request = UNNotificationRequest(identifier: notification.request.identifier,
@@ -72,14 +77,15 @@ class NotificationScheduler {
                                         trigger: trigger)
     addNotificationRequest(request)
   }
-  
+
   static func cancel(_ alarm: SurfAlarm) {
     guard let spot = alarm.surfSpot else { return }
-    UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [spot.name])
+    let notificationCenter = UNUserNotificationCenter.current()
+    notificationCenter.removePendingNotificationRequests(withIdentifiers: [spot.name])
   }
-  
+
   private static func addNotificationRequest(_ request: UNNotificationRequest) {
-    UNUserNotificationCenter.current().add(request) { (error) in
+    UNUserNotificationCenter.current().add(request) { error in
       if let error = error {
         print("🌊 Error Scheduling Notification: \(error.localizedDescription)")
       } else {
@@ -87,17 +93,17 @@ class NotificationScheduler {
       }
     }
   }
-  
+
   static func declareNotificationCategories() {
-    let snoozeAction = UNNotificationAction(identifier: NotificationIdentifiers.Actions.snooze,
+    let snoozeAction = UNNotificationAction(identifier: SANotification.Action.snooze,
                                             title: "Snooze for 15 minutes",
                                             options: UNNotificationActionOptions(rawValue: 0))
-    let alarmCategory = UNNotificationCategory(identifier: NotificationIdentifiers.Categories.alarm,
+    let alarmCategory = UNNotificationCategory(identifier: SANotification.Category.alarm,
                                                actions: [snoozeAction],
                                                intentIdentifiers: [],
                                                hiddenPreviewsBodyPlaceholder: "",
                                                options: .customDismissAction)
-    
+
     UNUserNotificationCenter.current().setNotificationCategories([alarmCategory])
   }
 }

@@ -11,6 +11,7 @@ PODS:
     - Realm (= 3.13.1)
   - SpitcastSwift (0.0.4):
     - Alamofire
+  - SwiftLint (0.31.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -18,6 +19,7 @@ DEPENDENCIES:
   - R.swift
   - RealmSwift
   - SpitcastSwift
+  - SwiftLint
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -28,6 +30,7 @@ SPEC REPOS:
     - Realm
     - RealmSwift
     - SpitcastSwift
+    - SwiftLint
 
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
@@ -37,7 +40,8 @@ SPEC CHECKSUMS:
   Realm: 50071da38fe079e0735e47c9f2eae738c68c5996
   RealmSwift: 8a1e6a02b7a08cd17a31e3115143fb69fe5f3fb9
   SpitcastSwift: 8c3173a1c55e19ff1722a04a52a18549c66c29ad
+  SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
 
-PODFILE CHECKSUM: 75ba8ab4acbfe4586f4527b6600f4b073800ae2f
+PODFILE CHECKSUM: 64472609b523bf32040b88abba9189ec00740914
 
 COCOAPODS: 1.5.3

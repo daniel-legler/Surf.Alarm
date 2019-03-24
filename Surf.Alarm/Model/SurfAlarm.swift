@@ -5,7 +5,6 @@ import RealmSwift
 
 @objcMembers
 class SurfAlarm: Object {
-
   dynamic var id: String = UUID().uuidString
   dynamic var minHeight: Int = 0
   dynamic var hour: Int = 8
@@ -16,7 +15,7 @@ class SurfAlarm: Object {
 
   convenience init(spot: SurfSpot) {
     self.init()
-    self.surfSpot = spot
+    surfSpot = spot
   }
 
   override static func primaryKey() -> String? {
@@ -25,7 +24,6 @@ class SurfAlarm: Object {
 }
 
 extension SurfAlarm {
-
   var currentWeekdayIsEnabled: Bool {
     return !disabledDays.contains(Date.currentDayOfWeek())
   }
