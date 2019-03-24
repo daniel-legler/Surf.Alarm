@@ -31,8 +31,8 @@ class AlarmService: NSObject {
   #if DEBUG
     func testAlarm() {
       guard let alarm = alarms.first,
-        let spot = alarms.first.surfSpot,
-        let forecast = store.currentSpotForecast(spot) else {
+            let spot = alarm.surfSpot,
+            let forecast = store.currentSpotForecast(spot) else {
         return
       }
 
