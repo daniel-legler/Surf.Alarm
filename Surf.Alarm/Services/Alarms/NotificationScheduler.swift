@@ -48,7 +48,7 @@ class NotificationScheduler {
     let soundName = UNNotificationSoundName(rawValue: "alarm.caf")
     content.sound = UNNotificationSound(named: soundName)
     content.badge = 1
-    content.categoryIdentifier = NotificationIdentifiers.Categories.alarm
+    content.categoryIdentifier = SANotification.Category.alarm
     var userInfo = forecast.dictionaryWithValues(forKeys: ["waveHeight","tideReport","windReport"])
     userInfo["spotName"] = surfSpot.name
     content.userInfo = userInfo
@@ -89,10 +89,10 @@ class NotificationScheduler {
   }
   
   static func declareNotificationCategories() {
-    let snoozeAction = UNNotificationAction(identifier: NotificationIdentifiers.Actions.snooze,
+    let snoozeAction = UNNotificationAction(identifier: SANotification.Action.snooze,
                                             title: "Snooze for 15 minutes",
                                             options: UNNotificationActionOptions(rawValue: 0))
-    let alarmCategory = UNNotificationCategory(identifier: NotificationIdentifiers.Categories.alarm,
+    let alarmCategory = UNNotificationCategory(identifier: SANotification.Category.alarm,
                                                actions: [snoozeAction],
                                                intentIdentifiers: [],
                                                hiddenPreviewsBodyPlaceholder: "",

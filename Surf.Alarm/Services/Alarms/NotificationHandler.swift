@@ -14,7 +14,7 @@ class NotificationHandler: NSObject, UNUserNotificationCenterDelegate {
   func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
 
     switch response.actionIdentifier {
-    case NotificationIdentifiers.Actions.snooze:
+    case SANotification.Action.snooze:
       NotificationScheduler.snooze(response.notification)
     default:
       break

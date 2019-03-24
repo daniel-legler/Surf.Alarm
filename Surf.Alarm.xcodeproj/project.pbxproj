@@ -50,7 +50,7 @@
 		74CA3B482110DA5F00AB1483 /* BottomMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CA3B472110DA5F00AB1483 /* BottomMessage.swift */; };
 		74CA3B4A21111A4E00AB1483 /* ViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CA3B4921111A4E00AB1483 /* ViewController+Extensions.swift */; };
 		74CA3B4C2111539500AB1483 /* NotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CA3B4B2111539500AB1483 /* NotificationHandler.swift */; };
-		74CA3B4E2111572E00AB1483 /* NotificationIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CA3B4D2111572E00AB1483 /* NotificationIdentifiers.swift */; };
+		74CA3B4E2111572E00AB1483 /* SANotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CA3B4D2111572E00AB1483 /* SANotification.swift */; };
 		74CA3B502112837900AB1483 /* alarm.caf in Resources */ = {isa = PBXBuildFile; fileRef = 74CA3B4F2112837400AB1483 /* alarm.caf */; };
 		74CA3B5721128D1800AB1483 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74CA3B5621128D1800AB1483 /* UserNotifications.framework */; };
 		74CA3B5921128D1800AB1483 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74CA3B5821128D1800AB1483 /* UserNotificationsUI.framework */; };
@@ -137,7 +137,7 @@
 		74CA3B472110DA5F00AB1483 /* BottomMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomMessage.swift; sourceTree = "<group>"; };
 		74CA3B4921111A4E00AB1483 /* ViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extensions.swift"; sourceTree = "<group>"; };
 		74CA3B4B2111539500AB1483 /* NotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHandler.swift; sourceTree = "<group>"; };
-		74CA3B4D2111572E00AB1483 /* NotificationIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationIdentifiers.swift; sourceTree = "<group>"; };
+		74CA3B4D2111572E00AB1483 /* SANotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SANotification.swift; sourceTree = "<group>"; };
 		74CA3B4F2112837400AB1483 /* alarm.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = alarm.caf; sourceTree = "<group>"; };
 		74CA3B5521128D1800AB1483 /* ForecastExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ForecastExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		74CA3B5621128D1800AB1483 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
@@ -350,7 +350,7 @@
 				74CA3B3F210FD52500AB1483 /* NotificationScheduler.swift */,
 				74CA3B432110D21400AB1483 /* NotificationAuthorizer.swift */,
 				74CA3B4B2111539500AB1483 /* NotificationHandler.swift */,
-				74CA3B4D2111572E00AB1483 /* NotificationIdentifiers.swift */,
+				74CA3B4D2111572E00AB1483 /* SANotification.swift */,
 			);
 			path = Alarms;
 			sourceTree = "<group>";
@@ -440,6 +440,7 @@
 					};
 					74CA3B5421128D1800AB1483 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -570,7 +571,7 @@
 				74CA3B40210FD52500AB1483 /* NotificationScheduler.swift in Sources */,
 				745E5BA3210972F80075A851 /* CoordinatorVC.swift in Sources */,
 				74CA3B4A21111A4E00AB1483 /* ViewController+Extensions.swift in Sources */,
-				74CA3B4E2111572E00AB1483 /* NotificationIdentifiers.swift in Sources */,
+				74CA3B4E2111572E00AB1483 /* SANotification.swift in Sources */,
 				74CA3B482110DA5F00AB1483 /* BottomMessage.swift in Sources */,
 				741EC1D02246F68D00CF8FD6 /* R.generated.swift in Sources */,
 				743C835620F97C6E0062B994 /* SurfSpot.swift in Sources */,
