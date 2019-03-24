@@ -3,7 +3,6 @@
 import UIKit
 
 extension UISwipeActionsConfiguration {
-
   static func deleteConfiguration(_ handler: @escaping UIContextualAction.Handler) -> UISwipeActionsConfiguration {
     let deleteAction = UIContextualAction(style: .destructive, title: nil, handler: handler)
     deleteAction.backgroundColor = UIColor.red

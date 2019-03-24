@@ -16,11 +16,11 @@ class SurfForecast: Object {
 
   convenience init(spot: SurfSpot, _ spitcast: SCForecast) {
     self.init()
-    self.date = spitcast.date
-    self.tideReport = spitcast.shapeDetails.tide
-    self.windReport = spitcast.shapeDetails.wind
-    self.swellReport = spitcast.shapeDetails.swell
-    self.waveHeight = spitcast.size
-    self.surfSpot = spot
+    date = spitcast.date
+    tideReport = spitcast.shapeDetails.tide
+    windReport = spitcast.shapeDetails.wind
+    swellReport = spitcast.shapeDetails.swell
+    waveHeight = spitcast.size
+    surfSpot = spot
   }
 }

@@ -1,47 +1,46 @@
 // Surf.Alarm
 
-import UIKit
 import Rswift
+import UIKit
 
 class SurfAlarmBuilderVC: UIViewController {
-  
-  @IBOutlet weak var spotNameLabel: UILabel!
-  @IBOutlet weak var countyNameLabel: UILabel!
-  @IBOutlet weak var tableView: UITableView!
-  @IBOutlet weak var timePicker: UIDatePicker!
-  
+  @IBOutlet var spotNameLabel: UILabel!
+  @IBOutlet var countyNameLabel: UILabel!
+  @IBOutlet var tableView: UITableView!
+  @IBOutlet var timePicker: UIDatePicker!
+
   var surfSpot: SurfSpot!
   var alarm: SurfAlarm!
-  
+
   enum Section: Int {
     case heightSelector = 0
     case weekdays = 1
   }
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
     setupTableView()
     setupInitialUI()
   }
-  
+
   private func setupInitialUI() {
-    self.spotNameLabel.text = surfSpot?.name ?? alarm.surfSpot?.name
-    self.countyNameLabel.text = surfSpot?.county ?? alarm.surfSpot?.county
-    self.timePicker.setDate(alarm.pickerDate, animated: false)
+    spotNameLabel.text = surfSpot?.name ?? alarm.surfSpot?.name
+    countyNameLabel.text = surfSpot?.county ?? alarm.surfSpot?.county
+    timePicker.setDate(alarm.pickerDate, animated: false)
     updateEnabledDaysLabel()
   }
-  
+
   private func setupTableView() {
-    self.tableView.dataSource = self
-    self.tableView.delegate = self
-    self.tableView.register(R.nib.surfHeightSelectorCell)
+    tableView.dataSource = self
+    tableView.delegate = self
+    tableView.register(R.nib.surfHeightSelectorCell)
   }
-  
+
   func configure(with spot: SurfSpot) {
     surfSpot = spot
     alarm = SurfAlarm(spot: spot)
   }
-  
+
   @IBAction func timeChanged(_ sender: UIDatePicker) {
     let hour = sender.calendar.component(.hour, from: sender.date)
     let minute = sender.calendar.component(.minute, from: sender.date)
@@ -50,38 +49,37 @@ class SurfAlarmBuilderVC: UIViewController {
       alarm.minute = minute
     }
   }
-  
+
   @IBAction func cancelButtonPressed() {
-    self.dismiss(animated: true, completion: nil)
+    dismiss(animated: true, completion: nil)
   }
-  
+
   @IBAction func saveAlarmPressed() {
-    store.saveAlarm(self.alarm)
-    self.dismiss(animated: true, completion: nil)
+    store.saveAlarm(alarm)
+    dismiss(animated: true, completion: nil)
   }
-  
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+  override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
     if let daySelector = segue.destination as? SurfAlarmDaySelectionTableVC {
       daySelector.delegate = self
-      daySelector.initialDisabledDays = Array(self.alarm.disabledDays)
+      daySelector.initialDisabledDays = Array(alarm.disabledDays)
     }
   }
 }
 
 extension SurfAlarmBuilderVC: UITableViewDataSource, UITableViewDelegate {
-  
-  func numberOfSections(in tableView: UITableView) -> Int {
+  func numberOfSections(in _: UITableView) -> Int {
     return 2
   }
-  
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+  func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
     return 1
   }
-  
-  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+
+  func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat {
     return 44
   }
-  
+
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let section = Section(rawValue: indexPath.section) else { return UITableViewCell() }
     switch section {
@@ -92,12 +90,12 @@ extension SurfAlarmBuilderVC: UITableViewDataSource, UITableViewDelegate {
       return cell
     case .weekdays:
       let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.selectDaysCell.identifier) ?? UITableViewCell()
-      cell.detailTextLabel?.text = Date.alarmString(disabledWeekdays: Array(self.alarm.disabledDays))
+      cell.detailTextLabel?.text = Date.alarmString(disabledWeekdays: Array(alarm.disabledDays))
       return cell
     }
   }
-  
-  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+
+  func tableView(_: UITableView, titleForHeaderInSection section: Int) -> String? {
     guard let section = Section(rawValue: section) else { return nil }
     switch section {
     case .heightSelector:
@@ -106,12 +104,12 @@ extension SurfAlarmBuilderVC: UITableViewDataSource, UITableViewDelegate {
       return nil
     }
   }
-  
+
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     guard let section = Section(rawValue: indexPath.section) else { return }
     switch section {
     case .weekdays:
-      self.performSegue(withIdentifier: R.segue.surfAlarmBuilderVC.showDaysOfWeek, sender: nil)
+      performSegue(withIdentifier: R.segue.surfAlarmBuilderVC.showDaysOfWeek, sender: nil)
       tableView.deselectRow(at: indexPath, animated: true)
     default:
       break
@@ -125,7 +123,7 @@ extension SurfAlarmBuilderVC: SurfHeightSliderDelegate, SurfAlarmDaySelectionDel
       self.alarm.minHeight = newHeight
     }
   }
-  
+
   func enabledDay(_ day: String) {
     if let index = self.alarm.disabledDays.index(of: day) {
       store.writeBlock {
@@ -134,18 +132,18 @@ extension SurfAlarmBuilderVC: SurfHeightSliderDelegate, SurfAlarmDaySelectionDel
       }
     }
   }
-  
+
   func disabledDay(_ day: String) {
     store.writeBlock {
       self.alarm.disabledDays.append(day)
       self.updateEnabledDaysLabel()
     }
   }
-  
+
   func updateEnabledDaysLabel() {
     let indexPath = IndexPath(row: 0, section: Section.weekdays.rawValue)
     if let daysCell = self.tableView.cellForRow(at: indexPath) {
-      daysCell.detailTextLabel?.text = Date.alarmString(disabledWeekdays: Array(self.alarm.disabledDays))
+      daysCell.detailTextLabel?.text = Date.alarmString(disabledWeekdays: Array(alarm.disabledDays))
       tableView.reloadData()
     }
   }

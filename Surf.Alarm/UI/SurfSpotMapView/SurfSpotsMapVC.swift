@@ -1,47 +1,46 @@
 // Surf.Alarm
 
-import UIKit
-import Rswift
 import MapKit
 import RealmSwift
+import Rswift
+import UIKit
 
 class SurfSpotsMapVC: UIViewController {
-  
-  @IBOutlet weak var mapView: MKMapView!
-  
+  @IBOutlet var mapView: MKMapView!
+
   weak var delegate: SurfSpotMapDelegate?
-  
+
   let allSpots = store.allSurfSpots
   var token: NotificationToken?
-  
+
   var allAnnotations: [MKPointAnnotation] {
-    return allSpots.map({ (spot) -> MKPointAnnotation in
+    return allSpots.map { (spot) -> MKPointAnnotation in
       let annotation = MKPointAnnotation()
       annotation.coordinate = spot.coordinate
       annotation.title = spot.name
       annotation.subtitle = spot.county + " County"
       return annotation
-    })
+    }
   }
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
     setupMapView()
     setupRealm()
   }
-  
+
   func setupMapView() {
     mapView.register(SurfSpotAnnotationView.self,
                      forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
     mapView.register(ClusterAnnotationView.self,
                      forAnnotationViewWithReuseIdentifier: MKMapViewDefaultClusterAnnotationViewReuseIdentifier)
     mapView.delegate = self
-    
+
     setInitialLocation()
   }
-  
+
   func setupRealm() {
-    token = allSpots.observe({ [weak self] (changes: RealmCollectionChange) in
+    token = allSpots.observe { [weak self] (changes: RealmCollectionChange) in
       guard let mapVC = self else { return }
       switch changes {
       case .initial:
@@ -50,35 +49,35 @@ class SurfSpotsMapVC: UIViewController {
         guard !insertions.isEmpty else { break }
         mapVC.mapView.removeAnnotations(mapVC.mapView.annotations)
         mapVC.mapView.addAnnotations(mapVC.allAnnotations)
-      case .error(let error):
+      case let .error(error):
         print("🌊 Error Loading SurfSpots from Realm: \(error.localizedDescription)")
       }
-    })
+    }
   }
-  
+
   deinit {
     token?.invalidate()
   }
-  
+
   private func setInitialLocation() {
     let center = CLLocationCoordinate2D(latitude: 35, longitude: -120)
-    let radius: CLLocationDistance = 800000
+    let radius: CLLocationDistance = 800_000
     let region = MKCoordinateRegion(center: center, latitudinalMeters: radius, longitudinalMeters: radius)
     mapView.setRegion(region, animated: true)
   }
-  
+
   enum SurfMapZoomLevel {
     case singleSpot
     case cluster
   }
-  
+
   func moveMapToSurfSpot(_ spot: SurfSpot) {
-    self.zoomToLocation(spot.coordinate, zoomDepth: .singleSpot)
+    zoomToLocation(spot.coordinate, zoomDepth: .singleSpot)
     if let annotation = self.getAnnotationAt(coordinate: spot.coordinate) {
-      self.mapView.selectAnnotation(annotation, animated: true)
+      mapView.selectAnnotation(annotation, animated: true)
     }
   }
-  
+
   private func zoomToLocation(_ coordinate: CLLocationCoordinate2D, zoomDepth: SurfMapZoomLevel) {
     let currentSpan = mapView.region.span
     var zoomedSpan: MKCoordinateSpan
@@ -92,24 +91,24 @@ class SurfSpotsMapVC: UIViewController {
     let zoomed = MKCoordinateRegion(center: coordinate, span: zoomedSpan)
     mapView.setRegion(zoomed, animated: true)
   }
-  
+
   private func getAnnotationAt(coordinate: CLLocationCoordinate2D) -> MKAnnotation? {
-    return self.mapView.annotations.first(where: { (annotation) -> Bool in
-      return annotation.coordinate == coordinate
+    return mapView.annotations.first(where: { (annotation) -> Bool in
+      annotation.coordinate == coordinate
     })
   }
-  
+
   private func userInteractedWithMap() -> Bool {
     if let gestureRecognizers = self.mapView.subviews.first?.gestureRecognizers {
       for gestureRecognizer in gestureRecognizers {
-        if (gestureRecognizer.state == .began || gestureRecognizer.state == .ended) {
+        if gestureRecognizer.state == .began || gestureRecognizer.state == .ended {
           return true
         }
       }
     }
     return false
   }
-  
+
   private func userDraggedMap() -> Bool {
     if let gestureRecognizers = self.mapView.subviews.first?.gestureRecognizers {
       for recognizer in gestureRecognizers where recognizer is UIPanGestureRecognizer {
@@ -120,7 +119,7 @@ class SurfSpotsMapVC: UIViewController {
     }
     return false
   }
-  
+
   private func deselectAnnotations() {
     for annotation in mapView.selectedAnnotations {
       mapView.deselectAnnotation(annotation, animated: true)
@@ -129,7 +128,6 @@ class SurfSpotsMapVC: UIViewController {
 }
 
 extension SurfSpotsMapVC: MKMapViewDelegate {
-  
   func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
     if annotation is MKClusterAnnotation {
       let clusterView = mapView.dequeueReusableAnnotationView(withIdentifier: "clusterView") as? ClusterAnnotationView
@@ -141,30 +139,30 @@ extension SurfSpotsMapVC: MKMapViewDelegate {
       return annotationView
     }
   }
-  
-  func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-    let coordinate = view.annotation?.coordinate ?? self.mapView.centerCoordinate
+
+  func mapView(_: MKMapView, didSelect view: MKAnnotationView) {
+    let coordinate = view.annotation?.coordinate ?? mapView.centerCoordinate
     if view is ClusterAnnotationView {
-      self.zoomToLocation(coordinate, zoomDepth: .cluster)
-    } else if view is SurfSpotAnnotationView && userInteractedWithMap() {
-      self.zoomToLocation(coordinate, zoomDepth: .singleSpot)
-      self.delegate?.userTappedSurfSpot(at: coordinate)
+      zoomToLocation(coordinate, zoomDepth: .cluster)
+    } else if view is SurfSpotAnnotationView, userInteractedWithMap() {
+      zoomToLocation(coordinate, zoomDepth: .singleSpot)
+      delegate?.userTappedSurfSpot(at: coordinate)
     }
   }
-  
-  func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+
+  func mapView(_: MKMapView, didDeselect _: MKAnnotationView) {
     if userInteractedWithMap() {
-      self.delegate?.userInteractedWithMap()
+      delegate?.userInteractedWithMap()
     }
   }
-  
-  func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
+
+  func mapView(_: MKMapView, regionWillChangeAnimated _: Bool) {
     if userInteractedWithMap() {
-      self.delegate?.userInteractedWithMap()
+      delegate?.userInteractedWithMap()
     }
   }
-  
-  func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+
+  func mapView(_: MKMapView, regionDidChangeAnimated _: Bool) {
     if userDraggedMap() {
       deselectAnnotations()
     }

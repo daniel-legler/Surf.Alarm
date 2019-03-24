@@ -3,14 +3,13 @@
 import UIKit
 
 class BottomMessage: DesignableView {
-  
-  @IBOutlet weak var messageLabel: UILabel!
-  
+  @IBOutlet var messageLabel: UILabel!
+
   override func layoutSubviews() {
     super.layoutSubviews()
-    self.makeEndsRound()
+    makeEndsRound()
   }
-  
+
   static func withMessage(_ message: String) -> BottomMessage {
     let bottom = R.nib.bottomMessage.firstView(owner: nil)!
     bottom.messageLabel.text = message

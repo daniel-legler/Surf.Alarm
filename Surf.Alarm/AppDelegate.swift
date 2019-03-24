@@ -1,14 +1,12 @@
-import UIKit
 import Rswift
+import UIKit
 import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
   var window: UIWindow?
 
-  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-
+  func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
     UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
 
     UNUserNotificationCenter.current().delegate = NotificationHandler.shared
@@ -23,13 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     return true
   }
 
-  func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-
+  func application(_: UIApplication, performFetchWithCompletionHandler _: @escaping (UIBackgroundFetchResult) -> Void) {
     AlarmService.shared.refreshAlarms()
-
   }
 
-  func applicationDidEnterBackground(_ application: UIApplication) {
+  func applicationDidEnterBackground(_: UIApplication) {
     #if DEBUG
 
       AlarmService.shared.testAlarm()
@@ -41,8 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     #endif
   }
 
-  func applicationDidBecomeActive(_ application: UIApplication) {
+  func applicationDidBecomeActive(_: UIApplication) {
     UIApplication.shared.applicationIconBadgeNumber = 0
   }
 }
-

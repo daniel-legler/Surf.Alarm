@@ -3,19 +3,18 @@ import UIKit
 
 @IBDesignable
 class DesignableView: UIView {
-  
   @IBInspectable var borderWidth: CGFloat = 0 {
     didSet {
       layer.borderWidth = borderWidth
     }
   }
-  
+
   @IBInspectable var borderColor: UIColor? {
     didSet {
       layer.borderColor = borderColor?.cgColor
     }
   }
-  
+
   @IBInspectable var cornerRadius: CGFloat {
     get {
       return layer.cornerRadius
@@ -25,7 +24,7 @@ class DesignableView: UIView {
       layer.masksToBounds = newValue > 0
     }
   }
-  
+
   @IBInspectable
   var shadowRadius: CGFloat {
     get {
@@ -35,7 +34,7 @@ class DesignableView: UIView {
       layer.shadowRadius = newValue
     }
   }
-  
+
   @IBInspectable
   var shadowOpacity: Float {
     get {
@@ -45,7 +44,7 @@ class DesignableView: UIView {
       layer.shadowOpacity = newValue
     }
   }
-  
+
   @IBInspectable
   var shadowOffset: CGSize {
     get {
@@ -55,7 +54,7 @@ class DesignableView: UIView {
       layer.shadowOffset = newValue
     }
   }
-  
+
   @IBInspectable
   var shadowColor: UIColor? {
     get {
@@ -72,7 +71,6 @@ class DesignableView: UIView {
       }
     }
   }
-  
 }
 
 @IBDesignable
@@ -113,4 +111,3 @@ class DesignableImageView: UIImageView {
     }
   }
 }
-

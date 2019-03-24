@@ -5,16 +5,15 @@ import UserNotifications
 import UserNotificationsUI
 
 class NotificationViewController: UIViewController, UNNotificationContentExtension {
-  
   @IBOutlet var spotLabel: UILabel?
   @IBOutlet var tideLabel: UILabel?
   @IBOutlet var windLabel: UILabel?
   @IBOutlet var surfLabel: UILabel?
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
   }
-  
+
   func didReceive(_ notification: UNNotification) {
     let userInfo = notification.request.content.userInfo
     guard
@@ -25,9 +24,9 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
     else {
       return
     }
-    self.tideLabel?.text = tide
-    self.windLabel?.text = wind
-    self.surfLabel?.text = surfHeight.toSurfRange()
-    self.spotLabel?.text = spotName
+    tideLabel?.text = tide
+    windLabel?.text = wind
+    surfLabel?.text = surfHeight.toSurfRange()
+    spotLabel?.text = spotName
   }
 }
