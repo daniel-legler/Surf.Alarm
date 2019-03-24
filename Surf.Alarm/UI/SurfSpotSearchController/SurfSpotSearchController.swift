@@ -37,7 +37,9 @@ class SurfSpotSearchController: UIViewController {
   }
 }
 
-extension SurfSpotSearchController: UISearchControllerDelegate, UISearchBarDelegate, UISearchResultsUpdating {
+extension SurfSpotSearchController: UISearchControllerDelegate,
+                                    UISearchBarDelegate,
+                                    UISearchResultsUpdating {
   var isSearching: Bool {
     return searchController.isActive && !searchBarIsEmpty
   }

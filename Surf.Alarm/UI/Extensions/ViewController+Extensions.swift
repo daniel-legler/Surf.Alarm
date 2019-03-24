@@ -6,10 +6,10 @@ extension UIViewController {
     let bottom = BottomMessage.withMessage(message)
     view.addSubview(bottom)
     NSLayoutConstraint.activate([
-      bottom.leftAnchor.constraint(greaterThanOrEqualTo: self.view.leftAnchor, constant: 20),
-      bottom.rightAnchor.constraint(lessThanOrEqualTo: self.view.rightAnchor, constant: -20),
-      bottom.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
-      bottom.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor, constant: 0),
+      bottom.leftAnchor.constraint(greaterThanOrEqualTo: view.leftAnchor, constant: 20),
+      bottom.rightAnchor.constraint(lessThanOrEqualTo: view.rightAnchor, constant: -20),
+      bottom.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+      bottom.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor, constant: 0),
     ])
 
     DispatchQueue.main.asyncAfter(deadline: .now() + time) {

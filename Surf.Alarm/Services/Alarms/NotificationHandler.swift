@@ -10,7 +10,11 @@ class NotificationHandler: NSObject, UNUserNotificationCenterDelegate {
     super.init()
   }
 
-  func userNotificationCenter(_: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+  func userNotificationCenter(
+    _: UNUserNotificationCenter,
+    didReceive response: UNNotificationResponse,
+    withCompletionHandler completionHandler: @escaping () -> Void
+  ) {
     switch response.actionIdentifier {
     case SANotification.Action.snooze:
       NotificationScheduler.snooze(response.notification)

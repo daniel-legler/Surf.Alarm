@@ -27,14 +27,19 @@ class NotificationScheduler {
 
   #if DEBUG
     func scheduleTestNotification() {
-      let request = UNNotificationRequest(identifier: surfSpot.name,
-                                          content: notificationContent(for: forecast),
-                                          trigger: UNTimeIntervalNotificationTrigger(timeInterval: 3.0, repeats: false))
+      let request = UNNotificationRequest(
+        identifier: surfSpot.name,
+        content: notificationContent(for: forecast),
+        trigger: UNTimeIntervalNotificationTrigger(timeInterval: 3.0, repeats: false)
+      )
       NotificationScheduler.addNotificationRequest(request)
     }
   #endif
 
-  private func notificationRequest(for alarm: SurfAlarm, forecast: SurfForecast) -> UNNotificationRequest {
+  private func notificationRequest(
+    for alarm: SurfAlarm,
+    forecast: SurfForecast
+  ) -> UNNotificationRequest {
     return UNNotificationRequest(identifier: surfSpot.name,
                                  content: notificationContent(for: forecast),
                                  trigger: notificationTrigger(for: alarm))
@@ -48,7 +53,8 @@ class NotificationScheduler {
     content.sound = UNNotificationSound(named: soundName)
     content.badge = 1
     content.categoryIdentifier = SANotification.Category.alarm
-    var userInfo = forecast.dictionaryWithValues(forKeys: ["waveHeight", "tideReport", "windReport"])
+    let forecastKeys = ["waveHeight", "tideReport", "windReport"]
+    var userInfo = forecast.dictionaryWithValues(forKeys: forecastKeys)
     userInfo["spotName"] = surfSpot.name
     content.userInfo = userInfo
     return content
@@ -74,7 +80,8 @@ class NotificationScheduler {
 
   static func cancel(_ alarm: SurfAlarm) {
     guard let spot = alarm.surfSpot else { return }
-    UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [spot.name])
+    let notificationCenter = UNUserNotificationCenter.current()
+    notificationCenter.removePendingNotificationRequests(withIdentifiers: [spot.name])
   }
 
   private static func addNotificationRequest(_ request: UNNotificationRequest) {

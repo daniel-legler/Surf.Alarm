@@ -8,6 +8,7 @@ class SurfAlarmTableVC: UIViewController {
 
   let alarms = store.allAlarms.sorted(byKeyPath: "hour")
   weak var delegate: SurfAlarmTableViewDelegate?
+  private let goToSettings = "Enable Notifications in iOS Settings to set alarms"
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -36,7 +37,7 @@ class SurfAlarmTableVC: UIViewController {
     NotificationAuthorizer.checkAuthorization { granted in
       if !granted, NotificationAuthorizer.userDisabledNotifications {
         DispatchQueue.main.async {
-          self.showBottomMessage("Enable Notifications in iOS Settings to set alarms", lengthOfTime: 4.0)
+          self.showBottomMessage(self.goToSettings, lengthOfTime: 4.0)
         }
       }
     }
@@ -81,19 +82,23 @@ extension SurfAlarmTableVC: UITableViewDelegate, UITableViewDataSource {
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    if let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.surfAlarmDetailCell, for: indexPath) {
-      cell.surfAlarm = alarms[indexPath.section]
-      cell.delegate = self
-      return cell
+    let reuseId = R.reuseIdentifier.surfAlarmDetailCell
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseId, for: indexPath) else {
+      return UITableViewCell()
     }
-    return UITableViewCell()
+    cell.surfAlarm = alarms[indexPath.section]
+    cell.delegate = self
+    return cell
   }
 
   func tableView(_: UITableView, canEditRowAt _: IndexPath) -> Bool {
     return true
   }
 
-  func tableView(_: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+  func tableView(
+    _: UITableView,
+    trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath
+  ) -> UISwipeActionsConfiguration? {
     return UISwipeActionsConfiguration.deleteConfiguration { _, _, _ in
       NotificationScheduler.cancel(self.alarms[indexPath.section])
       store.deleteAlarm(self.alarms[indexPath.section])
@@ -104,7 +109,10 @@ extension SurfAlarmTableVC: UITableViewDelegate, UITableViewDataSource {
     }
   }
 
-  func tableView(_: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+  func tableView(
+    _: UITableView,
+    leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath
+  ) -> UISwipeActionsConfiguration? {
     return UISwipeActionsConfiguration.viewMapConfiguration { _, _, _ in
       self.dismiss(animated: true, completion: nil)
       self.delegate?.userTappedViewMap(for: self.alarms[indexPath.section])

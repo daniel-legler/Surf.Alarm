@@ -20,34 +20,33 @@ class SurfSpotsCollectionVC: UIViewController {
 
   private func setupCollectionView() {
     let nib = UINib(resource: R.nib.surfSpotCell)
-    collectionView.register(
-      nib,
-      forCellWithReuseIdentifier: R.reuseIdentifier.surfSpotCell.identifier
-    )
-    centeredCollectionViewFlowLayout = (collectionView.collectionViewLayout as! CenteredCollectionViewFlowLayout)
+    let reuseId = R.reuseIdentifier.surfSpotCell.identifier
+    collectionView.register(nib, forCellWithReuseIdentifier: reuseId)
     collectionView.decelerationRate = .fast
     collectionView.dataSource = self
     collectionView.delegate = self
+    centeredCollectionViewFlowLayout =
+      (collectionView.collectionViewLayout as! CenteredCollectionViewFlowLayout)
+    centeredCollectionViewFlowLayout.minimumLineSpacing = 15
     centeredCollectionViewFlowLayout.itemSize = CGSize(
       width: view.bounds.width * 0.9,
       height: collectionView.bounds.height * 0.9
     )
-
-    centeredCollectionViewFlowLayout.minimumLineSpacing = 15
     collectionView.showsVerticalScrollIndicator = false
     collectionView.showsHorizontalScrollIndicator = false
   }
 
   private func setupRealm() {
     token = spots.observe { [weak self] (changes: RealmCollectionChange) in
+      guard let self = self else { return }
       switch changes {
       case .initial:
         break
       case let .update(_, deletions, insertions, modifications):
-        self?.collectionView.performBatchUpdates({
-          self?.collectionView.deleteItems(at: deletions.map { IndexPath(item: $0, section: 0) })
-          self?.collectionView.insertItems(at: insertions.map { IndexPath(item: $0, section: 0) })
-          self?.collectionView.reloadItems(at: modifications.map { IndexPath(item: $0, section: 0) })
+        self.collectionView.performBatchUpdates({
+          self.collectionView.deleteItems(at: deletions.map { IndexPath(item: $0, section: 0) })
+          self.collectionView.insertItems(at: insertions.map { IndexPath(item: $0, section: 0) })
+          self.collectionView.reloadItems(at: modifications.map { IndexPath(item: $0, section: 0) })
         }, completion: nil)
       case let .error(error):
         print("🌊 Realm error observing spots): \(error.localizedDescription)")
@@ -95,7 +94,12 @@ extension SurfSpotsCollectionVC: UICollectionViewDataSource {
 
     NetworkService.refreshForecast(for: spot)
 
-    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.surfSpotCell, for: indexPath) else {
+    let reuseId = R.reuseIdentifier.surfSpotCell
+    let dequeuedCell = collectionView.dequeueReusableCell(
+      withReuseIdentifier: reuseId,
+      for: indexPath
+    )
+    guard let cell = dequeuedCell  else {
       return UICollectionViewCell()
     }
 
@@ -105,7 +109,6 @@ extension SurfSpotsCollectionVC: UICollectionViewDataSource {
     cell.createAlarmButton.addTarget(self,
                                      action: #selector(addAlarmTapped(_:)),
                                      for: .touchUpInside)
-
     return cell
   }
 }

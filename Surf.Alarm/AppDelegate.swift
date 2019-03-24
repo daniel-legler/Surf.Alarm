@@ -6,8 +6,12 @@ import UserNotifications
 class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
 
-  func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
-    UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
+  func application(
+    _: UIApplication,
+    didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]? = nil
+  ) -> Bool {
+    UIApplication.shared.setMinimumBackgroundFetchInterval(
+      UIApplication.backgroundFetchIntervalMinimum)
 
     UNUserNotificationCenter.current().delegate = NotificationHandler.shared
 
@@ -21,7 +25,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     return true
   }
 
-  func application(_: UIApplication, performFetchWithCompletionHandler _: @escaping (UIBackgroundFetchResult) -> Void) {
+  func application(
+    _: UIApplication,
+    performFetchWithCompletionHandler _: @escaping (UIBackgroundFetchResult) -> Void
+  ) {
     AlarmService.shared.refreshAlarms()
   }
 

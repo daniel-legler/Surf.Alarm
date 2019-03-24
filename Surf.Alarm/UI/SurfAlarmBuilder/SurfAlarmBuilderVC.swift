@@ -84,12 +84,15 @@ extension SurfAlarmBuilderVC: UITableViewDataSource, UITableViewDelegate {
     guard let section = Section(rawValue: indexPath.section) else { return UITableViewCell() }
     switch section {
     case .heightSelector:
-      let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.surfHeightSlider.identifier) as? SurfHeightSelectorCell ?? SurfHeightSelectorCell()
+      let reuseId = R.reuseIdentifier.surfHeightSlider.identifier
+      let dequeuedCell = tableView.dequeueReusableCell(withIdentifier: reuseId)
+      let cell = dequeuedCell as? SurfHeightSelectorCell ?? SurfHeightSelectorCell()
       cell.delegate = self
       cell.configure(with: alarm)
       return cell
     case .weekdays:
-      let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.selectDaysCell.identifier) ?? UITableViewCell()
+      let reuseId = R.reuseIdentifier.selectDaysCell.identifier
+      let cell = tableView.dequeueReusableCell(withIdentifier: reuseId) ?? UITableViewCell()
       cell.detailTextLabel?.text = Date.alarmString(disabledWeekdays: Array(alarm.disabledDays))
       return cell
     }

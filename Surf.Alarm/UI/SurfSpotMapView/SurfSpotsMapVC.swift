@@ -30,10 +30,12 @@ class SurfSpotsMapVC: UIViewController {
   }
 
   func setupMapView() {
-    mapView.register(SurfSpotAnnotationView.self,
-                     forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
-    mapView.register(ClusterAnnotationView.self,
-                     forAnnotationViewWithReuseIdentifier: MKMapViewDefaultClusterAnnotationViewReuseIdentifier)
+    mapView.register(
+      SurfSpotAnnotationView.self,
+      forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+    mapView.register(
+      ClusterAnnotationView.self,
+      forAnnotationViewWithReuseIdentifier: MKMapViewDefaultClusterAnnotationViewReuseIdentifier)
     mapView.delegate = self
 
     setInitialLocation()
@@ -62,7 +64,10 @@ class SurfSpotsMapVC: UIViewController {
   private func setInitialLocation() {
     let center = CLLocationCoordinate2D(latitude: 35, longitude: -120)
     let radius: CLLocationDistance = 800_000
-    let region = MKCoordinateRegion(center: center, latitudinalMeters: radius, longitudinalMeters: radius)
+    let region = MKCoordinateRegion(
+      center: center,
+      latitudinalMeters: radius,
+      longitudinalMeters: radius)
     mapView.setRegion(region, animated: true)
   }
 
@@ -128,14 +133,28 @@ class SurfSpotsMapVC: UIViewController {
 }
 
 extension SurfSpotsMapVC: MKMapViewDelegate {
+  private var clusterViewIdentifier: String {
+    return "clusterView"
+  }
+
+  private var mapItemIdentifier: String {
+    return "mapItem"
+  }
+
   func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
     if annotation is MKClusterAnnotation {
-      let clusterView = mapView.dequeueReusableAnnotationView(withIdentifier: "clusterView") as? ClusterAnnotationView
-        ?? ClusterAnnotationView(annotation: annotation, reuseIdentifier: "clusterView")
+      let dequeuedAnnotation = mapView.dequeueReusableAnnotationView(
+        withIdentifier: clusterViewIdentifier)
+      guard let clusterView = dequeuedAnnotation as? ClusterAnnotationView else {
+        return ClusterAnnotationView(annotation: annotation, reuseIdentifier: clusterViewIdentifier)
+      }
       return clusterView
     } else {
-      let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "mapItem") as? SurfSpotAnnotationView
-        ?? SurfSpotAnnotationView(annotation: annotation, reuseIdentifier: "mapItem")
+      let dequeuedAnnotation = mapView.dequeueReusableAnnotationView(
+        withIdentifier: mapItemIdentifier)
+      guard let annotationView = dequeuedAnnotation as? SurfSpotAnnotationView else {
+        return SurfSpotAnnotationView(annotation: annotation, reuseIdentifier: mapItemIdentifier)
+      }
       return annotationView
     }
   }
